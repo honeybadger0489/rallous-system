@@ -16,7 +16,8 @@ The goal is to overhaul Minecraft into a **grimdark survival world with prehisto
 | [QUEST-AND-WORLD-MODS.md](QUEST-AND-WORLD-MODS.md) | Quest / faction / siege / map mods for that campaign overlay |
 | [OPEN-WORLD-CAMPAIGN-LOOP.md](OPEN-WORLD-CAMPAIGN-LOOP.md) | One-day warband loop |
 | [IP-FANTASY.md](IP-FANTASY.md) | Fantasy / Total War analogue branding (addendum to legal notes) |
-| [FACTIONS-AND-DIPLOMACY.md](FACTIONS-AND-DIPLOMACY.md) | Soldier’s-eye factions and treaties (pairs with campaign) |
+| [FACTIONS-AND-DIPLOMACY.md](FACTIONS-AND-DIPLOMACY.md) | Soldier’s-eye Civ/TW factions, lords, treaties (pairs with campaign) |
+| [FACTION-MODS.md](FACTION-MODS.md) | Live-researched diplomacy / siege / lord / army-AI mods (1.20.1 Forge overlay) |
 | [pack/mods.json](pack/mods.json) | Importable list: Modrinth slugs, version IDs, CurseForge IDs where known |
 | [pack/rallous-frontier-0.1.0.mrpack](pack/rallous-frontier-0.1.0.mrpack) | Modrinth pack file (metadata only — launchers download the jars) |
 | [pack/pack.toml](pack/pack.toml) | [packwiz](https://packwiz.infra.link/) pin for Prism / CLI |

@@ -328,4 +328,5 @@ FTB Teams share quest completion. Cadmus/Open Parties share land. Recruits teams
 - `QUEST-AND-WORLD-MODS.md` — live-researched mods for 1.20.1 Forge.
 - `IP-FANTASY.md` — why this world is an analogue, not a clone.
 - `LEGAL-NOTES.md` — GW / Mojang / Wildcard field guide.
-- `FACTIONS-AND-DIPLOMACY.md` — soldier’s-eye Civ/TW diplomacy overlay (if present).
+- `FACTIONS-AND-DIPLOMACY.md` — soldier’s-eye Civ/TW diplomacy, lords/heroes, simulated wars.
+- `FACTION-MODS.md` — live-researched faction / vassal / siege / named-NPC mods (1.20.1 Forge).

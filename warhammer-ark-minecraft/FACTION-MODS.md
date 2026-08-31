@@ -10,6 +10,8 @@ Live research for **Rallous Frontier** diplomacy / war layer. **Not a pack rewri
 
 **Already in the default pack pin (do not duplicate):** Open Parties and Claims, Towns and Towers. Recruits / MineColonies / Custom NPCs are **not** in `pack/mods.json` at time of writing — campaign docs already assume them as the army/town/NPC layer.
 
+**Overlap:** `QUEST-AND-WORLD-MODS.md` is the broader campaign overlay (quests, maps, sieges). This file goes deeper on **diplomacy, vassals, lords, and army AI** and should not replace that list.
+
 ---
 
 ## How to read this
