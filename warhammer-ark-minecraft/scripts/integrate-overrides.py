@@ -26,6 +26,7 @@ DIST = ROOT / "dist"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from author_warp_crash import apply_warp_crash, rebuild_jar, strip_court_hooks  # noqa: E402
+from compile_factions import compile_factions  # noqa: E402
 
 
 def search_roots() -> list[Path]:
@@ -271,6 +272,7 @@ REQUIRED_JARS = (
     "rallous_roaming-1.0.0.jar",
     "rallous_temple_herd-1.0.0.jar",
     "rallous_warp_crash-1.0.0.jar",
+    "rallous_factions-1.0.0.jar",
 )
 
 REQUIRED_FTB = (
@@ -307,11 +309,27 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         for old in COURT_CHAPTERS:
             if f"overrides/config/ftbquests/quests/chapters/{old}.snbt" in names:
                 raise SystemExit(f"zip still has court chapter {old}")
-        for pack in ("rallous_warp_crash", "rallous_roaming", "rallous_temple_herd", "rallous_contact"):
+        for pack in ("rallous_warp_crash", "rallous_roaming", "rallous_temple_herd", "rallous_contact", "rallous_factions"):
             if f"overrides/datapacks/{pack}/pack.mcmeta" not in names:
                 raise SystemExit(f"zip missing datapack folder {pack}")
         if "overrides/content/factions/races/empire.json" not in names:
             raise SystemExit("zip missing faction JSON")
+        if "overrides/datapacks/rallous_factions/data/rallous_factions/functions/place/reikland.mcfunction" not in names:
+            raise SystemExit("zip missing compiled faction place/reikland")
+        if "overrides/datapacks/rallous_factions/data/rallous_factions/functions/crash/on_land.mcfunction" not in names:
+            raise SystemExit("zip missing compiled crash/on_land")
+        fac = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_factions-1.0.0.jar")))
+        fac_names = set(fac.namelist())
+        if "data/rallous_factions/functions/place/karaz_a_karak.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing karaz_a_karak place")
+        if "data/rallous_factions/functions/pool/empire/pick_major.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing empire major pool")
+        wc = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_warp_crash-1.0.0.jar")))
+        hook = wc.read("data/rallous_warp_crash/functions/contact_hook.mcfunction").decode()
+        if "rallous_factions:crash/on_land" not in hook:
+            raise SystemExit("warp_crash contact_hook does not call compiled factions")
+        if "tag_existing_contact" in hook:
+            raise SystemExit("warp_crash still tags mute villagers as contact")
         if "overrides/resourcepacks/Rallous Continuity/pack.mcmeta" not in names:
             raise SystemExit("zip missing Rallous Continuity resource pack")
         if any("Continuity" in n and n.endswith(".jar") for n in names):
@@ -355,10 +373,11 @@ def file_ids_from_021() -> set[tuple[int, int]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.2")
+    parser.add_argument("--version", default="0.3.3")
     parser.add_argument("--skip-author", action="store_true", help="Do not rewrite crash functions")
     args = parser.parse_args()
 
+    compile_factions()
     ingested = ingest_siblings()
     if not args.skip_author:
         apply_warp_crash()

@@ -1,0 +1,10 @@
+modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="rallous_factions"
+version="1.0.0"
+displayName="Rallous Factions"
+authors="Rallous System"
+description='''Compiled from content/factions JSON. Living camps, not a silent village.'''

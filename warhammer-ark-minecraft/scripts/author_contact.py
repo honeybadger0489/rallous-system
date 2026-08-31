@@ -835,24 +835,28 @@ scoreboard objectives add rallous.army dummy
             "scoreboard players set @s rallous.help 1\n"
             "advancement grant @s only rallous_contact:path/help\n"
             'tellraw @s {"text":"Path: help. rallous.path=1","color":"gray"}\n'
+            "function rallous_factions:path/sync\n"
         ),
         "path/betray.mcfunction": (
             "scoreboard players set @s rallous.path 2\n"
             "scoreboard players set @s rallous.betray 1\n"
             "advancement grant @s only rallous_contact:path/betray\n"
             'tellraw @s {"text":"Path: betray. rallous.path=2","color":"gray"}\n'
+            "function rallous_factions:path/sync\n"
         ),
         "path/join.mcfunction": (
             "scoreboard players set @s rallous.path 3\n"
             "scoreboard players set @s rallous.join 1\n"
             "advancement grant @s only rallous_contact:path/join\n"
             'tellraw @s {"text":"Path: join. rallous.path=3","color":"gray"}\n'
+            "function rallous_factions:path/sync\n"
         ),
         "path/leave.mcfunction": (
             "scoreboard players set @s rallous.path 4\n"
             "scoreboard players set @s rallous.leave 1\n"
             "advancement grant @s only rallous_contact:path/leave\n"
             'tellraw @s {"text":"Path: align-and-leave. rallous.path=4","color":"gray"}\n'
+            "function rallous_factions:path/sync\n"
         ),
         "race/empire.mcfunction": (
             "scoreboard players set @s rallous.race 1\n"
