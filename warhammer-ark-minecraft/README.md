@@ -18,6 +18,11 @@ The goal is to overhaul Minecraft into a **grimdark survival world with prehisto
 | [IP-FANTASY.md](IP-FANTASY.md) | Fantasy / Total War analogue branding (addendum to legal notes) |
 | [FACTIONS-AND-DIPLOMACY.md](FACTIONS-AND-DIPLOMACY.md) | Soldier’s-eye Civ/TW factions, lords, treaties (pairs with campaign) |
 | [FACTION-MODS.md](FACTION-MODS.md) | Live-researched diplomacy / siege / lord / army-AI mods (1.20.1 Forge overlay) |
+| [BEFORE-YOU-BEGIN.md](BEFORE-YOU-BEGIN.md) | Ordered checklist: accounts, downloads, Cursor plugins, first week |
+| [TOOLING.md](TOOLING.md) | Cursor extensions/MCP + JDKs, Forge MDK, IntelliJ, art tools |
+| [FIRST-MOD.md](FIRST-MOD.md) | First ship: **Rallous Allegiance** (warband banner, not the MMO) |
+| [LOGGING-AND-LESSONS.md](LOGGING-AND-LESSONS.md) | `latest.log` + `lessons/` journal (template included) |
+| [ORGANIZATION.md](ORGANIZATION.md) | Repo/knowledge layout and the datapack → Forge → ASA ladder |
 | [pack/mods.json](pack/mods.json) | Importable list: Modrinth slugs, version IDs, CurseForge IDs where known |
 | [pack/rallous-frontier-0.1.0.mrpack](pack/rallous-frontier-0.1.0.mrpack) | Modrinth pack file (metadata only — launchers download the jars) |
 | [pack/pack.toml](pack/pack.toml) | [packwiz](https://packwiz.infra.link/) pin for Prism / CLI |
