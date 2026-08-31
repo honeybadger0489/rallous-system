@@ -1,0 +1,317 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "old_world"
+	group: "0A010000"
+	icon: "minecraft:iron_sword"
+	id: "0C010001"
+	images: [ ]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "minecraft:leather_chestplate"
+			id: "0A010101"
+			rewards: [
+				{
+					id: "0A010102"
+					type: "xp"
+					xp: 15
+				}
+			]
+			shape: "hexagon"
+			size: 1.5d
+			subtitle: "First person. Soldier. Not a lord on a campaign map."
+			tasks: [
+				{
+					id: "0A010103"
+					title: "I am on the ground"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"You are a soldier in the Old World, not a general looking down on a Total War map and not a Space Marine."
+				""
+				"Read PLAY.md in the repo if this book is all you have in-game. Press this quest's checkbox when the grimdark packs and Complementary Unbound are actually on (sky is not vanilla blue)."
+				""
+				"Key: grave/tilde (` ) opens this book. Combat mode is V. Spell wheel is R. World map is M."
+			]
+			title: "1. Boot and look"
+			x: -4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:potion"
+			id: "0A010201"
+			rewards: [
+				{
+					id: "0A010202"
+					type: "xp"
+					xp: 20
+				}
+			]
+			tasks: [
+				{
+					id: "0A010203"
+					title: "Thirst and temperature moved"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Sprint. Drink from water (sneak + use). Stand in sun and shade."
+				""
+				"You should see a thirst bar and a temperature icon. If those widgets are missing, Legendary Survival Overhaul did not load — stop and check the instance log."
+			]
+			title: "2. Survive the body"
+			x: -2.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:iron_sword"
+			id: "0A010301"
+			rewards: [
+				{
+					id: "0A010302"
+					type: "xp"
+					xp: 20
+				}
+			]
+			tasks: [
+				{
+					id: "0A010303"
+					title: "Combat stance on"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Craft or grab a sword. Press V (Epic Fight combat mode). Swing. Guard."
+				""
+				"You should see a combat stance, not vanilla click-spam. If V does nothing, Controls → search Epic Fight."
+			]
+			title: "3. Fight like a soldier"
+			x: -2.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["0A010201"]
+			icon: "minecraft:bell"
+			id: "0A010401"
+			rewards: [
+				{
+					id: "0A010402"
+					type: "xp"
+					xp: 25
+				}
+			]
+			tasks: [
+				{
+					id: "0A010403"
+					title: "Walked a real town"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Open the world map (M). Find a village. Walk in."
+				""
+				"You should see Towns and Towers / CTOV buildings and Guard Villagers on patrol, not six default huts."
+			]
+			title: "4. Visit a town"
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["0A010401"]
+			icon: "minecraft:emerald"
+			id: "0A010501"
+			rewards: [
+				{
+					count: 8
+					id: "0A010502"
+					item: "minecraft:emerald"
+					type: "item"
+				}
+			]
+			tasks: [
+				{
+					id: "0A010503"
+					title: "Hired a recruit"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Right-click a Recruits soldier (player-model, not a farmer) with emeralds. Hire. Open the Recruits command GUI. Tell them to follow."
+				""
+				"You should see a named soldier in your warband."
+			]
+			title: "5. Recruit a host"
+			x: 2.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["0A010501"]
+			icon: "minecraft:white_banner"
+			id: "0A010601"
+			rewards: [
+				{
+					id: "0A010602"
+					type: "xp"
+					xp: 40
+				}
+			]
+			tasks: [
+				{
+					id: "0A010603"
+					title: "Ally or enemy set"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Open the Recruits team / diplomacy GUI. Create a team. Set Ally and Enemy. Open Open Parties and Claims and make a party. Open Vassal & Suzerains even if you have no vassal yet."
+				""
+				"You should see those verbs as UI, not villager gossip."
+			]
+			title: "6. Alliance and war"
+			x: 4.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["0A010301"]
+			icon: "minecraft:book"
+			id: "0A010701"
+			rewards: [
+				{
+					id: "0A010702"
+					type: "xp"
+					xp: 30
+				}
+			]
+			tasks: [
+				{
+					id: "0A010703"
+					title: "Opened the spell wheel"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Put an Iron's spell book in the Curios spellbook slot. Press R for the spell wheel. Cast anything."
+				""
+				"You should see mana and a battle-magic cast. Malum is the slower occult tree — optional."
+			]
+			title: "7. Battle magic"
+			x: 0.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["0A010201"]
+			icon: "minecraft:bone"
+			id: "0A010801"
+			rewards: [
+				{
+					id: "0A010802"
+					type: "xp"
+					xp: 40
+				}
+			]
+			tasks: [
+				{
+					id: "0A010803"
+					title: "Earned a beast"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Fossils loop: fossil → analyzer → culture vat → creature. Or tame a Tameable Beasts animal (Jade tells you the food)."
+				""
+				"You should own a living beast that follows or sits. Not a spawned vanilla horse."
+			]
+			title: "8. Tame a beast"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0A010301", "0A010501"]
+			icon: "minecraft:skeleton_skull"
+			id: "0A010901"
+			rewards: [
+				{
+					id: "0A010902"
+					type: "xp"
+					xp: 40
+				}
+			]
+			tasks: [
+				{
+					id: "0A010903"
+					title: "Fought with the host"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Take your recruit into the night, a dungeon, or a blood moon. Stay in combat mode. Watch thirst."
+				""
+				"You should see the recruit fight with you against something worse than two zombies."
+			]
+			title: "9. A real fight"
+			x: 4.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["0A010601"]
+			icon: "minecraft:tnt"
+			id: "0A010A01"
+			rewards: [
+				{
+					id: "0A010A02"
+					type: "xp"
+					xp: 50
+				}
+			]
+			tasks: [
+				{
+					id: "0A010A03"
+					title: "Siege or artillery"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Trigger a Recruits siege / claim capture, or crew a Siege Machines engine against a wall, or watch Guard Villagers defend a bell."
+				""
+				"If forty minutes pass and no siege starts, you still pass step 6. Tick this only if you actually saw a siege, capture, or artillery hit."
+			]
+			title: "10. Siege"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:golden_helmet"
+			id: "0A010B01"
+			rewards: [
+				{
+					id: "0A010B02"
+					type: "xp"
+					xp: 25
+				}
+			]
+			tasks: [
+				{
+					id: "0A010B03"
+					title: "Wore faction plate"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"JEI search empire, bretonnia, kislev, dwarf, or elf. Equip Sons of the Empire armor. Stand next to a recruit."
+				""
+				"You should look like an Old World soldier, not generic iron."
+			]
+			title: "11. Wear the Old World"
+			x: -2.0d
+			y: 3.0d
+		}
+	]
+	title: "Soldier of the Old World"
+}

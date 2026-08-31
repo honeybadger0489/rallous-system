@@ -1,9 +1,12 @@
-# Downloaded binaries (Modrinth CDN). Keep metadata in git, not jars.
+# Downloaded binaries (Modrinth CDN scratch). Pack overrides may bundle official
+# Modrinth files that have no CurseForge file ID.
 warhammer-ark-minecraft/downloads/mods/
 warhammer-ark-minecraft/downloads/resourcepacks/
 warhammer-ark-minecraft/downloads/shaderpacks/
 *.jar
 !**/pack/**
+!**/pack/**/*.jar
 __pycache__/
 *.pyc
 .DS_Store
+

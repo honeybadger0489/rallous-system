@@ -1,8 +1,8 @@
-name = "Rallous Frontier"
+name = "Rallous Warhammer Fantasy"
 author = "Rallous System"
-version = "0.1.0"
+version = "0.2.0"
 pack-format = "packwiz:1.1.0"
-description = "Prototype Minecraft pack: original grimdark + prehistoric survival (Warhammer-inspired, Ark-like). Default set avoids Games Workshop and Wildcard IP."
+description = "Private Old World pack: Warhammer Fantasy + Total War on the ground + Ark-style survival. Minecraft 1.20.1 Forge."
 
 [index]
 file = "index.toml"
@@ -11,4 +11,4 @@ hash = "bf690ea4e2f2e8c6c68ff396234e0963bba2c826745faef005ae93316e21c938"
 
 [versions]
 minecraft = "1.20.1"
-forge = "47.4.0"
+forge = "47.4.10"

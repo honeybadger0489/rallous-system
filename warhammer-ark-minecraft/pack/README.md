@@ -1,13 +1,15 @@
-Packwiz + Modrinth metadata for **Rallous Frontier 0.1.0**.
+# Rallous Warhammer Fantasy
 
-- `catalog.json` — human-curated list (tiers, conflicts, CF ids)
-- `mods.json` — resolved pins for the default set
-- `modrinth.index.json` / `rallous-frontier-0.1.0.mrpack` — launcher import
-- `pack.toml` + `index.toml` + `*.pw.toml` — [packwiz](https://packwiz.infra.link/)
-- `resolved.json` — full API snapshot (hashes, dates)
+**Players: read [PLAY.md](../PLAY.md) only.** Import `../dist/rallous-warhammer-fantasy-0.2.0.zip` in the CurseForge app.
 
-Regenerate:
+This `pack/` folder is the pin source:
+
+- `curseforge/manifest.json` + `cf-overrides/` → the zip
+- `curseforge-resolved.json` → projectID/fileID snapshot
+- packwiz / `.mrpack` is the older 0.1 kitchen-sink prototype; do not import that if you want the directed Old World pack
+
+Rebuild the zip:
 
 ```bash
-python3 ../scripts/generate-pack.py
+python3 ../scripts/build-cf-pack.py
 ```

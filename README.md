@@ -1,5 +1,7 @@
 # rallous-system
 
-Playable HTML title for Rallous System / Warhammer Frontier.
+**Play this:** [`warhammer-ark-minecraft/PLAY.md`](warhammer-ark-minecraft/PLAY.md)
 
-Minecraft prototype research and an importable 1.20.1 Forge pack live in [`warhammer-ark-minecraft/`](warhammer-ark-minecraft/). Open-world campaign design (RDR-style acts, never-locked map): [`warhammer-ark-minecraft/CAMPAIGN.md`](warhammer-ark-minecraft/CAMPAIGN.md). Factions, lords, and Civ-style diplomacy on the ground: [`warhammer-ark-minecraft/FACTIONS-AND-DIPLOMACY.md`](warhammer-ark-minecraft/FACTIONS-AND-DIPLOMACY.md).
+Importable private pack: `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.2.0.zip` (CurseForge app → Create Custom Profile → Import).
+
+Minecraft **1.20.1** + **Forge 47.4.10**. Warhammer Fantasy / Total War on the ground + Ark-style survival. Do not publish the pack.

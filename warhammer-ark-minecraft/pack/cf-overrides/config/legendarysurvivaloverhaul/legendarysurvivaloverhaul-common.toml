@@ -1,0 +1,33 @@
+# Rallous Warhammer Fantasy — survival on the ground.
+# Temperature + thirst stay on. Health-overhaul extra hearts stay off so the
+# first hour is "you can die of exposure" not "learn a second HP system".
+
+[core]
+	"Temperature Enabled" = true
+	"Thirst Enabled" = true
+	"Health Overhaul Enabled" = false
+	"Localized Body Damage Enabled" = true
+
+	[core.advanced]
+		"Routine Packet Sync" = 30
+
+	[core.misc]
+		"Natural Regeneration Enabled" = true
+		"Vanilla Freeze Enabled" = false
+		"Initial Player Health" = 20.0
+		"Hide Info From Debug" = false
+
+[temperature]
+	"Dangerous Heat Temperature Effects" = true
+	"Dangerous Cold Temperature Effects" = true
+
+	[temperature.temperature-immunity]
+		"Temperature Immunity On Death Enabled" = true
+		"Temperature Immunity On First Spawn Enabled" = true
+		"Temperature Immunity On First Spawn Time" = 2400
+
+[thirst]
+	"Dangerous Dehydration" = true
+
+[body-damage]
+	"Body Part Health Mode" = "DYNAMIC"
