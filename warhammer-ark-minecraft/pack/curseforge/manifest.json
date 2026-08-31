@@ -11,7 +11,7 @@
   "manifestType": "minecraftModpack",
   "manifestVersion": 1,
   "name": "Rallous Warhammer Fantasy",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Rallous System",
   "overrides": "overrides",
   "files": [
@@ -158,11 +158,6 @@
     {
       "projectID": 844662,
       "fileID": 8063556,
-      "required": true
-    },
-    {
-      "projectID": 531351,
-      "fileID": 5981334,
       "required": true
     },
     {
@@ -348,6 +343,56 @@
     {
       "projectID": 385587,
       "fileID": 8123288,
+      "required": true
+    },
+    {
+      "projectID": 1203668,
+      "fileID": 8590535,
+      "required": true
+    },
+    {
+      "projectID": 693313,
+      "fileID": 8591767,
+      "required": true
+    },
+    {
+      "projectID": 955399,
+      "fileID": 5787839,
+      "required": true
+    },
+    {
+      "projectID": 1005914,
+      "fileID": 7568893,
+      "required": true
+    },
+    {
+      "projectID": 1475755,
+      "fileID": 8715158,
+      "required": true
+    },
+    {
+      "projectID": 1115989,
+      "fileID": 6942239,
+      "required": true
+    },
+    {
+      "projectID": 563928,
+      "fileID": 6290448,
+      "required": true
+    },
+    {
+      "projectID": 616457,
+      "fileID": 6213794,
+      "required": true
+    },
+    {
+      "projectID": 856996,
+      "fileID": 5869180,
+      "required": true
+    },
+    {
+      "projectID": 1492763,
+      "fileID": 8364892,
       "required": true
     }
   ]

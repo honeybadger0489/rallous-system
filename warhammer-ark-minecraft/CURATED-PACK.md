@@ -56,7 +56,7 @@ Versions below are **Modrinth 1.20.1 Forge pins from 2026-08-31**. Refresh with 
 
 ### Strongly recommended (in the default mrpack)
 
-Tameable Beasts `7.1.3` · Malum `1.6.7` · Enhanced Celestials `5.0.3.3` · YUNG’s Better Dungeons / Nether Fortresses / Strongholds · Towns and Towers `1.12` · Structory `1.3.5` · Explorify `v1.6.5` · Amendments `2.2.6` · Architect’s Palette `1.3.6.1` · Macaw’s Windows/Roofs/Bridges · Another Furniture `3.0.4` · Decorative Blocks `4.1.3` · ETF `7.1` + EMF `3.2.4` + Continuity `3.0.0` · Faithful 32x `1.20.1-june-2026` · Fresh Animations `1.10.4` · Controlling + Searchables + Mouse Tweaks + Carry On + AppleSkin · Sophisticated Core + Backpacks · Puzzles Lib · Gothic RPG Font
+Tameable Beasts `7.1.3` · Malum `1.6.7` · Enhanced Celestials `5.0.3.3` · YUNG’s Better Dungeons / Nether Fortresses / Strongholds · Towns and Towers `1.12` · Structory `1.3.5` · Explorify `v1.6.5` · Amendments `2.2.6` · Architect’s Palette `1.3.6.1` · Macaw’s Windows/Roofs/Bridges · Another Furniture `3.0.4` · Decorative Blocks `4.1.3` · ETF `7.1` + EMF `3.2.4` · Faithful 32x `1.20.1-june-2026` · Fresh Animations `1.10.4` · Controlling + Searchables + Mouse Tweaks + Carry On + AppleSkin · Sophisticated Core + Backpacks · Puzzles Lib · Gothic RPG Font
 
 **CurseForge-only (add by hand):** Epic Knights (Magistu) — `epic-knights-armor-and-weapons` **509041**, 1.20.1 Forge 10.11 (2026-03-14).
 

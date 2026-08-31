@@ -250,10 +250,9 @@ forge = "{pack_meta['loader_version']}"
             "oculus",
             "entitytexturefeatures",
             "entity-model-features",
-            "continuity",
         }:
-            # still needed on dedicated? embeddium/oculus client; continuity client
-            if rec["slug"] in {"embeddium", "oculus", "entitytexturefeatures", "entity-model-features", "continuity"}:
+            # still needed on dedicated? embeddium/oculus client
+            if rec["slug"] in {"embeddium", "oculus", "entitytexturefeatures", "entity-model-features"}:
                 env = {"client": "required", "server": "unsupported"}
         mr_files.append(
             {

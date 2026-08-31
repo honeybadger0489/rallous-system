@@ -1,0 +1,14 @@
+name = "Data Anchor"
+filename = "Data_Anchor-forge-1.20.1-1.0.0.22.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "53d67aff56ed262abd45044758bf47967cd96948"
+mode = "url"
+url = "https://cdn.modrinth.com/data/z2XEADmE/versions/xPqKwuPT/Data_Anchor-forge-1.20.1-1.0.0.22.jar"
+
+[update]
+[update.modrinth]
+mod-id = "z2XEADmE"
+version = "xPqKwuPT"

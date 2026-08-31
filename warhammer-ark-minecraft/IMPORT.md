@@ -63,4 +63,4 @@ Shader: **Complementary Unbound r5.8.1** via Oculus (Forge). Unbound is the dark
 
 ## Server
 
-Use the same Forge version. Omit client-only mods (Embeddium, Oculus, ETF, EMF, Continuity, resource packs, shaders). Keep GeckoLib, Citadel, Curios, creature mods, LSO, Create, etc. on the server.
+Use the same Forge version. Omit client-only mods (Embeddium, Oculus, ETF, EMF, resource packs, shaders). Keep GeckoLib, Citadel, Curios, creature mods, LSO, Create, etc. on the server.

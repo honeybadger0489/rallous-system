@@ -1,6 +1,6 @@
 # Rallous Warhammer Fantasy
 
-**Players: read [PLAY.md](../PLAY.md) only.** Import `../dist/rallous-warhammer-fantasy-0.2.0.zip` in the CurseForge app.
+**Players: read [PLAY.md](../PLAY.md) only.** Import `../dist/rallous-warhammer-fantasy-0.2.1.zip` in the CurseForge app.
 
 This `pack/` folder is the pin source:
 

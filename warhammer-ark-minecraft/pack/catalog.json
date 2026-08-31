@@ -268,13 +268,114 @@
       "notes": "Companion to ETF for Fresh Animations."
     },
     {
-      "slug": "continuity",
-      "title": "Continuity",
+      "slug": "data-anchor",
+      "title": "Data Anchor",
       "type": "mod",
-      "tier": "strongly-recommended",
-      "role": "visual",
+      "tier": "must-have",
+      "role": "library",
       "include_in_default": true,
-      "notes": "Connected textures without OptiFine."
+      "curseforge_slug": "data-anchor",
+      "curseforge_id": 1203668,
+      "notes": "Required by Enhanced Celestials."
+    },
+    {
+      "slug": "corgilib",
+      "title": "CorgiLib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "corgilib",
+      "curseforge_id": 693313,
+      "notes": "Required by Enhanced Celestials."
+    },
+    {
+      "slug": "glitchcore",
+      "title": "GlitchCore",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "glitchcore",
+      "curseforge_id": 955399,
+      "notes": "Required by Serene Seasons 9.1."
+    },
+    {
+      "slug": "fzzy-config",
+      "title": "Fzzy Config",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "fzzy-config",
+      "curseforge_id": 1005914,
+      "notes": "Required by Simply Swords. Needs Kotlin for Forge."
+    },
+    {
+      "slug": "simply-tooltips",
+      "title": "Simply Tooltips",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "simply-tooltips",
+      "curseforge_id": 1475755,
+      "notes": "Required by Simply Swords. Needs Fzzy Config + Architectury."
+    },
+    {
+      "slug": "more-hitboxes",
+      "title": "More Hitboxes",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "more-hitboxes",
+      "curseforge_id": 1115989,
+      "notes": "Required by Fossils and Archeology Revival 9.3."
+    },
+    {
+      "slug": "terrablender",
+      "title": "TerraBlender",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "terrablender",
+      "curseforge_id": 563928,
+      "notes": "Required by Fossils; also used by Terralith biome hooks."
+    },
+    {
+      "slug": "lodestonelib",
+      "title": "Lodestone",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "lodestone",
+      "curseforge_id": 616457,
+      "notes": "Required by Malum."
+    },
+    {
+      "slug": "cristel-lib",
+      "title": "Cristel Lib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "cristel-lib",
+      "curseforge_id": 856996,
+      "notes": "Required by Towns and Towers."
+    },
+    {
+      "slug": "irons-lib",
+      "title": "Iron's Lib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "irons-lib",
+      "curseforge_id": 1492763,
+      "notes": "Required by Iron's Spells 'n Spellbooks 3.16."
     },
     {
       "slug": "fossils-and-archeology-revival",

@@ -21,11 +21,11 @@ ROOT = Path(__file__).resolve().parents[1]
 PACK = ROOT / "pack"
 DIST = ROOT / "dist"
 OVERRIDES_SRC = PACK / "cf-overrides"
-UA = "RallousWarhammerFantasy/0.2 (github.com/honeybadger0489/rallous-system; private pack pin)"
+UA = "RallousWarhammerFantasy/0.2.1 (github.com/honeybadger0489/rallous-system; private pack pin)"
 MC = "1.20.1"
 FORGE = "47.4.10"
 PACK_NAME = "Rallous Warhammer Fantasy"
-PACK_VERSION = "0.2.0"
+PACK_VERSION = "0.2.1"
 AUTHOR = "Rallous System"
 
 # Directed Old-World pack. Kitchen-sink (Create, TaCZ, Macaw's, Alex's Caves,
@@ -49,6 +49,16 @@ PROJECTS: list[dict] = [
     {"title": "FTB Library", "kind": "mod", "slugs": ["ftb-library-forge", "ftb-library"], "id": 404465},
     {"title": "FTB Teams", "kind": "mod", "slugs": ["ftb-teams-forge", "ftb-teams"], "id": 404468},
     {"title": "Item Filters", "kind": "mod", "slugs": ["item-filters"], "id": 309674, "optional": True},
+    {"title": "Data Anchor", "kind": "mod", "slugs": ["data-anchor"], "id": 1203668},
+    {"title": "CorgiLib", "kind": "mod", "slugs": ["corgilib"], "id": 693313},
+    {"title": "GlitchCore", "kind": "mod", "slugs": ["glitchcore"], "id": 955399},
+    {"title": "Fzzy Config", "kind": "mod", "slugs": ["fzzy-config"], "id": 1005914},
+    {"title": "Simply Tooltips", "kind": "mod", "slugs": ["simply-tooltips"], "id": 1475755},
+    {"title": "More Hitboxes", "kind": "mod", "slugs": ["more-hitboxes"], "id": 1115989},
+    {"title": "TerraBlender (Forge)", "kind": "mod", "slugs": ["terrablender"], "id": 563928},
+    {"title": "Lodestone", "kind": "mod", "slugs": ["lodestone"], "id": 616457},
+    {"title": "Cristel Lib", "kind": "mod", "slugs": ["cristel-lib"], "id": 856996},
+    {"title": "Iron's Lib", "kind": "mod", "slugs": ["irons-lib"], "id": 1492763},
     # --- performance ---
     {"title": "Embeddium", "kind": "mod", "slugs": ["embeddium"], "id": 908741},
     {"title": "Oculus", "kind": "mod", "slugs": ["oculus"], "id": 581495},
@@ -63,7 +73,6 @@ PROJECTS: list[dict] = [
     {"title": "Sophisticated Backpacks", "kind": "mod", "slugs": ["sophisticated-backpacks"]},
     {"title": "Entity Texture Features", "kind": "mod", "slugs": ["entity-texture-features-fabric", "entitytexturefeatures"]},
     {"title": "Entity Model Features", "kind": "mod", "slugs": ["entity-model-features"]},
-    {"title": "Continuity", "kind": "mod", "slugs": ["continuity"]},
     {"title": "Xaero's Minimap", "kind": "mod", "slugs": ["xaeros-minimap"]},
     {"title": "Xaero's World Map", "kind": "mod", "slugs": ["xaeros-world-map"]},
     # --- magic (WH battle magic + grim occult) ---

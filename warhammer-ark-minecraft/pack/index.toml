@@ -61,13 +61,13 @@ hash = "be9cdb14cb559e991401d0286b200183fdfcfe9690ace4108e889c56bad620a4"
 metafile = true
 
 [[files]]
-file = "mods/continuity.pw.toml"
-hash = "8760b2ac4d595a08be26b4851a6ad80b0cca0e37c3f7fcbcee308d95e4d94f53"
+file = "mods/controlling.pw.toml"
+hash = "f51712021424aa3c7d59dd3465d4a8a9157ebbf4a9e5547b97649b8ef87f298f"
 metafile = true
 
 [[files]]
-file = "mods/controlling.pw.toml"
-hash = "f51712021424aa3c7d59dd3465d4a8a9157ebbf4a9e5547b97649b8ef87f298f"
+file = "mods/corgilib.pw.toml"
+hash = "fad4db05d7e82dda19c98dddd1efa1699effe75775ba82df1fa3bf85f1aeca27"
 metafile = true
 
 [[files]]
@@ -76,8 +76,18 @@ hash = "f425ea318a3881e8a429919cf70a2e9cd1fd5a6b400bd173e6b81298ab5ad42f"
 metafile = true
 
 [[files]]
+file = "mods/cristel-lib.pw.toml"
+hash = "cebba9f7acccf4c8192b72f40109691db7e305d394e41f009c799fd36749ece5"
+metafile = true
+
+[[files]]
 file = "mods/curios.pw.toml"
 hash = "0304311e181188d745ce8af82d32bfb5865c3b850e5a1875d683f605367effe5"
+metafile = true
+
+[[files]]
+file = "mods/data-anchor.pw.toml"
+hash = "a53c01c5ed83b4ccc267b73cc5e45c9466bc14267e6cf3f0e4ebf0a2e005e92a"
 metafile = true
 
 [[files]]
@@ -136,8 +146,23 @@ hash = "d436b13ff61ec7d573c97936b95136c5bd7e4dbe5aa8ac35fdae42109c9a8c22"
 metafile = true
 
 [[files]]
+file = "mods/fzzy-config.pw.toml"
+hash = "3099b5ea198cf43621f30408b96cf023133245753b95d6ed8d63225be2ef304d"
+metafile = true
+
+[[files]]
 file = "mods/geckolib.pw.toml"
 hash = "da5601492f1478c56c8a6362a879f6af56b3edebdd9ba79aa6a257418477fe48"
+metafile = true
+
+[[files]]
+file = "mods/glitchcore.pw.toml"
+hash = "0f39af0f877f7b1cfe542d0f5eac983dce3013843c85d0ebccb391deba1da9f7"
+metafile = true
+
+[[files]]
+file = "mods/irons-lib.pw.toml"
+hash = "84b514d6688e32c5f3d35f0f6472ba5dad994b8797f8f3b44540db0b1ad68457"
 metafile = true
 
 [[files]]
@@ -168,6 +193,11 @@ metafile = true
 [[files]]
 file = "mods/lionfish-api.pw.toml"
 hash = "972782e76a8c7560691005cba6d33ed43f8bd99596e679159f17df7ad43155ba"
+metafile = true
+
+[[files]]
+file = "mods/lodestonelib.pw.toml"
+hash = "d6657b7a2b7e0c6eb57a21ebc8572832101060b3aaaacec5c43fc7d83ad6c2e8"
 metafile = true
 
 [[files]]
@@ -203,6 +233,11 @@ metafile = true
 [[files]]
 file = "mods/moonlight.pw.toml"
 hash = "72ebb84db9315c58b141ca20725c070a393a5faa6bdfe46a9424d02ceb4b776d"
+metafile = true
+
+[[files]]
+file = "mods/more-hitboxes.pw.toml"
+hash = "5778ae61509cb6c51b7f5fb6b91b7324909889f0872ea068f41fd6fdd0fda427"
 metafile = true
 
 [[files]]
@@ -251,6 +286,11 @@ hash = "6e48b9b4ece7460971824bedef34865cc606045f4bee95597c0caf8dfd03aefa"
 metafile = true
 
 [[files]]
+file = "mods/simply-tooltips.pw.toml"
+hash = "8cb2e9f9e6b7e8967aa491d1b62c1e4617c68b12cb605040ca60242ca772522e"
+metafile = true
+
+[[files]]
 file = "mods/sophisticated-backpacks.pw.toml"
 hash = "76d6b82b0f814f6eb5876e0d38953cdbd0b6d4d6a6efbc1ba66f17c678d1356c"
 metafile = true
@@ -273,6 +313,11 @@ metafile = true
 [[files]]
 file = "mods/tameable-beasts.pw.toml"
 hash = "d226848a2664ed570ed75ee08ee43507c1ab68296552a5d7acc750b0d2cea48d"
+metafile = true
+
+[[files]]
+file = "mods/terrablender.pw.toml"
+hash = "d8fd71f5b350000878959e0cdce2eb50f396d9ef9bcc296c6ecdfc7329aab565"
 metafile = true
 
 [[files]]

@@ -10,7 +10,10 @@ Game boot was **not** verified in this environment (no Minecraft GUI here). You 
 
 ## Install (CurseForge app)
 
-1. Download `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.2.0.zip` from this repo.
+Re-import `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.2.1.zip` as a **new** profile — do not keep or update the 0.2.0 instance.
+Continuity was removed on purpose (Forge pack; connected textures are optional; Embeddium is enough).
+
+1. Download `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.2.1.zip` from this repo.
 2. Open the **CurseForge / Overwolf** app → **Minecraft** → **Create Custom Profile** → **Import**.
 3. Choose that zip. Wait until every mod finishes downloading (resource packs bundled in the zip appear immediately).
 4. Profile settings: **Java 17**, allocate **8 GB** RAM (10 GB if you can).
