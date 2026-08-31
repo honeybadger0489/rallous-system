@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rallous System — Warhammer Frontier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="frame">
+      <header class="titlebar">
+        <h1>Rallous System</h1>
+        <p class="subtitle">Warhammer Frontier — Hold the Line</p>
+      </header>
+
+      <div class="stage">
+        <canvas id="game" width="960" height="600" aria-label="Frontier defense game board"></canvas>
+
+        <section id="overlay" class="overlay" data-screen="start">
+          <div class="overlay-card">
+            <h2 id="overlay-title">Frontier Defense</h2>
+            <p id="overlay-body">
+              Chaos warbands are massing on the Rallous frontier. Hold the outpost
+              for as long as you can, ranger.
+            </p>
+            <ul class="controls">
+              <li><span class="key">W A S D</span> / <span class="key">Arrows</span> — move</li>
+              <li><span class="key">Mouse</span> — aim</li>
+              <li><span class="key">Click</span> / <span class="key">Space</span> — fire</li>
+            </ul>
+            <button id="primary-btn" class="btn" type="button">Begin the Watch</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="hud" id="hud" hidden>
+        <div class="hud-item"><span class="hud-label">Wave</span><span id="hud-wave">1</span></div>
+        <div class="hud-item"><span class="hud-label">Score</span><span id="hud-score">0</span></div>
+        <div class="hud-item hud-health">
+          <span class="hud-label">Integrity</span>
+          <div class="health-bar"><div id="health-fill" class="health-fill"></div></div>
+        </div>
+      </div>
+
+      <footer class="tagline">A playable HTML title for the Rallous System.</footer>
+    </main>
+
+    <script src="./src/game.js" defer></script>
+  </body>
+</html>
