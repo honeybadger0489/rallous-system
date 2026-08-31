@@ -1,0 +1,27 @@
+{
+  "id": "middenland",
+  "race": "empire",
+  "tier": "minor",
+  "name": "Middenland",
+  "banner": {
+    "pattern": "white_wolf",
+    "primary": "#1E3A6B",
+    "secondary": "#F4E8C1"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -5,
+  "lord": {
+    "title": "Elector Count of Middenland",
+    "name": "Boris Todbringer",
+    "personality": "Ulrican hunter of beasts. Prove you kill horned things, not that you tame them.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "taiga",
+    "forest",
+    "snow",
+    "mountains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

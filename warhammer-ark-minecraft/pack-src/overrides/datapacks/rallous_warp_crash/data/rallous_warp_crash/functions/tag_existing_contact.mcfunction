@@ -1,0 +1,1 @@
+execute unless entity @e[tag=rallous_contact,distance=..8,limit=1] run summon minecraft:armor_stand ~ ~ ~ {Tags:["rallous_contact"],Invisible:1b,Marker:1b,NoGravity:1b,Invulnerable:1b,Small:1b,CustomName:'{"text":"Faction Contact","color":"gold"}',CustomNameVisible:1b}

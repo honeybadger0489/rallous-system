@@ -1,0 +1,27 @@
+{
+  "id": "wardens-of-the-living-pools",
+  "race": "lizardmen",
+  "tier": "minor",
+  "name": "Wardens of the Living Pools",
+  "banner": {
+    "pattern": "spawning_pool",
+    "primary": "#2EC4B6",
+    "secondary": "#1F6B3A"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -8,
+  "lord": {
+    "title": "Skink Chief",
+    "name": "Huatl Pool-Guard",
+    "personality": "Sacred waters. Tribute of captured blight, not gold.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "jungle",
+    "swamp",
+    "river",
+    "mangrove"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

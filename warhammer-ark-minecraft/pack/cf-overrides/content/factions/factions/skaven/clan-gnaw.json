@@ -1,0 +1,26 @@
+{
+  "id": "clan-gnaw",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Gnaw",
+  "banner": {
+    "pattern": "gnaw",
+    "primary": "#5A4A3A",
+    "secondary": "#3D5A1F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -18,
+  "lord": {
+    "title": "Chieftain",
+    "name": "Gnaw",
+    "personality": "Border-clan. War for the nearest burrow.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "plains",
+    "caves",
+    "forest"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

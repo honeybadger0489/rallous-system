@@ -1,0 +1,26 @@
+{
+  "id": "karak-azul",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Karak Azul",
+  "banner": {
+    "pattern": "azul_anvil",
+    "primary": "#3D2B1F",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -8,
+  "lord": {
+    "title": "King of Karak Azul",
+    "name": "Kazador Thunderhorn",
+    "personality": "Iron Peak. Wants his kin back from greenskins. Help is the only polite verb.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "mountains",
+    "badlands",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "red-cloud",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Red Cloud",
+  "banner": {
+    "pattern": "red_cloud",
+    "primary": "#8B1E2D",
+    "secondary": "#F4E8C1"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Goblin Warboss",
+    "name": "Red Cloud",
+    "personality": "Wolf-riders of the east. Recruit scouts.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "plains",
+    "savanna",
+    "windswept"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

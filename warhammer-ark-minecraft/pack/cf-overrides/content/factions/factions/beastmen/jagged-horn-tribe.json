@@ -1,0 +1,26 @@
+{
+  "id": "jagged-horn-tribe",
+  "race": "beastmen",
+  "tier": "minor",
+  "name": "Jagged-Horn Tribe",
+  "banner": {
+    "pattern": "jagged_horn",
+    "primary": "#5A4A3A",
+    "secondary": "#8A9A4A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -30,
+  "lord": {
+    "title": "Wargor",
+    "name": "Jagged-Horn",
+    "personality": "Mountain herd. Tribute in captives if you cannot win the scrap.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "mountains",
+    "peaks",
+    "taiga"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "ostland",
+  "race": "empire",
+  "tier": "minor",
+  "name": "Ostland",
+  "banner": {
+    "pattern": "bull_of_ostland",
+    "primary": "#1A1A1A",
+    "secondary": "#F4E8C1"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": -8,
+  "lord": {
+    "title": "Elector Count of Ostland",
+    "name": "Valmir von Raukov",
+    "personality": "Hard northern elector. Daemon-stink gets a pyre; useful blades get a ration.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "taiga",
+    "snow",
+    "forest",
+    "mountains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

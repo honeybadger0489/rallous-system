@@ -1,0 +1,26 @@
+{
+  "id": "clan-verms",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Verms",
+  "banner": {
+    "pattern": "verms",
+    "primary": "#3D5A1F",
+    "secondary": "#5A4A3A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -16,
+  "lord": {
+    "title": "Packmaster",
+    "name": "Verms",
+    "personality": "Insect-and-rat clan. Tribute in chitin.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "swamp",
+    "jungle",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

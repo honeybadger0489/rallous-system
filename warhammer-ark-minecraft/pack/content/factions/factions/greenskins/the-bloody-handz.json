@@ -1,0 +1,26 @@
+{
+  "id": "the-bloody-handz",
+  "race": "greenskins",
+  "tier": "major",
+  "name": "The Bloody Handz",
+  "banner": {
+    "pattern": "bloody_hand",
+    "primary": "#8B1E2D",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": -5,
+  "lord": {
+    "title": "Great Shaman",
+    "name": "Wurrzag da Great Green Prophet",
+    "personality": "Wants a proper Waaagh. Prove you are lucky, not clever.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "savanna",
+    "jungle",
+    "desert"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

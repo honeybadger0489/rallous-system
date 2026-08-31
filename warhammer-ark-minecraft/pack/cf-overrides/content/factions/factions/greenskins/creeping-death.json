@@ -1,0 +1,26 @@
+{
+  "id": "creeping-death",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Creeping Death",
+  "banner": {
+    "pattern": "creeping_death",
+    "primary": "#2B3A1A",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Forest Goblin Warboss",
+    "name": "Creeping Death",
+    "personality": "Lustrian spider-goblins. No open roads.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "jungle",
+    "mangrove",
+    "swamp"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "shadowgor-warherd",
+  "race": "beastmen",
+  "tier": "minor",
+  "name": "Shadowgor Warherd",
+  "banner": {
+    "pattern": "shadowgor",
+    "primary": "#2B1A14",
+    "secondary": "#3A3A3A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -35,
+  "lord": {
+    "title": "Beastlord",
+    "name": "Shadowgor",
+    "personality": "Night-herd. No roads, no heralds.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "dark_forest",
+    "taiga",
+    "snow"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

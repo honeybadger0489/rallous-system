@@ -1,0 +1,27 @@
+{
+  "id": "hexoatl",
+  "race": "lizardmen",
+  "tier": "major",
+  "name": "Hexoatl",
+  "banner": {
+    "pattern": "solar_engine",
+    "primary": "#1F6B3A",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Lord of Hexoatl",
+    "name": "Lord Mazdamundi",
+    "personality": "Slann who measures strangers against the Great Plan. Daemon-stink is a death sentence.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "jungle",
+    "beach",
+    "mangrove",
+    "warm_ocean"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

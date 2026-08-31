@@ -1,0 +1,26 @@
+{
+  "id": "clan-kreepus",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Kreepus",
+  "banner": {
+    "pattern": "kreepus",
+    "primary": "#2B2B2B",
+    "secondary": "#3D5A1F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Assassin",
+    "name": "Kreepus",
+    "personality": "Eshin-adjacent sneaks. Prove you can vanish.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "jungle",
+    "swamp",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

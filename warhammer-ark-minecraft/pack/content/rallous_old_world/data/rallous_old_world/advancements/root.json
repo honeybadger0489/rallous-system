@@ -1,16 +1,16 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:iron_sword"
+      "item": "minecraft:crying_obsidian"
     },
     "title": {
-      "text": "The Old World",
-      "color": "gold"
+      "text": "Warp-crash",
+      "color": "dark_purple"
     },
     "description": {
-      "text": "A soldier on the ground. Not a campaign-map general."
+      "text": "You hit the Old World. No war council."
     },
-    "background": "minecraft:textures/block/packed_mud.png",
+    "background": "minecraft:textures/block/crying_obsidian.png",
     "frame": "challenge",
     "announce_to_chat": true,
     "show_toast": true

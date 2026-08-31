@@ -1,0 +1,27 @@
+{
+  "id": "last-defenders",
+  "race": "lizardmen",
+  "tier": "major",
+  "name": "Last Defenders",
+  "banner": {
+    "pattern": "kroq_gar_star",
+    "primary": "#2F6B3A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -15,
+  "lord": {
+    "title": "Last Defender of Xhotl",
+    "name": "Kroq-Gar",
+    "personality": "Purges warmbloods from the Southlands. Recruit only if you hunt the same blight.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "jungle",
+    "savanna",
+    "desert",
+    "badlands"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

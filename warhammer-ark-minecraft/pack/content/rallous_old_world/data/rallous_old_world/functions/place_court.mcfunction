@@ -1,10 +1,1 @@
-execute positioned ~ ~ ~6 if block ~ ~-1 ~ #minecraft:replaceable run setblock ~ ~-1 ~ packed_mud
-execute positioned ~ ~ ~6 if block ~ ~ ~ #minecraft:replaceable run setblock ~ ~ ~ campfire
-execute positioned ~1 ~ ~6 if block ~ ~ ~ #minecraft:replaceable run setblock ~ ~ ~ yellow_banner
-execute positioned ~-1 ~ ~6 if block ~ ~ ~ #minecraft:replaceable run setblock ~ ~ ~ lime_banner
-execute positioned ~2 ~ ~5 if block ~ ~ ~ #minecraft:replaceable run setblock ~ ~ ~ red_banner
-execute positioned ~-2 ~ ~5 if block ~ ~ ~ #minecraft:replaceable run setblock ~ ~ ~ brown_banner
-execute positioned ~1 ~ ~7 if block ~ ~ ~ #minecraft:replaceable run setblock ~ ~ ~ light_blue_banner
-execute positioned ~-1 ~ ~7 if block ~ ~ ~ #minecraft:replaceable run setblock ~ ~ ~ purple_banner
-execute positioned ~ ~ ~8 if block ~ ~ ~ #minecraft:replaceable run setblock ~ ~ ~ lectern[facing=south]
-execute positioned ~ ~1 ~8 if block ~ ~ ~ #minecraft:replaceable run setblock ~ ~ ~ lantern
+# No-op. Court banners are not placed on join.

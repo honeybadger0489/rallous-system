@@ -1,0 +1,26 @@
+{
+  "id": "stone-horn-tribe",
+  "race": "beastmen",
+  "tier": "minor",
+  "name": "Stone-Horn Tribe",
+  "banner": {
+    "pattern": "stone_horn",
+    "primary": "#5A5A5A",
+    "secondary": "#3D2B1F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -30,
+  "lord": {
+    "title": "Doombull",
+    "name": "Stone-Horn",
+    "personality": "Highland herd. Prove you can bleed on a herdstone.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "mountains",
+    "peaks",
+    "windswept"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

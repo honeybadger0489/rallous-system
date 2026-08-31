@@ -1,0 +1,27 @@
+{
+  "id": "harbinger-of-disaster",
+  "race": "beastmen",
+  "tier": "major",
+  "name": "Harbinger of Disaster",
+  "banner": {
+    "pattern": "dark_omen",
+    "primary": "#2B1A14",
+    "secondary": "#4A2A6B"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -45,
+  "lord": {
+    "title": "Great Bray-Shaman",
+    "name": "Malagor the Dark Omen",
+    "personality": "Wants the world unmade. Prove nothing; flee or fight.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "mountains",
+    "windswept",
+    "dark_forest",
+    "badlands"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

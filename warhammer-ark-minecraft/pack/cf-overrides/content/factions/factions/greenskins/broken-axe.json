@@ -1,0 +1,26 @@
+{
+  "id": "broken-axe",
+  "race": "greenskins",
+  "tier": "major",
+  "name": "Broken Axe",
+  "banner": {
+    "pattern": "grom_axe",
+    "primary": "#2F6B2F",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": 0,
+  "lord": {
+    "title": "Goblin Warboss",
+    "name": "Grom the Paunch",
+    "personality": "Hungry goblin king. Recruit cooks and chariots; he will eat your leftovers.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "forest",
+    "plains",
+    "meadow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

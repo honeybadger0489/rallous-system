@@ -1,0 +1,26 @@
+{
+  "id": "spine-of-sotek-dwarfs",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Spine of Sotek Dwarfs",
+  "banner": {
+    "pattern": "sotek_spine",
+    "primary": "#C9A227",
+    "secondary": "#1F6B3A"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -8,
+  "lord": {
+    "title": "Thane",
+    "name": "Sotek-Spine",
+    "personality": "Lustrian prospectors. Help if you keep lizards off the claim.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "jungle",
+    "mountains",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

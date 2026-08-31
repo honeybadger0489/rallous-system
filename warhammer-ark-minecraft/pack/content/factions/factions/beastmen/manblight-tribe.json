@@ -1,0 +1,26 @@
+{
+  "id": "manblight-tribe",
+  "race": "beastmen",
+  "tier": "minor",
+  "name": "Manblight Tribe",
+  "banner": {
+    "pattern": "manblight",
+    "primary": "#3D5A1F",
+    "secondary": "#6B2A1A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -38,
+  "lord": {
+    "title": "Bray-Shaman",
+    "name": "Slugtongue's Kin",
+    "personality": "Blight-herd. Corrupts livestock. Hostile on sight.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "swamp",
+    "plains",
+    "forest"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

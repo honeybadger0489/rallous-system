@@ -1,0 +1,26 @@
+{
+  "id": "red-fangs",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Red Fangs",
+  "banner": {
+    "pattern": "red_fang",
+    "primary": "#8B1E2D",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -12,
+  "lord": {
+    "title": "Orc Warboss",
+    "name": "Gorfang Rotgut",
+    "personality": "Black Crag neighbours. Prove you can hold a gate.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "badlands",
+    "mountains",
+    "savanna"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

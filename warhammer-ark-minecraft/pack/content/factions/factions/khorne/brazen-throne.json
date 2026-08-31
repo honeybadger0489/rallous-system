@@ -1,0 +1,26 @@
+{
+  "id": "brazen-throne",
+  "race": "khorne",
+  "tier": "minor",
+  "name": "Brazen Throne",
+  "banner": {
+    "pattern": "brazen_throne",
+    "primary": "#C4A035",
+    "secondary": "#7A1212"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -48,
+  "lord": {
+    "title": "Bloodmaster",
+    "name": "Brazen Throne",
+    "personality": "Claims a moving dais of brass. Tribute in skulls if you will not fight.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "nether_waste",
+    "mountains",
+    "crimson"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

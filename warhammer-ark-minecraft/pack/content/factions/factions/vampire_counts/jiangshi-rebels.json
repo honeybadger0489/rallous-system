@@ -1,0 +1,27 @@
+{
+  "id": "jiangshi-rebels",
+  "race": "vampire_counts",
+  "tier": "minor",
+  "name": "Jiangshi Rebels",
+  "banner": {
+    "pattern": "eastern_jiangshi",
+    "primary": "#2B0B1A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Jiangshi Lord",
+    "name": "Prince Jiang",
+    "personality": "Cathayan dead in revolt. Tribute in bodies; no treaties with the Mandate.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "plains",
+    "cherry",
+    "forest",
+    "mountains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

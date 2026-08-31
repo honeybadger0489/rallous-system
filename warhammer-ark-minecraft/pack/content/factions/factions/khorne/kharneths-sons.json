@@ -1,0 +1,26 @@
+{
+  "id": "kharneths-sons",
+  "race": "khorne",
+  "tier": "minor",
+  "name": "Kharneth's Sons",
+  "banner": {
+    "pattern": "kharneth_sons",
+    "primary": "#7A1212",
+    "secondary": "#1A1A1A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -50,
+  "lord": {
+    "title": "Exalted Hero of Khorne",
+    "name": "Son of Kharneth",
+    "personality": "Realm of Chaos remnant host. War.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "nether_waste",
+    "crimson",
+    "snow"
+  ],
+  "site": "roaming",
+  "tww_source": "realm_of_chaos"
+}

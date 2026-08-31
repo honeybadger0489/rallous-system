@@ -1,0 +1,26 @@
+{
+  "id": "skull-takerz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Skull-takerz",
+  "banner": {
+    "pattern": "skull_takerz",
+    "primary": "#8B1E2D",
+    "secondary": "#C4B48A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -16,
+  "lord": {
+    "title": "Savage Orc Warboss",
+    "name": "Skull-taka",
+    "personality": "Collects heads. Tribute in skulls or fight.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "savanna",
+    "jungle",
+    "badlands"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires_savage_orc"
+}

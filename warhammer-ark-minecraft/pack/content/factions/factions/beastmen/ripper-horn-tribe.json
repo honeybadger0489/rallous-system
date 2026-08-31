@@ -1,0 +1,26 @@
+{
+  "id": "ripper-horn-tribe",
+  "race": "beastmen",
+  "tier": "minor",
+  "name": "Ripper-Horn Tribe",
+  "banner": {
+    "pattern": "ripper_horn",
+    "primary": "#4A2A1A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -32,
+  "lord": {
+    "title": "Beastlord",
+    "name": "Ripper-Horn",
+    "personality": "Southlands herd. Recruit if you already run with horns.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "jungle",
+    "savanna",
+    "badlands"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "crooked-moon-mutinous-gits",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Crooked Moon Mutinous Gits",
+  "banner": {
+    "pattern": "mutinous_moon",
+    "primary": "#3D5A1F",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Night Goblin Warboss",
+    "name": "Gitilla's Cousin",
+    "personality": "Skarsnik's leftovers. Recruit if you pay in mushrooms.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "mountains",
+    "caves",
+    "peaks"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

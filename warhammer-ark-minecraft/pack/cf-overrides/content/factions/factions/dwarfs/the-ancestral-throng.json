@@ -1,0 +1,27 @@
+{
+  "id": "the-ancestral-throng",
+  "race": "dwarfs",
+  "tier": "major",
+  "name": "The Ancestral Throng",
+  "banner": {
+    "pattern": "white_dwarf",
+    "primary": "#F4E8C1",
+    "secondary": "#3D2B1F"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": -5,
+  "lord": {
+    "title": "The White Dwarf",
+    "name": "Grombrindal",
+    "personality": "Ancestor on campaign. Prove you keep an oath; he will stand in the shield wall.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "mountains",
+    "snow",
+    "taiga",
+    "plains"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

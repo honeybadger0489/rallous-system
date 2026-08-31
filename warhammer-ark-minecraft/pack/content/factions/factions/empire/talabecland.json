@@ -1,0 +1,27 @@
+{
+  "id": "talabecland",
+  "race": "empire",
+  "tier": "minor",
+  "name": "Talabecland",
+  "banner": {
+    "pattern": "talabec_horn",
+    "primary": "#8B1E2D",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 5,
+  "lord": {
+    "title": "Elector Count of Talabecland",
+    "name": "Helmut Feuerbach",
+    "personality": "Taalite forest-prince. Open roads if you do not despoil the woods.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "forest",
+    "river",
+    "plains",
+    "meadow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

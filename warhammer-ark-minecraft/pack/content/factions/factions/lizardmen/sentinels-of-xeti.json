@@ -1,0 +1,26 @@
+{
+  "id": "sentinels-of-xeti",
+  "race": "lizardmen",
+  "tier": "minor",
+  "name": "Sentinels of Xeti",
+  "banner": {
+    "pattern": "xeti_star",
+    "primary": "#1F6B3A",
+    "secondary": "#4A2A6B"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -8,
+  "lord": {
+    "title": "Skink Oracle",
+    "name": "Xeti-Watcher",
+    "personality": "Star-chamber guards. Prove you read no false omen.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "jungle",
+    "peaks",
+    "mountains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

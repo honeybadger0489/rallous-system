@@ -1,0 +1,26 @@
+{
+  "id": "clan-treecherik",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Treecherik",
+  "banner": {
+    "pattern": "treecherik",
+    "primary": "#1A1A1A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": -18,
+  "lord": {
+    "title": "Assassin",
+    "name": "Treecherik",
+    "personality": "Backstab clan. Prove you expect betrayal.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "jungle",
+    "caves",
+    "dark_forest"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

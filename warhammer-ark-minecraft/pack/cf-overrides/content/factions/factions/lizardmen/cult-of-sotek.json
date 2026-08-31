@@ -1,0 +1,27 @@
+{
+  "id": "cult-of-sotek",
+  "race": "lizardmen",
+  "tier": "major",
+  "name": "Cult of Sotek",
+  "banner": {
+    "pattern": "serpent_god",
+    "primary": "#8B1E2D",
+    "secondary": "#1F6B3A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Prophet of Sotek",
+    "name": "Tehenhauin",
+    "personality": "Rat-hate crusade. War on Skaven; a stranger may join the sacrifice-road or leave.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "jungle",
+    "swamp",
+    "mangrove",
+    "river"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

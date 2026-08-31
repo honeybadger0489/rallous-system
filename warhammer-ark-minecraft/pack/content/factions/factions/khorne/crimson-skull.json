@@ -1,0 +1,26 @@
+{
+  "id": "crimson-skull",
+  "race": "khorne",
+  "tier": "minor",
+  "name": "Crimson Skull",
+  "banner": {
+    "pattern": "crimson_skull",
+    "primary": "#6B1028",
+    "secondary": "#C4B48A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -45,
+  "lord": {
+    "title": "Skullmaster",
+    "name": "Crimson Skull",
+    "personality": "Skull-harvest riders. Recruit only the already-blooded.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "badlands",
+    "plains",
+    "crimson"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,155 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "paths"
+	group: "1A010000"
+	icon: "minecraft:oak_sign"
+	id: "1C020000"
+	images: [ ]
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["1D010004"]
+			optional: true
+			icon: "minecraft:bread"
+			id: "1D010011"
+			rewards: [
+				{
+					id: "1D010010"
+					type: "xp"
+					xp: 20
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:path/help"
+					elevate_perms: true
+					id: "1D010011"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1D010012"
+					title: "I stayed and helped"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Stay. Mend a fence. Share food. Walk a coach road with the watch. The village will use you."
+				""
+				"Sets rallous.path = 1 (help). The datapack can read it. You may recant later."
+			]
+			title: "Help"
+			x: -3d
+			y: -1.5d
+		},
+		{
+			dependencies: ["1D010004"]
+			optional: true
+			icon: "minecraft:flint_and_steel"
+			id: "1D010012"
+			rewards: [
+				{
+					id: "1D010013"
+					type: "xp"
+					xp: 20
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:path/betray"
+					elevate_perms: true
+					id: "1D010014"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1D010015"
+					title: "I used what they taught me"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Learn their gate hour. Sell the watch. Open a door you were asked to hold. The Old World already expects this."
+				""
+				"Sets rallous.path = 2 (betray)."
+			]
+			title: "Betray"
+			x: -1d
+			y: -1.5d
+		},
+		{
+			dependencies: ["1D010004"]
+			optional: true
+			icon: "minecraft:white_banner"
+			id: "1D010013"
+			rewards: [
+				{
+					id: "1D010016"
+					type: "xp"
+					xp: 20
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:path/join"
+					elevate_perms: true
+					id: "1D010017"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1D010018"
+					title: "I took a banner"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Take a colour. Elector, Waaagh, Under-Empire, von Carstein, Dawi, herd, temple-city, Bloodbound — a Recruits banner or a lie you intend to keep."
+				""
+				"Sets rallous.path = 3 (join). Host command is still optional."
+			]
+			title: "Join"
+			x: 1d
+			y: -1.5d
+		},
+		{
+			dependencies: ["1D010004"]
+			optional: true
+			icon: "minecraft:leather_boots"
+			id: "1D010014"
+			rewards: [
+				{
+					id: "1D010019"
+					type: "xp"
+					xp: 20
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:path/leave"
+					elevate_perms: true
+					id: "1D01001A"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1D01001B"
+					title: "I named a side and rode on"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Shake a hand. Mean it. Walk away. Standing can exist without a payroll. The map does not close."
+				""
+				"Sets rallous.path = 4 (align-and-leave)."
+			]
+			title: "Align and Leave"
+			x: 3d
+			y: -1.5d
+		}
+	]
+	title: "Paths"
+}

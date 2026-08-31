@@ -1,0 +1,26 @@
+{
+  "id": "clan-skrat",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Skrat",
+  "banner": {
+    "pattern": "skrat",
+    "primary": "#5A4A3A",
+    "secondary": "#1A1A1A"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": -12,
+  "lord": {
+    "title": "Warlord",
+    "name": "Skrat",
+    "personality": "Mountain under-clan. Recruit cheap stormvermin.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "mountains",
+    "caves",
+    "snow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

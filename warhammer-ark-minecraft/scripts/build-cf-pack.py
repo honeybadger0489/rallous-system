@@ -21,11 +21,11 @@ ROOT = Path(__file__).resolve().parents[1]
 PACK = ROOT / "pack"
 DIST = ROOT / "dist"
 OVERRIDES_SRC = PACK / "cf-overrides"
-UA = "RallousWarhammerFantasy/0.2.2 (github.com/honeybadger0489/rallous-system; private pack pin)"
+UA = "RallousWarhammerFantasy/0.3.0 (github.com/honeybadger0489/rallous-system; private pack pin)"
 MC = "1.20.1"
 FORGE = "47.4.10"
 PACK_NAME = "Rallous Warhammer Fantasy"
-PACK_VERSION = "0.2.2"
+PACK_VERSION = "0.3.0"
 AUTHOR = "Rallous System"
 
 # Directed Old-World pack. Kitchen-sink (Create, TaCZ, Macaw's, Alex's Caves,

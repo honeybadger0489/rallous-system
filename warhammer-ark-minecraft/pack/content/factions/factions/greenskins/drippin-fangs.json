@@ -1,0 +1,26 @@
+{
+  "id": "drippin-fangs",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Drippin Fangs",
+  "banner": {
+    "pattern": "drippin_fang",
+    "primary": "#2F6B2F",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -14,
+  "lord": {
+    "title": "Savage Orc Warboss",
+    "name": "Drippin Fangs",
+    "personality": "Southlands biters. Prove you bite harder.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "jungle",
+    "savanna",
+    "swamp"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

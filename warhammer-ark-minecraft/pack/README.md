@@ -1,6 +1,6 @@
 # Rallous Warhammer Fantasy
 
-**Players: read [PLAY.md](../PLAY.md) only.** Import `../dist/rallous-warhammer-fantasy-0.2.2.zip` in the CurseForge app.
+**Players: read [PLAY.md](../PLAY.md) only.** Import `../dist/rallous-warhammer-fantasy-0.3.0.zip` in the CurseForge app.
 
 This `pack/` folder is the pin source:
 
@@ -11,5 +11,5 @@ This `pack/` folder is the pin source:
 Rebuild the zip:
 
 ```bash
-python3 ../scripts/pack-zip.py --version 0.2.2
+python3 ../scripts/integrate-overrides.py --version 0.3.0
 ```

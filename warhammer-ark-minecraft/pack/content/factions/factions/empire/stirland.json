@@ -1,0 +1,27 @@
+{
+  "id": "stirland",
+  "race": "empire",
+  "tier": "minor",
+  "name": "Stirland",
+  "banner": {
+    "pattern": "skeleton_horn",
+    "primary": "#3D5A1F",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Elector Count of Stirland",
+    "name": "Alberich Haupt-Anderssen",
+    "personality": "Superstitious Sigmarite neighbour of Sylvania. Cult-adjacent: hates the night courts.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "plains",
+    "swamp",
+    "dark_forest",
+    "meadow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

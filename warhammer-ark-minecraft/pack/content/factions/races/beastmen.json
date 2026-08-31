@@ -1,0 +1,54 @@
+{
+  "id": "beastmen",
+  "name": "Beastmen",
+  "culture": "Brayherds with no towns: herdstones, raids, and the corruption of tame beasts into something horned. They do not keep capitals. Warp-strangers are meat or a rival herd.",
+  "settlement": "roaming",
+  "taming_affinity": "corrupt",
+  "warp_stranger_stance": "hostile",
+  "colors": {
+    "primary": "#3D2B1F",
+    "secondary": "#6B2A1A",
+    "accent": "#8A9A4A"
+  },
+  "lord_title_pool": [
+    "Beastlord",
+    "Great Bray-Shaman",
+    "Doombull",
+    "Wargor",
+    "Gorebull",
+    "Bray-Shaman",
+    "Centigor Chieftain"
+  ],
+  "name_pool": {
+    "given": [
+      "Khazrak",
+      "Malagor",
+      "Morghur",
+      "Taurox",
+      "Cindergor",
+      "Ghorros",
+      "Moonclaw",
+      "Ghorus",
+      "Slugtongue",
+      "Ungrol",
+      "Karzog",
+      "Moth-Eye",
+      "Split-Hoof",
+      "Braygash",
+      "Horn-That-Burns",
+      "Gnarl",
+      "Red-Hide"
+    ],
+    "epithet": [
+      "the One-Eye",
+      "the Dark Omen",
+      "the Shadowgave",
+      "the Brass Bull",
+      "of the Herdstone",
+      "Skull-Taker",
+      "of the Deep Wood",
+      "the Gnarled"
+    ]
+  },
+  "notes": "Roaming race: skip capitals. Place herdstone camps in dark forest, taiga, mountains."
+}

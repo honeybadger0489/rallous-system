@@ -1,0 +1,27 @@
+{
+  "id": "exiles-of-khorne",
+  "race": "khorne",
+  "tier": "major",
+  "name": "Exiles of Khorne",
+  "banner": {
+    "pattern": "skarbrand_exile",
+    "primary": "#7A1212",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -60,
+  "lord": {
+    "title": "The Exiled",
+    "name": "Skarbrand the Exiled",
+    "personality": "No treaties. Skulls or flight. Camp moves when the killing thins.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "nether_waste",
+    "crimson",
+    "badlands",
+    "mountains"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

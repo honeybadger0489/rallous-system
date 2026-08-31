@@ -1,0 +1,27 @@
+{
+  "id": "nordland",
+  "race": "empire",
+  "tier": "minor",
+  "name": "Nordland",
+  "banner": {
+    "pattern": "sea_eagle",
+    "primary": "#1E4A8B",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 0,
+  "lord": {
+    "title": "Elector Count of Nordland",
+    "name": "Theoderic Gausser",
+    "personality": "Coastal levy lord. Wants marines and anyone who can stand a Norscan raid.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "beach",
+    "ocean",
+    "taiga",
+    "plains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

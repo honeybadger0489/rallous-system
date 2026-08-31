@@ -1,0 +1,27 @@
+{
+  "id": "bonerattlaz",
+  "race": "greenskins",
+  "tier": "major",
+  "name": "Bonerattlaz",
+  "banner": {
+    "pattern": "azhag_crown",
+    "primary": "#3D5A1F",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Orc Warboss",
+    "name": "Azhag the Slaughterer",
+    "personality": "Crown-whispers want a warpath north. Recruit if you like loot and shouting.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "taiga",
+    "plains",
+    "snow",
+    "badlands"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

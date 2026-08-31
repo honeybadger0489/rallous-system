@@ -1,0 +1,26 @@
+{
+  "id": "clan-carrion",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Carrion",
+  "banner": {
+    "pattern": "carrion",
+    "primary": "#5A4A3A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -16,
+  "lord": {
+    "title": "Warlord",
+    "name": "Carrion-Take",
+    "personality": "Scavenger clan. Tribute in scrap.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "desert",
+    "badlands",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

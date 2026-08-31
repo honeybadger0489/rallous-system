@@ -12,6 +12,6 @@
     "Job: find me a scrap worth havin'. Field battle. Not two zombies. A host versus a host.",
     "Diplomacy: Ally? Only if you'z bigger. Enemy is honest. Tribute is you dumpin' emeralds so I don't krump your camp. Open the Faction screen and pick. Don't waste my time."
   ],
-  "spawn": "datapack function rallous_old_world:summon_lords on first join (named villager + armored stand). Not a hand-placed CNPC clone.",
+  "spawn": "NOT first-join. Warp-crash discarded the Reikland court. summon_lords is a refuse message. These files are leftover letter text.",
   "skin": "Steve-like villager body + Sons of the Empire / vanilla armor on the stand. No pirated GW meshes."
 }

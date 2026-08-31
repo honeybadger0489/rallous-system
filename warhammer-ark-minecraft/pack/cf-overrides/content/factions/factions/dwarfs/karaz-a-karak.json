@@ -1,0 +1,27 @@
+{
+  "id": "karaz-a-karak",
+  "race": "dwarfs",
+  "tier": "major",
+  "name": "Karaz-a-Karak",
+  "banner": {
+    "pattern": "high_king_crown",
+    "primary": "#C9A227",
+    "secondary": "#3D2B1F"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -15,
+  "lord": {
+    "title": "High King of the Karaz Ankor",
+    "name": "Thorgrim Grudgebearer",
+    "personality": "Every Warp-stranger is a possible grudge. Swear an oath, settle a line, then he helps.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "mountains",
+    "peaks",
+    "dripstone",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

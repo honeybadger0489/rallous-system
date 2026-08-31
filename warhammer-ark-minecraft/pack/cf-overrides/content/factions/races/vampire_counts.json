@@ -1,0 +1,66 @@
+{
+  "id": "vampire_counts",
+  "name": "Vampire Counts",
+  "culture": "Sylvanian night-law: von Carstein courts, necromancer colleges, and living peasantry taxed in blood and grain. Settlements are keeps and crypt-towns. Strangers prove useful or become levies.",
+  "settlement": "settled",
+  "taming_affinity": "low",
+  "warp_stranger_stance": "prove_yourself",
+  "colors": {
+    "primary": "#2B0B1A",
+    "secondary": "#6B1028",
+    "accent": "#C4B48A"
+  },
+  "lord_title_pool": [
+    "Vampire Count",
+    "Von Carstein",
+    "Necromancer Lord",
+    "Strigoi King",
+    "Lahmian Mistress",
+    "Blood Dragon",
+    "Wight King",
+    "Master Necromancer",
+    "Ghoul King",
+    "Barrow Lord"
+  ],
+  "name_pool": {
+    "given": [
+      "Mannfred",
+      "Vlad",
+      "Isabella",
+      "Heinrich",
+      "Helman",
+      "Konrad",
+      "Walach",
+      "Neferata",
+      "Ushoran",
+      "Zacharias",
+      "Dieter",
+      "Annel",
+      "Lys",
+      "Vasalric",
+      "Gunther",
+      "Pieter",
+      "Nyklaus",
+      "Melkhior",
+      "Mundvard",
+      "Adolphus"
+    ],
+    "surname": [
+      "von Carstein",
+      "Kemmler",
+      "Ghorst",
+      "von Diehl",
+      "von Drak",
+      "von Carstein",
+      "Harkon",
+      "von Templehof",
+      "von Waldenhof",
+      "von Schwartzhafen",
+      "of Mourkain",
+      "of the Silver Pinnacle",
+      "of Mousillon",
+      "van Hel"
+    ]
+  },
+  "notes": "Swamp, dark forest, crypt biomes. Capitals are night-courts. Living towns can flip to dead banners."
+}

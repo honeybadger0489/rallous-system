@@ -1,0 +1,194 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "winds"
+	group: "1A010000"
+	icon: "minecraft:amethyst_shard"
+	id: "1C040000"
+	images: [ ]
+	order_index: 3
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["1D010001"]
+			icon: "minecraft:book"
+			id: "1D010031"
+			rewards: [
+				{
+					id: "1D010034"
+					type: "xp"
+					xp: 10
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:magic/discover"
+					elevate_perms: true
+					id: "1D010035"
+					silent: true
+					type: "command"
+				}
+			]
+			shape: "hexagon"
+			size: 1.5d
+			subtitle: "No starter spellbook."
+			tasks: [
+				{
+					id: "1D010036"
+					title: "I have no college letter yet"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"You did not arrive with Iron's book equipped. The Winds are a path, not a loadout."
+				""
+				"Colleges (fire / light), Ice, death, and Blood are rumors until you walk to them. Do not craft a book just to tick a boot list."
+				""
+				"Spell wheel (R) exists when you have earned a book. Until then, steel and thirst."
+			]
+			title: "Not in the Hotbar"
+			x: -3d
+			y: 0d
+		},
+		{
+			dependencies: ["1D010031"]
+			optional: true
+			icon: "minecraft:blaze_powder"
+			id: "1D010032"
+			rewards: [
+				{
+					id: "1D010037"
+					type: "xp"
+					xp: 20
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:magic/colleges"
+					elevate_perms: true
+					id: "1D010038"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1D010039"
+					title: "Found a college path"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Altdorf's rumour: lecterns, a licensed fire, holy light. Find a book or a college sign. Do not start with one in the hotbar."
+				""
+				"Sets rallous.magic = 1 (colleges)."
+			]
+			title: "Path to the Colleges"
+			x: -0.5d
+			y: -2d
+		},
+		{
+			dependencies: ["1D010031"]
+			optional: true
+			icon: "minecraft:packed_ice"
+			id: "1D010033"
+			rewards: [
+				{
+					id: "1D01003A"
+					type: "xp"
+					xp: 20
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:magic/ice"
+					elevate_perms: true
+					id: "1D01003B"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1D01003C"
+					title: "Found an ice path"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"North talk: ice is a court, not a novelty. Reach cold, or find the rumour."
+				""
+				"Sets rallous.magic = 2 (ice)."
+			]
+			title: "Path to Ice"
+			x: 1.5d
+			y: -1d
+		},
+		{
+			dependencies: ["1D010031"]
+			optional: true
+			icon: "minecraft:wither_skeleton_skull"
+			id: "1D010034"
+			rewards: [
+				{
+					id: "1D01003D"
+					type: "xp"
+					xp: 20
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:magic/death"
+					elevate_perms: true
+					id: "1D01003E"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1D01003F"
+					title: "Found a death path"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Grave-talk. A priest who does not smile. Malum is slower occult if you want it later."
+				""
+				"Sets rallous.magic = 3 (death)."
+			]
+			title: "Path to Death"
+			x: 1.5d
+			y: 1d
+		},
+		{
+			dependencies: ["1D010031"]
+			optional: true
+			icon: "minecraft:redstone"
+			id: "1D010035"
+			rewards: [
+				{
+					id: "1D010040"
+					type: "xp"
+					xp: 20
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:magic/blood"
+					elevate_perms: true
+					id: "1D010041"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1D010042"
+					title: "Found a blood path"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"A rite, a count's cellar, a wheel that smells of iron. Blood is a school you walk to."
+				""
+				"Sets rallous.magic = 4 (blood)."
+			]
+			title: "Path to Blood"
+			x: -0.5d
+			y: 2d
+		}
+	]
+	title: "The Winds"
+}

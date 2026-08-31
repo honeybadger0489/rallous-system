@@ -12,6 +12,6 @@
     "Job: walk my fens after dark. Kill what walks. Or bring me a living captain and kneel. Either is a province won.",
     "Diplomacy: Ally me and Heartland towns will learn your name the wrong way. Enemy me and come at dawn with Recruits and a siege engine. Tribute is blood or bodies. Choose before the moon is up."
   ],
-  "spawn": "datapack function rallous_old_world:summon_lords on first join (named villager + armored stand). Not a hand-placed CNPC clone.",
+  "spawn": "NOT first-join. Warp-crash discarded the Reikland court. summon_lords is a refuse message. These files are leftover letter text.",
   "skin": "Steve-like villager body + Sons of the Empire / vanilla armor on the stand. No pirated GW meshes."
 }

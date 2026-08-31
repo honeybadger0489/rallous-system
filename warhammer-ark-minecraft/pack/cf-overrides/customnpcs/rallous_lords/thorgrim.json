@@ -12,6 +12,6 @@
     "Job: take the Hold-Road. Clear a fallen hall (YUNG, Dungeons Arise, a deepslate wound). Bring back a named thing. Then stand our artillery.",
     "Diplomacy: Ally is oath-friend. We do not forget. Enemy is a grudge I will read aloud. Tribute is gold on the book. Open the Faction screen when you have something written down."
   ],
-  "spawn": "datapack function rallous_old_world:summon_lords on first join (named villager + armored stand). Not a hand-placed CNPC clone.",
+  "spawn": "NOT first-join. Warp-crash discarded the Reikland court. summon_lords is a refuse message. These files are leftover letter text.",
   "skin": "Steve-like villager body + Sons of the Empire / vanilla armor on the stand. No pirated GW meshes."
 }

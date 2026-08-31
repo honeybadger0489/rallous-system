@@ -1,0 +1,10 @@
+modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="rallous_warp_crash"
+version="1.0.0"
+displayName="rallous_warp_crash"
+authors="Rallous System"
+description='''Sibling datapack shipped as LowCodeFML so it loads without Open Loader.'''

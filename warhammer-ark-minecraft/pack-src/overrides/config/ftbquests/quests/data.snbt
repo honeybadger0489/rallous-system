@@ -1,0 +1,17 @@
+{
+	default_autoclaim_rewards: "disabled"
+	default_quest_disable_jei: false
+	default_quest_shape: "rsquare"
+	detection_delay: 20
+	disable_gui: false
+	drop_loot_crates: false
+	fallback_autolock: false
+	loot_crate_no_drop: {
+		boss: 0
+		monster: 0
+		passive: 0
+	}
+	pause_game: true
+	progression_mode: "flexible"
+	verify_on_load: true
+}
