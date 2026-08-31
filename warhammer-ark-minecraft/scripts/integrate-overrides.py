@@ -3,7 +3,8 @@
 
 Looks at repo-root and warhammer-ark-minecraft/ for:
   content/factions/
-  pack-src/datapacks/  pack-src/resourcepacks/  pack-src/quests/  pack-src/config/
+  pack-src/datapacks/  pack-src/resourcepacks/  pack-src/quests/
+  pack-src/config/  pack-src/overrides/config/
 
 Does not resolve CurseForge fileIDs. Does not add Fabric. Strips first-join court.
 """
@@ -149,10 +150,35 @@ def ingest_siblings() -> dict[str, int]:
                     shutil.copy2(pack, dest)
                     counts["resourcepacks"] += 1
     counts["quests"] += ingest_ftb_chapters()
-    for src in find_dirs("pack-src/config"):
-        counts["config"] += copy_tree(src, OV / "config")
+    for rel in ("pack-src/config", "pack-src/overrides/config"):
+        for src in find_dirs(rel):
+            # FTB is ingested separately; do not stomp authored Warp-Crash chapters.
+            counts["config"] += copy_config_tree(src, OV / "config")
+            dc = src / "defaultconfigs"
+            if dc.is_dir():
+                # Forge copies <gamedir>/defaultconfigs/ → world serverconfig/.
+                counts["config"] += copy_tree(dc, OV / "defaultconfigs")
     print("ingested", counts)
     return counts
+
+
+def copy_config_tree(src: Path, dest: Path) -> int:
+    """Copy pack-src config except ftbquests (handled by ingest_ftb_chapters)."""
+    n = 0
+    if not src.exists():
+        return 0
+    dest.mkdir(parents=True, exist_ok=True)
+    for path in src.rglob("*"):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(src)
+        if "ftbquests" in rel.parts:
+            continue
+        target = dest / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, target)
+        n += 1
+    return n
 
 
 COURT_CHAPTERS = (
@@ -273,6 +299,8 @@ REQUIRED_JARS = (
     "rallous_temple_herd-1.0.0.jar",
     "rallous_warp_crash-1.0.0.jar",
     "rallous_factions-1.0.0.jar",
+    "rallous_diplomacy-1.0.0.jar",
+    "rallous_crater_hq-1.0.0.jar",
 )
 
 REQUIRED_FTB = (
@@ -309,7 +337,15 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         for old in COURT_CHAPTERS:
             if f"overrides/config/ftbquests/quests/chapters/{old}.snbt" in names:
                 raise SystemExit(f"zip still has court chapter {old}")
-        for pack in ("rallous_warp_crash", "rallous_roaming", "rallous_temple_herd", "rallous_contact", "rallous_factions"):
+        for pack in (
+            "rallous_warp_crash",
+            "rallous_roaming",
+            "rallous_temple_herd",
+            "rallous_contact",
+            "rallous_factions",
+            "rallous_diplomacy",
+            "rallous_crater_hq",
+        ):
             if f"overrides/datapacks/{pack}/pack.mcmeta" not in names:
                 raise SystemExit(f"zip missing datapack folder {pack}")
         if "overrides/content/factions/races/empire.json" not in names:
@@ -318,6 +354,22 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("zip missing compiled faction place/reikland")
         if "overrides/datapacks/rallous_factions/data/rallous_factions/functions/crash/on_land.mcfunction" not in names:
             raise SystemExit("zip missing compiled crash/on_land")
+        if "overrides/datapacks/rallous_diplomacy/data/rallous_diplomacy/functions/apply_path.mcfunction" not in names:
+            raise SystemExit("zip missing diplomacy apply_path")
+        if "overrides/datapacks/rallous_crater_hq/data/rallous_crater_hq/functions/mark.mcfunction" not in names:
+            raise SystemExit("zip missing crater_hq mark")
+        for cfg in (
+            "overrides/config/recruits-client.toml",
+            "overrides/config/openpartiesandclaims-client.toml",
+            "overrides/config/defaultconfigs/recruits-server.toml",
+            "overrides/config/defaultconfigs/vassalsuzerain-server.toml",
+            "overrides/config/defaultconfigs/openpartiesandclaims-server.toml",
+            "overrides/defaultconfigs/recruits-server.toml",
+            "overrides/defaultconfigs/vassalsuzerain-server.toml",
+            "overrides/defaultconfigs/openpartiesandclaims-server.toml",
+        ):
+            if cfg not in names:
+                raise SystemExit(f"zip missing {cfg}")
         fac = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_factions-1.0.0.jar")))
         fac_names = set(fac.namelist())
         if "data/rallous_factions/functions/place/karaz_a_karak.mcfunction" not in fac_names:
@@ -332,6 +384,14 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("warp_crash still tags mute villagers as contact")
         if "overrides/resourcepacks/Rallous Continuity/pack.mcmeta" not in names:
             raise SystemExit("zip missing Rallous Continuity resource pack")
+        if "overrides/resourcepacks/Rallous Continuity/assets/vassalsuzerain/lang/en_us.json" not in names:
+            raise SystemExit("zip Continuity missing vassalsuzerain lang")
+        if "overrides/resourcepacks/Rallous Continuity/assets/recruits/lang/en_us.json" not in names:
+            raise SystemExit("zip Continuity missing recruits lang")
+        recruits_lang = zf.read("overrides/resourcepacks/Rallous Continuity/assets/recruits/lang/en_us.json").decode()
+        for needle in ("Elector", "Waaagh", "Under-Empire", "von Carstein", "Bloodbound"):
+            if needle not in recruits_lang:
+                raise SystemExit(f"Continuity recruits lang missing {needle}")
         if any("Continuity" in n and n.endswith(".jar") for n in names):
             raise SystemExit("zip contains Continuity jar")
         from io import BytesIO
@@ -373,7 +433,7 @@ def file_ids_from_021() -> set[tuple[int, int]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.3")
+    parser.add_argument("--version", default="0.3.4")
     parser.add_argument("--skip-author", action="store_true", help="Do not rewrite crash functions")
     args = parser.parse_args()
 
