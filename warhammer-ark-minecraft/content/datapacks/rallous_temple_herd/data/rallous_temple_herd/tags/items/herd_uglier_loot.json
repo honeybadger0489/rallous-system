@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:rotten_flesh",
+    "minecraft:bone",
+    "minecraft:lead",
+    "minecraft:spider_eye",
+    "minecraft:leather",
+    "minecraft:skeleton_skull",
+    {
+      "id": "fossil:failuresaurus_flesh",
+      "required": false
+    },
+    {
+      "id": "fossil:frozen_meat",
+      "required": false
+    },
+    {
+      "id": "fossil:essence_stunted",
+      "required": false
+    }
+  ]
+}

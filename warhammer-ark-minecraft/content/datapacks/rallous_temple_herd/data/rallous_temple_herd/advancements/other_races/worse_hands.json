@@ -1,0 +1,42 @@
+{
+  "parent": "rallous_temple_herd:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_horse_armor"
+    },
+    "title": {
+      "translate": "advancements.rallous_temple_herd.other_races.worse_hands.title"
+    },
+    "description": {
+      "translate": "advancements.rallous_temple_herd.other_races.worse_hands.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "book": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{title:\"Worse Hands\"}"
+          }
+        ]
+      }
+    },
+    "granted": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "book",
+      "granted"
+    ]
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "parent": "rallous_temple_herd:beastmen/herdstone",
+  "display": {
+    "icon": {
+      "item": "minecraft:lead"
+    },
+    "title": {
+      "translate": "advancements.rallous_temple_herd.beastmen.broken_beast.title"
+    },
+    "description": {
+      "translate": "advancements.rallous_temple_herd.beastmen.broken_beast.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "offal": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "fossil:failuresaurus_flesh",
+              "fossil:essence_stunted",
+              "fossil:frozen_meat"
+            ]
+          }
+        ]
+      }
+    },
+    "collar": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:lead"
+            ]
+          }
+        ]
+      }
+    },
+    "carrion": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:rotten_flesh"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "offal",
+      "collar",
+      "carrion"
+    ]
+  ]
+}
