@@ -1,0 +1,14 @@
+# Rallous Old World — Vassal & Suzerains on Recruits banners.
+# Elector tribute, Waaagh loot-tithe, Under-Empire warp-token, von Carstein blood-rent,
+# Dawi oath-gold, herd spoils, temple-city offering, Bloodbound skull-due.
+# Hierarchy is grim. Defaults stay playable: protection on, rebellion cooldown days not years.
+
+[feudal]
+	# Coin the contract speaks of. Steward chests still move whatever the suzerain picks in the UI.
+	tributeItemId = "minecraft:emerald"
+	# New vassals owe this many unless the suzerain rewrites the contract.
+	defaultTributeRate = 8
+	# Liege blades stay out of the vassal's province until rebellion.
+	defaultProtectionContract = true
+	# After a failed rising, five real days before the vassal may set Enemy again.
+	rebellionCooldownDays = 5

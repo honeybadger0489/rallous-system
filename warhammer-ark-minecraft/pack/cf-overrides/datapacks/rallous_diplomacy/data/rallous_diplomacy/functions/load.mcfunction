@@ -13,6 +13,7 @@ scoreboard objectives add rallous.gifted dummy
 scoreboard objectives add rallous.civ_bed dummy
 scoreboard objectives add rallous.claimed dummy
 scoreboard objectives add rallous.diplo dummy
+scoreboard objectives add rallous.fac.stance dummy
 
 scoreboard players set #ally rallous.stance 1
 scoreboard players set #hostile rallous.stance 2
