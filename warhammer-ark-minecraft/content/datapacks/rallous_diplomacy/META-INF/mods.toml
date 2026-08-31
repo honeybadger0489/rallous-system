@@ -1,0 +1,10 @@
+modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="rallous_diplomacy"
+version="1.0.0"
+displayName="Rallous Diplomacy"
+authors="Rallous System"
+description='''First-contact path verbs persist ally/hostile/joined/neutral on the nearest camp marker. No new mods.'''
