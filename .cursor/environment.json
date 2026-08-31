@@ -1,0 +1,11 @@
+{
+  "name": "Rallous System (HTML title)",
+  "install": "npm install",
+  "terminals": [
+    {
+      "name": "web",
+      "command": "npm run dev"
+    }
+  ],
+  "ports": [8080]
+}
