@@ -154,7 +154,7 @@ Author **Knightmare_Broke** (Forge 1.20.1 addon family). Use as **quality** on R
 | Recruits- Horns of War Addon | Horn = army-wide order (soldier fantasy) | https://modrinth.com/mod/recruits-horns-of-war-addon |
 | Raise your banner! Recruits addon | Pack a group into a **placeable banner** to cut entity lag — required for “continent-scale” impression | https://modrinth.com/mod/raise-your-banner-recruits-addon |
 | Recruits QoL Fix | Commands, map helpers, mount/claim fixes | https://modrinth.com/user/Knightmare_Broke |
-| RTS Map Command Recruits | Map click-to-move for groups. **Optional.** Useful for captains; keep default UX first-person (no MOBA language in player-facing text) | https://modrinth.com/user/Knightmare_Broke |
+| RTS Map Command Recruits | Map click-to-move for groups. **Optional.** Useful for captains; keep default UX first-person | https://modrinth.com/user/Knightmare_Broke |
 
 All rows: Modrinth / author page — **2026-08-31**.
 
@@ -235,7 +235,7 @@ All rows: Modrinth / author page — **2026-08-31**.
 | **Medieval Factions** (Spigot/Paper) | Alliances, wars, **vassalage**, swear fealty — closest *plugin* to Civ | **Server plugin**, not Forge. Ignore unless a future hybrid server. https://www.spigotmc.org/resources/medieval-factions.79941/ — 2026-08-31 |
 | **Millenaire rewrite** (GitHub WangMioG) | Classic culture-villages on 1.20.1 Forge | **Dev rewrite**, not a trusted CurseForge/Modrinth release pin. https://github.com/WangMioG/Millenaire-rewrite — 2026-08-31 |
 | **Ancient Warfare 2 nations** | 45 NPC nations, lords in structures | Legacy 1.12-era content; AW3 NPCs not on 1.20.1 |
-| **RTS Map Command Recruits** | Map army UI | Allowed as *optional captain camera*; **never** describe it as lanes/matches |
+| **RTS Map Command Recruits** | Map army UI | Allowed as *optional captain camera*; default play stays first-person in the host |
 
 ---
 

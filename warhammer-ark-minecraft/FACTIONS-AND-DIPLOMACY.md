@@ -2,7 +2,7 @@
 
 Additive design for **Rallous Frontier**. This is not a pack list and not a rewrite of campaign acts. Pair with `CAMPAIGN.md` (provinces, five acts, win keys) and `FACTION-MODS.md` (live mod research).
 
-**Locked runtime:** Minecraft **1.20.1 Forge 47.4.x** (`pack/pack.toml`). In-world names are **original analogues**. Games Workshop / Creative Assembly names appear only as designer tone-refs in parentheses. **No MOBA framing.** The player is a body on a road, not a general on a map.
+**Locked runtime:** Minecraft **1.20.1 Forge 47.4.x** (`pack/pack.toml`). In-world names are **original analogues**. Games Workshop / Creative Assembly names appear only as designer tone-refs in parentheses. The player is a body on a road, not a general on a map.
 
 ---
 
@@ -242,7 +242,7 @@ Minecraft will melt if every war is 400 loaded NPCs. Design for **impression**:
 3. **Road theater:** small patrols (6–12) constantly. They imply the host.
 4. **Pack-and-place banners** for armies the player owns so the world can breathe.
 
-This is New World territory war + ARK tribe raid energy, not a MOBA round.
+This is New World territory war + ARK tribe raid energy.
 
 ### 4.3 Occupied town checklist (designers)
 
@@ -259,7 +259,7 @@ When a capital changes hands, all of this should update:
 
 ## 5. Player paths: conscript → champion → lord’s agent → warband leader
 
-Ranks are **diegetic**. They are titles other NPCs use, plus a few flags. They are not a MOBA role select.
+Ranks are **diegetic**. They are titles other NPCs use, plus a few flags. They are not a class-select screen.
 
 ### 5.1 Conscript
 
