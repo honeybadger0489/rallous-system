@@ -3,7 +3,7 @@
 	default_hide_dependency_lines: false
 	default_quest_shape: "rsquare"
 	filename: "temple_and_herd"
-	group: "0A040000"
+	group: "0A030000"
 	icon: "minecraft:lime_banner"
 	id: "0C020700"
 	images: [ ]

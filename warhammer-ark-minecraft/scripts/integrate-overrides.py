@@ -98,15 +98,18 @@ def jar_datapack(src: Path) -> int:
 
 
 def merge_datapack(src: Path) -> int:
-    """Ship sibling datapacks as their own LowCodeFML jars (no Open Loader).
+    """Ship sibling datapacks as LowCodeFML jars plus inspectable override folders.
 
     Do not copy their data/ into rallous_old_world — that double-fires tick tags.
+    Folders under overrides/datapacks do not auto-load without Open Loader.
     """
     if src.name == "rallous_old_world":
         return 0
-    if (src / "data").is_dir() or (src / "pack.mcmeta").exists():
-        return jar_datapack(src)
-    return 0
+    if not ((src / "data").is_dir() or (src / "pack.mcmeta").exists()):
+        return 0
+    n = jar_datapack(src)
+    n += copy_tree(src, OV / "datapacks" / src.name)
+    return n
 
 
 def ingest_siblings() -> dict[str, int]:
@@ -144,6 +147,32 @@ def ingest_siblings() -> dict[str, int]:
                     dest.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copy2(pack, dest)
                     counts["resourcepacks"] += 1
+    counts["quests"] += ingest_ftb_chapters()
+    for src in find_dirs("pack-src/config"):
+        counts["config"] += copy_tree(src, OV / "config")
+    print("ingested", counts)
+    return counts
+
+
+COURT_CHAPTERS = (
+    "reikland",
+    "border_princes",
+    "sylvania",
+    "worlds_edge",
+    "kislev",
+    "chaos_wastes",
+    "first_contact",
+)
+
+SIBLING_CHAPTERS = ("temple_and_herd",)
+
+
+def ingest_ftb_chapters() -> int:
+    """Copy FTB from pack-src / content. Never restore court chapters."""
+    n = 0
+    dest = OV / "config" / "ftbquests" / "quests"
+    dest.mkdir(parents=True, exist_ok=True)
+    (dest / "chapters").mkdir(parents=True, exist_ok=True)
     for rel in (
         "pack-src/quests",
         "pack-src/overrides/config/ftbquests/quests",
@@ -151,25 +180,48 @@ def ingest_siblings() -> dict[str, int]:
     ):
         for src in find_dirs(rel):
             chapters = src / "chapters" if (src / "chapters").is_dir() else src
-            if chapters.name == "chapters" or any(chapters.glob("*.snbt")):
-                dest = OV / "config" / "ftbquests" / "quests"
-                if chapters.name == "chapters":
-                    counts["quests"] += copy_tree(chapters, dest / "chapters")
-                    if (src / "chapter_groups.snbt").exists():
-                        shutil.copy2(src / "chapter_groups.snbt", dest / "chapter_groups.snbt")
-                        counts["quests"] += 1
-                else:
-                    for snbt in chapters.glob("*.snbt"):
-                        if snbt.name.startswith("chapter_groups"):
-                            continue
-                        target = dest / "chapters" / snbt.name
-                        target.parent.mkdir(parents=True, exist_ok=True)
-                        shutil.copy2(snbt, target)
-                        counts["quests"] += 1
-    for src in find_dirs("pack-src/config"):
-        counts["config"] += copy_tree(src, OV / "config")
-    print("ingested", counts)
-    return counts
+            if chapters.name == "chapters":
+                for snbt in chapters.glob("*.snbt"):
+                    if snbt.stem in COURT_CHAPTERS:
+                        continue
+                    target = dest / "chapters" / snbt.name
+                    shutil.copy2(snbt, target)
+                    n += 1
+                if (src / "chapter_groups.snbt").exists():
+                    shutil.copy2(src / "chapter_groups.snbt", dest / "chapter_groups.snbt")
+                    n += 1
+                if (src / "data.snbt").exists():
+                    shutil.copy2(src / "data.snbt", dest / "data.snbt")
+                    n += 1
+            else:
+                for snbt in chapters.glob("*.snbt"):
+                    if snbt.name.startswith("chapter_groups") or snbt.stem in COURT_CHAPTERS:
+                        continue
+                    target = dest / "chapters" / snbt.name
+                    shutil.copy2(snbt, target)
+                    n += 1
+    for old in COURT_CHAPTERS:
+        p = dest / "chapters" / f"{old}.snbt"
+        if p.exists():
+            p.unlink()
+    return n
+
+
+def restore_sibling_ftb() -> None:
+    """author_contact rewrites the Warp-Crash book; keep sibling chapters."""
+    dest = OV / "config" / "ftbquests" / "quests" / "chapters"
+    dest.mkdir(parents=True, exist_ok=True)
+    for name in SIBLING_CHAPTERS:
+        for rel in (
+            f"content/ftbquests/chapters/{name}.snbt",
+            f"pack-src/quests/chapters/{name}.snbt",
+        ):
+            for base in search_roots():
+                src = base / rel
+                if src.is_file():
+                    shutil.copy2(src, dest / f"{name}.snbt")
+                    print(f"restored sibling FTB {name} from {src}")
+                    break
 
 
 def validate_json() -> int:
@@ -200,7 +252,83 @@ def assert_no_court_on_join() -> None:
     wt = welcome.read_text() if welcome.exists() else ""
     if "summon_lords" in wt or "ensure_court" in wt or "function rallous_old_world:summon" in wt:
         raise SystemExit("welcome still advertises the court")
+    live = OV / "config" / "ftbquests" / "quests" / "chapters"
+    for old in COURT_CHAPTERS:
+        if (live / f"{old}.snbt").exists():
+            raise SystemExit(f"court chapter still in overrides: {old}")
+    wc_join = OV / "datapacks" / "rallous_warp_crash" / "data" / "rallous_warp_crash" / "functions" / "first_join.mcfunction"
+    if wc_join.exists():
+        wct = wc_join.read_text()
+        for bad in ("ensure_court", "summon_lords", "place_court"):
+            if bad in wct:
+                raise SystemExit(f"warp_crash first_join still calls {bad}")
     print("first-join court stripped")
+
+
+REQUIRED_JARS = (
+    "rallous-old-world-1.0.0.jar",
+    "rallous_contact-1.0.0.jar",
+    "rallous_roaming-1.0.0.jar",
+    "rallous_temple_herd-1.0.0.jar",
+    "rallous_warp_crash-1.0.0.jar",
+)
+
+REQUIRED_FTB = (
+    "crash.snbt",
+    "paths.snbt",
+    "first_hour.snbt",
+    "winds.snbt",
+    "host.snbt",
+    "smoke_test.snbt",
+    "temple_and_herd.snbt",
+)
+
+
+def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> None:
+    if not zip_path.exists():
+        raise SystemExit(f"missing zip {zip_path}")
+    with zipfile.ZipFile(zip_path) as zf:
+        names = set(zf.namelist())
+        manifest = json.loads(zf.read("manifest.json"))
+        if manifest.get("version") != zip_path.stem.rsplit("-", 1)[-1]:
+            raise SystemExit(f"zip manifest version {manifest.get('version')} != {zip_path.name}")
+        loaders = manifest.get("minecraft", {}).get("modLoaders", [])
+        if loaders != [{"id": "forge-47.4.10", "primary": True}]:
+            raise SystemExit(f"zip loaders {loaders}")
+        got = {(f["projectID"], f["fileID"]) for f in manifest.get("files") or []}
+        if file_ids_021 and got != file_ids_021:
+            raise SystemExit(f"fileIDs drifted from 0.2.1: +{got-file_ids_021} -{file_ids_021-got}")
+        for jar in REQUIRED_JARS:
+            if f"overrides/mods/{jar}" not in names:
+                raise SystemExit(f"zip missing jar {jar}")
+        for ch in REQUIRED_FTB:
+            if f"overrides/config/ftbquests/quests/chapters/{ch}" not in names:
+                raise SystemExit(f"zip missing FTB {ch}")
+        for old in COURT_CHAPTERS:
+            if f"overrides/config/ftbquests/quests/chapters/{old}.snbt" in names:
+                raise SystemExit(f"zip still has court chapter {old}")
+        for pack in ("rallous_warp_crash", "rallous_roaming", "rallous_temple_herd", "rallous_contact"):
+            if f"overrides/datapacks/{pack}/pack.mcmeta" not in names:
+                raise SystemExit(f"zip missing datapack folder {pack}")
+        if "overrides/content/factions/races/empire.json" not in names:
+            raise SystemExit("zip missing faction JSON")
+        if "overrides/resourcepacks/Rallous Continuity/pack.mcmeta" not in names:
+            raise SystemExit("zip missing Rallous Continuity resource pack")
+        if any("Continuity" in n and n.endswith(".jar") for n in names):
+            raise SystemExit("zip contains Continuity jar")
+        from io import BytesIO
+
+        ow = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous-old-world-1.0.0.jar")))
+        fj = ow.read("data/rallous_old_world/functions/first_join.mcfunction").decode()
+        for bad in ("ensure_court", "summon_lords", "place_court"):
+            if bad in fj:
+                raise SystemExit(f"old_world jar first_join calls {bad}")
+        wc = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous_warp_crash-1.0.0.jar")))
+        wj = wc.read("data/rallous_warp_crash/functions/first_join.mcfunction").decode()
+        for bad in ("ensure_court", "summon_lords", "place_court"):
+            if bad in wj:
+                raise SystemExit(f"warp_crash jar first_join calls {bad}")
+    print("zip payload ok", zip_path.name)
 
 
 def assert_no_fabric_files(manifest: dict) -> None:
@@ -216,19 +344,35 @@ def assert_no_fabric_files(manifest: dict) -> None:
     print("manifest Forge-only", loaders)
 
 
+def file_ids_from_021() -> set[tuple[int, int]]:
+    z021 = DIST / "rallous-warhammer-fantasy-0.2.1.zip"
+    if not z021.exists():
+        return set()
+    with zipfile.ZipFile(z021) as zf:
+        manifest = json.loads(zf.read("manifest.json"))
+    return {(f["projectID"], f["fileID"]) for f in manifest.get("files") or []}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.0")
+    parser.add_argument("--version", default="0.3.2")
     parser.add_argument("--skip-author", action="store_true", help="Do not rewrite crash functions")
     args = parser.parse_args()
 
     ingested = ingest_siblings()
     if not args.skip_author:
         apply_warp_crash()
+    restore_sibling_ftb()
     strip_court_hooks()
     rebuild_jar()
+    ingest_siblings()
+    restore_sibling_ftb()
     assert_no_court_on_join()
     validate_json()
+
+    play = ROOT / "PLAY.md"
+    if play.exists():
+        (OV / "PLAY.md").write_text(play.read_text())
 
     script = Path(__file__).with_name("pack-zip.py")
     import subprocess
@@ -237,10 +381,12 @@ def main() -> None:
 
     manifest = json.loads((PACK / "curseforge" / "manifest.json").read_text())
     assert_no_fabric_files(manifest)
+    zip_path = DIST / f"rallous-warhammer-fantasy-{args.version}.zip"
+    assert_zip_payload(zip_path, file_ids_from_021())
     nfiles = len(manifest.get("files") or [])
     print(f"CF files pinned: {nfiles} version={manifest.get('version')}")
     print("sibling ingest", ingested)
-    print("zip", DIST / f"rallous-warhammer-fantasy-{args.version}.zip")
+    print("zip", zip_path)
 
 
 if __name__ == "__main__":

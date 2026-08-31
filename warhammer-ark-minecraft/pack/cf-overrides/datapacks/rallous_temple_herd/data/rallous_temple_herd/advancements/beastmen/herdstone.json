@@ -1,0 +1,45 @@
+{
+  "parent": "rallous_temple_herd:beastmen/horned_woods",
+  "display": {
+    "icon": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "title": {
+      "translate": "advancements.rallous_temple_herd.beastmen.herdstone.title"
+    },
+    "description": {
+      "translate": "advancements.rallous_temple_herd.beastmen.herdstone.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "near_stand": {
+      "trigger": "minecraft:impossible"
+    },
+    "in_structure": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "rallous_temple_herd:herdstone"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "near_stand",
+      "in_structure"
+    ]
+  ]
+}

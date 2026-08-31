@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "rallous_old_world:tick",
+    "rallous_warp_crash:tick"
+  ]
+}
