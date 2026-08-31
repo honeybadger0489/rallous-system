@@ -21,11 +21,11 @@ ROOT = Path(__file__).resolve().parents[1]
 PACK = ROOT / "pack"
 DIST = ROOT / "dist"
 OVERRIDES_SRC = PACK / "cf-overrides"
-UA = "RallousWarhammerFantasy/0.2.1 (github.com/honeybadger0489/rallous-system; private pack pin)"
+UA = "RallousWarhammerFantasy/0.2.2 (github.com/honeybadger0489/rallous-system; private pack pin)"
 MC = "1.20.1"
 FORGE = "47.4.10"
 PACK_NAME = "Rallous Warhammer Fantasy"
-PACK_VERSION = "0.2.1"
+PACK_VERSION = "0.2.2"
 AUTHOR = "Rallous System"
 
 # Directed Old-World pack. Kitchen-sink (Create, TaCZ, Macaw's, Alex's Caves,
@@ -521,6 +521,14 @@ def build_zip(resolved: list[dict], bundles: list[dict]) -> Path:
 
 
 def main() -> None:
+    import subprocess
+    import sys
+
+    if "--pack-only" in sys.argv:
+        # Do not re-resolve CurseForge fileIDs. Rebuild zip from the existing
+        # manifest + current overrides (content/glue updates).
+        script = Path(__file__).with_name("pack-zip.py")
+        raise SystemExit(subprocess.call([sys.executable, str(script), "--version", PACK_VERSION]))
     resolved = resolve_all()
     bundles = bundle_modrinth()
     validate_ids(resolved)

@@ -1,0 +1,60 @@
+# Rallous Old World — Recruits as provincial war, not a toy army.
+# Server configs copy into a new world's serverconfig/ on first create.
+
+[Recruits]
+	MaxRecruitsForPlayer = 48
+	RecruitCurrency = "minecraft:emerald"
+	RecruitCost = 6
+	BowmanCost = 8
+	CrossbowmanCost = 10
+	ShieldmanCost = 12
+	HorsemanCost = 22
+	NomadCost = 20
+	RecruitsPayment = true
+	RecruitsPaymentInterval = 20
+	RecruitsPaymentAmount = 1
+	RecruitsStarving = false
+	RecruitsUpdateHungerAndMorale = true
+	RecruitHorseUnitsHorse = true
+	ShouldRecruitPatrolsSpawn = true
+	RecruitPatrolsSpawnChance = 18.0
+
+[Villages]
+	OverrideIronGolemSpawn = true
+	MaxSpawnRecruitsInVillage = 2
+	NobleVillagerSpawns = true
+
+[Equipments]
+	RecruitStartEquipments = [["minecraft:iron_sword", "", "", "", "sonsoftheempire:altdorfswordsman_armor_chestplate", "sonsoftheempire:altdorfswordsman_armor_helmet"], ["minecraft:stone_sword", "", "", "", "sonsoftheempire:swordsman_armor_chestplate", "sonsoftheempire:swordsman_armor_helmet"]]
+	ShieldmanStartEquipments = [["minecraft:iron_sword", "minecraft:shield", "", "sonsoftheempire:altdorfswordsman_armor_leggings", "sonsoftheempire:altdorfswordsman_armor_chestplate", "sonsoftheempire:altdorfswordsman_armor_helmet"]]
+	BowmanStartEquipments = [["minecraft:bow", "", "", "", "sonsoftheempire:hochlandarmor_chestplate", "sonsoftheempire:archer_armor_helmet"]]
+	HorsemanStartEquipments = [["minecraft:iron_sword", "minecraft:shield", "sonsoftheempire:empireknight_armor_boots", "sonsoftheempire:empireknight_armor_leggings", "sonsoftheempire:empireknight_armor_chestplate", "sonsoftheempire:empireknight_armor_helmet"]]
+	NomadStartEquipments = [["minecraft:bow", "", "sonsoftheempire:armoredkossar_armor_boots", "", "sonsoftheempire:armoredkossar_armor_chestplate", "sonsoftheempire:armoredkossar_armor_helmet"]]
+
+[Patrols]
+	ShouldRecruitPatrolsSpawn = true
+	RecruitPatrolsSpawnChance = 18.0
+	RecruitPatrolSpawnInterval = 25
+
+[Factions]
+	FactionCreationCost = 16
+	MaxPlayersInFaction = 8
+	MaxNPCsInFaction = 200
+	ShouldFactionEditingBeAllowed = true
+	ShouldFactionManagingBeAllowed = true
+
+	["Global Faction/Team Settings"]
+		GlobalTeamSetting = true
+		GlobalTeamFriendlyFireSetting = false
+		GlobalTeamSeeFriendlyInvisibleSetting = true
+
+[Claiming]
+	AllowClaiming = true
+	ClaimingCost = 48
+	ChunkCost = 12
+	MaxClaimChunks = 80
+	CascadeThePriceOfClaims = false
+	SiegeRequiresOwnerOnline = false
+	SiegeClaimsRecruitsAmount = 8
+	SiegeClaimsConquerTime = 8
+	FogOfWarEnabled = true

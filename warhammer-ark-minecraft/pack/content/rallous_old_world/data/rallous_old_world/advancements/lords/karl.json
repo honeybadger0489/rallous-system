@@ -1,0 +1,38 @@
+{
+  "parent": "rallous_old_world:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:written_book"
+    },
+    "title": {
+      "text": "Karl Franz"
+    },
+    "description": {
+      "text": "The Empire — Reikland. Raise a state-troop host. Recruits are your State Troops; the Faction screen is the Electors."
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "letter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{title:\"Letter from the Emperor\"}"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 25,
+    "recipes": [
+      "rallous_old_world:commission_reikland_chestplate",
+      "rallous_old_world:commission_reikland_helmet",
+      "rallous_old_world:commission_empire_knight_chestplate"
+    ]
+  }
+}

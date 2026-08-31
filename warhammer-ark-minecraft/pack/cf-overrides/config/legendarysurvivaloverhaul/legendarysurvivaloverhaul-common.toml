@@ -1,6 +1,5 @@
-# Rallous Warhammer Fantasy — survival on the ground.
-# Temperature + thirst stay on. Health-overhaul extra hearts stay off so the
-# first hour is "you can die of exposure" not "learn a second HP system".
+# Rallous Old World — grim, not sadistic.
+# Exposure and thirst matter. You get a short march to the first town.
 
 [core]
 	"Temperature Enabled" = true
@@ -24,7 +23,7 @@
 	[temperature.temperature-immunity]
 		"Temperature Immunity On Death Enabled" = true
 		"Temperature Immunity On First Spawn Enabled" = true
-		"Temperature Immunity On First Spawn Time" = 2400
+		"Temperature Immunity On First Spawn Time" = 6000
 
 [thirst]
 	"Dangerous Dehydration" = true

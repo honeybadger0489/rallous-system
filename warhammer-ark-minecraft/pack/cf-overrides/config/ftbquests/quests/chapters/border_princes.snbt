@@ -1,0 +1,193 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "border_princes"
+	group: "0A010000"
+	icon: "minecraft:lime_banner"
+	id: "0C020200"
+	images: [ ]
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "minecraft:map"
+			id: "0C030022"
+			rewards: [
+				{
+					id: "0C030029"
+					type: "xp"
+					xp: 20
+				}
+			]
+			tasks: [
+				{
+					id: "0C03002A"
+					title: "Left Reikland for the princedoms"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"The Border Princes have no Emperor. Hills, burned villages, rival banners. Arrive hungry. Sell your sword."
+				""
+				"Optional biome check: savanna / badlands / desert reads as the princedoms. You may also just ride south of your Reikland claim."
+			]
+			title: "South of the Pass"
+			x: -3d
+			y: 0d
+		},
+		{
+			dependencies: ["0C030022"]
+			icon: "minecraft:iron_axe"
+			id: "0C030023"
+			rewards: [
+				{
+					id: "0C03002B"
+					type: "xp"
+					xp: 30
+				}
+			]
+			tasks: [
+				{
+					id: "0C03002C"
+					title: "Took the challenge"
+					type: "advancement"
+					advancement: "rallous_old_world:lords/grimgor"
+				}
+			]
+			description: [
+				"Trade with Grimgor for Grimgor's Challenge. He will teach you what a Waaagh is (Recruits on Raid, green banner) and that tribute is just paying a bigger boss."
+			]
+			title: "Audience: Grimgor Ironhide"
+			x: -1d
+			y: 1d
+		},
+		{
+			dependencies: ["0C030022"]
+			icon: "minecraft:iron_sword"
+			id: "0C030024"
+			rewards: [
+				{
+					id: "0C03002D"
+					type: "xp"
+					xp: 25
+				}
+			]
+			tasks: [
+				{
+					id: "0C03002E"
+					title: "A company that is not Reikland's"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Hire more troops or take a rival's. This is a free company, not a state levy. Name the Faction after a princedom, not an Elector, if you want to stay honest."
+			]
+			title: "Sell Your Sword"
+			x: -1d
+			y: -1d
+		},
+		{
+			dependencies: ["0C030023", "0C030024"]
+			icon: "minecraft:skeleton_skull"
+			id: "0C030025"
+			rewards: [
+				{
+					id: "0C03002F"
+					type: "xp"
+					xp: 50
+				}
+			]
+			tasks: [
+				{
+					id: "0C030030"
+					title: "Won a field fight"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Host versus host, or host versus a town watch / pillager camp / dungeon that is not two zombies. Combat mode. This is the Total War army beat in first person."
+			]
+			title: "Field Battle"
+			x: 1d
+			y: 1d
+		},
+		{
+			dependencies: ["0C030025"]
+			icon: "minecraft:white_banner"
+			id: "0C030026"
+			rewards: [
+				{
+					id: "0C030031"
+					type: "xp"
+					xp: 80
+				}
+			]
+			tasks: [
+				{
+					id: "0C030032"
+					title: "A princedom changed hands"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Claim (Recruits) or OPAC party land, or a siege / artillery hit on a keep you do not own. Crown a puppet (Vassal), keep it, or burn it. Any choice completes."
+			]
+			title: "Take a Princedom"
+			x: 3d
+			y: 0d
+		},
+		{
+			dependencies: ["0C030023"]
+			icon: "minecraft:lime_banner"
+			id: "0C030027"
+			rewards: [
+				{
+					id: "0C030033"
+					type: "xp"
+					xp: 30
+				}
+			]
+			tasks: [
+				{
+					id: "0C030034"
+					title: "War or tribute happened"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Side: set a Faction to Enemy and mean it (Waaagh), or dump emeralds / open Vassal as tribute so a stronger banner looks away. Tick when the UI did that verb."
+			]
+			title: "Waaagh or Tribute"
+			x: 1d
+			y: -1d
+		},
+		{
+			dependencies: ["0C030022"]
+			icon: "sonsoftheempire:grailknight_armor_helmet"
+			id: "0C030028"
+			rewards: [
+				{
+					id: "0C030035"
+					type: "xp"
+					xp: 25
+				}
+			]
+			tasks: [
+				{
+					id: "0C030036"
+					title: "Grail plate"
+					type: "item"
+					item: "sonsoftheempire:grailknight_armor_chestplate"
+				}
+			]
+			description: [
+				"Side: Bretonnia is west of this mess. Commission a grail chestplate (iron chestplate + blue banner + book) or wear any Bretonnian kit. You do not have to take a vow."
+			]
+			title: "A Knight Errant"
+			x: -1d
+			y: 3d
+		}
+	]
+	title: "II. Border Princes"
+}

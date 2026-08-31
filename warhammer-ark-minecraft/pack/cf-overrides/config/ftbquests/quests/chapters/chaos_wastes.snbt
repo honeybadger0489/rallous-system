@@ -1,0 +1,167 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "chaos_wastes"
+	group: "0A010000"
+	icon: "minecraft:netherite_helmet"
+	id: "0C020600"
+	images: [ ]
+	order_index: 5
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "minecraft:crying_obsidian"
+			id: "0C030070"
+			rewards: [
+				{
+					id: "0C030076"
+					type: "xp"
+					xp: 25
+				}
+			]
+			tasks: [
+				{
+					id: "0C030077"
+					title: "Entered the Wastes"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Frozen peaks, ice spikes, windswept extremes, nights that do not care about your banner. There is no town. Only warbands and the Wound."
+			]
+			title: "North of Kislev"
+			x: -3d
+			y: 0d
+		},
+		{
+			dependencies: ["0C030070"]
+			icon: "minecraft:netherite_sword"
+			id: "0C030071"
+			rewards: [
+				{
+					id: "0C030078"
+					type: "xp"
+					xp: 40
+				}
+			]
+			tasks: [
+				{
+					id: "0C030079"
+					title: "Read the terms"
+					type: "advancement"
+					advancement: "rallous_old_world:lords/archaon"
+				}
+			]
+			description: [
+				"Trade for The Everchosen's Terms. Kneel or war. Tribute is not coin."
+			]
+			title: "Audience: Archaon"
+			x: -1d
+			y: 0d
+		},
+		{
+			dependencies: ["0C030071"]
+			icon: "minecraft:nether_star"
+			id: "0C030072"
+			rewards: [
+				{
+					id: "0C03007A"
+					type: "xp"
+					xp: 60
+				}
+			]
+			tasks: [
+				{
+					id: "0C03007B"
+					title: "Three trials done"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Complete three: a warbeast, a siege or claim fight, a relic from a dungeon, a duel in combat mode, or a standing flip on the Faction screen. Tick when any three are true."
+			]
+			title: "Three Trials"
+			x: 1d
+			y: 1d
+		},
+		{
+			dependencies: ["0C030072"]
+			icon: "minecraft:tnt"
+			id: "0C030073"
+			rewards: [
+				{
+					id: "0C03007C"
+					type: "xp"
+					xp: 100
+				}
+			]
+			tasks: [
+				{
+					id: "0C03007D"
+					title: "Fought the last place"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Siege a northern fortress or defend the last Kislev gate with the host. You may walk away and come back. This is not a credits roll."
+			]
+			title: "The Last Battle"
+			x: 3d
+			y: 0d
+		},
+		{
+			dependencies: ["0C030073"]
+			icon: "minecraft:filled_map"
+			id: "0C030074"
+			rewards: [
+				{
+					id: "0C03007E"
+					type: "xp"
+					xp: 150
+				}
+			]
+			shape: "hexagon"
+			size: 1.5d
+			tasks: [
+				{
+					id: "0C03007F"
+					title: "The campaign is a map, not a door"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Epilogue: your warband is a Faction with land (OPAC / Recruits claim) and a host. Side chapters in Reikland through Kislev stay open. The Wound remains."
+			]
+			title: "A Power on the Map"
+			x: 5d
+			y: 0d
+		},
+		{
+			dependencies: ["0C030071"]
+			icon: "minecraft:purple_banner"
+			id: "0C030075"
+			rewards: [
+				{
+					id: "0C030080"
+					type: "xp"
+					xp: 40
+				}
+			]
+			tasks: [
+				{
+					id: "0C030081"
+					title: "The howling powers named you"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Side / ending: Ally a Chaos banner; set Reikland / Kislev to Enemy. The map does not close. Heartland towns become the other war. Tick only if you meant it."
+			]
+			title: "Kneel"
+			x: 1d
+			y: -1d
+		}
+	]
+	title: "VI. Chaos Wastes"
+}

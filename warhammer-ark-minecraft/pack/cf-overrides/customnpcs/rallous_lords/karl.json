@@ -1,0 +1,17 @@
+{
+  "id": "karl",
+  "name": "Karl Franz",
+  "title": "Prince of Altdorf, Emperor",
+  "faction": "The Empire — Reikland",
+  "job": "Raise a state-troop host. Recruits are your State Troops; the Faction screen is the Electors.",
+  "diplomacy": "Create a Faction named Reikland. Ally other Elector banners. Vassal the Border Princes (Vassal & Suzerains) or take the field yourself.",
+  "book_title": "Letter from the Emperor",
+  "pages": [
+    "Soldier. I am Karl Franz, Prince of Altdorf and Emperor. You are not a general on a campaign map. You are a body on the Reikland road: thirsty, armed, and small.",
+    "The Empire is Elector Counts, state troops, and Sigmar's fire. Recruits are those troops. Open the command screen. Hire. Form a host. The Faction screen is how Electors name their banners.",
+    "Your job: raise a company, claim a stretch of the Reik, and keep grain moving. Wear Reikland plate when you have earned it.",
+    "Diplomacy: ally fellow Electors. Set Enemy on anything that burns the coach roads. If a Border Prince will kneel, open Vassal & Suzerains and take tribute. If he will not, it is war."
+  ],
+  "spawn": "datapack function rallous_old_world:summon_lords on first join (named villager + armored stand). Not a hand-placed CNPC clone.",
+  "skin": "Steve-like villager body + Sons of the Empire / vanilla armor on the stand. No pirated GW meshes."
+}

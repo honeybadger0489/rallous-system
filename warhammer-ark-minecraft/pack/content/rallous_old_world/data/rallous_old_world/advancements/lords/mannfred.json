@@ -1,0 +1,34 @@
+{
+  "parent": "rallous_old_world:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:written_book"
+    },
+    "title": {
+      "text": "Mannfred von Carstein"
+    },
+    "description": {
+      "text": "Vampire Counts — Sylvania. Night is the province. Iron's blood school is the court magic. Crypts are the tax."
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "letter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{title:\"Von Carstein Invitation\"}"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 25,
+    "recipes": []
+  }
+}

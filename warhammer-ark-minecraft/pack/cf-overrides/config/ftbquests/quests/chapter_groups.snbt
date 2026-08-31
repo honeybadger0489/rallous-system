@@ -4,5 +4,9 @@
 			id: "0A010000"
 			title: "The Old World"
 		}
+		{
+			id: "0A020000"
+			title: "Boot Smoke Test"
+		}
 	]
 }

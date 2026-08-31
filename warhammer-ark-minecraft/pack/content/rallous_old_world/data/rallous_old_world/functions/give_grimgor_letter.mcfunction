@@ -1,0 +1,3 @@
+give @s minecraft:written_book{title:"Grimgor's Challenge",author:"Grimgor Ironhide",pages:['{"text": "I’z Grimgor. Da greatest. You’z umie. Talk is fer gits that ain’t fightin’."}','{"text": "Greenskins don’t vote. We WAAAGH. Your Recruits on Raid, green banner, that’s a Waaagh. Hire boyz. Point ’em at a town. That’s the Border Princes."}','{"text": "Job: find me a scrap worth havin’. Field battle. Not two zombies. A host versus a host."}','{"text": "Diplomacy: Ally? Only if you’z bigger. Enemy is honest. Tribute is you dumpin’ emeralds so I don’t krump your camp. Open the Faction screen and pick. Don’t waste my time."}']} 1
+scoreboard players add @s rallous.waaagh 1
+advancement grant @s only rallous_old_world:lords/grimgor

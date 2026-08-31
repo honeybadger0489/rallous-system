@@ -1,0 +1,17 @@
+{
+  "id": "archaon",
+  "name": "Archaon the Everchosen",
+  "title": "Lord of the End Times",
+  "faction": "Warriors of Chaos — Chaos Wastes",
+  "job": "Three trials. Then a last battle you can walk away from and return to.",
+  "diplomacy": "Kneel (Ally the howling powers; Heartland turns Enemy) or war. Tribute is a soul, not coin.",
+  "book_title": "The Everchosen's Terms",
+  "pages": [
+    "I am Archaon. The Chaos Wastes are not a dungeon level. They are the north after Kislev stops pretending the world has a wall.",
+    "Fire and death are honest schools. Holy is the Empire's lie. Ice is Kislev delaying me. Come with a host or do not come.",
+    "Job: three trials — a beast, a siege, a relic. Then a fortress. You may leave. The Wound remains. That is a campaign, not a credits roll.",
+    "Diplomacy: kneel and the Electors become Enemy. War and I will be here when you have the stomach. Tribute is not emeralds. Open the Faction screen and mean it."
+  ],
+  "spawn": "datapack function rallous_old_world:summon_lords on first join (named villager + armored stand). Not a hand-placed CNPC clone.",
+  "skin": "Steve-like villager body + Sons of the Empire / vanilla armor on the stand. No pirated GW meshes."
+}

@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:iron_sword"
+    },
+    "title": {
+      "text": "The Old World",
+      "color": "gold"
+    },
+    "description": {
+      "text": "A soldier on the ground. Not a campaign-map general."
+    },
+    "background": "minecraft:textures/block/packed_mud.png",
+    "frame": "challenge",
+    "announce_to_chat": true,
+    "show_toast": true
+  },
+  "criteria": {
+    "joined": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "requirements": [
+    [
+      "joined"
+    ]
+  ]
+}

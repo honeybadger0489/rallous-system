@@ -1,0 +1,33 @@
+{
+  "parent": "rallous_old_world:root",
+  "display": {
+    "icon": {
+      "item": "sonsoftheempire:gryphonlegion_armor_helmet"
+    },
+    "title": {
+      "text": "Kislev"
+    },
+    "description": {
+      "text": "The oblast. Ice. The last gate."
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "there": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "minecraft:snowy_plains"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

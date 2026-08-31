@@ -1,0 +1,17 @@
+{
+  "id": "katarin",
+  "name": "Katarin Bokha",
+  "title": "Tzarina, Ice Queen of Kislev",
+  "faction": "Kislev — the Oblast",
+  "job": "Survive the cold. Ice Court magic. Keep the gate so the Wastes stay north.",
+  "diplomacy": "Northern alliance against Chaos. Tribute is grain, fur, and bodies on the line.",
+  "book_title": "Edict of the Ice Court",
+  "pages": [
+    "I am Katarin, Tzarina of Kislev. The oblast is not scenery. Winter kills you here. Drink. Wear fur. Legendary Survival is not a HUD toy.",
+    "The Ice Court is battle magic: Iron's ice school. Winged lancers and kossars are Recruits you keep paid and pointed north.",
+    "Job: reach the taiga and the snow. Live. Then hold a gate. If a convoy dies, Kislev still stands — you just paid in standing.",
+    "Diplomacy: Ally the Empire if they send grain. Enemy the Wastes. Vassal is a southern word; we take tribute as land and blood owed. Open Recruits and OPAC. Name your warband after an oblast stanitsa."
+  ],
+  "spawn": "datapack function rallous_old_world:summon_lords on first join (named villager + armored stand). Not a hand-placed CNPC clone.",
+  "skin": "Steve-like villager body + Sons of the Empire / vanilla armor on the stand. No pirated GW meshes."
+}

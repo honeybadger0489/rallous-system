@@ -1,0 +1,17 @@
+{
+  "id": "grimgor",
+  "name": "Grimgor Ironhide",
+  "title": "Once-Gitsnik, Da Greatest",
+  "faction": "Greenskins — Waaagh!",
+  "job": "Smash. Take heads. A Waaagh is Recruits on Aggressive/Raid with a green banner.",
+  "diplomacy": "War is the default. Tribute is you paying him to look the other way — or him paying you if you are the bigger boss.",
+  "book_title": "Grimgor's Challenge",
+  "pages": [
+    "I'z Grimgor. Da greatest. You'z umie. Talk is fer gits that ain't fightin'.",
+    "Greenskins don't vote. We WAAAGH. Your Recruits on Raid, green banner, that's a Waaagh. Hire boyz. Point 'em at a town. That's the Border Princes.",
+    "Job: find me a scrap worth havin'. Field battle. Not two zombies. A host versus a host.",
+    "Diplomacy: Ally? Only if you'z bigger. Enemy is honest. Tribute is you dumpin' emeralds so I don't krump your camp. Open the Faction screen and pick. Don't waste my time."
+  ],
+  "spawn": "datapack function rallous_old_world:summon_lords on first join (named villager + armored stand). Not a hand-placed CNPC clone.",
+  "skin": "Steve-like villager body + Sons of the Empire / vanilla armor on the stand. No pirated GW meshes."
+}

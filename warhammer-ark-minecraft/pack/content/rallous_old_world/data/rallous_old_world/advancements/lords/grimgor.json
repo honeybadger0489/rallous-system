@@ -1,0 +1,34 @@
+{
+  "parent": "rallous_old_world:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:written_book"
+    },
+    "title": {
+      "text": "Grimgor Ironhide"
+    },
+    "description": {
+      "text": "Greenskins — Waaagh!. Smash. Take heads. A Waaagh is Recruits on Aggressive/Raid with a green banner."
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "letter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{title:\"Grimgor's Challenge\"}"
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 25,
+    "recipes": []
+  }
+}

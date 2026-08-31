@@ -1,0 +1,170 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "sylvania"
+	group: "0A010000"
+	icon: "minecraft:red_banner"
+	id: "0C020300"
+	images: [ ]
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "minecraft:dark_oak_sapling"
+			id: "0C030037"
+			rewards: [
+				{
+					id: "0C03003D"
+					type: "xp"
+					xp: 20
+				}
+			]
+			tasks: [
+				{
+					id: "0C03003E"
+					title: "Entered Sylvania"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"East of the Empire the trees close and the bells stop. Swamp, dark forest, crypts. Enter as a warband with a fort behind you. Night is the boss."
+			]
+			title: "Stirland's Shadow"
+			x: -3d
+			y: 0d
+		},
+		{
+			dependencies: ["0C030037"]
+			icon: "minecraft:wither_skeleton_skull"
+			id: "0C030038"
+			rewards: [
+				{
+					id: "0C03003F"
+					type: "xp"
+					xp: 30
+				}
+			]
+			tasks: [
+				{
+					id: "0C030040"
+					title: "Read the invitation"
+					type: "advancement"
+					advancement: "rallous_old_world:lords/mannfred"
+				}
+			]
+			description: [
+				"Trade for the Von Carstein Invitation. He offers a pact or a dawn war. Blood magic (Iron's) is the court tongue."
+			]
+			title: "Audience: Mannfred von Carstein"
+			x: -1d
+			y: 0d
+		},
+		{
+			dependencies: ["0C030038"]
+			icon: "minecraft:zombie_head"
+			id: "0C030039"
+			rewards: [
+				{
+					id: "0C030041"
+					type: "xp"
+					xp: 40
+				}
+			]
+			tasks: [
+				{
+					id: "0C030042"
+					title: "10 dead put down"
+					type: "kill"
+					entity: "minecraft:zombie"
+					value: 10
+				}
+			]
+			description: [
+				"Kill the walking dead. Born in Chaos nights count. Take the host. Stay in combat mode. Watch thirst."
+			]
+			title: "Night of the Dead"
+			x: 1d
+			y: 1d
+		},
+		{
+			dependencies: ["0C030038"]
+			icon: "minecraft:redstone"
+			id: "0C03003A"
+			rewards: [
+				{
+					id: "0C030043"
+					type: "xp"
+					xp: 30
+				}
+			]
+			tasks: [
+				{
+					id: "0C030044"
+					title: "Cast the court's magic"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Open the spell wheel and cast a blood / evocation / death-adjacent Iron's spell. Malum is optional occult, slower."
+			]
+			title: "Blood Magic"
+			x: 1d
+			y: -1d
+		},
+		{
+			dependencies: ["0C030039"]
+			icon: "minecraft:tnt"
+			id: "0C03003B"
+			rewards: [
+				{
+					id: "0C030045"
+					type: "xp"
+					xp: 80
+				}
+			]
+			tasks: [
+				{
+					id: "0C030046"
+					title: "Sylvania decided"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Living path: siege / claim / artillery at dawn. Dead path: Ally a banner you treat as von Carstein and accept the standing hit with Reikland."
+				""
+				"Either wins the county. The Hold-Road will smell it on you."
+			]
+			title: "Dawn Siege or Dark Pact"
+			x: 3d
+			y: 0d
+		},
+		{
+			dependencies: ["0C030037"]
+			icon: "sonsoftheempire:witchhunter_armor_helmet"
+			id: "0C03003C"
+			rewards: [
+				{
+					id: "0C030047"
+					type: "xp"
+					xp: 20
+				}
+			]
+			tasks: [
+				{
+					id: "0C030048"
+					title: "Witch Hunter hat"
+					type: "item"
+					item: "sonsoftheempire:witchhunter_armor_helmet"
+				}
+			]
+			description: [
+				"Side: wear Witch Hunter plate (Sons of the Empire) if you intend to refuse Mannfred. The hat is the argument."
+			]
+			title: "Witch Hunter's Kit"
+			x: -1d
+			y: 2d
+		}
+	]
+	title: "III. Sylvania"
+}

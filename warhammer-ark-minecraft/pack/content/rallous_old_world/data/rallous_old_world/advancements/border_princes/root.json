@@ -1,0 +1,33 @@
+{
+  "parent": "rallous_old_world:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:lime_banner"
+    },
+    "title": {
+      "text": "Border Princes"
+    },
+    "description": {
+      "text": "No one law. Sell your sword. Take a princedom."
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "there": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "minecraft:savanna"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

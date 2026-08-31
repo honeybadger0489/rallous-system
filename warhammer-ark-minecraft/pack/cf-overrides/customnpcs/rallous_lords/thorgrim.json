@@ -1,0 +1,17 @@
+{
+  "id": "thorgrim",
+  "name": "Thorgrim Grudgebearer",
+  "title": "High King of the Dawi",
+  "faction": "Dwarfs — Worlds Edge Mountains",
+  "job": "Settle a named grudge. Recover a relic from a fallen hold. Artillery with the host.",
+  "diplomacy": "Oath-friend (Ally + gold) or remain umgi at the gate. Tribute is gold and grudges paid.",
+  "book_title": "Entry in the Great Book of Grudges",
+  "pages": [
+    "Thorgrim Grudgebearer, High King. The Worlds Edge does not open for umgi who smell of graves and excuses.",
+    "A hold is a province made of stone and memory. Recruits are acceptable mercenaries. Fossils and old bones are ancestor-work — raise a beast properly and we will call it respect, not witchcraft.",
+    "Job: take the Hold-Road. Clear a fallen hall (YUNG, Dungeons Arise, a deepslate wound). Bring back a named thing. Then stand our artillery.",
+    "Diplomacy: Ally is oath-friend. We do not forget. Enemy is a grudge I will read aloud. Tribute is gold on the book. Open the Faction screen when you have something written down."
+  ],
+  "spawn": "datapack function rallous_old_world:summon_lords on first join (named villager + armored stand). Not a hand-placed CNPC clone.",
+  "skin": "Steve-like villager body + Sons of the Empire / vanilla armor on the stand. No pirated GW meshes."
+}

@@ -1,6 +1,6 @@
 name = "Rallous Warhammer Fantasy"
 author = "Rallous System"
-version = "0.2.1"
+version = "0.2.2"
 pack-format = "packwiz:1.1.0"
 description = "Private Old World pack: Warhammer Fantasy + Total War on the ground + Ark-style survival. Minecraft 1.20.1 Forge."
 

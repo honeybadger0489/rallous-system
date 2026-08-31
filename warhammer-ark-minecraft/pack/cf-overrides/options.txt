@@ -88,7 +88,7 @@ soundCategory_player:0.8
 soundCategory_ambient:0.5
 soundCategory_voice:1.0
 difficulty:3
-resourcePacks:["vanilla","mod_resources","file/Faithful 32x - 1.20.1.zip","file/FreshAnimations_v1.10.4.zip","file/GrimdarkBattlepack-v27.zip","file/Grimdark-Sky-v1-1-15.zip","file/Gothic RPG Font.zip"]
+resourcePacks:["vanilla","mod_resources","file/Faithful 32x - 1.20.1.zip","file/FreshAnimations_v1.10.4.zip","file/GrimdarkBattlepack-v27.zip","file/Grimdark-Sky-v1-1-15.zip","file/Gothic RPG Font.zip","file/Rallous Continuity"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_us
