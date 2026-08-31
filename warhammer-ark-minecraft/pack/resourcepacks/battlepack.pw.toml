@@ -1,0 +1,14 @@
+name = "Grimdark Battlepack"
+filename = "GrimdarkBattlepack-v27.zip"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "720e016d7066fe1213521dfd5612a468d5a594b8"
+mode = "url"
+url = "https://cdn.modrinth.com/data/wYoL3hIp/versions/FZ4ChquB/GrimdarkBattlepack-v27.zip"
+
+[update]
+[update.modrinth]
+mod-id = "wYoL3hIp"
+version = "FZ4ChquB"

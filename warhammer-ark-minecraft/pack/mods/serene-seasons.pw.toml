@@ -1,0 +1,14 @@
+name = "Serene Seasons"
+filename = "SereneSeasons-forge-1.20.1-9.1.0.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "aaf4fb2289c085f758032dc0537ba40f10f3df89"
+mode = "url"
+url = "https://cdn.modrinth.com/data/e0bNACJD/versions/WMrhrybF/SereneSeasons-forge-1.20.1-9.1.0.3.jar"
+
+[update]
+[update.modrinth]
+mod-id = "e0bNACJD"
+version = "WMrhrybF"

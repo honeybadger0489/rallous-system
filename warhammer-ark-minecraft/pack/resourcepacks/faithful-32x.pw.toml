@@ -1,0 +1,14 @@
+name = "Faithful 32x"
+filename = "Faithful 32x - 1.20.1.zip"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "7084d82b48844f7c1b625e157463c4d7b87a82d3"
+mode = "url"
+url = "https://cdn.modrinth.com/data/w0TnApzs/versions/VgTWEXF2/Faithful%2032x%20-%201.20.1.zip"
+
+[update]
+[update.modrinth]
+mod-id = "w0TnApzs"
+version = "VgTWEXF2"

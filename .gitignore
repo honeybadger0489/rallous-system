@@ -1,0 +1,9 @@
+# Downloaded binaries (Modrinth CDN). Keep metadata in git, not jars.
+warhammer-ark-minecraft/downloads/mods/
+warhammer-ark-minecraft/downloads/resourcepacks/
+warhammer-ark-minecraft/downloads/shaderpacks/
+*.jar
+!**/pack/**
+__pycache__/
+*.pyc
+.DS_Store
