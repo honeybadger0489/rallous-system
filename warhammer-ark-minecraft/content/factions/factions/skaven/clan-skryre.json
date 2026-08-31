@@ -1,0 +1,27 @@
+{
+  "id": "clan-skryre",
+  "race": "skaven",
+  "tier": "major",
+  "name": "Clan Skryre",
+  "banner": {
+    "pattern": "skryre_lightning",
+    "primary": "#6B2FA0",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Chief Warlock",
+    "name": "Ikit Claw",
+    "personality": "Wants Warp-tech and testers. Recruit if you survive the first experiment.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "plains",
+    "swamp",
+    "caves",
+    "jungle"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,59 @@
+{
+  "id": "skaven",
+  "name": "Skaven",
+  "culture": "Under-Empire clans: treachery as law, warpstone as coin. Settled in sewers, hell-pits, and under-capitals the surface denies. Strangers are tools, food, or both-both.",
+  "settlement": "settled",
+  "taming_affinity": "low",
+  "warp_stranger_stance": "prove_yourself",
+  "colors": {
+    "primary": "#5A4A3A",
+    "secondary": "#6B2FA0",
+    "accent": "#3D7A2F"
+  },
+  "lord_title_pool": [
+    "Warlord",
+    "Grey Seer",
+    "Warlock Engineer",
+    "Deathmaster",
+    "Plague Lord",
+    "Master Moulder",
+    "Packmaster",
+    "Chieftain",
+    "Assassin"
+  ],
+  "name_pool": {
+    "given": [
+      "Queek",
+      "Skrolk",
+      "Tretch",
+      "Snikch",
+      "Ikit",
+      "Throt",
+      "Thanquol",
+      "Skritch",
+      "Rikk",
+      "Fingermark",
+      "Skrak",
+      "Gnawdwell",
+      "Verminkin",
+      "Sneek",
+      "Kratch",
+      "Scrench",
+      "Morskittar",
+      "Nurglitch",
+      "Skweel"
+    ],
+    "epithet": [
+      "Headtaker",
+      "Craventail",
+      "the Unclean",
+      "Two-Crowns",
+      "Warp-Fume",
+      "of Clan Mors",
+      "of Hell Pit",
+      "the Warlock",
+      "Boneripper's Master"
+    ]
+  },
+  "notes": "Caves, deep_dark, dripstone, swamp under-cities. Site is settled but hidden; still a capital node, not a surface plaza."
+}

@@ -1,0 +1,26 @@
+{
+  "id": "teef-snatchaz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Teef Snatchaz",
+  "banner": {
+    "pattern": "teef_snatch",
+    "primary": "#2F6B2F",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": -8,
+  "lord": {
+    "title": "Goblin Warboss",
+    "name": "Teef Snatcha",
+    "personality": "Highway robbery as foreign policy. Tribute in teef.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "badlands",
+    "plains",
+    "savanna"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

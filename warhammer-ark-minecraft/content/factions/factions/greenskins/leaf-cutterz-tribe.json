@@ -1,0 +1,26 @@
+{
+  "id": "leaf-cutterz-tribe",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Leaf-Cutterz Tribe",
+  "banner": {
+    "pattern": "leaf_cutter",
+    "primary": "#2F6B2F",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -12,
+  "lord": {
+    "title": "Savage Orc Warboss",
+    "name": "Leaf-Cutter",
+    "personality": "Lustrian wilds. Recruit if you bring a big choppa.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "jungle",
+    "forest",
+    "mangrove"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

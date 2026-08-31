@@ -1,0 +1,27 @@
+{
+  "id": "ghosts-of-pahuax",
+  "race": "lizardmen",
+  "tier": "major",
+  "name": "Ghosts of Pahuax",
+  "banner": {
+    "pattern": "chameleon_eye",
+    "primary": "#1A3A4A",
+    "secondary": "#2EC4B6"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -12,
+  "lord": {
+    "title": "The Hidden",
+    "name": "Oxyotl",
+    "personality": "Chaos-hunter from the lost city. Daemon-suspicion is doctrine; prove you are not bait.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "jungle",
+    "snow",
+    "mountains",
+    "dark_forest"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

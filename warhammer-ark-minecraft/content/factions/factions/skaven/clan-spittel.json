@@ -1,0 +1,26 @@
+{
+  "id": "clan-spittel",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Spittel",
+  "banner": {
+    "pattern": "spittel",
+    "primary": "#4A5A2A",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Plague Priest",
+    "name": "Spittel",
+    "personality": "Lustria pox-burrow. War on spawning pools.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "jungle",
+    "swamp",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

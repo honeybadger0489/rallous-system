@@ -1,0 +1,26 @@
+{
+  "id": "clan-morbidus",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Morbidus",
+  "banner": {
+    "pattern": "morbidus",
+    "primary": "#3D5A1F",
+    "secondary": "#4A2A6B"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -25,
+  "lord": {
+    "title": "Plague Priest",
+    "name": "Morbidus",
+    "personality": "Pestilens splinter. War and pox.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "swamp",
+    "jungle",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

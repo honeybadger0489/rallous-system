@@ -1,0 +1,26 @@
+{
+  "id": "skrinderkin-warherd",
+  "race": "beastmen",
+  "tier": "minor",
+  "name": "Skrinderkin Warherd",
+  "banner": {
+    "pattern": "skrinderkin",
+    "primary": "#5A3A1A",
+    "secondary": "#8A9A4A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -28,
+  "lord": {
+    "title": "Wargor",
+    "name": "Skrinderkin",
+    "personality": "Lustrian herd. Tribute in beasts you failed to keep tame.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "jungle",
+    "mangrove",
+    "swamp"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

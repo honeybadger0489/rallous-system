@@ -1,0 +1,64 @@
+{
+  "id": "dwarfs",
+  "name": "Dwarfs",
+  "culture": "Karaz Ankor hold-law: grudges, guilds, and gated underways. Low trust for Warp-born until an oath is sworn and a grudge is paid. Beasts belong in pens, not on the throne-dais.",
+  "settlement": "settled",
+  "taming_affinity": "low",
+  "warp_stranger_stance": "daemon_suspicion",
+  "colors": {
+    "primary": "#C9A227",
+    "secondary": "#3D2B1F",
+    "accent": "#7A1F1F"
+  },
+  "lord_title_pool": [
+    "High King",
+    "King",
+    "Thane",
+    "Runelord",
+    "Slayer King",
+    "Daemon Slayer",
+    "Engineer Guildmaster",
+    "Lord"
+  ],
+  "name_pool": {
+    "given": [
+      "Thorgrim",
+      "Ungrim",
+      "Belegar",
+      "Grombrindal",
+      "Thorek",
+      "Malakai",
+      "Josef",
+      "Alrik",
+      "Brokk",
+      "Gotrek",
+      "Snorri",
+      "Burlok",
+      "Grimm",
+      "Karak",
+      "Bram",
+      "Nissa",
+      "Thrumgar",
+      "Kragg",
+      "Ulther",
+      "Barundin"
+    ],
+    "surname": [
+      "Grudgebearer",
+      "Ironfist",
+      "Ironhammer",
+      "Ironbrow",
+      "Makaisson",
+      "Bugman",
+      "Ranulfsson",
+      "Ironpick",
+      "Gurnisson",
+      "Steamheart",
+      "Oak-Ledger",
+      "Steam-Spite",
+      "of Khazid",
+      "of the White Dwarf"
+    ]
+  },
+  "notes": "Mountains, peaks, dripstone, deep caves. Always a hold-gate capital. Never skip."
+}

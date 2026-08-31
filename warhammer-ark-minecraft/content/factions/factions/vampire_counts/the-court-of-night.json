@@ -1,0 +1,27 @@
+{
+  "id": "the-court-of-night",
+  "race": "vampire_counts",
+  "tier": "minor",
+  "name": "The Court of Night",
+  "banner": {
+    "pattern": "night_crown",
+    "primary": "#1A0A14",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -15,
+  "lord": {
+    "title": "Prince of the Night Court",
+    "name": "Mundvard the Cruel",
+    "personality": "City-haunt. Prove you can move unseen; he offers contracts, not friendship.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "plains",
+    "river",
+    "dark_forest",
+    "swamp"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

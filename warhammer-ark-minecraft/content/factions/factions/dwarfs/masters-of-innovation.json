@@ -1,0 +1,27 @@
+{
+  "id": "masters-of-innovation",
+  "race": "dwarfs",
+  "tier": "major",
+  "name": "Masters of Innovation",
+  "banner": {
+    "pattern": "gyrocopter",
+    "primary": "#5A6A7A",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 0,
+  "lord": {
+    "title": "Engineer Guildmaster",
+    "name": "Malakai Makaisson",
+    "personality": "Airship science. Recruit if you can keep a boiler alive; he still watches for Warp-stink.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "taiga",
+    "snow",
+    "mountains",
+    "plains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

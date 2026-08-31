@@ -1,0 +1,26 @@
+{
+  "id": "tepoks-spawn",
+  "race": "lizardmen",
+  "tier": "minor",
+  "name": "Tepok's Spawn",
+  "banner": {
+    "pattern": "tepok_feather",
+    "primary": "#4A2A6B",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Slann Mage-Priest",
+    "name": "Tenehuini of Tepok",
+    "personality": "Air-god spawnings. Daemon-stink gets a geomantic slap.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "jungle",
+    "mountains",
+    "windswept"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

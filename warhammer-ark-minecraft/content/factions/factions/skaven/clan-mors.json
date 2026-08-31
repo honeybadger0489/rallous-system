@@ -1,0 +1,27 @@
+{
+  "id": "clan-mors",
+  "race": "skaven",
+  "tier": "major",
+  "name": "Clan Mors",
+  "banner": {
+    "pattern": "mors_claw",
+    "primary": "#8B1E2D",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Warlord of Clan Mors",
+    "name": "Queek Headtaker",
+    "personality": "Wants trophies. Prove you can take a head he has not already claimed.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "mountains",
+    "caves",
+    "badlands",
+    "dripstone"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

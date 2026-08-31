@@ -1,0 +1,26 @@
+{
+  "id": "cluster-eye-tribe",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Cluster-Eye Tribe",
+  "banner": {
+    "pattern": "cluster_eye",
+    "primary": "#3D5A1F",
+    "secondary": "#1A1A1A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -16,
+  "lord": {
+    "title": "Night Goblin Warboss",
+    "name": "Cluster-Eye",
+    "personality": "Cave goblins. War in the dark.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "caves",
+    "dripstone",
+    "deep_dark"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

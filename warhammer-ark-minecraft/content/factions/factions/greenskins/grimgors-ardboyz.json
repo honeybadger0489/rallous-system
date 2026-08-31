@@ -1,0 +1,26 @@
+{
+  "id": "grimgors-ardboyz",
+  "race": "greenskins",
+  "tier": "major",
+  "name": "Grimgor's 'Ardboyz",
+  "banner": {
+    "pattern": "ardboy_axe",
+    "primary": "#1A1A1A",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -15,
+  "lord": {
+    "title": "Black Orc Warboss",
+    "name": "Grimgor Ironhide",
+    "personality": "Grimgor iz da best. Must prove it in a scrap or get in line.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "badlands",
+    "mountains",
+    "savanna"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

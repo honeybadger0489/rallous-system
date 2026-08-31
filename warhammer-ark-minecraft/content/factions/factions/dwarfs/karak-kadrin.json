@@ -1,0 +1,27 @@
+{
+  "id": "karak-kadrin",
+  "race": "dwarfs",
+  "tier": "major",
+  "name": "Karak Kadrin",
+  "banner": {
+    "pattern": "slayer_crest",
+    "primary": "#7A1F1F",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "grim",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Slayer King",
+    "name": "Ungrim Ironfist",
+    "personality": "Wants a worthy doom. Recruit if you hunt the same monster.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "mountains",
+    "taiga",
+    "peaks",
+    "snow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "karak-ziflin",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Karak Ziflin",
+  "banner": {
+    "pattern": "ziflin",
+    "primary": "#5A6A7A",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": -5,
+  "lord": {
+    "title": "King of Karak Ziflin",
+    "name": "Ziflin",
+    "personality": "Small western hold. Recruit rangers; keep the gate.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "mountains",
+    "plains",
+    "forest"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

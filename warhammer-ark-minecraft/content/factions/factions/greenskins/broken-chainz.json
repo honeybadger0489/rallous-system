@@ -1,0 +1,26 @@
+{
+  "id": "broken-chainz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Broken Chainz",
+  "banner": {
+    "pattern": "broken_chain",
+    "primary": "#5A4A3A",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": -5,
+  "lord": {
+    "title": "Orc Warboss",
+    "name": "Da Chain-Breaka",
+    "personality": "Escaped slaves. Recruit anyone who hates collars.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "badlands",
+    "desert",
+    "savanna"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

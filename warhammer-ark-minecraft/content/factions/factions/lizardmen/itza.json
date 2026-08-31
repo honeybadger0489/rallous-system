@@ -1,0 +1,27 @@
+{
+  "id": "itza",
+  "race": "lizardmen",
+  "tier": "major",
+  "name": "Itza",
+  "banner": {
+    "pattern": "first_city",
+    "primary": "#1A5A32",
+    "secondary": "#F4E8C1"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -5,
+  "lord": {
+    "title": "The Great White Lizard",
+    "name": "Gor-Rok",
+    "personality": "Silent saurus of the First City. Help if the omen says you are a tool of the Plan.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "jungle",
+    "mangrove",
+    "river",
+    "swamp"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

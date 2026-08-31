@@ -1,0 +1,27 @@
+{
+  "id": "mousillon",
+  "race": "vampire_counts",
+  "tier": "minor",
+  "name": "Mousillon",
+  "banner": {
+    "pattern": "mousillon_fleur",
+    "primary": "#2B2B3A",
+    "secondary": "#6B1028"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -18,
+  "lord": {
+    "title": "Duke of Mousillon",
+    "name": "Maldred's Heir",
+    "personality": "Cursed Bretonnian night-court. Help against the living dukes or be listed as prey.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "swamp",
+    "plains",
+    "dark_forest",
+    "river"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

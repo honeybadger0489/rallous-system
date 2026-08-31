@@ -1,0 +1,26 @@
+{
+  "id": "moon-howlerz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Moon Howlerz",
+  "banner": {
+    "pattern": "moon_howl",
+    "primary": "#3A3A5A",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -15,
+  "lord": {
+    "title": "Night Goblin Warboss",
+    "name": "Moon Howler",
+    "personality": "Howling caves. Tribute in shiny rocks.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "caves",
+    "mountains",
+    "snow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}
