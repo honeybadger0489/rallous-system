@@ -1,6 +1,9 @@
 # Pack scripts
 
 ```bash
+# First-contact FTB book + rallous_contact scores/advancements + Continuity lang
+python3 scripts/author_contact.py
+
 # Warp-crash overlay + sibling ingest + zip (does not re-resolve fileIDs)
 python3 scripts/integrate-overrides.py --version 0.3.0
 

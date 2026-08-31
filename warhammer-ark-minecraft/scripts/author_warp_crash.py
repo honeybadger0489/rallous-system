@@ -108,11 +108,10 @@ gamerule spawnRadius 0
     )
     w(
         FN / "tick.mcfunction",
-        """# Prefer sibling rallous_warp_crash land (tag rallous.warp_landed). Fallback crater after 5s.
+        """# Court never. Spawn is rallous_warp_crash. Primer after that pack lands (or 5s fallback).
 scoreboard players add @a[tag=!rallous.old_world] rallous.joined 1
 execute as @a[tag=!rallous.old_world,tag=rallous.warp_landed] at @s run function rallous_old_world:first_join
 execute as @a[tag=!rallous.old_world,tag=!rallous.warp_landed,scores={rallous.joined=100..}] at @s run function rallous_old_world:first_join
-execute as @a[tag=rallous.old_world,scores={rallous.deaths=1..}] at @s run function rallous_old_world:crash/on_death
 """,
     )
     w(
@@ -127,14 +126,8 @@ execute unless entity @s[tag=rallous.old_world] run function rallous_old_world:w
 scoreboard players set @s rallous.joined 1
 scoreboard players set @s rallous.crashed 1
 scoreboard players set @s rallous.deaths 0
-function rallous_old_world:crash/strip_starter_magic
-# Sibling warp-crash already scattered and carved if tag rallous.warp_landed.
-execute unless entity @s[tag=rallous.warp_landed] unless entity @e[type=marker,tag=rallous.world_crater,limit=1] run function rallous_old_world:crash/first_crash
-execute unless entity @s[tag=rallous.warp_landed] if entity @s[tag=!rallous.anchor] if entity @e[type=marker,tag=rallous.world_crater,limit=1] run function rallous_old_world:crash/scatter_friend
-title @s times 20 80 20
-title @s title {"text":"Warp-crash","color":"dark_purple","bold":true}
-title @s subtitle {"text":"The court is gone. You hit the Old World.","color":"gray"}
-tellraw @s [{"text":"No war council. Friends land elsewhere. Quest book: ","color":"light_purple"},{"text":"`","color":"white"},{"text":"  Force roaming: ","color":"light_purple"},{"text":"/function rallous_old_world:force_roaming","color":"yellow"}]
+execute if entity @s[tag=!rallous.warp_landed] run function rallous_old_world:crash/strip_starter_magic
+# Spawn/respawn is rallous_warp_crash. Do not carve a second crater or restore the court.
 advancement grant @s only rallous_old_world:root
 function rallous_old_world:give_primer
 """,

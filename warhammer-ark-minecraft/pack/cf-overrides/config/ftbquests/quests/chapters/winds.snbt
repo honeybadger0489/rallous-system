@@ -16,14 +16,14 @@
 			id: "1D010031"
 			rewards: [
 				{
-					id: "1D010034"
+					id: "1E010034"
 					type: "xp"
 					xp: 10
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:magic/discover"
 					elevate_perms: true
-					id: "1D010035"
+					id: "1E010035"
 					silent: true
 					type: "command"
 				}
@@ -33,7 +33,7 @@
 			subtitle: "No starter spellbook."
 			tasks: [
 				{
-					id: "1D010036"
+					id: "1E010036"
 					title: "I have no college letter yet"
 					type: "checkmark"
 				}
@@ -56,21 +56,21 @@
 			id: "1D010032"
 			rewards: [
 				{
-					id: "1D010037"
+					id: "1E010037"
 					type: "xp"
 					xp: 20
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:magic/colleges"
 					elevate_perms: true
-					id: "1D010038"
+					id: "1E010038"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010039"
+					id: "1E010039"
 					title: "Found a college path"
 					type: "checkmark"
 				}
@@ -91,21 +91,21 @@
 			id: "1D010033"
 			rewards: [
 				{
-					id: "1D01003A"
+					id: "1E01003A"
 					type: "xp"
 					xp: 20
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:magic/ice"
 					elevate_perms: true
-					id: "1D01003B"
+					id: "1E01003B"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D01003C"
+					id: "1E01003C"
 					title: "Found an ice path"
 					type: "checkmark"
 				}
@@ -126,21 +126,21 @@
 			id: "1D010034"
 			rewards: [
 				{
-					id: "1D01003D"
+					id: "1E01003D"
 					type: "xp"
 					xp: 20
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:magic/death"
 					elevate_perms: true
-					id: "1D01003E"
+					id: "1E01003E"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D01003F"
+					id: "1E01003F"
 					title: "Found a death path"
 					type: "checkmark"
 				}
@@ -161,21 +161,21 @@
 			id: "1D010035"
 			rewards: [
 				{
-					id: "1D010040"
+					id: "1E010040"
 					type: "xp"
 					xp: 20
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:magic/blood"
 					elevate_perms: true
-					id: "1D010041"
+					id: "1E010041"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010042"
+					id: "1E010042"
 					title: "Found a blood path"
 					type: "checkmark"
 				}

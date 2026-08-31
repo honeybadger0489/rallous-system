@@ -17,21 +17,21 @@
 			id: "1D010011"
 			rewards: [
 				{
-					id: "1D010010"
+					id: "1E010010"
 					type: "xp"
 					xp: 20
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:path/help"
 					elevate_perms: true
-					id: "1D010011"
+					id: "1E010011"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010012"
+					id: "1E010012"
 					title: "I stayed and helped"
 					type: "checkmark"
 				}
@@ -52,21 +52,21 @@
 			id: "1D010012"
 			rewards: [
 				{
-					id: "1D010013"
+					id: "1E010013"
 					type: "xp"
 					xp: 20
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:path/betray"
 					elevate_perms: true
-					id: "1D010014"
+					id: "1E010014"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010015"
+					id: "1E010015"
 					title: "I used what they taught me"
 					type: "checkmark"
 				}
@@ -87,21 +87,21 @@
 			id: "1D010013"
 			rewards: [
 				{
-					id: "1D010016"
+					id: "1E010016"
 					type: "xp"
 					xp: 20
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:path/join"
 					elevate_perms: true
-					id: "1D010017"
+					id: "1E010017"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010018"
+					id: "1E010018"
 					title: "I took a banner"
 					type: "checkmark"
 				}
@@ -122,21 +122,21 @@
 			id: "1D010014"
 			rewards: [
 				{
-					id: "1D010019"
+					id: "1E010019"
 					type: "xp"
 					xp: 20
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:path/leave"
 					elevate_perms: true
-					id: "1D01001A"
+					id: "1E01001A"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D01001B"
+					id: "1E01001B"
 					title: "I named a side and rode on"
 					type: "checkmark"
 				}

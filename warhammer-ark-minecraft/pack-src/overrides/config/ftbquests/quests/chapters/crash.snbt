@@ -15,14 +15,14 @@
 			id: "1D010001"
 			rewards: [
 				{
-					id: "1D010001"
+					id: "1E010001"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:crash/awake"
 					elevate_perms: true
-					id: "1D010002"
+					id: "1E010002"
 					silent: true
 					type: "command"
 				}
@@ -32,7 +32,7 @@
 			subtitle: "Warp-crash. No court. No letters."
 			tasks: [
 				{
-					id: "1D010003"
+					id: "1E010003"
 					title: "I woke in the warp crater"
 					type: "checkmark"
 				}
@@ -55,14 +55,14 @@
 			id: "1D010005"
 			rewards: [
 				{
-					id: "1D010004"
+					id: "1E010004"
 					type: "xp"
 					xp: 10
 				}
 			]
 			tasks: [
 				{
-					id: "1D010005"
+					id: "1E010005"
 					title: "A second crash exists elsewhere"
 					type: "checkmark"
 				}
@@ -82,28 +82,28 @@
 			id: "1D010002"
 			rewards: [
 				{
-					id: "1D010006"
+					id: "1E010006"
 					type: "xp"
 					xp: 25
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:crash/village"
 					elevate_perms: true
-					id: "1D010007"
+					id: "1E010007"
 					silent: true
 					type: "command"
 				},
 				{
 					command: "execute as @p at @s run function rallous_warp_crash:first_contact"
 					elevate_perms: true
-					id: "1D010008"
+					id: "1E010008"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010009"
+					id: "1E010009"
 					title: "Lived an hour among them"
 					type: "checkmark"
 				}
@@ -123,21 +123,21 @@
 			id: "1D010003"
 			rewards: [
 				{
-					id: "1D01000A"
+					id: "1E01000A"
 					type: "xp"
 					xp: 25
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:crash/fight"
 					elevate_perms: true
-					id: "1D01000B"
+					id: "1E01000B"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D01000C"
+					id: "1E01000C"
 					title: "Lasted an hour of steel"
 					type: "checkmark"
 				}
@@ -158,14 +158,14 @@
 			id: "1D010004"
 			rewards: [
 				{
-					id: "1D01000D"
+					id: "1E01000D"
 					type: "xp"
 					xp: 40
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:crash/proved"
 					elevate_perms: true
-					id: "1D01000E"
+					id: "1E01000E"
 					silent: true
 					type: "command"
 				}
@@ -175,7 +175,7 @@
 			subtitle: "Village or fight. Then the paths open."
 			tasks: [
 				{
-					id: "1D01000F"
+					id: "1E01000F"
 					title: "The first hour is mine"
 					type: "checkmark"
 				}

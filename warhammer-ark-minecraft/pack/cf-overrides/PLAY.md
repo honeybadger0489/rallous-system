@@ -1,9 +1,9 @@
 # Rallous Warhammer Fantasy — play this
 
-**This is the only player doc.** Import **0.3.0** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2.
+**This is the only player doc.** Import **0.3.1** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0.
 
 **Download:**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.0.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.1.zip
 
 CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, ~8 GB RAM. **Minecraft 1.20.1 + Forge 47.4.10**. New world: Survival, Hard, cheats ON (smoke commands). Terralith default. Private pack — do not upload.
 

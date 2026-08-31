@@ -56,7 +56,7 @@ COURT_CHAPTERS = (
 #        rallous.waaagh, rallous.dwarf, rallous.skaven, rallous.khorne,
 #        rallous.army, rallous.chaos (khorne also bumps this)
 
-_qid = 0x1D010000
+_qid = 0x1E010000
 
 
 def nid() -> str:
@@ -1083,9 +1083,30 @@ scoreboard objectives add rallous.army dummy
         if dest.exists():
             shutil.rmtree(dest)
         dump_json(dest / "pack.mcmeta", pack_mcmeta)
+        w(
+            dest / "META-INF" / "mods.toml",
+            """modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="rallous_contact"
+version="1.0.0"
+displayName="Rallous Contact"
+authors="Rallous System"
+description='''First-contact scores and backup advancements. No court.'''
+""",
+        )
         dump_json(
             dest / "data" / "minecraft" / "tags" / "functions" / "load.json",
-            {"values": ["rallous_contact:load"]},
+            {
+                "values": [
+                    "rallous_old_world:load",
+                    "rallous_contact:load",
+                    "rallous_temple_herd:load",
+                    "rallous_warp_crash:load",
+                ]
+            },
         )
         data = dest / "data" / "rallous_contact"
         for rel, text in functions.items():
@@ -1236,7 +1257,7 @@ def write_play() -> None:
 
 
 def validate() -> None:
-    banned = ("Karl Franz", "summon_lords", "war council", "six lords at your feet", "Audience: Karl")
+    banned = ("Audience: Karl", "Trade with Karl Franz", "summon_lords", "A Soldier of Reikland")
     live = OV / "config" / "ftbquests" / "quests"
     chapters = sorted(p.name for p in (live / "chapters").glob("*.snbt"))
     expect = ["crash.snbt", "first_hour.snbt", "host.snbt", "paths.snbt", "winds.snbt"]

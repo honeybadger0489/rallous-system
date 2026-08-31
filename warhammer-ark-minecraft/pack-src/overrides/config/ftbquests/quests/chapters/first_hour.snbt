@@ -17,21 +17,21 @@
 			id: "1D010021"
 			rewards: [
 				{
-					id: "1D01001C"
+					id: "1E01001C"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:race/empire"
 					elevate_perms: true
-					id: "1D01001D"
+					id: "1E01001D"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D01001E"
+					id: "1E01001E"
 					title: "Heard an Elector named in town"
 					type: "checkmark"
 				}
@@ -52,21 +52,21 @@
 			id: "1D010022"
 			rewards: [
 				{
-					id: "1D01001F"
+					id: "1E01001F"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:race/vampire"
 					elevate_perms: true
-					id: "1D010020"
+					id: "1E010020"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010021"
+					id: "1E010021"
 					title: "Walked the night counties"
 					type: "checkmark"
 				}
@@ -87,21 +87,21 @@
 			id: "1D010023"
 			rewards: [
 				{
-					id: "1D010022"
+					id: "1E010022"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:race/lizard"
 					elevate_perms: true
-					id: "1D010023"
+					id: "1E010023"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010024"
+					id: "1E010024"
 					title: "Found a warm ruin"
 					type: "checkmark"
 				}
@@ -122,21 +122,21 @@
 			id: "1D010024"
 			rewards: [
 				{
-					id: "1D010025"
+					id: "1E010025"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:race/beast"
 					elevate_perms: true
-					id: "1D010026"
+					id: "1E010026"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010027"
+					id: "1E010027"
 					title: "Read herd-sign"
 					type: "checkmark"
 				}
@@ -157,21 +157,21 @@
 			id: "1D010025"
 			rewards: [
 				{
-					id: "1D010028"
+					id: "1E010028"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:race/greenskin"
 					elevate_perms: true
-					id: "1D010029"
+					id: "1E010029"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D01002A"
+					id: "1E01002A"
 					title: "Joined a scrap, or started one"
 					type: "checkmark"
 				}
@@ -192,21 +192,21 @@
 			id: "1D010026"
 			rewards: [
 				{
-					id: "1D01002B"
+					id: "1E01002B"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:race/dwarf"
 					elevate_perms: true
-					id: "1D01002C"
+					id: "1E01002C"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D01002D"
+					id: "1E01002D"
 					title: "Walked a hold-road or a deep cut"
 					type: "checkmark"
 				}
@@ -227,21 +227,21 @@
 			id: "1D010027"
 			rewards: [
 				{
-					id: "1D01002E"
+					id: "1E01002E"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:race/skaven"
 					elevate_perms: true
-					id: "1D01002F"
+					id: "1E01002F"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010030"
+					id: "1E010030"
 					title: "Heard claws under the floor"
 					type: "checkmark"
 				}
@@ -262,21 +262,21 @@
 			id: "1D010028"
 			rewards: [
 				{
-					id: "1D010031"
+					id: "1E010031"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:race/khorne"
 					elevate_perms: true
-					id: "1D010032"
+					id: "1E010032"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1D010033"
+					id: "1E010033"
 					title: "Blood for the first hour"
 					type: "kill"
 					entity: "minecraft:skeleton"

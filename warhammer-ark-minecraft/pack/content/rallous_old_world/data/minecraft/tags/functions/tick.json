@@ -1,5 +1,9 @@
 {
+  "replace": false,
   "values": [
-    "rallous_temple_herd:tick"
+    "rallous_old_world:tick",
+    "rallous_warp_crash:tick",
+    "rallous_temple_herd:tick",
+    "rallous_roaming:tick"
   ]
 }
