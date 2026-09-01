@@ -26,15 +26,15 @@
 				type: "checkmark"
 			}]
 			description: [
-				"1. CRATER + REACTING FACTION — blackstone / crying obsidian bowl, wreckage chest, no six named lords. Walk to the nearest bannered camp: a named lord from the faction tables speaks a stance. Not a mute village."
+				"1. CRASH — blackstone / crying obsidian bowl, wreckage chest, no six named lords. Title says Warp-crash. Forge 47.4.10."
 			]
-			title: "1. Crater"
+			title: "1. Crash"
 			x: -4.0d
 			y: 0.0d
 		}
 		{
 			dependencies: ["0A010101"]
-			icon: "minecraft:player_head"
+			icon: "minecraft:yellow_banner"
 			id: "0A010201"
 			rewards: [{
 				id: "0A010202"
@@ -43,18 +43,18 @@
 			}]
 			tasks: [{
 				id: "0A010203"
-				title: "Second crash elsewhere"
+				title: "Named lord spoke a stance"
 				type: "checkmark"
 			}]
 			description: [
-				"2. FRIEND ELSEWHERE — second player, or /function rallous_old_world:crash/demo_friend_elsewhere"
+				"2. NAMED LORD + STANCE — walk to the nearest bannered camp. A named lord from the faction tables speaks a stance. Chat names the camp (Reikland, Clan Mors, …), never Team 2."
 			]
-			title: "2. Friend elsewhere"
+			title: "2. Named lord + stance"
 			x: -2.0d
 			y: -1.0d
 		}
 		{
-			dependencies: ["0A010101"]
+			dependencies: ["0A010201"]
 			icon: "minecraft:iron_sword"
 			id: "0A010301"
 			rewards: [{
@@ -64,19 +64,19 @@
 			}]
 			tasks: [{
 				id: "0A010303"
-				title: "Town then a fight"
+				title: "Session start then win"
 				type: "checkmark"
 			}]
 			description: [
-				"3. VILLAGE / FIGHT — map M, walk a town, fight on the road. Combat V."
+				"3. SESSION START / WIN — /function rallous_session:start at the contact camp, then clear the wave or /function rallous_session:win."
 			]
-			title: "3. Village / fight"
+			title: "3. Session start / win"
 			x: -2.0d
 			y: 1.0d
 		}
 		{
-			dependencies: ["0A010301"]
-			icon: "minecraft:yellow_banner"
+			dependencies: ["0A010101"]
+			icon: "minecraft:lime_banner"
 			id: "0A010401"
 			rewards: [{
 				id: "0A010402"
@@ -85,19 +85,19 @@
 			}]
 			tasks: [{
 				id: "0A010403"
-				title: "Faction words on screen"
+				title: "Roaming packs appeared"
 				type: "checkmark"
 			}]
 			description: [
-				"4. FACTION WORDS — State Trooper, Elector, Waaagh. Pack Rallous Continuity enabled."
+				"4. FORCE ROAMING — /function rallous_old_world:force_roaming  (Waaagh, herd, Khorne)."
 			]
-			title: "4. Faction words"
+			title: "4. Force roaming"
 			x: 0.0d
 			y: -1.5d
 		}
 		{
-			dependencies: ["0A010101"]
-			icon: "minecraft:book"
+			dependencies: ["0A010201"]
+			icon: "minecraft:writable_book"
 			id: "0A010501"
 			rewards: [{
 				id: "0A010502"
@@ -106,19 +106,19 @@
 			}]
 			tasks: [{
 				id: "0A010503"
-				title: "No Iron's book in the crater"
+				title: "Rallous Continuity enabled"
 				type: "checkmark"
 			}]
 			description: [
-				"5. NO STARTER MAGIC — wreckage chest is bread / leather / stone. No spellbook. Magic is later."
+				"5. ENABLE RALLOUS CONTINUITY — Options → Resource Packs. Recruits UI says Levy / Elector / Waaagh / Under-Empire, not Team 2. Lang overlay only; not the Fabric Continuity mod."
 			]
-			title: "5. No starter magic"
+			title: "5. Enable Rallous Continuity"
 			x: 2.0d
 			y: -1.5d
 		}
 		{
 			dependencies: ["0A010101"]
-			icon: "minecraft:bone"
+			icon: "minecraft:player_head"
 			id: "0A010601"
 			rewards: [{
 				id: "0A010602"
@@ -127,19 +127,19 @@
 			}]
 			tasks: [{
 				id: "0A010603"
-				title: "LM / BM force spawn"
+				title: "Second crash elsewhere"
 				type: "checkmark"
 			}]
 			description: [
-				"6. LIZARDMEN / BEASTMEN — /function rallous_old_world:lm_bm/summon  (Fossils dino if the entity exists; goat/turtle/ravager proxies always)."
+				"Also: FRIEND ELSEWHERE — second player, or /function rallous_old_world:crash/demo_friend_elsewhere"
 			]
-			title: "6. LM / BM dinos"
+			title: "Friend elsewhere"
 			x: 4.0d
 			y: -1.0d
 		}
 		{
 			dependencies: ["0A010101"]
-			icon: "minecraft:lime_banner"
+			icon: "minecraft:book"
 			id: "0A010701"
 			rewards: [{
 				id: "0A010702"
@@ -148,13 +148,13 @@
 			}]
 			tasks: [{
 				id: "0A010703"
-				title: "Roaming packs appeared"
+				title: "No Iron's book in the crater"
 				type: "checkmark"
 			}]
 			description: [
-				"7. FORCE ROAMING — /function rallous_old_world:force_roaming  (Waaagh, herd, Khorne)."
+				"Also: NO STARTER MAGIC — wreckage chest is bread / leather / stone. No spellbook."
 			]
-			title: "7. Force roaming"
+			title: "No starter magic"
 			x: 0.0d
 			y: 1.5d
 		}
@@ -173,9 +173,9 @@
 				type: "checkmark"
 			}]
 			description: [
-				"8. DEATH — die with no bed → your crater. Place a bed, sleep, die → bed."
+				"Also: DEATH — die with no bed → your crater. Place a bed, sleep, die → bed."
 			]
-			title: "8. Death crater / bed"
+			title: "Death crater / bed"
 			x: 2.0d
 			y: 0.0d
 		}
@@ -194,9 +194,9 @@
 				type: "checkmark"
 			}]
 			description: [
-				"9. BOOT — grim sky, gothic font, Unbound, thirst/temp. Forge 47.4.10. Continuity mod absent on purpose."
+				"Also: BOOT — grim sky, gothic font, Unbound. Forge 47.4.10. Continuity mod absent on purpose."
 			]
-			title: "9. Boot"
+			title: "Boot"
 			x: 4.0d
 			y: 1.0d
 		}
@@ -215,9 +215,9 @@
 				type: "checkmark"
 			}]
 			description: [
-				"10. THIS FILE — warhammer-ark-minecraft/PLAY.md is the only player doc."
+				"THIS FILE — warhammer-ark-minecraft/PLAY.md is the only player doc. 0.3.5 smoke: crash, named lord+stance, session start/win, force roaming, enable Rallous Continuity."
 			]
-			title: "10. This file"
+			title: "This file"
 			x: -2.0d
 			y: 3.0d
 		}

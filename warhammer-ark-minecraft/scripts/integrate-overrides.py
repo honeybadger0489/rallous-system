@@ -301,6 +301,8 @@ REQUIRED_JARS = (
     "rallous_factions-1.0.0.jar",
     "rallous_diplomacy-1.0.0.jar",
     "rallous_crater_hq-1.0.0.jar",
+    "rallous_session-1.0.0.jar",
+    "rallous_recruits_bind-1.0.0.jar",
 )
 
 REQUIRED_FTB = (
@@ -345,6 +347,8 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             "rallous_factions",
             "rallous_diplomacy",
             "rallous_crater_hq",
+            "rallous_session",
+            "rallous_recruits_bind",
         ):
             if f"overrides/datapacks/{pack}/pack.mcmeta" not in names:
                 raise SystemExit(f"zip missing datapack folder {pack}")
@@ -358,6 +362,14 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("zip missing diplomacy apply_path")
         if "overrides/datapacks/rallous_crater_hq/data/rallous_crater_hq/functions/mark.mcfunction" not in names:
             raise SystemExit("zip missing crater_hq mark")
+        if "overrides/datapacks/rallous_session/data/rallous_session/functions/start.mcfunction" not in names:
+            raise SystemExit("zip missing session start")
+        if "overrides/datapacks/rallous_session/data/rallous_session/functions/win.mcfunction" not in names:
+            raise SystemExit("zip missing session win")
+        if "overrides/datapacks/rallous_recruits_bind/data/rallous_recruits_bind/functions/on_contact.mcfunction" not in names:
+            raise SystemExit("zip missing recruits_bind on_contact")
+        if "overrides/resourcepacks/Rallous Continuity/assets/rallous_recruits_bind/lang/en_us.json" not in names:
+            raise SystemExit("zip Continuity missing recruits_bind lang")
         for cfg in (
             "overrides/config/recruits-client.toml",
             "overrides/config/openpartiesandclaims-client.toml",
@@ -382,6 +394,25 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("warp_crash contact_hook does not call compiled factions")
         if "tag_existing_contact" in hook:
             raise SystemExit("warp_crash still tags mute villagers as contact")
+        wc_store = wc.read("data/rallous_warp_crash/functions/store_crater.mcfunction").decode()
+        if "rallous_crater_hq:mark" not in wc_store:
+            raise SystemExit("warp_crash store_crater does not mark crater HQ")
+        help_path = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_contact-1.0.0.jar")))
+        help_fn = help_path.read("data/rallous_contact/functions/path/help.mcfunction").decode()
+        if "rallous_diplomacy:apply_path" not in help_fn:
+            raise SystemExit("contact path/help does not apply diplomacy")
+        fac_assign = fac.read("data/rallous_factions/functions/contact/assign.mcfunction").decode()
+        if "rallous_recruits_bind:on_contact" not in fac_assign:
+            raise SystemExit("factions assign does not bind Recruits")
+        sess = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_session-1.0.0.jar")))
+        sess_names = set(sess.namelist())
+        if "data/rallous_session/functions/start.mcfunction" not in sess_names:
+            raise SystemExit("session jar missing start")
+        if "data/rallous_session/functions/win.mcfunction" not in sess_names:
+            raise SystemExit("session jar missing win")
+        bind = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_recruits_bind-1.0.0.jar")))
+        if "data/rallous_recruits_bind/functions/on_contact.mcfunction" not in set(bind.namelist()):
+            raise SystemExit("recruits_bind jar missing on_contact")
         if "overrides/resourcepacks/Rallous Continuity/pack.mcmeta" not in names:
             raise SystemExit("zip missing Rallous Continuity resource pack")
         if "overrides/resourcepacks/Rallous Continuity/assets/vassalsuzerain/lang/en_us.json" not in names:
@@ -433,7 +464,7 @@ def file_ids_from_021() -> set[tuple[int, int]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.4")
+    parser.add_argument("--version", default="0.3.5")
     parser.add_argument("--skip-author", action="store_true", help="Do not rewrite crash functions")
     args = parser.parse_args()
 
