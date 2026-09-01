@@ -1,5 +1,5 @@
 {
-  "parent": "rallous_old_world:lords/karl",
+  "parent": "rallous_old_world:root",
   "display": {
     "icon": {
       "item": "minecraft:emerald"

@@ -4,7 +4,7 @@ A new world is a **Warp-crash**. You are not a tourist at a Reikland court.
 
 ## Wake
 
-Look down. Bowl of blackstone / crying obsidian, campfire, wreckage chest (bread, leather, stone — **no** Iron’s spellbook). Title says Warp-crash. World spawn is the crater. Your spawnpoint is **your** crater.
+Look down. Bowl of blackstone / crying obsidian, campfire, wreckage chest (**Warp-tainted relic** / echo shard — **no** Iron’s spellbook). Title says Warp-crash. World spawn is the crater. Your spawnpoint is **your** crater.
 
 Walk to the nearest bannered camp. That named lord is first contact. See [Factions](Factions.md).
 
@@ -22,10 +22,11 @@ You do not share a spawn circle. Meet on the road.
 
 | You had… | You come back… |
 | --- | --- |
-| No bed | **Your** crater. Same player. No second crash. |
-| A bed you slept in | The bed. |
+| No civ-bed | **Your** crater. Same player. No second crash. |
+| A **claimed village** bed (villager / claimed camp nearby) or a **join** civ-bed | That bed. |
+| A wilderness bed | The crater. Wilderness beds do not stick. |
 
-Sleep in a claimed village (villager / claimed camp) also sets the civ-bed flag. Dying does not scatter you to a new Warp-hole.
+Sleep under a village roof, or join a camp, sets the civ-bed flag. Dying does not scatter you to a new Warp-hole.
 
 Force a return: `/function rallous_old_world:crash/return_crater`
 

@@ -23,4 +23,4 @@ setworldspawn ~ ~-1 ~
 spawnpoint @s ~ ~-1 ~
 gamerule spawnRadius 0
 tp @s ~ ~-1 ~
-tellraw @s {"text":"You hit the Old World. This crater is home until you sleep in a bed.","color":"dark_purple"}
+tellraw @s {"text":"You hit the Old World. This crater is home until you sleep under a village roof.","color":"dark_purple"}

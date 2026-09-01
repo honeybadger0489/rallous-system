@@ -339,16 +339,15 @@ function rallous_old_world:give_primer
             f"ArmorItems:[{{id:\"{lord['boots']}\",Count:1}},{{id:\"{lord['legs']}\",Count:1}},{{id:\"{lord['chest']}\",Count:1}},{{id:\"{lord['helmet']}\",Count:1}}],"
             f"HandItems:[{{id:\"{lord['hand']}\",Count:1}},{{}}]}}"
         )
-        w(
-            data / "functions" / "lords" / f"{lord['id']}.mcfunction",
-            villager + "\n" + stand + "\n",
-        )
-        w(
-            data / "functions" / f"give_{lord['id']}_letter.mcfunction",
-            f"give @s minecraft:written_book{{{nbt}}} 1\n"
-            f"scoreboard players add @s rallous.{_score(lord['id'])} 1\n"
-            f"advancement grant @s only rallous_old_world:lords/{lord['id']}\n",
-        )
+        # Unused court summons stay unwritten. Do not restore first-join court.
+        # Karl / Kislev leftover letters stay unwritten.
+        if lord["id"] not in ("karl", "katarin"):
+            w(
+                data / "functions" / f"give_{lord['id']}_letter.mcfunction",
+                f"give @s minecraft:written_book{{{nbt}}} 1\n"
+                f"scoreboard players add @s rallous.{_score(lord['id'])} 1\n"
+                f"advancement grant @s only rallous_old_world:lords/{lord['id']}\n",
+            )
     w(data / "functions" / "summon_lords.mcfunction", "\n".join(summon_all) + "\n")
 
     # Advancements
@@ -395,6 +394,8 @@ function rallous_old_world:give_primer
         }
 
     for lord in LORDS:
+        if lord["id"] in ("karl", "katarin"):
+            continue
         dump_json(data / "advancements" / "lords" / f"{lord['id']}.json", letter_adv(lord, "rallous_old_world:root"))
 
     chapters = [
@@ -402,7 +403,7 @@ function rallous_old_world:give_primer
         ("border_princes", "Border Princes", "No one law. Sell your sword. Take a princedom.", "minecraft:savanna", "minecraft:lime_banner"),
         ("sylvania", "Sylvania", "The dead voted. Night is the boss.", "minecraft:swamp", "minecraft:red_banner"),
         ("worlds_edge", "Worlds Edge Mountains", "The Hold-Road. Grudges. Ancestor beasts.", "minecraft:windswept_hills", "sonsoftheempire:highking_armor_helmet"),
-        ("kislev", "Kislev", "The oblast. Ice. The last gate.", "minecraft:snowy_plains", "sonsoftheempire:gryphonlegion_armor_helmet"),
+        # Kislev is not a v1 citizen race. Ice is a Winds letter, not this leftover chapter.
         ("chaos_wastes", "Chaos Wastes", "North of the last city. The Wound remains.", "minecraft:frozen_peaks", "minecraft:netherite_helmet"),
     ]
     for cid, title, desc, biome, icon in chapters:
@@ -436,7 +437,7 @@ function rallous_old_world:give_primer
     dump_json(
         data / "advancements" / "reikland" / "host.json",
         {
-            "parent": "rallous_old_world:lords/karl",
+            "parent": "rallous_old_world:root",
             "display": {
                 "icon": {"item": "minecraft:emerald"},
                 "title": {"text": "State Troop Host"},
@@ -561,6 +562,8 @@ def _recipes_for(lord_id: str) -> list[str]:
 def write_cnpc() -> None:
     root = OV / "customnpcs" / "rallous_lords"
     for lord in LORDS:
+        if lord["id"] in ("karl", "katarin"):
+            continue
         dump_json(
             root / f"{lord['id']}.json",
             {

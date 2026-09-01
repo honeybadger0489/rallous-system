@@ -1,11 +1,11 @@
 # Install
 
-Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.10. **0.3.11** is this ship.
+Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.11. **0.3.12** is this ship.
 
 **Download (latest on this branch):**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.11.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.12.zip
 
-Dedicated-server smoke **passed on 0.3.10** (`Done`, four function parse errors gone). **0.3.11** is unsmoked (director tellraws, leftover Recruits/Fossils IDs, honesty docs, rebuilt Recruits bridge). Older `dist/rallous-warhammer-fantasy-0.3.10.zip` remains for history.
+Dedicated-server smoke **passed on 0.3.11** (`Done`, no `ModLoadingException`, no function parse errors). **0.3.12** is the copy / leftover-court cut; dedicated smoke of 0.3.12 was not rerun. Older `dist/rallous-warhammer-fantasy-0.3.11.zip` remains for history.
 
 ## CurseForge
 

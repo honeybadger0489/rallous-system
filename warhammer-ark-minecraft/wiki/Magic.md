@@ -2,7 +2,7 @@
 
 You did **not** arrive with Iron’s book equipped. The Winds are a path, not a loadout. Steel and thirst first.
 
-The wreckage chest is bread / leather / stone. **No spellbook.** Do not craft a book just to tick a boot list.
+The wreckage chest is a **Warp-tainted relic** (echo shard). **No spellbook.** Do not craft a book just to tick a boot list.
 
 ## How you find it in the first hour
 

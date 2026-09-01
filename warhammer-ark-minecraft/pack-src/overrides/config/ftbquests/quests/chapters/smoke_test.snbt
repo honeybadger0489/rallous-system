@@ -47,7 +47,7 @@
 				type: "checkmark"
 			}]
 			description: [
-				"2. NAMED LORD + STANCE — walk to the nearest bannered camp. A named lord from the faction tables speaks a stance. Chat names the camp (Reikland, Clan Mors, …), never Team 2."
+				"2. NAMED LORD + STANCE — walk to the nearest bannered camp. A named lord from the faction tables speaks a stance. Chat names the camp (Reikland, Clan Mors, …). If U still says Team 2, Found a Banner."
 			]
 			title: "2. Named lord + stance"
 			x: -2.0d
@@ -152,7 +152,7 @@
 				type: "checkmark"
 			}]
 			description: [
-				"Also: NO STARTER MAGIC — wreckage chest is bread / leather / stone. No spellbook."
+				"Also: NO STARTER MAGIC — wreckage chest is a Warp-tainted relic (echo shard). No spellbook."
 			]
 			title: "No starter magic"
 			x: 0.0d
@@ -173,7 +173,7 @@
 				type: "checkmark"
 			}]
 			description: [
-				"Also: DEATH — die with no bed → your crater. Place a bed, sleep, die → bed."
+				"Also: DEATH — die with no civ-bed → your crater. Sleep in a claimed village or after join. Wilderness beds do not stick."
 			]
 			title: "Death crater / bed"
 			x: 2.0d

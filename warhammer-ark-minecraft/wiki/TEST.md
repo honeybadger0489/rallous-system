@@ -24,7 +24,7 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 
 - [ ] Look down: blackstone / crying obsidian bowl, campfire, wreckage chest.
 - [ ] Title names the Warp-crash (**Cast from the Warp**). Forge 47.4.10.
-- [ ] Chest is bread / leather / stone. **No** Iron’s spellbook.
+- [ ] Chest is a **Warp-tainted relic** (echo shard). **No** Iron’s spellbook.
 - [ ] Open the quest book (`` ` ``). **The Warp-Crash**, not a Reikland tutorial court.
 
 ### Stance
@@ -77,7 +77,7 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 ### Death
 
 - [ ] Die with **no** bed. Respawn in **your** crater. Same player. No second Warp-hole.
-- [ ] Place a bed. Sleep. Die. Respawn at the bed.
+- [ ] Sleep in a **claimed village** (villager / claimed camp nearby) or after **join**. Die. Respawn at that civ-bed. A wilderness bed does **not** stick.
 - [ ] `/function rallous_old_world:crash/return_crater` still finds your hole.
 
 ### Multiplayer scatter

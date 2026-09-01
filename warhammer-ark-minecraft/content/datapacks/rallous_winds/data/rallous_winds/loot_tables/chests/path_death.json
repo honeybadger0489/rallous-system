@@ -10,7 +10,7 @@
           "functions": [
             {
               "function": "minecraft:set_nbt",
-              "tag": "{title:\"Grave Missive\",author:\"A priest who does not smile\",pages:['{\"text\": \"A priest who does not smile left this on the lectern.\"}','{\"text\": \"Iron’s ink and scrolls hide in crypts, dungeon chests, and this barrel. Necromancy is a path you walk.\"}','{\"text\": \"No starter necronomicon. The wreckage was bread and leather.\"}'],rallous:{winds:1b,school:\"death\"}}"
+              "tag": "{title:\"Grave Missive\",author:\"A priest who does not smile\",pages:['{\"text\": \"A priest who does not smile left this on the lectern.\"}','{\"text\": \"Iron’s ink and scrolls hide in crypts, dungeon chests, and this barrel. Necromancy is a path you walk.\"}','{\"text\": \"No starter necronomicon. The wreckage was a Warp-tainted relic, not a book.\"}'],rallous:{winds:1b,school:\"death\"}}"
             }
           ]
         }

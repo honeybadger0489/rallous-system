@@ -69,7 +69,7 @@ SCHOOLS = {
         "pages": [
             "A priest who does not smile left this on the lectern.",
             "Iron's ink and scrolls hide in crypts, dungeon chests, and this barrel. Necromancy is a path you walk.",
-            "No starter necronomicon. The wreckage was bread and leather.",
+            "No starter necronomicon. The wreckage was a Warp-tainted relic, not a book.",
         ],
     },
     4: {
@@ -281,7 +281,7 @@ No new mods. This folder only. Zip agent may ingest it (jar **or** world datapac
 
 ## How a player finds magic in the first hour
 
-1. Crash chest is bread / leather / stone. **No** spellbook. `strip` runs once after warp-land if Iron's still handed you a book.
+1. Crash chest is a Warp-tainted relic (echo shard). **No** spellbook. `strip` runs once after warp-land if Iron's still handed you a book.
 2. Walk to the nearest bannered camp (minutes).
 3. A **named lectern** holds a letter (College / Ice / Grave / Vein) that points to Iron's **ink** and **scrolls**.
 4. Open the camp barrel. Rare: `irons_spellbooks:common_ink` plus the same letter. Never a filled spellbook.
@@ -354,7 +354,7 @@ tag @s add rallous.winds.stripped
     w(
         fn / "hint.mcfunction",
         """tellraw @s {"text":"The Winds (first hour)","color":"dark_purple","bold":true}
-tellraw @s {"text":"Crash chest: bread, leather, stone. No Iron's spellbook.","color":"gray"}
+tellraw @s {"text":"Crash chest: a Warp-tainted relic. No Iron's spellbook.","color":"gray"}
 tellraw @s {"text":"1. Walk to the nearest bannered camp.","color":"white"}
 tellraw @s {"text":"2. Read the named lectern. Take the letter. That is the path.","color":"white"}
 tellraw @s {"text":"3. Open the camp barrel. Rare: Iron's common ink. Never a filled spellbook.","color":"white"}

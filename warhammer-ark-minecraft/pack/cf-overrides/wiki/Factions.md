@@ -44,4 +44,4 @@ Path quests later shift **that contact camp** only. See [Diplomacy](Diplomacy.md
 - **Walk farther:** more from the remaining pool, cap about **40**.
 - Never all 129 at once.
 
-Chat must name the camp (Reikland, Clan Mors, …), never Team 2. If it says Team 2, enable [Rallous Continuity](Install.md) and see [Recruits](Recruits.md).
+Bind chat names the camp (Reikland, Clan Mors, …). **U** may still say Team 2 if the bridge misses — **U** → Found a Banner and type that chat name. Continuity is lang only; it does not rename a host. See [Recruits](Recruits.md).

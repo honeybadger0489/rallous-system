@@ -6,7 +6,7 @@ No new mods. This folder only. Zip agent may ingest it (jar **or** world datapac
 
 ## How a player finds magic in the first hour
 
-1. Crash chest is bread / leather / stone. **No** spellbook. `strip` runs once after warp-land if Iron's still handed you a book.
+1. Crash chest is a Warp-tainted relic (echo shard). **No** spellbook. `strip` runs once after warp-land if Iron's still handed you a book.
 2. Walk to the nearest bannered camp (minutes).
 3. A **named lectern** holds a letter (College / Ice / Grave / Vein) that points to Iron's **ink** and **scrolls**.
 4. Open the camp barrel. Rare: `irons_spellbooks:common_ink` plus the same letter. Never a filled spellbook.

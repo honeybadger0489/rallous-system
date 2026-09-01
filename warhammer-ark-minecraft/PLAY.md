@@ -2,10 +2,10 @@
 
 **Player wiki:** [wiki/Home.md](wiki/Home.md) · two-hour test: [wiki/TEST.md](wiki/TEST.md)
 
-**This is the only player doc.** Import **0.3.11** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9 / 0.3.10.
+**This is the only player doc.** Import **0.3.12** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9 / 0.3.10 / 0.3.11.
 
 **Download:**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.11.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.12.zip
 
 CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, ~8 GB RAM. **Minecraft 1.20.1 + Forge 47.4.10**. New world: Survival, Hard, cheats ON (smoke commands). Terralith default. Private pack — do not upload.
 
@@ -30,7 +30,7 @@ A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crat
 
 - Warp-crash first join: crater, world spawn, per-player spawnpoint, wreckage chest, wreckage journal (`rallous_warp_crash` + Old World fallback). After `store_crater`, `rallous_crater_hq:mark` plants a later-DLC HQ hook.
 - Friend-elsewhere scatter (and a solo demo function)
-- Death: no bed → your crater; bed → bed
+- Death: no claimed village / join civ-bed → your crater; wilderness beds do not stick
 - Compiled faction map (`rallous_factions`): mix of major+minor camps from the 8 v1 races, lords from templates, crash contact + stance, path scores change that faction
 - First-contact path stance (`rallous_diplomacy`) — FTB Paths and the factions tick both call `apply_path`
 - One-night session (`rallous_session`): `/function rallous_session:start` / `:win` — one village or one fight in the contact lord’s voice
@@ -63,7 +63,7 @@ Quest book **`` ` ``** (grave). Chapter **Warp-crash Smoke** ticks the same list
 4. **Force roaming** — `/function rallous_old_world:force_roaming` spawns a Waaagh scout, a Beastmen herd, and a Khorne pack near you.
 5. **Enable Rallous Continuity** — Options → Resource Packs → move **Rallous Continuity** up. Hire / inspect Recruits: **Levy** / **Elector** / **Waaagh** / **Under-Empire**, not “Recruit” / Team 2. That overlay is lang only.
 
-Also worth a pass if you have time: second player (or `/function rallous_old_world:crash/demo_friend_elsewhere`) crashes elsewhere; wreckage chest has bread / leather / stone and **no** Iron’s spellbook; die with no bed → your crater; bed → bed.
+Also worth a pass if you have time: second player (or `/function rallous_old_world:crash/demo_friend_elsewhere`) crashes elsewhere; wreckage chest is a **Warp-tainted relic** (echo shard) and **no** Iron’s spellbook; die with no civ-bed → your crater; sleep in a **claimed village** or after **join** → that bed. Wilderness beds do not stick.
 
 ---
 

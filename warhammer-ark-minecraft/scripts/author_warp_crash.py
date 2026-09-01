@@ -163,7 +163,7 @@ tellraw @s {"text":"Return to your crater: /function rallous_old_world:crash/ret
         "The warp spat you out. There is no war council. The crater under your boots is the world spawn. A friend who joins this world crashes somewhere else.",
         "Mods are the engine. We authored the crash, the first-contact book, faction words (State Trooper / Elector / Waaagh), and the roaming / Lizardmen-Beastmen force functions. We borrowed Recruits, Iron's, Fossils, Epic Fight, Terralith, Sons of the Empire kits, grim packs.",
         "You start with no battle magic. Iron's is in the pack; you find or craft it later. Do not expect a spellbook in the crater chest.",
-        "Walk to a town. Fight. Recruits lang says State Trooper. Die without a bed and the warp hauls you back to YOUR crater. Sleep in a bed and death uses the bed.",
+        "Walk to a bannered camp. Fight. Recruits lang says State Trooper. Die without a claimed village / join civ-bed and the warp hauls you back to YOUR crater. Wilderness beds do not stick.",
         "Cheats: /function rallous_old_world:force_roaming   /function rallous_old_world:lm_bm/summon   /function rallous_old_world:crash/demo_friend_elsewhere   /function rallous_old_world:crash/return_crater",
         "Graphics are Faithful 32x + Grimdark Battlepack + Grimdark Sky + Gothic font + Complementary Unbound + Sons of the Empire on Steve-like bodies. We did not sculpt Total War models. Continuity (the connected-textures mod) is not in this pack.",
     ]
@@ -223,7 +223,7 @@ setworldspawn ~ ~-1 ~
 spawnpoint @s ~ ~-1 ~
 gamerule spawnRadius 0
 tp @s ~ ~-1 ~
-tellraw @s {"text":"You hit the Old World. This crater is home until you sleep in a bed.","color":"dark_purple"}
+tellraw @s {"text":"You hit the Old World. This crater is home until you sleep under a village roof.","color":"dark_purple"}
 """,
     )
     w(
@@ -252,7 +252,7 @@ tp @s ~ ~-1 ~
     w(
         FN / "crash" / "on_death.mcfunction",
         """# Vanilla already sent you to bed or to the spawnpoint we set (your crater).
-tellraw @s {"text":"If you had no bed, the warp hauled you back to your crater. A bed beats the crater.","color":"dark_purple"}
+tellraw @s {"text":"If you had no claimed village / join civ-bed, the warp hauled you back to your crater. Wilderness beds do not stick.","color":"dark_purple"}
 scoreboard players set @s rallous.deaths 0
 """,
     )
@@ -382,8 +382,43 @@ def rebuild_jar() -> Path:
     return jar_path
 
 
+def strip_unused_court_files() -> None:
+    """Delete leftover unused court summons and Kislev/Karl letters. Do not restore first-join court."""
+    lords_dir = FN / "lords"
+    if lords_dir.is_dir():
+        for path in lords_dir.glob("*.mcfunction"):
+            path.unlink()
+    for name in ("give_karl_letter.mcfunction", "give_katarin_letter.mcfunction"):
+        p = FN / name
+        if p.exists():
+            p.unlink()
+    cnpc = OV / "customnpcs" / "rallous_lords"
+    for name in ("karl.json", "katarin.json"):
+        p = cnpc / name
+        if p.exists():
+            p.unlink()
+    adv = DATA / "advancements"
+    for rel in ("lords/karl.json", "lords/katarin.json", "kislev/root.json"):
+        p = adv / rel
+        if p.exists():
+            p.unlink()
+    kislev = adv / "kislev"
+    if kislev.is_dir() and not any(kislev.iterdir()):
+        kislev.rmdir()
+    host = adv / "reikland" / "host.json"
+    if host.exists():
+        try:
+            data = json.loads(host.read_text())
+        except json.JSONDecodeError:
+            data = None
+        if data and data.get("parent") == "rallous_old_world:lords/karl":
+            data["parent"] = "rallous_old_world:root"
+            dump_json(host, data)
+
+
 def strip_court_hooks() -> None:
     """Last-line defense if a sibling rewrote first_join."""
+    strip_unused_court_files()
     fj = FN / "first_join.mcfunction"
     if fj.exists():
         text = fj.read_text()
