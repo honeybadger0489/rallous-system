@@ -4,23 +4,23 @@ Recruits is the army engine. We bind it to **the compiled camp you crashed next 
 
 ## Honest banner
 
-**Villager Recruits has no create / name / hire / ally chat API.**
+Villager Recruits still has **no chat create / hire / ally command**. Hire, orders, and Ally / Enemy live in Recruits’ GUIs. `/recruits admin factionManager` can get/set NPC count, get/set leader, and **delete** — that admin path still lacks a create *subcommand*.
+
+**The crash-camp host is founded anyway.** `rallous-recruits-bridge` calls Recruits’ own `FactionEvents.createTeam(false, …)` — the same server path as **U → Found a Banner** — after assign. Chat / **U** should already say **Reikland** or **Clan Mors**, not Team 2.
 
 | You want | What actually works |
 | --- | --- |
-| Found / name a host | **U** → **Found a Banner**. Dye a cloth banner first. |
+| Found / name a host | Bridge founds the crash-camp name after assign. Fallback: **U** → **Found a Banner**. Dye a cloth banner first. |
 | Ally / Enemy | Same **U** screen → Diplomacy. Needs two banners that already exist. |
 | Hire | Right-click a Levy → hire GUI. No `/recruits hire`. |
 | Orders | **R** (Host Command): Follow, Hold, Aggressive, Raid. |
-| Admin patrol | `/recruits spawn recruitPatrol …` — generic, **not** the crash-camp faction. |
+| Admin patrol | `/recruits spawn recruitPatrol tiny` — generic, **not** the crash-camp faction. Roaming Waaagh / herd / Blood Host use this. |
 | Vanilla `/team add` | Recruits **warns this names hosts Team 1 / Team 2 and breaks banners**. Do not. |
-
-`/recruits admin factionManager` can get/set NPC count, get/set leader, **delete**. **No create.**
 
 ## What we do anyway
 
 1. `rallous_recruits_bind` copies the crash-camp display name onto scores / storage / a book. Chat should say **Reikland** or **Clan Mors**.
-2. `rallous-recruits-bridge` (Java) calls Recruits’ own Found-a-Banner server method so the **U** inspect should already show that name, not Team 2. If you already have Team 1 / Team 2, the bridge burns it and founds the compiled name.
+2. `rallous-recruits-bridge` (Java) founds the Recruits host to that name. If you already have Team 1 / Team 2, the bridge burns it and founds the compiled name.
 
 Hire, orders, and Ally / Enemy still use Recruits’ GUIs. The datapack cannot write Recruits saved data by itself.
 

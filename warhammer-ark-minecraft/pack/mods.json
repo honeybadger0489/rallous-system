@@ -1716,7 +1716,7 @@
       "curseforge_slug": "minecolonies",
       "curseforge_id": 245506,
       "curseforge_file_id": 8615315,
-      "notes": "1.20.1 Forge fileIDs exist on CurseForge (8615315 release / 8775822 snapshot 1.1.1280). Modrinth has 0 Forge 1.20.1 files. Not default: Recruits already owns banners/claims in 0.3.6; MC + 4 LDT deps is a second capital. Cheap Millénaire loop: content/datapacks/rallous_grow."
+      "notes": "1.20.1 Forge fileIDs exist on CurseForge (8615315 release / 8775822 snapshot 1.1.1280). Modrinth has 0 Forge 1.20.1 files. Not default: Recruits already owns banners/claims in 0.3.7; MC + 4 LDT deps is a second capital. Cheap Millénaire loop: content/datapacks/rallous_grow."
     },
     {
       "slug": "structurize",
@@ -1838,7 +1838,7 @@
         "recruits-claims",
         "minecolonies"
       ],
-      "reason": "MineColonies + Recruits as dual player capitals is the documented performance tax. Default 0.3.6 keeps Recruits. rallous_grow is the cheap camp-growth loop."
+      "reason": "MineColonies + Recruits as dual player capitals is the documented performance tax. Default 0.3.7 keeps Recruits. rallous_grow is the cheap camp-growth loop."
     }
   ],
   "starter_slugs": [

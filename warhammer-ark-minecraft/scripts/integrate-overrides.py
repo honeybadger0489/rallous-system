@@ -3,10 +3,12 @@
 
 Looks at repo-root and warhammer-ark-minecraft/ for:
   content/factions/
-  pack-src/datapacks/  pack-src/resourcepacks/  pack-src/quests/
+  pack-src/datapacks/  pack-src/overrides/datapacks/  content/datapacks/
+  pack-src/resourcepacks/  pack-src/quests/
   pack-src/config/  pack-src/overrides/config/
-  rallous-recruits-bridge*.jar (optional — sibling Forge mod)
+  rallous-recruits-bridge*.jar (sibling Forge mod — required)
   options.txt pack order
+  wiki/ → overrides/wiki/
 
 Does not resolve CurseForge fileIDs. Does not add Fabric. Strips first-join court.
 """
@@ -247,6 +249,7 @@ def ingest_siblings() -> dict[str, int]:
         "config": 0,
         "options": 0,
         "bridge": 0,
+        "wiki": 0,
     }
     for src in find_dirs("content/factions"):
         counts["factions"] += copy_tree(src, OV / "content" / "factions")
@@ -286,8 +289,24 @@ def ingest_siblings() -> dict[str, int]:
                 counts["config"] += copy_tree(dc, OV / "defaultconfigs")
     counts["options"] += ingest_options_txt()
     counts["bridge"] += 1 if ingest_bridge_jar() else 0
+    counts["wiki"] += ingest_wiki()
     print("ingested", counts)
     return counts
+
+
+def ingest_wiki() -> int:
+    """Copy repo wiki/ into overrides/wiki so friends open it from the instance."""
+    dest = OV / "wiki"
+    n = 0
+    for src in find_dirs("wiki"):
+        if src.resolve() == dest.resolve():
+            continue
+        copied = copy_tree(src, dest)
+        n += copied
+        print(f"ingested wiki from {src} ({copied} files)")
+    if not (dest / "Home.md").is_file() or not (dest / "TEST.md").is_file():
+        raise SystemExit("overrides/wiki missing Home.md or TEST.md")
+    return n
 
 
 def copy_config_tree(src: Path, dest: Path) -> int:
@@ -432,6 +451,8 @@ REQUIRED_JARS = (
     "rallous_session-1.0.0.jar",
     "rallous_recruits_bind-1.0.0.jar",
     "rallous_winds-1.0.0.jar",
+    "rallous_grow-1.0.0.jar",
+    "rallous_kit-1.0.0.jar",
 )
 
 REQUIRED_FTB = (
@@ -479,6 +500,8 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             "rallous_session",
             "rallous_recruits_bind",
             "rallous_winds",
+            "rallous_grow",
+            "rallous_kit",
         ):
             if f"overrides/datapacks/{pack}/pack.mcmeta" not in names:
                 raise SystemExit(f"zip missing datapack folder {pack}")
@@ -500,6 +523,31 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("zip missing recruits_bind on_contact")
         if "overrides/datapacks/rallous_winds/data/rallous_winds/functions/hint.mcfunction" not in names:
             raise SystemExit("zip missing winds hint")
+        if "overrides/datapacks/rallous_grow/data/rallous_grow/functions/on_session.mcfunction" not in names:
+            raise SystemExit("zip missing grow on_session")
+        if "overrides/datapacks/rallous_kit/data/rallous_kit/functions/on_greet.mcfunction" not in names:
+            raise SystemExit("zip missing kit on_greet")
+        roam_col = "overrides/datapacks/rallous_roaming/data/rallous_roaming/functions/spawn/recruits_column.mcfunction"
+        if roam_col not in names:
+            raise SystemExit("zip missing roaming recruits_column")
+        if "recruitPatrol tiny" not in zf.read(roam_col).decode():
+            raise SystemExit("roaming recruits_column missing recruitPatrol tiny")
+        for page in ("Home.md", "TEST.md", "Recruits.md", "Install.md"):
+            if f"overrides/wiki/{page}" not in names:
+                raise SystemExit(f"zip missing wiki/{page}")
+        rec_wiki = zf.read("overrides/wiki/Recruits.md").decode()
+        if "has no create" in rec_wiki.lower() or "**No create.**" in rec_wiki:
+            raise SystemExit("wiki/Recruits.md still says there is no create API")
+        if "createTeam" not in rec_wiki:
+            raise SystemExit("wiki/Recruits.md missing bridge createTeam")
+        play = zf.read("overrides/PLAY.md").decode()
+        ver = zip_path.stem.rsplit("-", 1)[-1]
+        if ver not in play:
+            raise SystemExit(f"zip PLAY.md missing {ver}")
+        if "wiki/Home.md" not in play or "wiki/TEST.md" not in play:
+            raise SystemExit("zip PLAY.md missing wiki Home/TEST links")
+        if any("minecolonies" in n.lower() for n in names):
+            raise SystemExit("zip contains MineColonies")
         if "overrides/resourcepacks/Rallous Continuity/assets/rallous_recruits_bind/lang/en_us.json" not in names:
             raise SystemExit("zip Continuity missing recruits_bind lang")
         for cfg in (
@@ -565,10 +613,16 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         if any("Continuity" in n and n.endswith(".jar") for n in names):
             raise SystemExit("zip contains Continuity jar")
         bridge_names = [n for n in names if BRIDGE_JAR_RE.search(Path(n).name)]
-        if bridge_names:
-            print("zip includes bridge jar", bridge_names)
-        else:
-            print("HONEST: zip has no rallous-recruits-bridge jar")
+        if not bridge_names:
+            raise SystemExit("zip missing rallous-recruits-bridge jar")
+        from io import BytesIO as _BytesIO
+
+        br = zipfile.ZipFile(_BytesIO(zf.read(bridge_names[0])))
+        if "com/rallous/recruitsbridge/HostFounder.class" not in set(br.namelist()):
+            raise SystemExit("bridge jar missing HostFounder")
+        if b"createTeam" not in br.read("com/rallous/recruitsbridge/HostFounder.class"):
+            raise SystemExit("bridge HostFounder missing createTeam")
+        print("zip includes bridge jar", bridge_names)
         reik = zf.read("overrides/datapacks/rallous_factions/data/rallous_factions/functions/place/reikland.mcfunction").decode()
         camp_ops = sum(1 for line in reik.splitlines() if " setblock " in line or " fill " in line or " summon " in line)
         if camp_ops < 8:
@@ -614,7 +668,7 @@ def file_ids_from_021() -> set[tuple[int, int]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.6")
+    parser.add_argument("--version", default="0.3.7")
     parser.add_argument("--skip-author", action="store_true", help="Do not rewrite crash functions")
     args = parser.parse_args()
 
@@ -651,7 +705,7 @@ def main() -> None:
     if ingested.get("bridge"):
         print("bridge jar: yes")
     else:
-        print("bridge jar: NO — siblings did not ship rallous-recruits-bridge")
+        raise SystemExit("bridge jar: NO — siblings did not ship rallous-recruits-bridge")
     print("zip", zip_path)
 
 

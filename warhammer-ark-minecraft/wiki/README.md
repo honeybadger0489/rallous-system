@@ -11,7 +11,7 @@ This folder is the friend-facing pack wiki. Not research, not a zip rebuild, not
 | [Crash and death](Crash-and-death.md) | Warp-crash, beds, friends elsewhere |
 | [Factions](Factions.md) | 8 races, majors/minors, 16/40 camps |
 | [Diplomacy](Diplomacy.md) | Help / betray / join / leave |
-| [Recruits](Recruits.md) | U screen, no chat API, Team 2 |
+| [Recruits](Recruits.md) | U screen; bridge founds the crash-camp host |
 | [Magic](Magic.md) | The Winds — no starter book |
 | [Beasts](Beasts.md) | Lizardmen vs Beastmen vs others |
 | [Roaming](Roaming.md) | Waaagh, herd, Blood Host |

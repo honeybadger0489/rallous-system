@@ -2,7 +2,7 @@
 
 Millénaire’s trick: a camp gets **bigger** because you helped it, not because you placed a town hall.
 
-This pack does **not** ship MineColonies in the 0.3.6 zip. Recruits already owns banners and claims. Guard Villagers and Towns and Towers already make *other people’s* towns look alive. The cheap loop that ships is **`rallous_grow`** on the 7×7 crash camp.
+This pack does **not** ship MineColonies in the 0.3.7 zip. Recruits already owns banners and claims. Guard Villagers and Towns and Towers already make *other people’s* towns look alive. The cheap loop that ships is **`rallous_grow`** on the 7×7 crash camp.
 
 Research and CurseForge fileIDs: [content/VILLAGES.md](../content/VILLAGES.md).
 

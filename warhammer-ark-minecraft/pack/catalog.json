@@ -1054,7 +1054,7 @@
       "curseforge_id": 245506,
       "curseforge_file_id": 8615315,
       "filename": "minecolonies-1.20.1-1.1.1276.jar",
-      "notes": "Millénaire-scale colony sim. 1.20.1 Forge fileIDs exist on CurseForge only (Modrinth stale 1.18.2). Pin release 1.1.1276 fileID 8615315; latest snapshot 1.1.1280 fileID 8775822. Requires Structurize, BlockUI, Domum Ornamentum, MultiPiston. Do not enable as a second capital next to Recruits (already in 0.3.6). Frame as Elector / temple-city / hold / Under-Empire outpost. Cheap loop that ships tonight is content/datapacks/rallous_grow."
+      "notes": "Millénaire-scale colony sim. 1.20.1 Forge fileIDs exist on CurseForge only (Modrinth stale 1.18.2). Pin release 1.1.1276 fileID 8615315; latest snapshot 1.1.1280 fileID 8775822. Requires Structurize, BlockUI, Domum Ornamentum, MultiPiston. Do not enable as a second capital next to Recruits (already in 0.3.7). Frame as Elector / temple-city / hold / Under-Empire outpost. Cheap loop that ships tonight is content/datapacks/rallous_grow."
     },
     {
       "slug": "structurize",
@@ -1152,7 +1152,7 @@
     {
       "group": "player-capital",
       "pick_one": ["recruits-claims", "minecolonies"],
-      "reason": "MineColonies + Recruits as dual player capitals is the documented performance tax. Default 0.3.6 keeps Recruits. rallous_grow is the cheap camp-growth loop."
+      "reason": "MineColonies + Recruits as dual player capitals is the documented performance tax. Default 0.3.7 keeps Recruits. rallous_grow is the cheap camp-growth loop."
     }
   ]
 }

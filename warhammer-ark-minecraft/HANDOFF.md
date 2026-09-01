@@ -67,15 +67,15 @@ Work here. Do not open a second GitHub fork. A sibling Java tree (`mods/rallous-
 
 ## Current zip version
 
-**PLAY.md + `pack/curseforge/manifest.json` + `dist/`:** **0.3.6**
+**PLAY.md + `pack/curseforge/manifest.json` + `dist/`:** **0.3.7**
 
-File: `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.6.zip`
+File: `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.7.zip`
 
-Raw: https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.6.zip
+Raw: https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.7.zip
 
-Older archives (0.2.0–0.3.5) stay in `dist/` for history. **Import 0.3.6 as a new CurseForge profile.** Do not update 0.2.1 / 0.2.2 / 0.3.0–0.3.5.
+Older archives (0.2.0–0.3.6) stay in `dist/` for history. **Import 0.3.7 as a new CurseForge profile.** Do not update 0.2.1 / 0.2.2 / 0.3.0–0.3.6.
 
-0.3.6 payload: compiled thicker camps, `rallous_session`, `rallous_recruits_bind`, **`rallous-recruits-bridge-1.0.0.jar`**, `options.txt` pack order with **Rallous Continuity** last, 76 CF files, no Fabric Continuity jar, no first-join court. If the bridge fails on boot: `crash-*-fml.txt` and fall back to U → Found a Banner.
+0.3.7 payload: compiled thicker camps, `rallous_session`, `rallous_recruits_bind`, **`rallous-recruits-bridge-1.0.0.jar`** (`FactionEvents.createTeam(false, …)`), `rallous_winds`, `rallous_grow`, `rallous_kit`, updated `rallous_roaming` (`/recruits spawn recruitPatrol tiny`), `overrides/wiki/`, `options.txt` pack order with **Rallous Continuity** last, 76 CF files, no Fabric Continuity jar, no MineColonies, no first-join court. If the bridge fails on boot: `crash-*-fml.txt` and fall back to U → Found a Banner.
 
 ---
 
@@ -92,11 +92,12 @@ Sibling folders under `content/datapacks/` compile or copy into `pack/cf-overrid
 | `rallous_contact` | First-contact path scores / FTB rewards | Path verbs call diplomacy then factions sync. |
 | `rallous_session` | `/function rallous_session:start` / `:win` — one village or one fight | Needs `rallous.contact` or a nearby `rallous.camp`. |
 | `rallous_recruits_bind` | Copies crash-camp **display name** onto scores / storage / book | Hooked from `rallous_factions:contact/assign`. **Does not found a RecruitsFaction.** |
-| `rallous-recruits-bridge` | Java Forge jar. Calls Recruits `FactionEvents.createTeam` so U / chat say **Reikland** / **Clan Mors**, not Team 2 | Source: `mods/rallous-recruits-bridge/`. API notes: [`content/RECRUITS-API.md`](content/RECRUITS-API.md). In the 0.3.6 zip. |
+| `rallous-recruits-bridge` | Java Forge jar. Calls Recruits `FactionEvents.createTeam(false, …)` so U / chat say **Reikland** / **Clan Mors**, not Team 2 | Source: `mods/rallous-recruits-bridge/`. API notes: [`content/RECRUITS-API.md`](content/RECRUITS-API.md). In the 0.3.7 zip. |
 | `rallous_kit` | Tier-1 levy kit after first-contact greet (`rallous_kit:on_greet`) | Race 1–8. Sets `rallous.kitted`. Folder or jar, not both. Do not edit `compile_factions.py` from here. |
 | `rallous_winds` | Camp lecterns + barrel loot point to Iron’s ink/scroll. `/function rallous_winds:hint` | No filled spellbook. Tick plants letters on `rallous.camp`. Folder or jar, not both. |
+| `rallous_grow` | Millénaire-style camp tiers on the 7×7 picket (help / session / emeralds) | `rallous_grow:on_session`. Cap 3. Not MineColonies. |
 | `rallous_crater_hq` | Oak fence + white banner + storage at crater | **Hook only.** Not faction gameplay. Later DLC. |
-| `rallous_roaming` | Scheduled Waaagh / herd / Khorne host (no capital) | Crash-gate until day ≥ 1 or 128+ from crater. |
+| `rallous_roaming` | Scheduled Waaagh / herd / Khorne host (no capital) | Crash-gate until day ≥ 1 or 128+ from crater. `/recruits spawn recruitPatrol tiny` for the levy column. |
 | `rallous_temple_herd` | Fossils / Tameable Beasts flavor (temple / herdstone) | Cannot per-race Fossils tame difficulty. |
 
 **Resource pack:** `content/resourcepacks/Rallous Continuity/` (and pack-src / overrides copies). Lang only. `options.txt` must list it so players do not forget.
@@ -142,22 +143,22 @@ From `warhammer-ark-minecraft/`:
 
 ```bash
 python3 scripts/compile_factions.py
-python3 scripts/integrate-overrides.py --version 0.3.6
+python3 scripts/integrate-overrides.py --version 0.3.7
 ```
 
-`integrate-overrides.py` (default `--version 0.3.6`):
+`integrate-overrides.py` (default `--version 0.3.7`):
 
 1. `compile_factions()`
-2. Ingest siblings: `content/factions/`, `content/datapacks/`, `content/resourcepacks/`, `pack-src/` datapacks / resourcepacks / quests / config, `options.txt` pack order, optional `rallous-recruits-bridge*.jar`
+2. Ingest siblings: `content/factions/`, `content/datapacks/`, `content/resourcepacks/`, `pack-src/` datapacks / resourcepacks / quests / config, `options.txt` pack order, `rallous-recruits-bridge*.jar`, `wiki/` → `overrides/wiki/`
 3. `apply_warp_crash()` unless `--skip-author`
 4. Restore sibling FTB, `strip_court_hooks()`, rebuild LowCodeFML jars
 5. Copy `PLAY.md` into overrides
-6. `pack-zip.py --version …` → `dist/rallous-warhammer-fantasy-0.3.6.zip`
-7. Assert: 76 CF files, Forge-only loaders, no court on join, no Continuity jar, camps / session / bind / diplomacy / crater HQ present
+6. `pack-zip.py --version …` → `dist/rallous-warhammer-fantasy-0.3.7.zip`
+7. Assert: 76 CF files, Forge-only loaders, no court on join, no Continuity jar, no MineColonies, camps / session / bind / winds / grow / kit / wiki / bridge present
 
-Does **not** resolve CurseForge fileIDs. Full pin refresh is `scripts/build-cf-pack.py` (dependency agent owns that). Zip-only from existing overrides: `python3 scripts/pack-zip.py --version 0.3.6`.
+Does **not** resolve CurseForge fileIDs. Full pin refresh is `scripts/build-cf-pack.py` (dependency agent owns that). Zip-only from existing overrides: `python3 scripts/pack-zip.py --version 0.3.7`.
 
-Client is **not** booted in CI. Smoke is [`PLAY.md`](PLAY.md) “One-hour smoke.” Crashes: `crash-*-fml.txt`.
+Client is **not** booted in CI. Two-hour test is [`wiki/TEST.md`](wiki/TEST.md). Crashes: `crash-*-fml.txt`.
 
 ---
 

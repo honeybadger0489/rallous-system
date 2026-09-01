@@ -33,7 +33,7 @@ FTB can task on `rallous.grow` **3**.
 
 ## Why not MineColonies tonight
 
-1.20.1 Forge **fileIDs exist** (see `pack/catalog.json` / `pack/mods.json` listed_not_default). MineColonies also needs Structurize, BlockUI, Domum Ornamentum, MultiPiston (~5 extra jars, ~74MB). Recruits already owns claims and armies in 0.3.6. Stacking both as player capitals is the documented performance tax. This datapack is the cheap loop that ships without a zip rebuild.
+1.20.1 Forge **fileIDs exist** (see `pack/catalog.json` / `pack/mods.json` listed_not_default). MineColonies also needs Structurize, BlockUI, Domum Ornamentum, MultiPiston (~5 extra jars, ~74MB). Recruits already owns claims and armies in 0.3.7. Stacking both as player capitals is the documented performance tax. This datapack is the cheap loop that ships without a zip rebuild.
 
 ## Files
 

@@ -12,7 +12,7 @@ See also [`HANDOFF.md`](HANDOFF.md).
 
 **Fact:** Villager Recruits 1.20.1-1.15.2 has **no** datapack or `/recruits admin` create. Admin can get/set/delete. Vanilla `/team add` becomes Team 1 / Team 2 and `getFactionByStringID` is null. Hire / Ally / Enemy / Found a Banner are GUIs. Research: [`content/RECRUITS-API.md`](content/RECRUITS-API.md), [`content/datapacks/rallous_recruits_bind/README.md`](content/datapacks/rallous_recruits_bind/README.md).
 
-**v1 today:** `rallous_recruits_bind` writes scores, storage, book, and the crash-camp **display name**. PLAY.md + 0.3.6 ingest also expect `rallous-recruits-bridge` to call `FactionEvents.createTeam` (same server path as U → Found a Banner) so chat / U say Reikland or Clan Mors.
+**v1 today:** `rallous_recruits_bind` writes scores, storage, book, and the crash-camp **display name**. PLAY.md + 0.3.7 ingest also expect `rallous-recruits-bridge` to call `FactionEvents.createTeam(false, …)` (same server path as U → Found a Banner) so chat / U say Reikland or Clan Mors.
 
 **Fork later:**
 
