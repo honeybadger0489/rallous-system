@@ -1,0 +1,10 @@
+modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="rallous_session"
+version="1.0.0"
+displayName="Rallous Session"
+authors="Rallous System"
+description='''After first contact, one night is one village or one fight. No new mods.'''

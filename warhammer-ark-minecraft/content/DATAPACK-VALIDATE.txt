@@ -1,5 +1,5 @@
 DATAPACK VALIDATE
-generated: 2026-08-31 23:43:46Z
+generated: 2026-09-01 00:00:30Z
 root: /workspace/warhammer-ark-minecraft
 walk:
   content/datapacks
@@ -8,77 +8,41 @@ walk:
 function index extras (resolution only):
   pack/content
   pack/cf-overrides/datapacks
-indexed functions: 130
+indexed functions: 728
 
 COUNTS
-  packs:     pass=3 fail=6
-  json:      pass=146 fail=0
-  functions: pass=173 fail=21
-  TOTAL     pass=322 fail=27
+  packs:     pass=12 fail=0
+  json:      pass=155 fail=0
+  functions: pass=1164 fail=0
+  TOTAL     pass=1331 fail=0
 
 FLAKES
-  warp_crash may be mid-edit; treat missing refs as possibly transient.
-  - content/datapacks/rallous_contact/data/rallous_contact/functions/path/betray.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - content/datapacks/rallous_contact/data/rallous_contact/functions/path/help.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - content/datapacks/rallous_contact/data/rallous_contact/functions/path/join.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - content/datapacks/rallous_contact/data/rallous_contact/functions/path/leave.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - content/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/contact_hook.mcfunction:2: rallous_factions:crash/on_land — rallous_factions pack not on disk (sibling agent in-flight)
-  - content/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/first_contact.mcfunction:2: rallous_factions:contact/assign — rallous_factions pack not on disk (sibling agent in-flight)
-  - content/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/test_camp.mcfunction:2: rallous_factions:debug/force_contact — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/datapacks/rallous_contact/data/rallous_contact/functions/path/betray.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/datapacks/rallous_contact/data/rallous_contact/functions/path/help.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/datapacks/rallous_contact/data/rallous_contact/functions/path/join.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/datapacks/rallous_contact/data/rallous_contact/functions/path/leave.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/contact_hook.mcfunction:2: rallous_factions:crash/on_land — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/first_contact.mcfunction:2: rallous_factions:contact/assign — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/test_camp.mcfunction:2: rallous_factions:debug/force_contact — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/overrides/datapacks/rallous_contact/data/rallous_contact/functions/path/betray.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/overrides/datapacks/rallous_contact/data/rallous_contact/functions/path/help.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/overrides/datapacks/rallous_contact/data/rallous_contact/functions/path/join.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/overrides/datapacks/rallous_contact/data/rallous_contact/functions/path/leave.mcfunction:5: rallous_factions:path/sync — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/overrides/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/contact_hook.mcfunction:2: rallous_factions:crash/on_land — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/overrides/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/first_contact.mcfunction:2: rallous_factions:contact/assign — rallous_factions pack not on disk (sibling agent in-flight)
-  - pack-src/overrides/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/test_camp.mcfunction:2: rallous_factions:debug/force_contact — rallous_factions pack not on disk (sibling agent in-flight)
+  none recorded.
 
 PACKS
-  [FAIL] content/datapacks/rallous_contact  json=28/28  fn=4/8  pack_format15=yes
+  [PASS] content/datapacks/rallous_contact  json=28/28  fn=12/12  pack_format15=yes
            ok  meta  content/datapacks/rallous_contact/pack.mcmeta  pack_format=15
-           FAIL function  content/datapacks/rallous_contact/data/rallous_contact/functions/path/betray.mcfunction:5  missing rallous_factions:path/sync
-           FAIL function  content/datapacks/rallous_contact/data/rallous_contact/functions/path/help.mcfunction:5  missing rallous_factions:path/sync
-           FAIL function  content/datapacks/rallous_contact/data/rallous_contact/functions/path/join.mcfunction:5  missing rallous_factions:path/sync
-           FAIL function  content/datapacks/rallous_contact/data/rallous_contact/functions/path/leave.mcfunction:5  missing rallous_factions:path/sync
-  [PASS] content/datapacks/rallous_diplomacy  json=2/2  fn=1/1  pack_format15=yes
+  [PASS] content/datapacks/rallous_crater_hq  json=2/2  fn=4/4  pack_format15=yes
+           ok  meta  content/datapacks/rallous_crater_hq/pack.mcmeta  pack_format=15
+  [PASS] content/datapacks/rallous_diplomacy  json=2/2  fn=23/23  pack_format15=yes
            ok  meta  content/datapacks/rallous_diplomacy/pack.mcmeta  pack_format=15
+  [PASS] content/datapacks/rallous_factions  json=4/4  fn=899/899  pack_format15=yes
+           ok  meta  content/datapacks/rallous_factions/pack.mcmeta  pack_format=15
   [PASS] content/datapacks/rallous_roaming  json=5/5  fn=42/42  pack_format15=yes
            ok  meta  content/datapacks/rallous_roaming/pack.mcmeta  pack_format=15
+  [PASS] content/datapacks/rallous_session  json=3/3  fn=30/30  pack_format15=yes
+           ok  meta  content/datapacks/rallous_session/pack.mcmeta  pack_format=15
   [PASS] content/datapacks/rallous_temple_herd  json=37/37  fn=7/7  pack_format15=yes
            ok  meta  content/datapacks/rallous_temple_herd/pack.mcmeta  pack_format=15
-  [FAIL] content/datapacks/rallous_warp_crash  json=6/6  fn=37/40  pack_format15=yes
+  [PASS] content/datapacks/rallous_warp_crash  json=6/6  fn=41/41  pack_format15=yes
            ok  meta  content/datapacks/rallous_warp_crash/pack.mcmeta  pack_format=15
-           FAIL function  content/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/contact_hook.mcfunction:2  missing rallous_factions:crash/on_land
-           FAIL function  content/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/first_contact.mcfunction:2  missing rallous_factions:contact/assign
-           FAIL function  content/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/test_camp.mcfunction:2  missing rallous_factions:debug/force_contact
-  [FAIL] pack-src/datapacks/rallous_contact  json=28/28  fn=4/8  pack_format15=yes
+  [PASS] pack-src/datapacks/rallous_contact  json=28/28  fn=12/12  pack_format15=yes
            ok  meta  pack-src/datapacks/rallous_contact/pack.mcmeta  pack_format=15
-           FAIL function  pack-src/datapacks/rallous_contact/data/rallous_contact/functions/path/betray.mcfunction:5  missing rallous_factions:path/sync
-           FAIL function  pack-src/datapacks/rallous_contact/data/rallous_contact/functions/path/help.mcfunction:5  missing rallous_factions:path/sync
-           FAIL function  pack-src/datapacks/rallous_contact/data/rallous_contact/functions/path/join.mcfunction:5  missing rallous_factions:path/sync
-           FAIL function  pack-src/datapacks/rallous_contact/data/rallous_contact/functions/path/leave.mcfunction:5  missing rallous_factions:path/sync
-  [FAIL] pack-src/datapacks/rallous_warp_crash  json=6/6  fn=37/40  pack_format15=yes
+  [PASS] pack-src/datapacks/rallous_warp_crash  json=6/6  fn=41/41  pack_format15=yes
            ok  meta  pack-src/datapacks/rallous_warp_crash/pack.mcmeta  pack_format=15
-           FAIL function  pack-src/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/contact_hook.mcfunction:2  missing rallous_factions:crash/on_land
-           FAIL function  pack-src/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/first_contact.mcfunction:2  missing rallous_factions:contact/assign
-           FAIL function  pack-src/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/test_camp.mcfunction:2  missing rallous_factions:debug/force_contact
-  [FAIL] pack-src/overrides/datapacks/rallous_contact  json=28/28  fn=4/8  pack_format15=yes
+  [PASS] pack-src/overrides/datapacks/rallous_contact  json=28/28  fn=12/12  pack_format15=yes
            ok  meta  pack-src/overrides/datapacks/rallous_contact/pack.mcmeta  pack_format=15
-           FAIL function  pack-src/overrides/datapacks/rallous_contact/data/rallous_contact/functions/path/betray.mcfunction:5  missing rallous_factions:path/sync
-           FAIL function  pack-src/overrides/datapacks/rallous_contact/data/rallous_contact/functions/path/help.mcfunction:5  missing rallous_factions:path/sync
-           FAIL function  pack-src/overrides/datapacks/rallous_contact/data/rallous_contact/functions/path/join.mcfunction:5  missing rallous_factions:path/sync
-           FAIL function  pack-src/overrides/datapacks/rallous_contact/data/rallous_contact/functions/path/leave.mcfunction:5  missing rallous_factions:path/sync
-  [FAIL] pack-src/overrides/datapacks/rallous_warp_crash  json=6/6  fn=37/40  pack_format15=yes
+  [PASS] pack-src/overrides/datapacks/rallous_warp_crash  json=6/6  fn=41/41  pack_format15=yes
            ok  meta  pack-src/overrides/datapacks/rallous_warp_crash/pack.mcmeta  pack_format=15
-           FAIL function  pack-src/overrides/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/contact_hook.mcfunction:2  missing rallous_factions:crash/on_land
-           FAIL function  pack-src/overrides/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/first_contact.mcfunction:2  missing rallous_factions:contact/assign
-           FAIL function  pack-src/overrides/datapacks/rallous_warp_crash/data/rallous_warp_crash/functions/test_camp.mcfunction:2  missing rallous_factions:debug/force_contact
 
 END
