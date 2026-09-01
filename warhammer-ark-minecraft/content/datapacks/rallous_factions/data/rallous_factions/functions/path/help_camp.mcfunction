@@ -6,3 +6,4 @@ execute if score @s rallous.fac.stance matches 6 run scoreboard players set @s r
 tellraw @a[distance=..48] {"text":"This faction watched you help. Their stance toward you shifted.","color":"green"}
 execute if score @s rallous.fac.stance matches 1 as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_recruits_bind:ally
 execute if score @s rallous.fac.stance matches 5 as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_recruits_bind:ally
+execute if score @s rallous.fac.stance matches 1 as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_kit:on_greet

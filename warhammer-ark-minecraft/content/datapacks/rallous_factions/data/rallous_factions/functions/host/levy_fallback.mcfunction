@@ -1,3 +1,4 @@
-# Recruits missing or command failed. Two named vanilla — still a host, not campfires alone.
-summon minecraft:pillager ~2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanJoinRaid:0b,PatrolLeader:0b,Patrolling:0b,HandItems:[{id:"minecraft:iron_sword",Count:1b},{}]}
-summon minecraft:pillager ~-2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanJoinRaid:0b,PatrolLeader:0b,Patrolling:0b,HandItems:[{id:"minecraft:bow",Count:1b},{}]}
+# Recruits missing or command failed. Help camps must not murder. Hostile camps still bite.
+execute if score @s rallous.fac.stance matches 3 run function rallous_factions:host/levy_fallback_hostile
+execute if score @s rallous.fac.stance matches 6 run function rallous_factions:host/levy_fallback_hostile
+execute unless score @s rallous.fac.stance matches 3 unless score @s rallous.fac.stance matches 6 run function rallous_factions:host/levy_fallback_guard

@@ -6,6 +6,6 @@ execute if score @s rallous.fac.stance matches 2 run tellraw @a[distance=..48] [
 execute if score @s rallous.fac.stance matches 4 run scoreboard players set @p rallous.proved 0
 execute if score @s rallous.fac.stance matches 4 run tellraw @a[distance=..48] [{"text": "Daemon-spy, they hiss. Paths exist. Trust does not.", "color": "dark_purple"}]
 execute if score @s rallous.fac.stance matches 3 run tellraw @a[distance=..48] [{"text": "Knives in the dark. The Clan does not greet man-things.", "color": "red"}]
-execute if score @s rallous.fac.stance matches 3 run function rallous_factions:raid/clan_eshin
-execute if score @s rallous.fac.stance matches 6 run function rallous_factions:raid/clan_eshin
+execute if score @s rallous.fac.stance matches 3 run function rallous_factions:stance/bite
+execute if score @s rallous.fac.stance matches 6 run function rallous_factions:stance/bite
 particle minecraft:witch ~ ~2 ~ 0.3 1 0.3 0 16

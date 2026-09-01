@@ -213,34 +213,36 @@ def biome_ok_lines(fac: dict, score: str = "$biome_ok") -> list[str]:
 
 
 def raid_lines(race_id: str) -> list[str]:
+    """Always-hostile vanilla. Neutral wolves / calm piglins are not a bite."""
     if race_id == "khorne":
         return [
-            'summon minecraft:zombified_piglin ~2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b,HandItems:[{id:"minecraft:iron_axe",Count:1b},{}]}',
-            'summon minecraft:zombified_piglin ~-2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
+            'summon minecraft:vindicator ~2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b,Johnny:0b,CanJoinRaid:0b,HandItems:[{id:"minecraft:iron_axe",Count:1b},{}]}',
+            'summon minecraft:zombified_piglin ~-2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b,AngerTime:2000,HandItems:[{id:"minecraft:golden_axe",Count:1b},{}]}',
         ]
     if race_id == "beastmen":
         return [
-            'summon minecraft:husk ~2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
-            'summon minecraft:wolf ~-2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
+            'summon minecraft:husk ~2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b}',
+            'summon minecraft:vindicator ~-2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b,Johnny:0b,CanJoinRaid:0b,HandItems:[{id:"minecraft:stone_axe",Count:1b},{}]}',
         ]
     if race_id == "greenskins":
         return [
-            'summon minecraft:pillager ~2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
-            'summon minecraft:pillager ~-2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
+            'summon minecraft:pillager ~2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b,CanJoinRaid:0b}',
+            'summon minecraft:vindicator ~-2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b,Johnny:0b,CanJoinRaid:0b,HandItems:[{id:"minecraft:iron_axe",Count:1b},{}]}',
         ]
     if race_id == "skaven":
         return [
-            'summon minecraft:cave_spider ~2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
-            'summon minecraft:silverfish ~-1 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
+            'summon minecraft:cave_spider ~2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b}',
+            'summon minecraft:silverfish ~-1 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b}',
+            'summon minecraft:pillager ~1 ~ ~1 {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b,CanJoinRaid:0b}',
         ]
     if race_id == "vampire_counts":
         return [
-            'summon minecraft:zombie ~2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
-            'summon minecraft:zombie ~-2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
+            'summon minecraft:zombie ~2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b}',
+            'summon minecraft:husk ~-2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b}',
         ]
     return [
-        'summon minecraft:zombie ~2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
-        'summon minecraft:husk ~-2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}',
+        'summon minecraft:pillager ~2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b,CanJoinRaid:0b}',
+        'summon minecraft:husk ~-2 ~ ~ {Tags:["rallous.raid","rallous.bite"],PersistenceRequired:1b}',
     ]
 
 
@@ -415,7 +417,10 @@ and campfires, site props (skulls, cobwebs, anvil, …), the named lord
 from the faction template (race plate), two named Recruits, and a
 `/recruits spawn recruitPatrol tiny` levy (same as roaming). A marker
 holds `rallous.fac.id` / race / stance / tier. Crash plants mixed-race
-rings so a first-hour walk hits other banners. First-days mix majors and
+rings so a first-hour walk hits other banners. Ocean or unloaded ring
+spots forceload a 3x3, hunt land, and fall inward — they do not skip
+the race. Hostile camps bite on approach (vanilla raid), not tellraw
+alone. First-days mix majors and
 minors (cap 16). After every major of a race is placed, that race rolls
 minor-only. Walking farther places more from the remaining pool (cap 40).
 Never all 129 at once. Warp-crash assigns the nearest camp as
@@ -449,6 +454,7 @@ def write_load(races: dict[str, dict], factions: list[dict]) -> None:
         "scoreboard objectives add rallous.burn minecraft.used:minecraft.flint_and_steel",
         "scoreboard objectives add rallous.khorne dummy",
         "scoreboard objectives add rallous.chaos dummy",
+        "scoreboard objectives add rallous.tries dummy",
         "scoreboard players set #-1 rallous.const -1",
         "scoreboard players set #2 rallous.const 2",
         f"scoreboard players set #cap rallous.const {FIRST_CAP}",
@@ -481,6 +487,10 @@ scoreboard players add #clock rallous.gen 1
 execute if score #booted rallous.gen matches 1 if score #placed rallous.gen < #cap rallous.const if score #clock rallous.gen matches 40 run function rallous_factions:gen/tick_place
 execute if score #clock rallous.gen matches 40 run scoreboard players set #clock rallous.gen 0
 execute if score #placed rallous.gen >= #cap rallous.const if score #placed rallous.gen < #xcap rallous.const as @a[tag=rallous.warp_landed] at @s unless entity @e[tag=rallous.camp,distance=..180,limit=1] run function rallous_factions:gen/explore
+execute as @e[type=minecraft:marker,tag=rallous.probe.pending] at @s unless loaded ~ ~ ~ run forceload add ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.probe.pending,limit=2] at @s if loaded ~ ~ ~ run function rallous_factions:gen/ring_try
+execute as @a at @s as @e[type=minecraft:marker,tag=rallous.camp,distance=..24] if score @s rallous.fac.stance matches 3 at @s run function rallous_factions:stance/bite
+execute as @a at @s as @e[type=minecraft:marker,tag=rallous.camp,distance=..24] if score @s rallous.fac.stance matches 6 at @s run function rallous_factions:stance/bite
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_diplomacy:apply_path
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_factions:path/sync
 execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s if entity @e[tag=rallous.camp,distance=..18,limit=1] run function rallous_factions:contact/assign
@@ -537,34 +547,179 @@ kill @e[type=minecraft:marker,tag=rallous.probe]
     w(
         FN / "gen/place_rings.mcfunction",
         """# Mixed-race pickets on walkable rings. Not TW cities. Cap still 16.
-# Inner ~120 (clears the contact camp). Outer ~220 (first hour). Cardinals only.
-execute if score #placed rallous.gen < #cap rallous.const positioned ~120 ~ ~ run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~-120 ~ ~ run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~120 run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~-120 run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~220 ~ ~ run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~-220 ~ ~ run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~220 run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~-220 run function rallous_factions:gen/ring_spot
+# Target inner ~120 / outer ~220. Forceload each 3x3 (72 chunks, under 256).
+# Probes stay at the crash until spreadplayers finds land — never skip a race.
+kill @e[type=minecraft:marker,tag=rallous.ring.origin]
+kill @e[type=minecraft:marker,tag=rallous.probe.pending]
+summon minecraft:marker ~ ~ ~ {Tags:["rallous.ring.origin"]}
+execute store result score $origin_x rallous.gen run data get entity @s Pos[0]
+execute store result score $origin_z rallous.gen run data get entity @s Pos[2]
+execute positioned ~120 ~ ~ run forceload add ~-1 ~-1 ~1 ~1
+execute positioned ~-120 ~ ~ run forceload add ~-1 ~-1 ~1 ~1
+execute positioned ~ ~ ~120 run forceload add ~-1 ~-1 ~1 ~1
+execute positioned ~ ~ ~-120 run forceload add ~-1 ~-1 ~1 ~1
+execute positioned ~220 ~ ~ run forceload add ~-1 ~-1 ~1 ~1
+execute positioned ~-220 ~ ~ run forceload add ~-1 ~-1 ~1 ~1
+execute positioned ~ ~ ~220 run forceload add ~-1 ~-1 ~1 ~1
+execute positioned ~ ~ ~-220 run forceload add ~-1 ~-1 ~1 ~1
+scoreboard players set $ring_kind rallous.gen 0
+function rallous_factions:gen/ring_queue
+function rallous_factions:gen/ring_queue
+function rallous_factions:gen/ring_queue
+function rallous_factions:gen/ring_queue
+scoreboard players set $ring_kind rallous.gen 1
+function rallous_factions:gen/ring_queue
+function rallous_factions:gen/ring_queue
+function rallous_factions:gen/ring_queue
+function rallous_factions:gen/ring_queue
+execute as @e[type=minecraft:marker,tag=rallous.probe.pending] at @s run function rallous_factions:gen/ring_try
+schedule function rallous_factions:debug/count_races 100t replace
+""",
+    )
+    w(
+        FN / "gen/ring_queue.mcfunction",
+        """# Summon at origin (loaded). Inner vs outer radius. spreadplayers hunts land.
+summon minecraft:marker ~ ~ ~ {Tags:["rallous.probe.pending","rallous.probe.ring","rallous.probe.new"]}
+execute if score $ring_kind rallous.gen matches 0 run tag @e[type=minecraft:marker,tag=rallous.probe.new,limit=1,sort=nearest] add rallous.probe.inner
+execute if score $ring_kind rallous.gen matches 1 run tag @e[type=minecraft:marker,tag=rallous.probe.new,limit=1,sort=nearest] add rallous.probe.outer
+execute as @e[type=minecraft:marker,tag=rallous.probe.new,limit=1,sort=nearest] run scoreboard players set @s rallous.tries 0
+execute as @e[type=minecraft:marker,tag=rallous.probe.new,limit=1,sort=nearest] run tag @s remove rallous.probe.new
+""",
+    )
+    w(
+        FN / "gen/ring_queue_go.mcfunction",
+        """# Kept for zip asserts. Probes no longer teleport into unloaded cells.
+execute store result score $tx rallous.gen run data get entity @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] Pos[0]
+execute store result score $tz rallous.gen run data get entity @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] Pos[2]
+scoreboard players operation $tx rallous.gen += $ring_dx rallous.gen
+scoreboard players operation $tz rallous.gen += $ring_dz rallous.gen
+execute at @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] run forceload add ~-1 ~-1 ~1 ~1
 """,
     )
     w(
         FN / "gen/ring_spot.mcfunction",
-        """# Surface one mixed camp at this ring offset. Rotate race — do not stack the biome.
+        """# Legacy single-spot entry. Queue one pending probe at this offset, then try if loaded.
 execute if score #placed rallous.gen >= #cap rallous.const run scoreboard players set $noop rallous.gen 1
-execute if score #placed rallous.gen < #cap rallous.const run summon minecraft:marker ~ ~ ~ {Tags:["rallous.probe","rallous.probe.ring"]}
-execute as @e[type=minecraft:marker,tag=rallous.probe.ring,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 8 16 false @s
-execute as @e[type=minecraft:marker,tag=rallous.probe.ring,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_mix
-kill @e[type=minecraft:marker,tag=rallous.probe.ring]
+execute if score #placed rallous.gen < #cap rallous.const run function rallous_factions:gen/ring_queue_here
+""",
+    )
+    w(
+        FN / "gen/ring_queue_here.mcfunction",
+        """summon minecraft:marker ~ ~ ~ {Tags:["rallous.probe.pending","rallous.probe.ring","rallous.probe.new"]}
+execute as @e[type=minecraft:marker,tag=rallous.probe.new,limit=1,sort=nearest] at @s run forceload add ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.probe.new,limit=1,sort=nearest] run scoreboard players set @s rallous.tries 0
+execute as @e[type=minecraft:marker,tag=rallous.probe.new,limit=1,sort=nearest] run tag @s remove rallous.probe.new
+execute as @e[type=minecraft:marker,tag=rallous.probe.pending,limit=1,sort=nearest] at @s if loaded ~ ~ ~ run function rallous_factions:gen/ring_try
+""",
+    )
+    w(
+        FN / "gen/ring_try.mcfunction",
+        """# Chunk is loaded. Hunt land. If ocean, fall inward. Do not skip the race.
+execute if score #placed rallous.gen >= #cap rallous.const run function rallous_factions:gen/ring_done
+execute if score #placed rallous.gen < #cap rallous.const run function rallous_factions:gen/ring_try_go
+""",
+    )
+    w(
+        FN / "gen/ring_try_go.mcfunction",
+        """scoreboard players add @s rallous.tries 1
+execute if entity @s[tag=rallous.probe.inner] run spreadplayers ~ ~ 80 140 false @s
+execute if entity @s[tag=rallous.probe.outer] run spreadplayers ~ ~ 150 230 false @s
+function rallous_factions:gen/ring_far
+execute if score $far rallous.gen matches 0 run scoreboard players set $wet rallous.gen 1
+execute if score $far rallous.gen matches 1 run function rallous_factions:gen/ring_wet
+execute if score $wet rallous.gen matches 1 if entity @s[tag=rallous.probe.outer] run spreadplayers ~ ~ 80 140 false @s
+function rallous_factions:gen/ring_far
+execute if score $far rallous.gen matches 0 if entity @s[tag=rallous.probe.outer] run function rallous_factions:gen/ring_inward
+function rallous_factions:gen/ring_wet
+execute if score $wet rallous.gen matches 1 run function rallous_factions:gen/ring_inward
+execute at @s if entity @e[tag=rallous.camp,distance=..28,limit=1] run function rallous_factions:gen/ring_nudge
+scoreboard players set $done rallous.gen 0
+function rallous_factions:gen/ring_wet
+function rallous_factions:gen/ring_far
+execute if score $wet rallous.gen matches 0 if score $far rallous.gen matches 1 at @s unless entity @e[tag=rallous.camp,distance=..28,limit=1] run function rallous_factions:gen/place_mix
+execute if score $done rallous.gen matches 1 run function rallous_factions:gen/ring_done
+execute if score $done rallous.gen matches 0 if score @s rallous.tries matches 6.. run function rallous_factions:gen/ring_last
+""",
+    )
+    w(
+        FN / "gen/ring_wet.mcfunction",
+        """scoreboard players set $wet rallous.gen 0
+execute at @s if biome ~ ~ ~ #minecraft:is_ocean run scoreboard players set $wet rallous.gen 1
+execute at @s if biome ~ ~ ~ #minecraft:is_river run scoreboard players set $wet rallous.gen 1
+execute at @s if block ~ ~ ~ minecraft:water run scoreboard players set $wet rallous.gen 1
+execute at @s if block ~ ~-1 ~ minecraft:water run scoreboard players set $wet rallous.gen 1
+execute at @s if block ~ ~-1 ~ minecraft:air run scoreboard players set $wet rallous.gen 1
+execute at @s if block ~ ~-1 ~ minecraft:cave_air run scoreboard players set $wet rallous.gen 1
+""",
+    )
+    w(
+        FN / "gen/ring_far.mcfunction",
+        """# 1 if the probe left the crater (spreadplayers found a ring cell).
+execute store result score $px rallous.gen run data get entity @s Pos[0]
+execute store result score $pz rallous.gen run data get entity @s Pos[2]
+scoreboard players operation $dx rallous.gen = $px rallous.gen
+scoreboard players operation $dx rallous.gen -= $origin_x rallous.gen
+execute if score $dx rallous.gen matches ..-1 run scoreboard players operation $dx rallous.gen *= #-1 rallous.const
+scoreboard players operation $dz rallous.gen = $pz rallous.gen
+scoreboard players operation $dz rallous.gen -= $origin_z rallous.gen
+execute if score $dz rallous.gen matches ..-1 run scoreboard players operation $dz rallous.gen *= #-1 rallous.const
+scoreboard players set $far rallous.gen 0
+execute if score $dx rallous.gen matches 40.. run scoreboard players set $far rallous.gen 1
+execute if score $dz rallous.gen matches 40.. run scoreboard players set $far rallous.gen 1
+""",
+    )
+    w(
+        FN / "gen/ring_inward.mcfunction",
+        """# Halfway toward crash origin, then land-hunt a closer ring.
+execute store result score $px rallous.gen run data get entity @s Pos[0]
+execute store result score $pz rallous.gen run data get entity @s Pos[2]
+scoreboard players operation $px rallous.gen += $origin_x rallous.gen
+scoreboard players operation $pz rallous.gen += $origin_z rallous.gen
+scoreboard players operation $px rallous.gen /= #2 rallous.const
+scoreboard players operation $pz rallous.gen /= #2 rallous.const
+execute store result entity @s Pos[0] double 1 run scoreboard players get $px rallous.gen
+execute store result entity @s Pos[2] double 1 run scoreboard players get $pz rallous.gen
+data modify entity @s Pos[1] set value 80.0d
+execute at @s run forceload add ~-1 ~-1 ~1 ~1
+execute at @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] run spreadplayers ~ ~ 36 90 false @s
+""",
+    )
+    w(
+        FN / "gen/ring_nudge.mcfunction",
+        """# Other picket too close. Step off so this race still lands.
+tp @s ~36 ~ ~36
+execute at @s run forceload add ~-1 ~-1 ~1 ~1
+execute at @s run spreadplayers ~ ~ 8 24 false @s
+""",
+    )
+    w(
+        FN / "gen/ring_last.mcfunction",
+        """# Last chance: land anywhere in a first-hour walk of the crater. Then stop the probe.
+execute at @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] run spreadplayers ~ ~ 28 80 false @s
+execute at @s if entity @e[tag=rallous.camp,distance=..28,limit=1] run tp @s ~40 ~ ~-20
+execute at @s unless entity @e[tag=rallous.camp,distance=..28,limit=1] run function rallous_factions:gen/place_mix
+function rallous_factions:gen/ring_done
+""",
+    )
+    w(
+        FN / "gen/ring_done.mcfunction",
+        """execute at @s run forceload remove ~-1 ~-1 ~1 ~1
+kill @s
 """,
     )
     w(
         FN / "gen/place_mix.mcfunction",
         """# Ring mix: rotate the eight races. Skip biome prefer so dark woods are not four Beastmen.
+# Nearby camp is a block, not a success — caller nudges. Increment rotation only when a camp lands.
 scoreboard players set $mix_only rallous.gen 1
 scoreboard players set $done rallous.gen 0
-execute if entity @e[tag=rallous.camp,distance=..28,limit=1] run scoreboard players set $done rallous.gen 1
-execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 0 run function rallous_factions:pool/empire/pick
+execute unless entity @e[tag=rallous.camp,distance=..28,limit=1] run function rallous_factions:gen/place_mix_go
+scoreboard players set $mix_only rallous.gen 0
+""",
+    )
+    w(
+        FN / "gen/place_mix_go.mcfunction",
+        """execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 0 run function rallous_factions:pool/empire/pick
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 1 run function rallous_factions:pool/vampire_counts/pick
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 2 run function rallous_factions:pool/lizardmen/pick
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 3 run function rallous_factions:pool/beastmen/pick
@@ -572,8 +727,6 @@ execute if score $done rallous.gen matches 0 if score #next_race rallous.gen mat
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 5 run function rallous_factions:pool/dwarfs/pick
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 6 run function rallous_factions:pool/skaven/pick
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 7 run function rallous_factions:pool/khorne/pick
-scoreboard players add #next_race rallous.gen 1
-execute if score #next_race rallous.gen matches 8.. run scoreboard players set #next_race rallous.gen 0
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/empire/pick
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/dwarfs/pick
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/lizardmen/pick
@@ -582,7 +735,8 @@ execute if score $done rallous.gen matches 0 run function rallous_factions:pool/
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/skaven/pick
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/beastmen/pick
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/khorne/pick
-scoreboard players set $mix_only rallous.gen 0
+execute if score $done rallous.gen matches 1 run scoreboard players add #next_race rallous.gen 1
+execute if score #next_race rallous.gen matches 8.. run scoreboard players set #next_race rallous.gen 0
 """,
     )
     levy_types = [
@@ -628,10 +782,65 @@ execute as @e[type=#rallous_factions:levy,distance=..16,tag=rallous.soldier] run
     )
     w(
         FN / "host/levy_fallback.mcfunction",
-        """# Recruits missing or command failed. Two named vanilla — still a host, not campfires alone.
-summon minecraft:pillager ~2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanJoinRaid:0b,PatrolLeader:0b,Patrolling:0b,HandItems:[{id:"minecraft:iron_sword",Count:1b},{}]}
+        """# Recruits missing or command failed. Help camps must not murder. Hostile camps still bite.
+execute if score @s rallous.fac.stance matches 3 run function rallous_factions:host/levy_fallback_hostile
+execute if score @s rallous.fac.stance matches 6 run function rallous_factions:host/levy_fallback_hostile
+execute unless score @s rallous.fac.stance matches 3 unless score @s rallous.fac.stance matches 6 run function rallous_factions:host/levy_fallback_guard
+""",
+    )
+    w(
+        FN / "host/levy_fallback_hostile.mcfunction",
+        """summon minecraft:pillager ~2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanJoinRaid:0b,PatrolLeader:0b,Patrolling:0b,HandItems:[{id:"minecraft:iron_sword",Count:1b},{}]}
 summon minecraft:pillager ~-2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanJoinRaid:0b,PatrolLeader:0b,Patrolling:0b,HandItems:[{id:"minecraft:bow",Count:1b},{}]}
 """,
+    )
+    w(
+        FN / "host/levy_fallback_guard.mcfunction",
+        """summon minecraft:iron_golem ~2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,PlayerCreated:1b}
+summon minecraft:iron_golem ~-2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,PlayerCreated:1b}
+""",
+    )
+    w(
+        FN / "stance/bite.mcfunction",
+        """# Approach / greet / betray. Hostile camps fight. Help-leaning never calls this.
+execute unless entity @s[tag=rallous.bitten] run function rallous_factions:stance/bite_go
+""",
+    )
+    w(
+        FN / "stance/bite_go.mcfunction",
+        """execute if entity @s[tag=rallous.bitten] run scoreboard players set $noop rallous.gen 1
+execute unless entity @s[tag=rallous.bitten] run function rallous_factions:stance/bite_fire
+""",
+    )
+    w(
+        FN / "stance/bite_fire.mcfunction",
+        """tag @s add rallous.bitten
+scoreboard players add $bite rallous.gen 1
+tellraw @a[distance=..48] {"text":"The host lowers spears. Warp-born is meat.","color":"red"}
+execute if score @s rallous.fac.race matches 7 run function rallous_factions:stance/bite_skaven
+execute if score @s rallous.fac.race matches 4 run function rallous_factions:stance/bite_beastmen
+execute if score @s rallous.fac.race matches 8 run function rallous_factions:stance/bite_khorne
+execute unless score @s rallous.fac.race matches 4 unless score @s rallous.fac.race matches 7 unless score @s rallous.fac.race matches 8 run function rallous_factions:stance/bite_generic
+execute as @e[tag=rallous.raid,distance=..16] run data modify entity @s AngryAt set from entity @p UUID
+execute as @e[tag=rallous.raid,distance=..16] run data merge entity @s {AngerTime:2000}
+execute store result score $raid_n rallous.gen if entity @e[tag=rallous.raid,distance=..24]
+""",
+    )
+    w(
+        FN / "stance/bite_skaven.mcfunction",
+        "\n".join(raid_lines("skaven")) + "\n",
+    )
+    w(
+        FN / "stance/bite_beastmen.mcfunction",
+        "\n".join(raid_lines("beastmen")) + "\n",
+    )
+    w(
+        FN / "stance/bite_khorne.mcfunction",
+        "\n".join(raid_lines("khorne")) + "\n",
+    )
+    w(
+        FN / "stance/bite_generic.mcfunction",
+        "\n".join(raid_lines("empire")) + "\n",
     )
     prefer = [
         "scoreboard players set $pref rallous.gen -1",
@@ -820,6 +1029,7 @@ execute if score @s rallous.fac.stance matches 6 run scoreboard players set @s r
 tellraw @a[distance=..48] {"text":"This faction watched you help. Their stance toward you shifted.","color":"green"}
 execute if score @s rallous.fac.stance matches 1 as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_recruits_bind:ally
 execute if score @s rallous.fac.stance matches 5 as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_recruits_bind:ally
+execute if score @s rallous.fac.stance matches 1 as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_kit:on_greet
 """,
     )
     w(
@@ -846,7 +1056,7 @@ tellraw @a[distance=..48] {"text":"You named a side and rode on. This faction co
     )
     w(
         FN / "contact/raid_generic.mcfunction",
-        "\n".join(raid_lines("empire")) + "\n",
+        "function rallous_factions:stance/bite\n",
     )
     w(
         FN / "debug/force_contact.mcfunction",
@@ -948,6 +1158,51 @@ execute store result score $c_herd rallous.gen if entity @e[tag=rallous.herd_bea
 tellraw @a [{"text":"[rallous.mix] camps=","color":"gold"},{"score":{"name":"$c_camps","objective":"rallous.gen"}},{"text":" lords=","color":"gold"},{"score":{"name":"$c_lords","objective":"rallous.gen"}},{"text":" races=","color":"gold"},{"score":{"name":"$c_races","objective":"rallous.gen"}},{"text":" emp=","color":"red"},{"score":{"name":"$c_emp","objective":"rallous.gen"}},{"text":" vc=","color":"dark_red"},{"score":{"name":"$c_vc","objective":"rallous.gen"}},{"text":" lm=","color":"aqua"},{"score":{"name":"$c_lm","objective":"rallous.gen"}},{"text":" bm=","color":"dark_green"},{"score":{"name":"$c_bm","objective":"rallous.gen"}},{"text":" gs=","color":"green"},{"score":{"name":"$c_gs","objective":"rallous.gen"}},{"text":" dw=","color":"gold"},{"score":{"name":"$c_dw","objective":"rallous.gen"}},{"text":" sk=","color":"light_purple"},{"score":{"name":"$c_sk","objective":"rallous.gen"}},{"text":" kh=","color":"dark_red"},{"score":{"name":"$c_kh","objective":"rallous.gen"}},{"text":" temple_beasts=","color":"aqua"},{"score":{"name":"$c_temple","objective":"rallous.gen"}},{"text":" herd_beasts=","color":"dark_green"},{"score":{"name":"$c_herd","objective":"rallous.gen"}}]
 execute unless score $c_races rallous.gen matches 8 run say [rallous.mix] WARN unique races != 8
 execute if score $c_races rallous.gen matches 8 run say [rallous.mix] OK eight races on this fresh field
+execute store result score $pending rallous.gen if entity @e[tag=rallous.probe.pending]
+tellraw @a [{"text":"[rallous.mix] pending_probes=","color":"gray"},{"score":{"name":"$pending","objective":"rallous.gen"}},{"text":" bite=","color":"red"},{"score":{"name":"$bite","objective":"rallous.gen"}},{"text":" raid=","color":"red"},{"score":{"name":"$raid_n","objective":"rallous.gen"}}]
+""",
+    )
+    w(
+        FN / "debug/prove_terrain.mcfunction",
+        """# Real-terrain mix. No stone pad. Run at crash/spawn surface.
+say [rallous.terrain] ring mix on real land — not a stone pad
+function rallous_factions:gen/boot
+scoreboard players set #next_race rallous.gen 0
+function rallous_factions:gen/place_rings
+function rallous_factions:debug/count_races
+say [rallous.terrain] inner spots land now; pending probes fall inward over ticks
+""",
+    )
+    w(
+        FN / "debug/prove_bite.mcfunction",
+        """# Hostile camp must spawn raid entities. Help-leaning must not.
+say [rallous.bite] start
+scoreboard players set $bite rallous.gen 0
+kill @e[tag=rallous.bite.dummy]
+kill @e[tag=rallous.help.dummy]
+kill @e[tag=rallous.raid]
+scoreboard players set $mix_only rallous.gen 1
+scoreboard players set $done rallous.gen 0
+execute unless entity @e[type=minecraft:marker,tag=rallous.camp,scores={rallous.fac.stance=3},limit=1] positioned ~28 ~ ~ run function rallous_factions:pool/skaven/pick
+scoreboard players set $done rallous.gen 0
+execute unless entity @e[type=minecraft:marker,tag=rallous.camp,scores={rallous.fac.stance=3},limit=1] positioned ~28 ~ ~ run function rallous_factions:pool/khorne/pick
+scoreboard players set $done rallous.gen 0
+execute unless entity @e[type=minecraft:marker,tag=rallous.camp,scores={rallous.fac.stance=3},limit=1] positioned ~28 ~ ~ run function rallous_factions:pool/beastmen/pick
+scoreboard players set $mix_only rallous.gen 0
+execute as @e[type=minecraft:marker,tag=rallous.camp,scores={rallous.fac.stance=3},limit=1,sort=nearest] at @s run summon minecraft:villager ~1 ~ ~ {Tags:["rallous.bite.dummy"],CustomName:'{"text":"Bite Dummy","color":"red"}',CustomNameVisible:1b,PersistenceRequired:1b}
+execute as @e[type=minecraft:marker,tag=rallous.camp,scores={rallous.fac.stance=3},limit=1,sort=nearest] at @s run function rallous_factions:stance/bite
+execute store result score $raid_n rallous.gen if entity @e[tag=rallous.raid]
+execute if score $bite rallous.gen matches 1.. if score $raid_n rallous.gen matches 1.. run say [rallous.bite] OK hostile raid spawned
+execute unless score $raid_n rallous.gen matches 1.. run say [rallous.bite] FAIL no raid entities
+scoreboard players set $mix_only rallous.gen 1
+scoreboard players set $done rallous.gen 0
+execute unless entity @e[type=minecraft:marker,tag=rallous.camp,scores={rallous.fac.stance=1},limit=1] positioned ~-28 ~ ~ run function rallous_factions:pool/empire/pick
+scoreboard players set $mix_only rallous.gen 0
+execute as @e[type=minecraft:marker,tag=rallous.camp,scores={rallous.fac.stance=1},limit=1,sort=nearest] at @s run summon minecraft:villager ~1 ~ ~ {Tags:["rallous.help.dummy"],CustomName:'{"text":"Help Dummy","color":"green"}',CustomNameVisible:1b,PersistenceRequired:1b}
+execute as @e[type=minecraft:marker,tag=rallous.camp,scores={rallous.fac.stance=1},limit=1,sort=nearest] if entity @s[tag=rallous.bitten] run say [rallous.bite] FAIL help camp bitten
+execute as @e[type=minecraft:marker,tag=rallous.camp,scores={rallous.fac.stance=1},limit=1,sort=nearest] unless entity @s[tag=rallous.bitten] run say [rallous.bite] OK help camp did not bite
+execute as @e[tag=rallous.help.dummy,limit=1] at @s if entity @e[type=minecraft:pillager,tag=rallous.host.levy,distance=..8,limit=1] run say [rallous.bite] FAIL help levy is a pillager
+execute as @e[tag=rallous.help.dummy,limit=1] at @s unless entity @e[type=minecraft:pillager,tag=rallous.host.levy,distance=..8,limit=1] run say [rallous.bite] OK help dummy not facing camp pillagers
 """,
     )
     w(
@@ -965,6 +1220,7 @@ execute store result score $proof_soldiers rallous.gen if entity @e[tag=rallous.
 execute store result score $proof_levy rallous.gen if entity @e[tag=rallous.host.levy]
 scoreboard players operation $proof_placed rallous.gen = #placed rallous.gen
 function rallous_factions:debug/count_races
+function rallous_factions:debug/prove_bite
 function rallous_factions:contact/assign
 function rallous_factions:path/offer
 function rallous_contact:path/help
@@ -1089,11 +1345,11 @@ def write_faction_fns(races: dict[str, dict], factions: list[dict]) -> None:
             ),
             * [f"execute if score $skip rallous.gen matches 0 run {line}" for line in camp_soldiers(race["id"], sl, color)],
             * [f"execute if score $skip rallous.gen matches 0 run {line}" for line in lord_sote_replace(race["id"], sl)],
-            f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] at @s run function rallous_factions:host/levy",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.id {i}",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race {RACE_NUM[race['id']]}",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance {stance}",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.tier {tier}",
+            f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] at @s run function rallous_factions:host/levy",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] at @s run function rallous_temple_herd:mark_camp",
             f"execute if score $skip rallous.gen matches 0 run scoreboard players set #{sl} rallous.used 1",
             (
@@ -1131,11 +1387,11 @@ def write_greet_body(race: dict, fac: dict, texts: dict[int, list], weapon_id: s
         + tellraw("@a[distance=..48]", [{"text": actions[4], "color": "dark_purple"}]),
         "execute if score @s rallous.fac.stance matches 3 run "
         + tellraw("@a[distance=..48]", [{"text": actions[3], "color": "red"}]),
-        "execute if score @s rallous.fac.stance matches 3 run function rallous_factions:raid/" + fac["_slug"],
-        "execute if score @s rallous.fac.stance matches 6 run function rallous_factions:raid/" + fac["_slug"],
+        "execute if score @s rallous.fac.stance matches 3 run function rallous_factions:stance/bite",
+        "execute if score @s rallous.fac.stance matches 6 run function rallous_factions:stance/bite",
         "particle minecraft:witch ~ ~2 ~ 0.3 1 0.3 0 16",
     ]
-    w(FN / "raid" / f"{fac['_slug']}.mcfunction", "\n".join(raid_lines(race["id"])) + "\n")
+    w(FN / "raid" / f"{fac['_slug']}.mcfunction", "function rallous_factions:stance/bite\n")
     return "\n".join(lines) + "\n"
 
 

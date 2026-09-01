@@ -34,11 +34,11 @@ execute if score $skip rallous.gen matches 0 run item replace entity @e[type=min
 execute if score $skip rallous.gen matches 0 run item replace entity @e[type=minecraft:villager,tag=rallous.lord,tag=rallous.fac.stirland,limit=1,sort=nearest] armor.chest with sonsoftheempire:swordsman_armor_chestplate 1
 execute if score $skip rallous.gen matches 0 run item replace entity @e[type=minecraft:villager,tag=rallous.lord,tag=rallous.fac.stirland,limit=1,sort=nearest] armor.legs with sonsoftheempire:swordsman_armor_leggings 1
 execute if score $skip rallous.gen matches 0 run item replace entity @e[type=minecraft:villager,tag=rallous.lord,tag=rallous.fac.stirland,limit=1,sort=nearest] armor.feet with sonsoftheempire:swordsman_armor_boots 1
-execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.stirland,limit=1,sort=nearest] at @s run function rallous_factions:host/levy
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.stirland,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.id 38
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.stirland,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race 1
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.stirland,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 1
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.stirland,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.tier 2
+execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.stirland,limit=1,sort=nearest] at @s run function rallous_factions:host/levy
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.stirland,limit=1,sort=nearest] at @s run function rallous_temple_herd:mark_camp
 execute if score $skip rallous.gen matches 0 run scoreboard players set #stirland rallous.used 1
 execute if score $skip rallous.gen matches 0 run scoreboard players remove #left_min_empire rallous.gen 1

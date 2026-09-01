@@ -3,6 +3,10 @@ scoreboard players add #clock rallous.gen 1
 execute if score #booted rallous.gen matches 1 if score #placed rallous.gen < #cap rallous.const if score #clock rallous.gen matches 40 run function rallous_factions:gen/tick_place
 execute if score #clock rallous.gen matches 40 run scoreboard players set #clock rallous.gen 0
 execute if score #placed rallous.gen >= #cap rallous.const if score #placed rallous.gen < #xcap rallous.const as @a[tag=rallous.warp_landed] at @s unless entity @e[tag=rallous.camp,distance=..180,limit=1] run function rallous_factions:gen/explore
+execute as @e[type=minecraft:marker,tag=rallous.probe.pending] at @s unless loaded ~ ~ ~ run forceload add ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.probe.pending,limit=2] at @s if loaded ~ ~ ~ run function rallous_factions:gen/ring_try
+execute as @a at @s as @e[type=minecraft:marker,tag=rallous.camp,distance=..24] if score @s rallous.fac.stance matches 3 at @s run function rallous_factions:stance/bite
+execute as @a at @s as @e[type=minecraft:marker,tag=rallous.camp,distance=..24] if score @s rallous.fac.stance matches 6 at @s run function rallous_factions:stance/bite
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_diplomacy:apply_path
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_factions:path/sync
 execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s if entity @e[tag=rallous.camp,distance=..18,limit=1] run function rallous_factions:contact/assign

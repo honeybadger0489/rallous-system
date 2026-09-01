@@ -11,6 +11,7 @@ execute store result score $proof_soldiers rallous.gen if entity @e[tag=rallous.
 execute store result score $proof_levy rallous.gen if entity @e[tag=rallous.host.levy]
 scoreboard players operation $proof_placed rallous.gen = #placed rallous.gen
 function rallous_factions:debug/count_races
+function rallous_factions:debug/prove_bite
 function rallous_factions:contact/assign
 function rallous_factions:path/offer
 function rallous_contact:path/help

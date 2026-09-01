@@ -1,6 +1,3 @@
-# Surface one mixed camp at this ring offset. Rotate race — do not stack the biome.
+# Legacy single-spot entry. Queue one pending probe at this offset, then try if loaded.
 execute if score #placed rallous.gen >= #cap rallous.const run scoreboard players set $noop rallous.gen 1
-execute if score #placed rallous.gen < #cap rallous.const run summon minecraft:marker ~ ~ ~ {Tags:["rallous.probe","rallous.probe.ring"]}
-execute as @e[type=minecraft:marker,tag=rallous.probe.ring,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 8 16 false @s
-execute as @e[type=minecraft:marker,tag=rallous.probe.ring,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_mix
-kill @e[type=minecraft:marker,tag=rallous.probe.ring]
+execute if score #placed rallous.gen < #cap rallous.const run function rallous_factions:gen/ring_queue_here

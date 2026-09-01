@@ -24,11 +24,11 @@ See [Factions](Factions.md). First days place about **16** camps; walking farthe
 - Session night is vanilla pillagers / zombies **named as that race’s enemies**, not a Recruits battle.
 - Recruits hire / orders / Ally–Enemy still live in Recruits’ GUIs. See [Recruits](Recruits.md).
 - No starter spellbook. See [Magic](Magic.md).
-- Client is not booted in CI. Crash on boot → send `crash-*-fml.txt`. Dedicated-server smoke **passed on 0.3.16** (fresh-world mix + 12-slot proof). Client TEST is still the remaining success line. **SHIP_READY no.**
+- Client is not booted in CI. Crash on boot → send `crash-*-fml.txt`. Dedicated-server smoke **passed on 0.3.16** (pad mix). **0.3.17** adds real-terrain ring mix + hostile bite; client TEST is still the remaining success line. **SHIP_READY no.**
 
 ## Play
 
-1. [Install](Install.md) **0.3.16** as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.15.
+1. [Install](Install.md) **0.3.17** as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.16.
 2. New world: Survival, Hard, cheats ON.
 3. Two hours: do [TEST](TEST.md) (the two-hour stress list). Verbs, not a sightseeing list.
 

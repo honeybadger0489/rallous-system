@@ -1,0 +1,2 @@
+summon minecraft:pillager ~2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanJoinRaid:0b,PatrolLeader:0b,Patrolling:0b,HandItems:[{id:"minecraft:iron_sword",Count:1b},{}]}
+summon minecraft:pillager ~-2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanJoinRaid:0b,PatrolLeader:0b,Patrolling:0b,HandItems:[{id:"minecraft:bow",Count:1b},{}]}

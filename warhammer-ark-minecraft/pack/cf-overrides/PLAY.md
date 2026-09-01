@@ -2,10 +2,10 @@
 
 **Player wiki:** [wiki/Home.md](wiki/Home.md) · two-hour test: [wiki/TEST.md](wiki/TEST.md)
 
-**This is the only player doc.** Import **0.3.16** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9 / 0.3.10 / 0.3.11 / 0.3.12 / 0.3.13 / 0.3.14 / 0.3.15.
+**This is the only player doc.** Import **0.3.17** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9 / 0.3.10 / 0.3.11 / 0.3.12 / 0.3.13 / 0.3.14 / 0.3.15 / 0.3.16.
 
 **Download:**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.16.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.17.zip
 
 CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, ~8 GB RAM. **Minecraft 1.20.1 + Forge 47.4.10**. New world: Survival, Hard, cheats ON (smoke commands). Terralith default. Private pack — do not upload.
 
@@ -19,7 +19,7 @@ A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crat
 
 - **Camps vs Recruits.** `rallous_factions` places **7×7** war-host pickets, names lords, and fires stance lines. `rallous_recruits_bind` copies that camp’s display name onto scores / storage and hands you a book. This zip **includes** `rallous-recruits-bridge-1.0.0.jar` (sibling Forge 1.20.1 / 47.4.10). That Java mod **tries** to found or rename your Recruits host to the crash-camp name after assign. It can fail (`rallous.rec.bridge_fail`). Hire lists, pathfinding, and team AI stay the engine’s. If **U** still says Team 2, send `crash-*-fml.txt` if the client died, and use **U** → Found a Banner.
 - **Session night** is vanilla pillagers / zombies **named as that race’s enemies**, not a Recruits battle and not a Total War city fight.
-- Camps are war-host pickets (palisade + banners + named lord + Recruits patrol), not Total War cities. Crash plants mixed-race rings (~120 / ~220). First days cap about **16** sites; walking farther can place more from the remaining pool (about **40** total, never all 129 at once). Beastmen / Waaagh / Khorne / some Skaven are roaming-style camps, not pretty capitals. Lizardmen and Beastmen camps keep a small Fossils / Tameable Beasts presence (utility). Other races do not get free dinos at greet. Tame difficulty is still global.
+- Camps are war-host pickets (palisade + banners + named lord + Recruits patrol), not Total War cities. Crash plants mixed-race rings (~120 / ~220); ocean or unloaded spots hunt land or fall inward so a race is not skipped. Hostile camps (Skaven / Beastmen / Khorne) raid on approach. Help-leaning camps offer a blade, they do not murder on sight. First days cap about **16** sites; walking farther can place more from the remaining pool (about **40** total, never all 129 at once). Beastmen / Waaagh / Khorne / some Skaven are roaming-style camps, not pretty capitals. Lizardmen and Beastmen camps keep a small Fossils / Tameable Beasts presence (utility). Other races do not get free dinos at greet. Tame difficulty is still global.
 - Client is **not** booted in CI. If it crashes, send `crash-*-fml.txt`.
 
 ---

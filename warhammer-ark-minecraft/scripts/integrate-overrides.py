@@ -687,11 +687,16 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         kit_jar_early = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_kit-1.0.0.jar")))
         if "data/rallous_kit/functions/on_greet.mcfunction" not in set(kit_jar_early.namelist()):
             raise SystemExit("kit jar missing on_greet")
+        if "data/rallous_kit/functions/maybe_give.mcfunction" not in set(kit_jar_early.namelist()):
+            raise SystemExit("kit jar missing maybe_give")
         roam = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_roaming-1.0.0.jar")))
         if "data/rallous_roaming/functions/spawn/recruits_column.mcfunction" not in set(roam.namelist()):
             raise SystemExit("roaming jar missing recruits_column")
         if "recruitPatrol tiny" not in roam.read("data/rallous_roaming/functions/spawn/recruits_column.mcfunction").decode():
             raise SystemExit("roaming recruits_column missing recruitPatrol tiny")
+        roam_mark = roam.read("data/rallous_roaming/functions/spawn/place_marker.mcfunction").decode()
+        if "rallous.camp" not in roam_mark:
+            raise SystemExit("roaming place_marker is not near the player's camp gate")
         wc = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_warp_crash-1.0.0.jar")))
         hook = wc.read("data/rallous_warp_crash/functions/contact_hook.mcfunction").decode()
         if "data/rallous_factions/functions/host/levy.mcfunction" not in fac_names:
@@ -700,6 +705,16 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("factions jar missing gen/place_rings")
         if "data/rallous_factions/functions/gen/place_mix.mcfunction" not in fac_names:
             raise SystemExit("factions jar missing gen/place_mix")
+        if "data/rallous_factions/functions/gen/ring_inward.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing gen/ring_inward")
+        if "data/rallous_factions/functions/gen/ring_try.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing gen/ring_try")
+        if "data/rallous_factions/functions/stance/bite.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing stance/bite")
+        if "data/rallous_factions/functions/debug/prove_bite.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing debug/prove_bite")
+        if "data/rallous_factions/functions/debug/prove_terrain.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing debug/prove_terrain")
         if "data/rallous_factions/functions/path/burn_welcome.mcfunction" not in fac_names:
             raise SystemExit("factions jar missing path/burn_welcome")
         if "data/rallous_factions/functions/debug/headless_proof.mcfunction" not in fac_names:
@@ -711,6 +726,22 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         mix_fn = fac.read("data/rallous_factions/functions/gen/place_mix.mcfunction").decode()
         if "$mix_only" not in mix_fn:
             raise SystemExit("place_mix does not skip biome prefer via $mix_only")
+        if "place_mix_go" not in mix_fn:
+            raise SystemExit("place_mix missing place_mix_go (must not count a nearby camp as a placed race)")
+        ring_q = fac.read("data/rallous_factions/functions/gen/ring_queue_go.mcfunction").decode()
+        if "forceload add" not in ring_q:
+            raise SystemExit("ring_queue_go does not forceload the ring cell")
+        ring_in = fac.read("data/rallous_factions/functions/gen/ring_inward.mcfunction").decode()
+        if "$origin_x" not in ring_in:
+            raise SystemExit("ring_inward does not fall toward crash origin")
+        bite_fn = fac.read("data/rallous_factions/functions/stance/bite_fire.mcfunction").decode()
+        if "rallous.raid" not in bite_fn:
+            raise SystemExit("stance/bite_fire does not spawn rallous.raid")
+        tick_fn = fac.read("data/rallous_factions/functions/tick.mcfunction").decode()
+        if "rallous_factions:stance/bite" not in tick_fn:
+            raise SystemExit("factions tick does not bite on approach")
+        if "rallous.probe.pending" not in tick_fn:
+            raise SystemExit("factions tick does not finish pending ring probes")
         if "recruitPatrol tiny" not in fac.read("data/rallous_factions/functions/host/levy_go.mcfunction").decode():
             raise SystemExit("factions host/levy_go missing recruitPatrol tiny")
         fac_rings = fac.read("data/rallous_factions/functions/crash/on_land.mcfunction").decode()

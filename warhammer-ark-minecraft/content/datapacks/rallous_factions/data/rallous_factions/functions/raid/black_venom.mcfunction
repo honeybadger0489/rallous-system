@@ -1,2 +1,1 @@
-summon minecraft:pillager ~2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}
-summon minecraft:pillager ~-2 ~ ~ {Tags:["rallous.raid"],PersistenceRequired:1b}
+function rallous_factions:stance/bite

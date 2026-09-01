@@ -6,6 +6,6 @@ execute if score @s rallous.fac.stance matches 2 run tellraw @a[distance=..48] [
 execute if score @s rallous.fac.stance matches 4 run scoreboard players set @p rallous.proved 0
 execute if score @s rallous.fac.stance matches 4 run tellraw @a[distance=..48] [{"text": "The hold is wary. Warp-stink is a grudge until you kill it clean.", "color": "dark_purple"}]
 execute if score @s rallous.fac.stance matches 3 run tellraw @a[distance=..48] [{"text": "The hold is shut. Survive the raid, or be a thief.", "color": "red"}]
-execute if score @s rallous.fac.stance matches 3 run function rallous_factions:raid/masters_of_innovation
-execute if score @s rallous.fac.stance matches 6 run function rallous_factions:raid/masters_of_innovation
+execute if score @s rallous.fac.stance matches 3 run function rallous_factions:stance/bite
+execute if score @s rallous.fac.stance matches 6 run function rallous_factions:stance/bite
 particle minecraft:witch ~ ~2 ~ 0.3 1 0.3 0 16

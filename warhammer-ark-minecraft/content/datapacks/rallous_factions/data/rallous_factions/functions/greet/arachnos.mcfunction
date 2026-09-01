@@ -6,6 +6,6 @@ execute if score @s rallous.fac.stance matches 2 run tellraw @a[distance=..48] [
 execute if score @s rallous.fac.stance matches 4 run scoreboard players set @p rallous.proved 0
 execute if score @s rallous.fac.stance matches 4 run tellraw @a[distance=..48] [{"text": "You smell wrong. Fight till they say you ain't a daemon.", "color": "dark_purple"}]
 execute if score @s rallous.fac.stance matches 3 run tellraw @a[distance=..48] [{"text": "Dis scrap is already on. Live it or nick da banner and die.", "color": "red"}]
-execute if score @s rallous.fac.stance matches 3 run function rallous_factions:raid/arachnos
-execute if score @s rallous.fac.stance matches 6 run function rallous_factions:raid/arachnos
+execute if score @s rallous.fac.stance matches 3 run function rallous_factions:stance/bite
+execute if score @s rallous.fac.stance matches 6 run function rallous_factions:stance/bite
 particle minecraft:witch ~ ~2 ~ 0.3 1 0.3 0 16

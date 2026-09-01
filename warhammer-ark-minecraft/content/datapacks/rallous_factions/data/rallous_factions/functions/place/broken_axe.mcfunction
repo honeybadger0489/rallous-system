@@ -32,11 +32,11 @@ execute if score $skip rallous.gen matches 0 run summon minecraft:marker ~ ~ ~ {
 execute if score $skip rallous.gen matches 0 run summon minecraft:villager ~0.6 ~ ~ {CustomName:'{"text":"Goblin Warboss Grom the Paunch","color":"green","bold":true}',CustomNameVisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoAI:1b,Tags:["rallous.lord","rallous.fac.broken_axe"],VillagerData:{profession:"minecraft:nitwit",level:3,type:"minecraft:savanna"},HandItems:[{id:"minecraft:iron_axe",Count:1b},{}],ArmorItems:[{id:"minecraft:iron_boots",Count:1b},{id:"minecraft:leather_leggings",Count:1b},{id:"minecraft:iron_chestplate",Count:1b},{id:"minecraft:iron_helmet",Count:1b}]}
 execute if score $skip rallous.gen matches 0 run summon recruits:recruit ~2 ~ ~1 {CustomName:'{"text":"Orc Boy","color":"green"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Tags:["rallous.soldier","rallous.fac.broken_axe"]}
 execute if score $skip rallous.gen matches 0 run summon recruits:bowman ~-2 ~ ~1 {CustomName:'{"text":"Arrer Boy","color":"green"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Tags:["rallous.soldier","rallous.fac.broken_axe"]}
-execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.broken_axe,limit=1,sort=nearest] at @s run function rallous_factions:host/levy
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.broken_axe,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.id 48
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.broken_axe,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race 5
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.broken_axe,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 1
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.broken_axe,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.tier 1
+execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.broken_axe,limit=1,sort=nearest] at @s run function rallous_factions:host/levy
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.broken_axe,limit=1,sort=nearest] at @s run function rallous_temple_herd:mark_camp
 execute if score $skip rallous.gen matches 0 run scoreboard players set #broken_axe rallous.used 1
 execute if score $skip rallous.gen matches 0 run scoreboard players remove #left_maj_greenskins rallous.gen 1
