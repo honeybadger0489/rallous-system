@@ -1,11 +1,11 @@
 # Install
 
-Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.14. **0.3.15** is this ship.
+Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.15. **0.3.16** is this ship.
 
 **Download (latest on this branch):**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.15.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.16.zip
 
-Dedicated-server smoke **passed on 0.3.15**. Living-host pass: named lord + Recruits patrol, mixed-race rings, first-hour Paths, burn-welcome Khorne. Client TEST is still unverified. **SHIP_READY no.**
+Dedicated-server smoke **passed on 0.3.16**. Living-host pass: named lord + Recruits patrol, mixed-race rings, race-skeptical first contact, LM/BM temple-beasts, 12 crash slots. Client TEST is still unverified. **SHIP_READY no.**
 
 ## CurseForge
 

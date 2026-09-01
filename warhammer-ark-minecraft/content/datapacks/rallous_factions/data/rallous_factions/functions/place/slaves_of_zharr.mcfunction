@@ -35,8 +35,9 @@ execute if score $skip rallous.gen matches 0 run summon recruits:bowman ~-2 ~ ~1
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.slaves_of_zharr,limit=1,sort=nearest] at @s run function rallous_factions:host/levy
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.slaves_of_zharr,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.id 70
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.slaves_of_zharr,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race 5
-execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.slaves_of_zharr,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 2
+execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.slaves_of_zharr,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 1
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.slaves_of_zharr,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.tier 2
+execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.slaves_of_zharr,limit=1,sort=nearest] at @s run function rallous_temple_herd:mark_camp
 execute if score $skip rallous.gen matches 0 run scoreboard players set #slaves_of_zharr rallous.used 1
 execute if score $skip rallous.gen matches 0 run scoreboard players remove #left_min_greenskins rallous.gen 1
 execute if score $skip rallous.gen matches 0 run scoreboard players add #placed rallous.gen 1

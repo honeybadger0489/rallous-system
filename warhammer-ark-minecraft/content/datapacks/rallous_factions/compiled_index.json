@@ -24,7 +24,7 @@
     "greenskins": {
       "name": "Greenskins",
       "settlement": "mixed",
-      "warp_stranger_stance": "prove_yourself",
+      "warp_stranger_stance": "help_with_blade",
       "majors": 6,
       "minors": 27
     },
@@ -45,14 +45,14 @@
     "skaven": {
       "name": "Skaven",
       "settlement": "settled",
-      "warp_stranger_stance": "prove_yourself",
+      "warp_stranger_stance": "hostile",
       "majors": 6,
       "minors": 13
     },
     "vampire_counts": {
       "name": "Vampire Counts",
       "settlement": "settled",
-      "warp_stranger_stance": "prove_yourself",
+      "warp_stranger_stance": "daemon_suspicion",
       "majors": 5,
       "minors": 9
     }

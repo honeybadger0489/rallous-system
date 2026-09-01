@@ -4,7 +4,7 @@
   "culture": "Sylvanian night-law: von Carstein courts, necromancer colleges, and living peasantry taxed in blood and grain. Settlements are keeps and crypt-towns. Strangers prove useful or become levies.",
   "settlement": "settled",
   "taming_affinity": "low",
-  "warp_stranger_stance": "prove_yourself",
+  "warp_stranger_stance": "daemon_suspicion",
   "colors": {
     "primary": "#2B0B1A",
     "secondary": "#6B1028",

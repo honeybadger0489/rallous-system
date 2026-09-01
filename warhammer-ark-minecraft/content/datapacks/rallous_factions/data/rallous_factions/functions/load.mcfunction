@@ -28,6 +28,7 @@ execute unless score #placed rallous.gen = #placed rallous.gen run scoreboard pl
 execute unless score #booted rallous.gen = #booted rallous.gen run scoreboard players set #booted rallous.gen 0
 execute unless score #clock rallous.gen = #clock rallous.gen run scoreboard players set #clock rallous.gen 0
 execute unless score #next_race rallous.gen = #next_race rallous.gen run scoreboard players set #next_race rallous.gen 0
+execute unless score $mix_only rallous.gen = $mix_only rallous.gen run scoreboard players set $mix_only rallous.gen 0
 scoreboard players set #n_maj_beastmen rallous.const 4
 scoreboard players set #n_min_beastmen rallous.const 8
 execute unless score #left_maj_beastmen rallous.gen = #left_maj_beastmen rallous.gen run scoreboard players set #left_maj_beastmen rallous.gen 4

@@ -2,3 +2,5 @@
 # Fossils tame stays global — this is site flavour only.
 execute if score @s rallous.fac.race matches 3 unless entity @e[tag=rallous.temple_marker,distance=..16,limit=1] run function rallous_temple_herd:mark_camp_temple
 execute if score @s rallous.fac.race matches 4 unless entity @e[tag=rallous.herdstone,distance=..16,limit=1] run function rallous_temple_herd:mark_camp_herd
+execute if score @s rallous.fac.race matches 3 unless entity @e[tag=rallous.temple_beast,distance=..16,limit=1] run function rallous_temple_herd:spawn_temple_beasts
+execute if score @s rallous.fac.race matches 4 unless entity @e[tag=rallous.herd_beast,distance=..16,limit=1] run function rallous_temple_herd:spawn_herd_beasts

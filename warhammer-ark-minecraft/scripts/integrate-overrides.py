@@ -704,6 +704,13 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("factions jar missing path/burn_welcome")
         if "data/rallous_factions/functions/debug/headless_proof.mcfunction" not in fac_names:
             raise SystemExit("factions jar missing debug/headless_proof")
+        if "data/rallous_factions/functions/debug/count_races.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing debug/count_races")
+        if "data/rallous_factions/functions/path/offer_empire.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing race-skeptical path/offer_empire")
+        mix_fn = fac.read("data/rallous_factions/functions/gen/place_mix.mcfunction").decode()
+        if "$mix_only" not in mix_fn:
+            raise SystemExit("place_mix does not skip biome prefer via $mix_only")
         if "recruitPatrol tiny" not in fac.read("data/rallous_factions/functions/host/levy_go.mcfunction").decode():
             raise SystemExit("factions host/levy_go missing recruitPatrol tiny")
         fac_rings = fac.read("data/rallous_factions/functions/crash/on_land.mcfunction").decode()
@@ -716,6 +723,28 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         wc_store = wc.read("data/rallous_warp_crash/functions/store_crater.mcfunction").decode()
         if "rallous_crater_hq:mark" not in wc_store:
             raise SystemExit("warp_crash store_crater does not mark crater HQ")
+        if "rallous.crash.crater" not in wc_store:
+            raise SystemExit("warp_crash store_crater missing rallous.crash.crater tag")
+        wc_names = set(wc.namelist())
+        if "data/rallous_warp_crash/functions/debug/prove_slots.mcfunction" not in wc_names:
+            raise SystemExit("warp_crash jar missing debug/prove_slots")
+        if "data/rallous_warp_crash/functions/scatter_coords.mcfunction" not in wc_names:
+            raise SystemExit("warp_crash jar missing scatter_coords")
+        scatter_coords = wc.read("data/rallous_warp_crash/functions/scatter_coords.mcfunction").decode()
+        if "4200" not in scatter_coords:
+            raise SystemExit("warp_crash slots still use the 3200 ring (pile-up risk)")
+        after_sc = wc.read("data/rallous_warp_crash/functions/after_scatter.mcfunction").decode()
+        if "tag=rallous.crater,distance=..900" not in after_sc:
+            raise SystemExit("after_scatter missing crater 900 reject")
+        th = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_temple_herd-1.0.0.jar")))
+        th_fn = th.read("data/rallous_temple_herd/functions/mark_camp.mcfunction").decode()
+        if "rallous_temple_herd:spawn_temple_beasts" not in th_fn:
+            raise SystemExit("temple_herd mark_camp does not spawn temple beasts")
+        if "rallous_temple_herd:spawn_herd_beasts" not in th_fn:
+            raise SystemExit("temple_herd mark_camp does not spawn herd beasts")
+        spawn_t = th.read("data/rallous_temple_herd/functions/spawn_temple_beasts.mcfunction").decode()
+        if "fossil:triceratops" not in spawn_t:
+            raise SystemExit("spawn_temple_beasts missing fossil:triceratops")
         wc_fc = wc.read("data/rallous_warp_crash/functions/first_contact.mcfunction").decode()
         if "rallous_kit:on_greet" not in wc_fc:
             raise SystemExit("warp_crash first_contact does not call kit on_greet")

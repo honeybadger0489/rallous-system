@@ -1,6 +1,7 @@
 # Ring mix: rotate the eight races. Skip biome prefer so dark woods are not four Beastmen.
+scoreboard players set $mix_only rallous.gen 1
 scoreboard players set $done rallous.gen 0
-execute if entity @e[tag=rallous.camp,distance=..48,limit=1] run scoreboard players set $done rallous.gen 1
+execute if entity @e[tag=rallous.camp,distance=..28,limit=1] run scoreboard players set $done rallous.gen 1
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 0 run function rallous_factions:pool/empire/pick
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 1 run function rallous_factions:pool/vampire_counts/pick
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 2 run function rallous_factions:pool/lizardmen/pick
@@ -19,3 +20,4 @@ execute if score $done rallous.gen matches 0 run function rallous_factions:pool/
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/skaven/pick
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/beastmen/pick
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/khorne/pick
+scoreboard players set $mix_only rallous.gen 0

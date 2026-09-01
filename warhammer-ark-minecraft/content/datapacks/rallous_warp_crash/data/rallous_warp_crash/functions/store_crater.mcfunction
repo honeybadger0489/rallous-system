@@ -4,7 +4,7 @@ execute store result score @s rallous.crater_y run data get entity @s Pos[1]
 execute store result score @s rallous.crater_z run data get entity @s Pos[2]
 forceload add ~ ~
 
-summon minecraft:marker ~ ~ ~ {Tags:["rallous.crater","rallous.crater_new"]}
+summon minecraft:marker ~ ~ ~ {Tags:["rallous.crater","rallous.crash.crater","rallous.crater_new"]}
 scoreboard players operation @e[type=minecraft:marker,tag=rallous.crater_new,limit=1,sort=nearest] rallous.pid = @s rallous.pid
 data modify entity @e[type=minecraft:marker,tag=rallous.crater_new,limit=1,sort=nearest] data.Owner set from entity @s UUID
 tag @e[type=minecraft:marker,tag=rallous.crater_new] remove rallous.crater_new

@@ -4,7 +4,7 @@
   "culture": "Under-Empire clans: treachery as law, warpstone as coin. Settled in sewers, hell-pits, and under-capitals the surface denies. Strangers are tools, food, or both-both.",
   "settlement": "settled",
   "taming_affinity": "low",
-  "warp_stranger_stance": "prove_yourself",
+  "warp_stranger_stance": "hostile",
   "colors": {
     "primary": "#5A4A3A",
     "secondary": "#6B2FA0",

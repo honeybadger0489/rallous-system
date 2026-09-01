@@ -1,5 +1,6 @@
 # Mix majors+minors until every major of this race is placed.
-scoreboard players set $need_biome rallous.gen 1
+execute unless score $mix_only rallous.gen matches 1 run scoreboard players set $need_biome rallous.gen 1
+execute if score $mix_only rallous.gen matches 1 run scoreboard players set $need_biome rallous.gen 0
 execute store result score $rng rallous.rng run data get entity @s UUID[0]
 function rallous_factions:abs_rng
 scoreboard players operation $mix rallous.rng = $rng rallous.rng

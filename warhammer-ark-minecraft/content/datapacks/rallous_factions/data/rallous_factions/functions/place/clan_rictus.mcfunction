@@ -35,8 +35,9 @@ execute if score $skip rallous.gen matches 0 run summon recruits:scout ~-2 ~ ~1 
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_rictus,limit=1,sort=nearest] at @s run function rallous_factions:host/levy
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_rictus,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.id 109
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_rictus,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race 7
-execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_rictus,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 2
+execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_rictus,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 3
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_rictus,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.tier 1
+execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_rictus,limit=1,sort=nearest] at @s run function rallous_temple_herd:mark_camp
 execute if score $skip rallous.gen matches 0 run scoreboard players set #clan_rictus rallous.used 1
 execute if score $skip rallous.gen matches 0 run scoreboard players remove #left_maj_skaven rallous.gen 1
 execute if score $skip rallous.gen matches 0 run scoreboard players add #placed rallous.gen 1

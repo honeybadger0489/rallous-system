@@ -245,25 +245,25 @@ def raid_lines(race_id: str) -> list[str]:
 
 
 # Spoken first-contact lines. Personality JSON is a design note — never dump it.
-# Host + host-name only. Eight races, four stances. No QA verbs.
+# Host + host-name only. Eight races, four stances. Starting reaction is NOT identical.
 GREET_SPEECH = {
     "empire": {
-        1: "The Warp spat you onto {host} soil. Take a blade. Hold the line — or walk on and be meat for the next banner.",
-        2: "Warp-born. You are no guest of {host}. Last this night among us. Then we will speak of names.",
+        1: "The Warp spat you onto {host} soil. Take a blade. Fight with us — hold this road, or be meat for the next banner.",
+        2: "Warp-born. You are no guest of {host}. Last this night among the State Troops. Then we will speak of names.",
         3: "This picket is closed. The Warp does not make you a soldier of Sigmar. Run, or die on the palisade.",
         4: "You stink of the Warp. Witch hunters have burned cleaner men. Speak, fight, or be put to the pyre.",
     },
     "vampire_counts": {
-        1: "You fell from the Warp onto {host} graves. Take the blade. Serve, or feed the levy.",
+        1: "You fell from the Warp onto {host} graves. Take the night-blade. Serve the dead, or feed the levy.",
         2: "Crash-meat. Last the night among the dead of {host}. Then we may name you guest.",
         3: "This host does not treat crash-meat as a guest. Flee {host}, or join the grave-levy.",
-        4: "The Warp clings to you. Prove you are flesh, not daemon, or the graves of {host} take you.",
+        4: "Daemon-stink on living breath. The graves of {host} do not trust Warp-born. Name a path, or hang with the suspected.",
     },
     "lizardmen": {
         1: "The Plan did not name you. Take the weapon. Stand the temple of {host}, or be judged.",
         2: "You smell of the Great Enemy. Last this night at {host}. The plaque will judge.",
         3: "Daemon-stink. The temple of {host} is shut. Survive, or be judged.",
-        4: "The Old Ones smell the Great Enemy on you. An omen must clear you — or {host} will.",
+        4: "The Old Ones smell the Great Enemy on you. {host} is wary. An omen must clear the Warp — or the temple will.",
     },
     "beastmen": {
         1: "Warp-meat. Take the axe. Gore with the herd of {host}, or be eaten.",
@@ -272,7 +272,7 @@ GREET_SPEECH = {
         4: "Warp-stink. The herd of {host} has not decided if you are rival or meat.",
     },
     "greenskins": {
-        1: "You fell outta the sky onto {host}. Take a choppa. Fight wiv us, or get krumped.",
+        1: "You fell outta the sky onto {host}. Take a choppa. Fight wiv us — da scrap starts now, or get krumped.",
         2: "Prove yer a proper scrap. Last the night wiv {host}. Then da boss might keep ya.",
         3: "Dis is our scrap. Live through it or nick da banner of {host} and die.",
         4: "You smell wrong. Fight till {host} says you ain't a daemon, or get krumped.",
@@ -281,20 +281,84 @@ GREET_SPEECH = {
         1: "The Warp spat you at the gate of {host}. Take the axe. Hold the picket, or be a grudge.",
         2: "You stink of the Warp. Last this night in {host}. Then we mark the grudge paid — or not.",
         3: "This hold is shut. Survive the raid on {host}, or take the banner and be a thief.",
-        4: "You stink of the Warp. Kill until {host} names you clean, or be entered in the Book.",
+        4: "No oath is sworn. {host} is wary. You stink of the Warp. Kill until the Book names you clean — or entered.",
     },
     "skaven": {
         1: "Yes-yes, Warp-thing. Take-take the shiv. Fight for {host}, or be meat.",
         2: "Prove-prove you are not a spy. Last the night under {host}. Then the Council hears.",
-        3: "Intruder-meat. Live the raid or steal-take the picket of {host}.",
+        3: "Man-thing reeks of Warp. Intruder-meat. {host} does not greet. Live the knives, or die-die.",
         4: "Warp-stink, yes-yes. Prove you are not a daemon-spy of {host}, or die-die.",
     },
     "khorne": {
         1: "Blood fell from the sky onto {host}. Take the axe. Spill with the pack, or be the offering.",
         2: "Skulls or cowardice. Last this fight for {host}. Khorne cares not from whom.",
-        3: "You are the offering. Survive {host}, or die on this picket.",
+        3: "You are the offering. The Blood Host of {host} does not treat Warp-spawn as guests. Survive, or die on this picket.",
         4: "The Warp spat you here. Bleed until {host} names you, or be the skull.",
     },
+}
+
+# Extra stance beat after the lord line. Must differ by race — not one shared pyre sentence.
+STANCE_ACTION = {
+    "empire": {
+        1: "A State Blade is thrown at your feet. Fight with this host.",
+        2: "Last this night among the State Troops. Then they will speak of a path.",
+        3: "The palisade closes. This is a fight, not a greeting.",
+        4: "Witch-hunters have not decided. Steel or the pyre.",
+    },
+    "vampire_counts": {
+        1: "A night-blade is laid on a grave. Serve, or be levied.",
+        2: "Last the night among the dead. Guest-right is not given yet.",
+        3: "The grave-levy comes for crash-meat.",
+        4: "They name you daemon-suspect. The graves watch. Paths still open — at a cost.",
+    },
+    "lizardmen": {
+        1: "A temple weapon is offered. Stand the plaque, or be judged.",
+        2: "Last this night at the temple. The plaque has not named you.",
+        3: "The temple is shut. Survive the judgement.",
+        4: "The temple is wary. Warp-stink is the Great Enemy until an omen — or a verb — clears you.",
+    },
+    "beastmen": {
+        1: "A herd-axe in the dirt. Gore with them, or be cattle.",
+        2: "Last the horns. The herd has not kept you yet.",
+        3: "Prey. The herd is already moving to eat.",
+        4: "Warp-stink. Rival or meat — they have not picked.",
+    },
+    "greenskins": {
+        1: "A choppa lands at your boots. Fight wiv da boyz. Dis is a scrap, not a speech.",
+        2: "Last da night. If you still stand, da boss might keep ya.",
+        3: "Dis scrap is already on. Live it or nick da banner and die.",
+        4: "You smell wrong. Fight till they say you ain't a daemon.",
+    },
+    "dwarfs": {
+        1: "An oath-axe is offered. Hold the gate, or be a grudge.",
+        2: "Last this night in the hold. Then the Book is marked.",
+        3: "The hold is shut. Survive the raid, or be a thief.",
+        4: "The hold is wary. Warp-stink is a grudge until you kill it clean.",
+    },
+    "skaven": {
+        1: "A warp-shiv, yes-yes. Fight-fight, or be meat.",
+        2: "Prove-prove you are not a spy. Last the night under the Clan.",
+        3: "Knives in the dark. The Clan does not greet man-things.",
+        4: "Daemon-spy, they hiss. Paths exist. Trust does not.",
+    },
+    "khorne": {
+        1: "A blood-axe. Spill with the pack, or be the offering.",
+        2: "Skulls or cowardice. Last this fight.",
+        3: "You are the offering. The Blood Host is already on you.",
+        4: "Bleed until they name you, or be the skull.",
+    },
+}
+
+# Four paths stay clickable. Lead-in is race-skeptical — not one shared \"This host waits on a verb.\"
+OFFER_LEAD = {
+    "empire": "The captain will take a blade-hand. Help is an oath to fight with this host. Betray is a pyre.",
+    "vampire_counts": "The dead do not offer guest-right. Warp-stink is a hanging matter until you name a path.",
+    "lizardmen": "The plaque has not named you. The temple is wary. An omen — or a verb — must clear the Warp-stink.",
+    "beastmen": "Prey speaks. The herd listens with horns. Help is gore. Betray is meat.",
+    "greenskins": "Scrap or nick off. Da boss is waitin'. Help means fight wiv us. Betray means a krumpin'.",
+    "dwarfs": "No oath is sworn. The Book is open. The hold is wary of Warp-born until a verb is named.",
+    "skaven": "Man-thing reeks. The Clan does not trust-trust. Help-help, or die-die. The Council watches.",
+    "khorne": "Blood is the only greeting. Help is a skull. Betray is also a skull. Name it.",
 }
 
 
@@ -393,6 +457,7 @@ def write_load(races: dict[str, dict], factions: list[dict]) -> None:
         "execute unless score #booted rallous.gen = #booted rallous.gen run scoreboard players set #booted rallous.gen 0",
         "execute unless score #clock rallous.gen = #clock rallous.gen run scoreboard players set #clock rallous.gen 0",
         "execute unless score #next_race rallous.gen = #next_race rallous.gen run scoreboard players set #next_race rallous.gen 0",
+        "execute unless score $mix_only rallous.gen = $mix_only rallous.gen run scoreboard players set $mix_only rallous.gen 0",
     ]
     for race_id, race in races.items():
         n_maj = sum(1 for f in factions if f["race"] == race_id and f.get("tier") == "major")
@@ -454,10 +519,10 @@ execute if score #placed rallous.gen < #xcap rallous.const run function rallous_
     )
     w(
         FN / "gen/place_near.mcfunction",
-        """# Guaranteed contact camp just off the crater.
+        """# Guaranteed contact camp just off the crater. Mix-rotate — do not biome-stack.
 summon minecraft:marker ~ ~ ~ {Tags:["rallous.probe","rallous.probe.near"]}
-execute as @e[type=minecraft:marker,tag=rallous.probe.near,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 24 56 false @s
-execute as @e[type=minecraft:marker,tag=rallous.probe.near,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_one
+execute as @e[type=minecraft:marker,tag=rallous.probe.near,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 20 36 false @s
+execute as @e[type=minecraft:marker,tag=rallous.probe.near,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_mix
 kill @e[type=minecraft:marker,tag=rallous.probe]
 """,
     )
@@ -465,18 +530,18 @@ kill @e[type=minecraft:marker,tag=rallous.probe]
         FN / "gen/place_far.mcfunction",
         """summon minecraft:marker ~ ~ ~ {Tags:["rallous.probe","rallous.probe.far"]}
 execute as @e[type=minecraft:marker,tag=rallous.probe.far,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 140 380 false @s
-execute as @e[type=minecraft:marker,tag=rallous.probe.far,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_one
+execute as @e[type=minecraft:marker,tag=rallous.probe.far,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_mix
 kill @e[type=minecraft:marker,tag=rallous.probe]
 """,
     )
     w(
         FN / "gen/place_rings.mcfunction",
         """# Mixed-race pickets on walkable rings. Not TW cities. Cap still 16.
-# Inner ~96 (10 min walk). Outer ~220 (first hour). Cardinals only.
-execute if score #placed rallous.gen < #cap rallous.const positioned ~96 ~ ~ run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~-96 ~ ~ run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~96 run function rallous_factions:gen/ring_spot
-execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~-96 run function rallous_factions:gen/ring_spot
+# Inner ~120 (clears the contact camp). Outer ~220 (first hour). Cardinals only.
+execute if score #placed rallous.gen < #cap rallous.const positioned ~120 ~ ~ run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~-120 ~ ~ run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~120 run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~-120 run function rallous_factions:gen/ring_spot
 execute if score #placed rallous.gen < #cap rallous.const positioned ~220 ~ ~ run function rallous_factions:gen/ring_spot
 execute if score #placed rallous.gen < #cap rallous.const positioned ~-220 ~ ~ run function rallous_factions:gen/ring_spot
 execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~220 run function rallous_factions:gen/ring_spot
@@ -488,7 +553,7 @@ execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~-220 r
         """# Surface one mixed camp at this ring offset. Rotate race — do not stack the biome.
 execute if score #placed rallous.gen >= #cap rallous.const run scoreboard players set $noop rallous.gen 1
 execute if score #placed rallous.gen < #cap rallous.const run summon minecraft:marker ~ ~ ~ {Tags:["rallous.probe","rallous.probe.ring"]}
-execute as @e[type=minecraft:marker,tag=rallous.probe.ring,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 8 28 false @s
+execute as @e[type=minecraft:marker,tag=rallous.probe.ring,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 8 16 false @s
 execute as @e[type=minecraft:marker,tag=rallous.probe.ring,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_mix
 kill @e[type=minecraft:marker,tag=rallous.probe.ring]
 """,
@@ -496,8 +561,9 @@ kill @e[type=minecraft:marker,tag=rallous.probe.ring]
     w(
         FN / "gen/place_mix.mcfunction",
         """# Ring mix: rotate the eight races. Skip biome prefer so dark woods are not four Beastmen.
+scoreboard players set $mix_only rallous.gen 1
 scoreboard players set $done rallous.gen 0
-execute if entity @e[tag=rallous.camp,distance=..48,limit=1] run scoreboard players set $done rallous.gen 1
+execute if entity @e[tag=rallous.camp,distance=..28,limit=1] run scoreboard players set $done rallous.gen 1
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 0 run function rallous_factions:pool/empire/pick
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 1 run function rallous_factions:pool/vampire_counts/pick
 execute if score $done rallous.gen matches 0 if score #next_race rallous.gen matches 2 run function rallous_factions:pool/lizardmen/pick
@@ -516,6 +582,7 @@ execute if score $done rallous.gen matches 0 run function rallous_factions:pool/
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/skaven/pick
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/beastmen/pick
 execute if score $done rallous.gen matches 0 run function rallous_factions:pool/khorne/pick
+scoreboard players set $mix_only rallous.gen 0
 """,
     )
     levy_types = [
@@ -791,12 +858,47 @@ tellraw @s {"text":"Forced a compiled faction camp here. Look for a named lord a
     )
     w(
         FN / "path/offer.mcfunction",
-        """# First-hour verbs at the picket. FTB Paths also open after the crater. Cheats ON for clicks.
+        """# First-hour verbs at the picket. Lead-in is race-skeptical. Four paths stay reachable.
 give @s minecraft:flint_and_steel{display:{Name:'{"text":"Burn their welcome","italic":false}',Lore:['{"text":"Use this at the picket. Khorne hears.","color":"dark_red"}']}} 1
 give @s minecraft:bread{display:{Name:'{"text":"Share food","italic":false}'}} 4
-tellraw @s [{"text":"This host waits on a verb. ","color":"gold"},{"text":"[Help]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/help"},"hoverEvent":{"action":"show_text","contents":"Ally this camp"}},{"text":" ","color":"white"},{"text":"[Betray]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/betray"},"hoverEvent":{"action":"show_text","contents":"War with this camp"}},{"text":" ","color":"white"},{"text":"[Join]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/join"},"hoverEvent":{"action":"show_text","contents":"Take their colour"}},{"text":" ","color":"white"},{"text":"[Leave]","color":"gray","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/leave"},"hoverEvent":{"action":"show_text","contents":"Align and ride on"}},{"text":" — or flint the pad.","color":"dark_red"}]
+execute if score @s rallous.race matches 1 run function rallous_factions:path/offer_empire
+execute if score @s rallous.race matches 2 run function rallous_factions:path/offer_vampire_counts
+execute if score @s rallous.race matches 3 run function rallous_factions:path/offer_lizardmen
+execute if score @s rallous.race matches 4 run function rallous_factions:path/offer_beastmen
+execute if score @s rallous.race matches 5 run function rallous_factions:path/offer_greenskins
+execute if score @s rallous.race matches 6 run function rallous_factions:path/offer_dwarfs
+execute if score @s rallous.race matches 7 run function rallous_factions:path/offer_skaven
+execute if score @s rallous.race matches 8 run function rallous_factions:path/offer_khorne
+execute unless score @s rallous.race matches 1..8 run function rallous_factions:path/offer_empire
 """,
     )
+    buttons = (
+        '{"text":"[Help]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/help"},"hoverEvent":{"action":"show_text","contents":"Ally this camp"}},'
+        '{"text":" ","color":"white"},'
+        '{"text":"[Betray]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/betray"},"hoverEvent":{"action":"show_text","contents":"War with this camp"}},'
+        '{"text":" ","color":"white"},'
+        '{"text":"[Join]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/join"},"hoverEvent":{"action":"show_text","contents":"Take their colour"}},'
+        '{"text":" ","color":"white"},'
+        '{"text":"[Leave]","color":"gray","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/leave"},"hoverEvent":{"action":"show_text","contents":"Align and ride on"}},'
+        '{"text":" — or flint the pad.","color":"dark_red"}'
+    )
+    offer_colors = {
+        "empire": "gold",
+        "vampire_counts": "dark_red",
+        "lizardmen": "aqua",
+        "beastmen": "dark_green",
+        "greenskins": "green",
+        "dwarfs": "gold",
+        "skaven": "light_purple",
+        "khorne": "red",
+    }
+    for rid, lead in OFFER_LEAD.items():
+        lead_json = json.dumps(lead, ensure_ascii=False)
+        color = offer_colors[rid]
+        w(
+            FN / "path" / f"offer_{rid}.mcfunction",
+            f'tellraw @s [{{"text":{lead_json},"color":"{color}"}},{{"text":" ","color":"white"}},{buttons}]\n',
+        )
     w(
         FN / "path/burn_welcome.mcfunction",
         """# Khorne if you burn welcome. Reachable at the picket, not a wiki sentence.
@@ -820,13 +922,41 @@ execute as @e[tag=rallous.camp,limit=1,sort=nearest] at @s run particle minecraf
 """,
     )
     w(
+        FN / "debug/count_races.mcfunction",
+        """# Count rallous.camp markers by race. Fresh-world mix proof.
+execute store result score $c_emp rallous.gen if entity @e[tag=rallous.camp,scores={rallous.fac.race=1}]
+execute store result score $c_vc rallous.gen if entity @e[tag=rallous.camp,scores={rallous.fac.race=2}]
+execute store result score $c_lm rallous.gen if entity @e[tag=rallous.camp,scores={rallous.fac.race=3}]
+execute store result score $c_bm rallous.gen if entity @e[tag=rallous.camp,scores={rallous.fac.race=4}]
+execute store result score $c_gs rallous.gen if entity @e[tag=rallous.camp,scores={rallous.fac.race=5}]
+execute store result score $c_dw rallous.gen if entity @e[tag=rallous.camp,scores={rallous.fac.race=6}]
+execute store result score $c_sk rallous.gen if entity @e[tag=rallous.camp,scores={rallous.fac.race=7}]
+execute store result score $c_kh rallous.gen if entity @e[tag=rallous.camp,scores={rallous.fac.race=8}]
+scoreboard players set $c_races rallous.gen 0
+execute if score $c_emp rallous.gen matches 1.. run scoreboard players add $c_races rallous.gen 1
+execute if score $c_vc rallous.gen matches 1.. run scoreboard players add $c_races rallous.gen 1
+execute if score $c_lm rallous.gen matches 1.. run scoreboard players add $c_races rallous.gen 1
+execute if score $c_bm rallous.gen matches 1.. run scoreboard players add $c_races rallous.gen 1
+execute if score $c_gs rallous.gen matches 1.. run scoreboard players add $c_races rallous.gen 1
+execute if score $c_dw rallous.gen matches 1.. run scoreboard players add $c_races rallous.gen 1
+execute if score $c_sk rallous.gen matches 1.. run scoreboard players add $c_races rallous.gen 1
+execute if score $c_kh rallous.gen matches 1.. run scoreboard players add $c_races rallous.gen 1
+execute store result score $c_lords rallous.gen if entity @e[tag=rallous.lord]
+execute store result score $c_camps rallous.gen if entity @e[tag=rallous.camp]
+execute store result score $c_temple rallous.gen if entity @e[tag=rallous.temple_beast]
+execute store result score $c_herd rallous.gen if entity @e[tag=rallous.herd_beast]
+tellraw @a [{"text":"[rallous.mix] camps=","color":"gold"},{"score":{"name":"$c_camps","objective":"rallous.gen"}},{"text":" lords=","color":"gold"},{"score":{"name":"$c_lords","objective":"rallous.gen"}},{"text":" races=","color":"gold"},{"score":{"name":"$c_races","objective":"rallous.gen"}},{"text":" emp=","color":"red"},{"score":{"name":"$c_emp","objective":"rallous.gen"}},{"text":" vc=","color":"dark_red"},{"score":{"name":"$c_vc","objective":"rallous.gen"}},{"text":" lm=","color":"aqua"},{"score":{"name":"$c_lm","objective":"rallous.gen"}},{"text":" bm=","color":"dark_green"},{"score":{"name":"$c_bm","objective":"rallous.gen"}},{"text":" gs=","color":"green"},{"score":{"name":"$c_gs","objective":"rallous.gen"}},{"text":" dw=","color":"gold"},{"score":{"name":"$c_dw","objective":"rallous.gen"}},{"text":" sk=","color":"light_purple"},{"score":{"name":"$c_sk","objective":"rallous.gen"}},{"text":" kh=","color":"dark_red"},{"score":{"name":"$c_kh","objective":"rallous.gen"}},{"text":" temple_beasts=","color":"aqua"},{"score":{"name":"$c_temple","objective":"rallous.gen"}},{"text":" herd_beasts=","color":"dark_green"},{"score":{"name":"$c_herd","objective":"rallous.gen"}}]
+execute unless score $c_races rallous.gen matches 8 run say [rallous.mix] WARN unique races != 8
+execute if score $c_races rallous.gen matches 8 run say [rallous.mix] OK eight races on this fresh field
+""",
+    )
+    w(
         FN / "debug/headless_proof.mcfunction",
         """# Function driver: crash / on_land / greet / rings / levy / paths / roaming / death.
 # Run at a surface. No CurseForge GPU. Does not claim SHIP_READY.
 say [rallous.proof] start field driver
 function rallous_factions:gen/boot
 execute unless entity @e[tag=rallous.camp,distance=..48,limit=1] run function rallous_factions:gen/place_near
-execute unless entity @e[tag=rallous.camp,distance=..80,limit=1] run function rallous_factions:gen/place_one
 function rallous_factions:gen/place_rings
 execute as @e[type=minecraft:marker,tag=rallous.camp,limit=1,sort=nearest] at @s run function rallous_factions:host/levy
 execute store result score $proof_camps rallous.gen if entity @e[tag=rallous.camp]
@@ -834,12 +964,14 @@ execute store result score $proof_lords rallous.gen if entity @e[tag=rallous.lor
 execute store result score $proof_soldiers rallous.gen if entity @e[tag=rallous.soldier]
 execute store result score $proof_levy rallous.gen if entity @e[tag=rallous.host.levy]
 scoreboard players operation $proof_placed rallous.gen = #placed rallous.gen
+function rallous_factions:debug/count_races
 function rallous_factions:contact/assign
 function rallous_factions:path/offer
 function rallous_contact:path/help
 function rallous_factions:path/burn_welcome
 function rallous_roaming:events/waaagh
 function rallous_warp_crash:on_death
+function rallous_warp_crash:debug/prove_slots
 tellraw @a [{"text":"[rallous.proof] camps=","color":"gold"},{"score":{"name":"$proof_camps","objective":"rallous.gen"}},{"text":" lords=","color":"gold"},{"score":{"name":"$proof_lords","objective":"rallous.gen"}},{"text":" soldiers=","color":"gold"},{"score":{"name":"$proof_soldiers","objective":"rallous.gen"}},{"text":" levy=","color":"gold"},{"score":{"name":"$proof_levy","objective":"rallous.gen"}},{"text":" placed=","color":"gold"},{"score":{"name":"$proof_placed","objective":"rallous.gen"}}]
 execute unless score $proof_camps rallous.gen matches 2.. run say [rallous.proof] FAIL camps < 2
 execute unless score $proof_lords rallous.gen matches 1.. run say [rallous.proof] FAIL no named lord
@@ -862,7 +994,8 @@ def write_pools(races: dict[str, dict], factions: list[dict]) -> None:
             "\n".join(
                 [
                     "# Mix majors+minors until every major of this race is placed.",
-                    "scoreboard players set $need_biome rallous.gen 1",
+                    "execute unless score $mix_only rallous.gen matches 1 run scoreboard players set $need_biome rallous.gen 1",
+                    "execute if score $mix_only rallous.gen matches 1 run scoreboard players set $need_biome rallous.gen 0",
                     "execute store result score $rng rallous.rng run data get entity @s UUID[0]",
                     "function rallous_factions:abs_rng",
                     "scoreboard players operation $mix rallous.rng = $rng rallous.rng",
@@ -961,6 +1094,7 @@ def write_faction_fns(races: dict[str, dict], factions: list[dict]) -> None:
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race {RACE_NUM[race['id']]}",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance {stance}",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.tier {tier}",
+            f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] at @s run function rallous_temple_herd:mark_camp",
             f"execute if score $skip rallous.gen matches 0 run scoreboard players set #{sl} rallous.used 1",
             (
                 f"execute if score $skip rallous.gen matches 0 run scoreboard players remove #left_maj_{race['id']} rallous.gen 1"
@@ -981,14 +1115,22 @@ def write_faction_fns(races: dict[str, dict], factions: list[dict]) -> None:
 
 def write_greet_body(race: dict, fac: dict, texts: dict[int, list], weapon_id: str, weapon_name: str) -> str:
     wname = snbt_name({"text": weapon_name, "italic": False})
+    rid = race["id"]
+    actions = STANCE_ACTION[rid]
+    default = STANCE_NUM[race["warp_stranger_stance"]]
     lines = [
-        tellraw("@a[distance=..48]", texts[STANCE_NUM[race["warp_stranger_stance"]]]),
+        tellraw("@a[distance=..48]", texts[default]),
         f"execute if score @s rallous.fac.stance matches 1 run give @p minecraft:{weapon_id}{{display:{{Name:{wname}}}}} 1",
-        "execute if score @s rallous.fac.stance matches 1 run tellraw @a[distance=..48] {\"text\":\"A blade is thrown at your feet. Take it.\",\"color\":\"gold\"}",
+        "execute if score @s rallous.fac.stance matches 1 run "
+        + tellraw("@a[distance=..48]", [{"text": actions[1], "color": "gold"}]),
         "execute if score @s rallous.fac.stance matches 2 run scoreboard players set @p rallous.proved 0",
-        "execute if score @s rallous.fac.stance matches 2 run tellraw @a[distance=..48] {\"text\":\"Last this night among them. Then they will speak of a path.\",\"color\":\"yellow\"}",
+        "execute if score @s rallous.fac.stance matches 2 run "
+        + tellraw("@a[distance=..48]", [{"text": actions[2], "color": "yellow"}]),
         "execute if score @s rallous.fac.stance matches 4 run scoreboard players set @p rallous.proved 0",
-        "execute if score @s rallous.fac.stance matches 4 run tellraw @a[distance=..48] {\"text\":\"They smell the Warp on you. Steel or the pyre — they have not decided.\",\"color\":\"dark_purple\"}",
+        "execute if score @s rallous.fac.stance matches 4 run "
+        + tellraw("@a[distance=..48]", [{"text": actions[4], "color": "dark_purple"}]),
+        "execute if score @s rallous.fac.stance matches 3 run "
+        + tellraw("@a[distance=..48]", [{"text": actions[3], "color": "red"}]),
         "execute if score @s rallous.fac.stance matches 3 run function rallous_factions:raid/" + fac["_slug"],
         "execute if score @s rallous.fac.stance matches 6 run function rallous_factions:raid/" + fac["_slug"],
         "particle minecraft:witch ~ ~2 ~ 0.3 1 0.3 0 16",

@@ -36,6 +36,7 @@ execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=ral
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.ripper_horn_tribe,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race 4
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.ripper_horn_tribe,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 3
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.ripper_horn_tribe,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.tier 2
+execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.ripper_horn_tribe,limit=1,sort=nearest] at @s run function rallous_temple_herd:mark_camp
 execute if score $skip rallous.gen matches 0 run scoreboard players set #ripper_horn_tribe rallous.used 1
 execute if score $skip rallous.gen matches 0 run scoreboard players remove #left_min_beastmen rallous.gen 1
 execute if score $skip rallous.gen matches 0 run scoreboard players add #placed rallous.gen 1

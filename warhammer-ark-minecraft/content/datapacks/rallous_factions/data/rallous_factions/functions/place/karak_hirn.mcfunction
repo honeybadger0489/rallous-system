@@ -36,6 +36,7 @@ execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=ral
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.karak_hirn,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race 6
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.karak_hirn,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 4
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.karak_hirn,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.tier 2
+execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.karak_hirn,limit=1,sort=nearest] at @s run function rallous_temple_herd:mark_camp
 execute if score $skip rallous.gen matches 0 run scoreboard players set #karak_hirn rallous.used 1
 execute if score $skip rallous.gen matches 0 run scoreboard players remove #left_min_dwarfs rallous.gen 1
 execute if score $skip rallous.gen matches 0 run scoreboard players add #placed rallous.gen 1

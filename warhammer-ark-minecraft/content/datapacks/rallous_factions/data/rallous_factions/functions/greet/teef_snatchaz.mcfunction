@@ -1,10 +1,11 @@
-tellraw @a[distance=..48] [{"text": "<Goblin Warboss Teef Snatcha — Teef Snatchaz> ", "color": "green", "bold": true}, {"text": "Prove yer a proper scrap. Last the night wiv Teef Snatchaz. Then da boss might keep ya.", "color": "yellow"}]
+tellraw @a[distance=..48] [{"text": "<Goblin Warboss Teef Snatcha — Teef Snatchaz> ", "color": "green", "bold": true}, {"text": "You fell outta the sky onto Teef Snatchaz. Take a choppa. Fight wiv us — da scrap starts now, or get krumped.", "color": "white"}]
 execute if score @s rallous.fac.stance matches 1 run give @p minecraft:iron_axe{display:{Name:'{"text":"Choppa","italic":false}'}} 1
-execute if score @s rallous.fac.stance matches 1 run tellraw @a[distance=..48] {"text":"A blade is thrown at your feet. Take it.","color":"gold"}
+execute if score @s rallous.fac.stance matches 1 run tellraw @a[distance=..48] [{"text": "A choppa lands at your boots. Fight wiv da boyz. Dis is a scrap, not a speech.", "color": "gold"}]
 execute if score @s rallous.fac.stance matches 2 run scoreboard players set @p rallous.proved 0
-execute if score @s rallous.fac.stance matches 2 run tellraw @a[distance=..48] {"text":"Last this night among them. Then they will speak of a path.","color":"yellow"}
+execute if score @s rallous.fac.stance matches 2 run tellraw @a[distance=..48] [{"text": "Last da night. If you still stand, da boss might keep ya.", "color": "yellow"}]
 execute if score @s rallous.fac.stance matches 4 run scoreboard players set @p rallous.proved 0
-execute if score @s rallous.fac.stance matches 4 run tellraw @a[distance=..48] {"text":"They smell the Warp on you. Steel or the pyre — they have not decided.","color":"dark_purple"}
+execute if score @s rallous.fac.stance matches 4 run tellraw @a[distance=..48] [{"text": "You smell wrong. Fight till they say you ain't a daemon.", "color": "dark_purple"}]
+execute if score @s rallous.fac.stance matches 3 run tellraw @a[distance=..48] [{"text": "Dis scrap is already on. Live it or nick da banner and die.", "color": "red"}]
 execute if score @s rallous.fac.stance matches 3 run function rallous_factions:raid/teef_snatchaz
 execute if score @s rallous.fac.stance matches 6 run function rallous_factions:raid/teef_snatchaz
 particle minecraft:witch ~ ~2 ~ 0.3 1 0.3 0 16
