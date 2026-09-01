@@ -75,6 +75,15 @@ authors="Rallous System"
 description='''Warp-crash Old World: crater spawn, scattered friends, no Reikland court.'''
 """,
     )
+    # Own tags only. Sibling jars register their own #minecraft:tick / load.
+    dump_json(
+        CONTENT / "data" / "minecraft" / "tags" / "functions" / "load.json",
+        {"values": ["rallous_old_world:load"]},
+    )
+    dump_json(
+        CONTENT / "data" / "minecraft" / "tags" / "functions" / "tick.json",
+        {"values": ["rallous_old_world:tick"]},
+    )
 
 
 def write_functions() -> None:

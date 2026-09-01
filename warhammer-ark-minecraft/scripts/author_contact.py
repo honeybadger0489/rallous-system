@@ -1107,14 +1107,7 @@ description='''First-contact scores and backup advancements. No court.'''
         )
         dump_json(
             dest / "data" / "minecraft" / "tags" / "functions" / "load.json",
-            {
-                "values": [
-                    "rallous_old_world:load",
-                    "rallous_contact:load",
-                    "rallous_temple_herd:load",
-                    "rallous_warp_crash:load",
-                ]
-            },
+            {"values": ["rallous_contact:load"]},
         )
         data = dest / "data" / "rallous_contact"
         for rel, text in functions.items():

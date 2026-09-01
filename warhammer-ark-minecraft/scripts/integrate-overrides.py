@@ -104,6 +104,64 @@ def jar_datapack(src: Path) -> int:
     return 1
 
 
+def pack_namespace(pack_dir: Path) -> str:
+    name = pack_dir.name.replace("-", "_")
+    if name == "rallous_old_world":
+        return "rallous_old_world"
+    return name
+
+
+def sanitize_tick_load_tags(pack_dir: Path) -> int:
+    """Each jar / folder lists only its own #minecraft:tick and #minecraft:load.
+
+    Sibling jars must not re-list each other — that double-fires first join.
+    """
+    if not pack_dir.is_dir():
+        return 0
+    ns = pack_namespace(pack_dir)
+    n = 0
+    for kind in ("tick", "load"):
+        path = pack_dir / "data" / "minecraft" / "tags" / "functions" / f"{kind}.json"
+        if not path.is_file():
+            continue
+        try:
+            data = json.loads(path.read_text())
+        except json.JSONDecodeError:
+            continue
+        expected = f"{ns}:{kind}"
+        raw = data.get("values") or []
+        ids: list[str] = []
+        for v in raw:
+            if isinstance(v, str):
+                ids.append(v)
+            elif isinstance(v, dict):
+                ids.append(str(v.get("id") or v.get("function") or ""))
+        if ids == [expected]:
+            continue
+        data["values"] = [expected]
+        path.write_text(json.dumps(data, indent=2) + "\n")
+        print(f"stripped foreign {kind} tags in {pack_dir.name}: {ids} -> {[expected]}")
+        n += 1
+    return n
+
+
+def sanitize_all_tick_load() -> int:
+    """Keep sibling ticks off old-world and off each other's tags."""
+    n = sanitize_tick_load_tags(CONTENT)
+    for rel in (
+        "pack-src/datapacks",
+        "pack-src/overrides/datapacks",
+        "content/datapacks",
+        "pack/cf-overrides/datapacks",
+        "pack/content",
+    ):
+        for src in find_dirs(rel):
+            for pack in sorted(p for p in src.iterdir() if p.is_dir()):
+                n += sanitize_tick_load_tags(pack)
+    n += sanitize_tick_load_tags(CONTENT)
+    return n
+
+
 def merge_datapack(src: Path) -> int:
     """Ship sibling datapacks as LowCodeFML jars plus inspectable override folders.
 
@@ -114,6 +172,7 @@ def merge_datapack(src: Path) -> int:
         return 0
     if not ((src / "data").is_dir() or (src / "pack.mcmeta").exists()):
         return 0
+    sanitize_tick_load_tags(src)
     n = jar_datapack(src)
     n += copy_tree(src, OV / "datapacks" / src.name)
     return n
@@ -577,6 +636,11 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         wc_store = wc.read("data/rallous_warp_crash/functions/store_crater.mcfunction").decode()
         if "rallous_crater_hq:mark" not in wc_store:
             raise SystemExit("warp_crash store_crater does not mark crater HQ")
+        wc_fc = wc.read("data/rallous_warp_crash/functions/first_contact.mcfunction").decode()
+        if "rallous_kit:on_greet" not in wc_fc:
+            raise SystemExit("warp_crash first_contact does not call kit on_greet")
+        if "rallous_winds:place" not in wc_fc:
+            raise SystemExit("warp_crash first_contact does not plant winds lectern")
         help_path = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_contact-1.0.0.jar")))
         help_fn = help_path.read("data/rallous_contact/functions/path/help.mcfunction").decode()
         if "rallous_diplomacy:apply_path" not in help_fn:
@@ -584,12 +648,22 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         fac_assign = fac.read("data/rallous_factions/functions/contact/assign.mcfunction").decode()
         if "rallous_recruits_bind:on_contact" not in fac_assign:
             raise SystemExit("factions assign does not bind Recruits")
+        if "rallous_kit:on_greet" not in fac_assign:
+            raise SystemExit("factions assign does not hook rallous_kit:on_greet")
+        if "rallous_winds:place" not in fac_assign:
+            raise SystemExit("factions assign does not plant winds lectern")
+        fac_land = fac.read("data/rallous_factions/functions/crash/on_land.mcfunction").decode()
+        if "rallous_winds:place" not in fac_land:
+            raise SystemExit("factions crash/on_land does not hook rallous_winds:place")
         sess = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_session-1.0.0.jar")))
         sess_names = set(sess.namelist())
         if "data/rallous_session/functions/start.mcfunction" not in sess_names:
             raise SystemExit("session jar missing start")
         if "data/rallous_session/functions/win.mcfunction" not in sess_names:
             raise SystemExit("session jar missing win")
+        sess_win = sess.read("data/rallous_session/functions/win.mcfunction").decode()
+        if "rallous_grow:on_session" not in sess_win:
+            raise SystemExit("session win does not hook rallous_grow:on_session")
         bind = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_recruits_bind-1.0.0.jar")))
         if "data/rallous_recruits_bind/functions/on_contact.mcfunction" not in set(bind.namelist()):
             raise SystemExit("recruits_bind jar missing on_contact")
@@ -632,11 +706,33 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         from io import BytesIO
 
         ow = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous-old-world-1.0.0.jar")))
+        ow_tick = json.loads(ow.read("data/minecraft/tags/functions/tick.json"))
+        ow_tick_vals = ow_tick.get("values") or []
+        if ow_tick_vals != ["rallous_old_world:tick"]:
+            raise SystemExit(f"old_world tick lists sibling jars: {ow_tick_vals}")
+        ow_load = json.loads(ow.read("data/minecraft/tags/functions/load.json"))
+        if (ow_load.get("values") or []) != ["rallous_old_world:load"]:
+            raise SystemExit(f"old_world load lists sibling jars: {ow_load.get('values')}")
+        winds_jar = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous_winds-1.0.0.jar")))
+        winds_tick = json.loads(winds_jar.read("data/minecraft/tags/functions/tick.json"))
+        if (winds_tick.get("values") or []) != ["rallous_winds:tick"]:
+            raise SystemExit(f"winds tick is not own-only: {winds_tick.get('values')}")
+        kit_jar = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous_kit-1.0.0.jar")))
+        kit_tick = json.loads(kit_jar.read("data/minecraft/tags/functions/tick.json"))
+        if (kit_tick.get("values") or []) != ["rallous_kit:tick"]:
+            raise SystemExit(f"kit tick is not own-only: {kit_tick.get('values')}")
+        grow_jar = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous_grow-1.0.0.jar")))
+        grow_tick = json.loads(grow_jar.read("data/minecraft/tags/functions/tick.json"))
+        if (grow_tick.get("values") or []) != ["rallous_grow:tick"]:
+            raise SystemExit(f"grow tick is not own-only: {grow_tick.get('values')}")
         fj = ow.read("data/rallous_old_world/functions/first_join.mcfunction").decode()
         for bad in ("ensure_court", "summon_lords", "place_court"):
             if bad in fj:
                 raise SystemExit(f"old_world jar first_join calls {bad}")
         wc = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous_warp_crash-1.0.0.jar")))
+        wc_tick = json.loads(wc.read("data/minecraft/tags/functions/tick.json"))
+        if (wc_tick.get("values") or []) != ["rallous_warp_crash:tick"]:
+            raise SystemExit(f"warp_crash tick lists siblings: {wc_tick.get('values')}")
         wj = wc.read("data/rallous_warp_crash/functions/first_join.mcfunction").decode()
         for bad in ("ensure_court", "summon_lords", "place_court"):
             if bad in wj:
@@ -668,18 +764,22 @@ def file_ids_from_021() -> set[tuple[int, int]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.7")
+    parser.add_argument("--version", default="0.3.8")
     parser.add_argument("--skip-author", action="store_true", help="Do not rewrite crash functions")
     args = parser.parse_args()
 
     compile_factions()
     ingested = ingest_siblings()
+    sanitize_all_tick_load()
     if not args.skip_author:
         apply_warp_crash()
     restore_sibling_ftb()
     strip_court_hooks()
+    sanitize_all_tick_load()
     rebuild_jar()
     ingest_siblings()
+    sanitize_all_tick_load()
+    rebuild_jar()
     restore_sibling_ftb()
     assert_no_court_on_join()
     validate_json()

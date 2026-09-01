@@ -1,10 +1,6 @@
 {
   "replace": false,
   "values": [
-    "rallous_old_world:load",
-    "rallous_warp_crash:load",
-    "rallous_contact:load",
-    "rallous_temple_herd:load",
-    "rallous_roaming:load"
+    "rallous_old_world:load"
   ]
 }
