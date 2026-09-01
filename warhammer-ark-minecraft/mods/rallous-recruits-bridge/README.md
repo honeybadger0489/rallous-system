@@ -11,8 +11,11 @@ Inspected **Villager Recruits 1.20.1 1.15.2** (`projectID` 523860 / `fileID` **8
 | Surface | What this mod does |
 | --- | --- |
 | `MessageCreateTeam` (U → Found a Banner) | Client packet → `FactionEvents.createTeam(true, …)` |
-| This bridge | `FactionEvents.createTeam(false, …)` after assign |
+| This bridge | `FactionEvents.createTeam(false, player, level, teamName, displayName, playerName, banner, ChatFormatting.RED, (byte) 12)` after assign |
 | `menu=false` | Same as Recruits' intercepted `/team add`: **skips emerald cost and cloth-banner checks**, still `scoreboard.addPlayerTeam` + `RecruitsFactionManager.addTeam` + `save` |
+| stringID | Recruits client sanitizer: `Clan Mors` → `ClanMors` (spaces out of scoreboard id) |
+| unitColor | **byte 12** = red on `FactionEditScreen.unitColors` (not dye id 14) |
+| `FactionEvent.Created` | Optional confirm log on `MinecraftForge.EVENT_BUS` after successful create. Not a second create path. |
 
 Verified on the published jar (`javap`): `createTeam` is public, unobfuscated, official-mapped class names. Recruits internals were **not** impossible in this environment.
 

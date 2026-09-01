@@ -1,6 +1,9 @@
 package com.rallous.recruitsbridge;
 
 import com.mojang.logging.LogUtils;
+import com.talhanation.recruits.FactionEvent;
+import com.talhanation.recruits.world.RecruitsFaction;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -43,5 +46,17 @@ public class RallousRecruitsBridge {
             return;
         }
         HostFounder.tryFound(event.player);
+    }
+
+    /** Confirm / tag only — do not invent a second create path. Cancel would roll back via {@code removeTeam}. */
+    @SubscribeEvent
+    public void onFactionCreated(FactionEvent.Created event) {
+        RecruitsFaction faction = event.getFaction();
+        ServerPlayer leader = event.getCreator();
+        LOGGER.info("FactionEvent.Created stringID={} display={} unitColor={} creator={}",
+                faction.getStringID(),
+                faction.getTeamDisplayName(),
+                faction.getUnitColor(),
+                leader == null ? "none" : leader.getScoreboardName());
     }
 }

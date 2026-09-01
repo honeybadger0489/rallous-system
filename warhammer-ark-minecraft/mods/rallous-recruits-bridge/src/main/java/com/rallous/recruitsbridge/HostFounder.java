@@ -32,6 +32,8 @@ public final class HostFounder {
     public static final String TAG_BOUND = "rallous.rec.bound";
     public static final String TAG_FOUNDED = "rallous.rec.founded";
     public static final String TAG_FAILED = "rallous.rec.bridge_fail";
+    /** {@code FactionEditScreen.unitColors} index 12 = red, not DyeColor 14. */
+    public static final byte UNIT_COLOR_RED = 12;
     private static final ResourceLocation CONTACT =
             new ResourceLocation("rallous_recruits_bind", "contact");
 
@@ -61,7 +63,10 @@ public final class HostFounder {
         if (name == null || name.isBlank()) {
             return;
         }
-        name = cap(name, 32);
+        name = cap(displayName(name), 32);
+        if (name.isBlank()) {
+            return;
+        }
         ServerLevel level = player.serverLevel();
         RecruitsFactionManager manager = FactionEvents.recruitsFactionManager;
         try {
@@ -107,9 +112,17 @@ public final class HostFounder {
         String teamId = uniqueTeamId(manager, name, player);
         int race = score(player, "rallous.rec.race");
         ItemStack banner = hostBanner(race);
-        ChatFormatting color = teamColor(race);
-        byte unit = unitColor(race);
-        FactionEvents.createTeam(false, player, level, teamId, name, player.getScoreboardName(), banner, color, unit);
+        // menu=false skips emerald cost + cloth-banner uniqueness (same as /team add intercept)
+        FactionEvents.createTeam(
+                false,
+                player,
+                level,
+                teamId,
+                name,
+                player.getScoreboardName(),
+                banner,
+                ChatFormatting.RED,
+                UNIT_COLOR_RED);
 
         Team after = player.getTeam();
         RecruitsFaction founded = after == null ? null : manager.getFactionByStringID(after.getName());
@@ -124,22 +137,37 @@ public final class HostFounder {
     }
 
     private static boolean sameHost(RecruitsFaction faction, Team team, String name) {
+        String id = stringId(name);
         return name.equalsIgnoreCase(faction.getTeamDisplayName())
-                || name.equalsIgnoreCase(faction.getStringID())
+                || id.equalsIgnoreCase(faction.getStringID())
+                || id.equalsIgnoreCase(team.getName())
                 || name.equalsIgnoreCase(team.getName());
     }
 
+    /**
+     * Recruits client: {@code getCorrectFormatStringID} — strip {@code [^\p{L}\p{N} ]},
+     * then drop spaces so {@code Clan Mors} → {@code ClanMors}.
+     */
+    static String displayName(String text) {
+        return text.replaceAll("[^\\p{L}\\p{N} ]", "");
+    }
+
+    static String stringId(String display) {
+        return displayName(display).replace(" ", "");
+    }
+
     private static String uniqueTeamId(RecruitsFactionManager manager, String name, ServerPlayer player) {
-        if (!manager.isNameInUse(name) && levelTeamFree(player, name)) {
-            return name;
+        String base = cap(stringId(name), 32);
+        if (!base.isBlank() && !manager.isNameInUse(base) && levelTeamFree(player, base)) {
+            return base;
         }
-        String suffix = player.getScoreboardName();
-        String candidate = cap(name + "-" + suffix, 32);
-        if (!manager.isNameInUse(candidate) && levelTeamFree(player, candidate)) {
+        String suffix = player.getScoreboardName().replaceAll("[^\\p{L}\\p{N}]", "");
+        String candidate = cap(base + suffix, 32);
+        if (!candidate.isBlank() && !manager.isNameInUse(candidate) && levelTeamFree(player, candidate)) {
             return candidate;
         }
         String shortId = player.getUUID().toString().substring(0, 8);
-        return cap(name + "-" + shortId, 32);
+        return cap(base + shortId, 32);
     }
 
     private static boolean levelTeamFree(ServerPlayer player, String name) {
@@ -206,23 +234,6 @@ public final class HostFounder {
             return new ItemStack(Items.RED_BANNER);
         }
         return stack;
-    }
-
-    private static ChatFormatting teamColor(int race) {
-        return switch (race) {
-            case 2 -> ChatFormatting.DARK_PURPLE;
-            case 3 -> ChatFormatting.GREEN;
-            case 4 -> ChatFormatting.DARK_GREEN;
-            case 5 -> ChatFormatting.GREEN;
-            case 6 -> ChatFormatting.GOLD;
-            case 7 -> ChatFormatting.DARK_GRAY;
-            case 8 -> ChatFormatting.DARK_RED;
-            default -> ChatFormatting.RED;
-        };
-    }
-
-    private static byte unitColor(int race) {
-        return (byte) dye(race);
     }
 
     private static int dye(int race) {
