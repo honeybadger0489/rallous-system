@@ -160,6 +160,8 @@ Does **not** resolve CurseForge fileIDs. Full pin refresh is `scripts/build-cf-p
 
 Client is **not** booted in CI. Two-hour test is [`wiki/TEST.md`](wiki/TEST.md). Crashes: `crash-*-fml.txt`.
 
+**0.3.9 dedicated-server smoke (2026-09-01):** **boot YES.** Forge 47.4.10, 76 CF fileIDs, `Done (35.871s)`, no `ModLoadingException`. Report: [`content/SERVER-SMOKE-0.3.9.md`](content/SERVER-SMOKE-0.3.9.md). Log: [`content/SERVER-SMOKE-0.3.9.latest.log`](content/SERVER-SMOKE-0.3.9.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin). No 0.3.10.
+
 ---
 
 ## Read next
