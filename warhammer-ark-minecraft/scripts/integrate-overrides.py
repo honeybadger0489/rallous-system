@@ -162,20 +162,33 @@ def sanitize_all_tick_load() -> int:
     return n
 
 
+def drop_folder_datapacks() -> int:
+    """Jar only. Folder copies in overrides/datapacks re-list the same tick if
+    someone copies them into a world. Source stays in content/datapacks/.
+    """
+    n = 0
+    dp = OV / "datapacks"
+    if not dp.is_dir():
+        return 0
+    for pack in sorted(p for p in dp.iterdir() if p.is_dir() and p.name.startswith("rallous")):
+        shutil.rmtree(pack)
+        print(f"dropped folder datapack {pack.name} (jar only)")
+        n += 1
+    return n
+
+
 def merge_datapack(src: Path) -> int:
-    """Ship sibling datapacks as LowCodeFML jars plus inspectable override folders.
+    """Ship sibling datapacks as LowCodeFML jars only.
 
     Do not copy their data/ into rallous_old_world — that double-fires tick tags.
-    Folders under overrides/datapacks do not auto-load without Open Loader.
+    Do not also copy overrides/datapacks — folder or jar, not both.
     """
     if src.name == "rallous_old_world":
         return 0
     if not ((src / "data").is_dir() or (src / "pack.mcmeta").exists()):
         return 0
     sanitize_tick_load_tags(src)
-    n = jar_datapack(src)
-    n += copy_tree(src, OV / "datapacks" / src.name)
-    return n
+    return jar_datapack(src)
 
 
 BRIDGE_JAR_RE = re.compile(r"rallous[-_]recruits[-_]bridge.*\.jar$", re.I)
@@ -500,6 +513,39 @@ def assert_no_court_on_join() -> None:
     print("first-join court stripped")
 
 
+def assert_source_guards() -> None:
+    """One load/tick path per namespace, plus join/land locks. No zip required."""
+    sanitize_all_tick_load()
+    ow_tick = json.loads((CONTENT / "data" / "minecraft" / "tags" / "functions" / "tick.json").read_text())
+    if (ow_tick.get("values") or []) != ["rallous_old_world:tick"]:
+        raise SystemExit(f"old_world tick re-lists siblings: {ow_tick.get('values')}")
+    ow_load = json.loads((CONTENT / "data" / "minecraft" / "tags" / "functions" / "load.json").read_text())
+    if (ow_load.get("values") or []) != ["rallous_old_world:load"]:
+        raise SystemExit(f"old_world load re-lists siblings: {ow_load.get('values')}")
+    wc = ROOT / "content" / "datapacks" / "rallous_warp_crash" / "data"
+    fj = (wc / "rallous_warp_crash" / "functions" / "first_join.mcfunction").read_text()
+    if "rallous.joined" not in fj or "rallous.warp_landed" not in fj:
+        raise SystemExit("warp_crash first_join missing rallous.joined / warp_landed guards")
+    lg = (wc / "rallous_warp_crash" / "functions" / "land_go.mcfunction").read_text()
+    if "unless entity @s[tag=rallous.warp_landed]" not in lg:
+        raise SystemExit("warp_crash land_go missing warp_landed guard")
+    assign = (
+        ROOT / "content" / "datapacks" / "rallous_factions" / "data" / "rallous_factions" / "functions" / "contact" / "assign.mcfunction"
+    ).read_text()
+    if "unless entity @s[tag=rallous.contacted]" not in assign:
+        raise SystemExit("factions assign missing contacted guard")
+    kit = (
+        ROOT / "content" / "datapacks" / "rallous_kit" / "data" / "rallous_kit" / "functions" / "on_greet.mcfunction"
+    ).read_text()
+    if "rallous.warp_landed" not in kit or "rallous.joined" not in kit:
+        raise SystemExit("kit on_greet missing warp_landed / joined guards")
+    if (OV / "datapacks").is_dir():
+        leftover = [p.name for p in (OV / "datapacks").iterdir() if p.is_dir() and p.name.startswith("rallous")]
+        if leftover:
+            raise SystemExit(f"overrides/datapacks still has folder packs (jar only): {leftover}")
+    print("source guards ok (one tick/load path, join/land locks, jars only)")
+
+
 REQUIRED_JARS = (
     "rallous-old-world-1.0.0.jar",
     "rallous_contact-1.0.0.jar",
@@ -797,7 +843,9 @@ def main() -> None:
     sanitize_all_tick_load()
     rebuild_jar()
     restore_sibling_ftb()
+    drop_folder_datapacks()
     assert_no_court_on_join()
+    assert_source_guards()
     validate_json()
 
     play = ROOT / "PLAY.md"

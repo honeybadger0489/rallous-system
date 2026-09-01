@@ -81,7 +81,7 @@ Older archives (0.2.0–0.3.7) stay in `dist/` for history. **Import 0.3.8 as a 
 
 ## Datapack / jar map
 
-Sibling folders under `content/datapacks/` compile or copy into `pack/cf-overrides/datapacks/` **and** LowCodeFML jars under `pack/cf-overrides/mods/`. Enable **folder or jar, not both**.
+Sibling folders under `content/datapacks/` compile into LowCodeFML jars under `pack/cf-overrides/mods/`. **0.3.8 ships jars only** (folder copies in `overrides/datapacks/` are dropped so a world copy cannot double-fire `#minecraft:tick`). Enable **folder or jar, not both**.
 
 | Pack | Role | Hook |
 | --- | --- | --- |
