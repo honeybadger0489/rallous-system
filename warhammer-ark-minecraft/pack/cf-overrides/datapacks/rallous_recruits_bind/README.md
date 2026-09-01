@@ -21,7 +21,7 @@ Researched **Villager Recruits 1.20.1 1.15.x** (talhanation, Claim and Siege / D
 
 Sources (2026-08-31): [Villager Recruits Wiki](https://github.com/talhanation/wiki/wiki/Villager-Recruits-Wiki), `talhanation/recruits` `RecruitsAdminCommands.java` + `PatrolSpawnCommand.java`, Modrinth 1.13.0 diplomacy changelog, Continuity `assets/recruits/lang/en_us.json`.
 
-**No new Java mod.** There is no datapack-only trick that writes `RecruitsFaction` saved data. The strongest bridge without that is **scores + storage + book + lang**.
+**Java bridge:** `mods/rallous-recruits-bridge` calls `FactionEvents.createTeam(false, …)` after assign — the same server method as Found a Banner — so Recruits **does** get a named host. This datapack still writes scores / storage / book for the name and stance.
 
 ## Mechanical (this datapack does it)
 

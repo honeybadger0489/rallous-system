@@ -1,5 +1,5 @@
 {
-  "rallous_recruits_bind.tellraw.controls": "Recruits 1.15.x has no command that founds or names a banner. Options → Controls → Hosts of the Old World → Open Elector / Waaagh / Under-Empire Screen (default U) → Found a Banner. Type the crash-camp name from chat. Dye a cloth banner first.",
+  "rallous_recruits_bind.tellraw.controls": "rallous-recruits-bridge founds this host as a Recruits banner (not Team 2). If chat does not say founded, open U → Found a Banner and type this name.",
   "rallous_recruits_bind.tellraw.ally_gui": "Open this GUI to make Recruits Ally: Options → Controls → Hosts of the Old World → Open Elector / Waaagh / Under-Empire Screen (default U) → Diplomacy → Ally. Found a Banner first, named as the crash-camp host.",
   "rallous_recruits_bind.tellraw.war_gui": "Open this GUI to make Recruits Enemy: Options → Controls → Hosts of the Old World → Open Elector / Waaagh / Under-Empire Screen (default U) → Diplomacy → Enemy. Found a Banner first, named as the crash-camp host.",
   "rallous_recruits_bind.tellraw.prove": "This camp is prove-yourself. Scores name their host. Recruits Ally waits for the U Diplomacy screen after you prove it.",

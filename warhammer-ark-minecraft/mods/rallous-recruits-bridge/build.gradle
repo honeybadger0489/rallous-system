@@ -59,7 +59,9 @@ tasks.register('downloadRecruits') {
     }
 }
 
-sourceSets.main.compileClasspath.builtBy(tasks.named('downloadRecruits'))
+tasks.named('compileJava', JavaCompile).configure {
+    dependsOn tasks.named('downloadRecruits')
+}
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"

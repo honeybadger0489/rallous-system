@@ -6,6 +6,8 @@ warhammer-ark-minecraft/downloads/shaderpacks/
 *.jar
 !**/pack/**
 !**/pack/**/*.jar
+!warhammer-ark-minecraft/content/mods/*.jar
+!warhammer-ark-minecraft/pack-src/overrides/mods/*.jar
 __pycache__/
 *.pyc
 .DS_Store
