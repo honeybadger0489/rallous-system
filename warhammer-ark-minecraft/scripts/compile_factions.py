@@ -489,6 +489,7 @@ execute if score #clock rallous.gen matches 40 run scoreboard players set #clock
 execute if score #placed rallous.gen >= #cap rallous.const if score #placed rallous.gen < #xcap rallous.const as @a[tag=rallous.warp_landed] at @s unless entity @e[tag=rallous.camp,distance=..180,limit=1] run function rallous_factions:gen/explore
 execute as @e[type=minecraft:marker,tag=rallous.probe.pending] at @s unless loaded ~ ~ ~ run forceload add ~-1 ~-1 ~1 ~1
 execute as @e[type=minecraft:marker,tag=rallous.probe.pending,limit=2] at @s if loaded ~ ~ ~ run function rallous_factions:gen/ring_try
+execute unless entity @e[type=minecraft:marker,tag=rallous.probe.pending,limit=1] as @e[type=minecraft:marker,tag=rallous.ring.origin,tag=!rallous.ring.unloaded,limit=1] at @s run function rallous_factions:gen/ring_unload
 execute as @a at @s as @e[type=minecraft:marker,tag=rallous.camp,distance=..24] if score @s rallous.fac.stance matches 3 at @s run function rallous_factions:stance/bite
 execute as @a at @s as @e[type=minecraft:marker,tag=rallous.camp,distance=..24] if score @s rallous.fac.stance matches 6 at @s run function rallous_factions:stance/bite
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_diplomacy:apply_path
@@ -666,6 +667,20 @@ execute if score $dz rallous.gen matches ..-1 run scoreboard players operation $
 scoreboard players set $far rallous.gen 0
 execute if score $dx rallous.gen matches 40.. run scoreboard players set $far rallous.gen 1
 execute if score $dz rallous.gen matches 40.. run scoreboard players set $far rallous.gen 1
+""",
+    )
+    w(
+        FN / "gen/ring_unload.mcfunction",
+        """# Drop the 8 ring 3x3 forceloads after probes finish. Stay under the 256 cap.
+execute as @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] at @s positioned ~120 ~ ~ run forceload remove ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] at @s positioned ~-120 ~ ~ run forceload remove ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] at @s positioned ~ ~ ~120 run forceload remove ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] at @s positioned ~ ~ ~-120 run forceload remove ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] at @s positioned ~220 ~ ~ run forceload remove ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] at @s positioned ~-220 ~ ~ run forceload remove ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] at @s positioned ~ ~ ~220 run forceload remove ~-1 ~-1 ~1 ~1
+execute as @e[type=minecraft:marker,tag=rallous.ring.origin,limit=1] at @s positioned ~ ~ ~-220 run forceload remove ~-1 ~-1 ~1 ~1
+tag @e[type=minecraft:marker,tag=rallous.ring.origin] add rallous.ring.unloaded
 """,
     )
     w(

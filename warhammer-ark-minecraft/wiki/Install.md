@@ -5,7 +5,7 @@ Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x /
 **Download (latest on this branch):**  
 https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.17.zip
 
-Dedicated-server smoke **passed on 0.3.16**. **0.3.17** is the real-terrain mix + hostile-bite ship; dedicated smoke of this zip is in `content/SERVER-SMOKE-0.3.17.md` after the run. Client TEST is still unverified. **SHIP_READY no.**
+Dedicated-server smoke **passed boot on 0.3.17** (real-terrain 8/8 mix + hostile bite). Client TEST is still unverified. **SHIP_READY no.**
 
 ## CurseForge
 
