@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:ink_sac"
+    },
+    "title": {
+      "text": "Iron's Ink"
+    },
+    "description": {
+      "text": "A vial, not a crater book. Inscribe a scroll."
+    },
+    "frame": "task",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false
+  },
+  "criteria": {
+    "ink": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "irons_spellbooks:common_ink",
+              "irons_spellbooks:uncommon_ink",
+              "irons_spellbooks:rare_ink"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ink"
+    ]
+  ],
+  "parent": "rallous_winds:root",
+  "rewards": {
+    "function": "rallous_winds:found/ink"
+  }
+}

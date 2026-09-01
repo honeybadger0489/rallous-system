@@ -1,5 +1,5 @@
 DATAPACK VALIDATE
-generated: 2026-09-01 00:00:30Z
+generated: 2026-09-01 00:25:57Z
 root: /workspace/warhammer-ark-minecraft
 walk:
   content/datapacks
@@ -8,13 +8,13 @@ walk:
 function index extras (resolution only):
   pack/content
   pack/cf-overrides/datapacks
-indexed functions: 728
+indexed functions: 803
 
 COUNTS
-  packs:     pass=12 fail=0
-  json:      pass=155 fail=0
-  functions: pass=1164 fail=0
-  TOTAL     pass=1331 fail=0
+  packs:     pass=18 fail=0
+  json:      pass=207 fail=0
+  functions: pass=1316 fail=0
+  TOTAL     pass=1541 fail=0
 
 FLAKES
   none recorded.
@@ -26,9 +26,15 @@ PACKS
            ok  meta  content/datapacks/rallous_crater_hq/pack.mcmeta  pack_format=15
   [PASS] content/datapacks/rallous_diplomacy  json=2/2  fn=23/23  pack_format15=yes
            ok  meta  content/datapacks/rallous_diplomacy/pack.mcmeta  pack_format=15
-  [PASS] content/datapacks/rallous_factions  json=4/4  fn=899/899  pack_format15=yes
+  [PASS] content/datapacks/rallous_factions  json=4/4  fn=904/904  pack_format15=yes
            ok  meta  content/datapacks/rallous_factions/pack.mcmeta  pack_format=15
-  [PASS] content/datapacks/rallous_roaming  json=5/5  fn=42/42  pack_format15=yes
+  [PASS] content/datapacks/rallous_grow  json=3/3  fn=28/28  pack_format15=yes
+           ok  meta  content/datapacks/rallous_grow/pack.mcmeta  pack_format=15
+  [PASS] content/datapacks/rallous_kit  json=3/3  fn=12/12  pack_format15=yes
+           ok  meta  content/datapacks/rallous_kit/pack.mcmeta  pack_format=15
+  [PASS] content/datapacks/rallous_recruits_bind  json=3/3  fn=14/14  pack_format15=yes
+           ok  meta  content/datapacks/rallous_recruits_bind/pack.mcmeta  pack_format=15
+  [PASS] content/datapacks/rallous_roaming  json=6/6  fn=51/51  pack_format15=yes
            ok  meta  content/datapacks/rallous_roaming/pack.mcmeta  pack_format=15
   [PASS] content/datapacks/rallous_session  json=3/3  fn=30/30  pack_format15=yes
            ok  meta  content/datapacks/rallous_session/pack.mcmeta  pack_format=15
@@ -36,13 +42,19 @@ PACKS
            ok  meta  content/datapacks/rallous_temple_herd/pack.mcmeta  pack_format=15
   [PASS] content/datapacks/rallous_warp_crash  json=6/6  fn=41/41  pack_format15=yes
            ok  meta  content/datapacks/rallous_warp_crash/pack.mcmeta  pack_format=15
+  [PASS] content/datapacks/rallous_winds  json=14/14  fn=28/28  pack_format15=yes
+           ok  meta  content/datapacks/rallous_winds/pack.mcmeta  pack_format=15
   [PASS] pack-src/datapacks/rallous_contact  json=28/28  fn=12/12  pack_format15=yes
            ok  meta  pack-src/datapacks/rallous_contact/pack.mcmeta  pack_format=15
   [PASS] pack-src/datapacks/rallous_warp_crash  json=6/6  fn=41/41  pack_format15=yes
            ok  meta  pack-src/datapacks/rallous_warp_crash/pack.mcmeta  pack_format=15
+  [PASS] pack-src/datapacks/rallous_winds  json=14/14  fn=28/28  pack_format15=yes
+           ok  meta  pack-src/datapacks/rallous_winds/pack.mcmeta  pack_format=15
   [PASS] pack-src/overrides/datapacks/rallous_contact  json=28/28  fn=12/12  pack_format15=yes
            ok  meta  pack-src/overrides/datapacks/rallous_contact/pack.mcmeta  pack_format=15
   [PASS] pack-src/overrides/datapacks/rallous_warp_crash  json=6/6  fn=41/41  pack_format15=yes
            ok  meta  pack-src/overrides/datapacks/rallous_warp_crash/pack.mcmeta  pack_format=15
+  [PASS] pack-src/overrides/datapacks/rallous_winds  json=14/14  fn=28/28  pack_format15=yes
+           ok  meta  pack-src/overrides/datapacks/rallous_winds/pack.mcmeta  pack_format=15
 
 END

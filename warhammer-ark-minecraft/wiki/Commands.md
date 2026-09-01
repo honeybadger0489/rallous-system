@@ -44,6 +44,15 @@ Stand at the contact camp (or nearest banner).
 /function rallous_warp_crash:test_respawn
 ```
 
+## The Winds
+
+```
+/function rallous_winds:hint
+/function rallous_winds:place_here
+```
+
+`hint` is the first-hour path (camp lectern → Iron’s ink/scroll). `place_here` plants that lectern at your feet. Neither gives a filled spellbook.
+
 ## Beasts
 
 ```

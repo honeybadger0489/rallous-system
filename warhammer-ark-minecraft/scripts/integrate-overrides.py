@@ -431,6 +431,7 @@ REQUIRED_JARS = (
     "rallous_crater_hq-1.0.0.jar",
     "rallous_session-1.0.0.jar",
     "rallous_recruits_bind-1.0.0.jar",
+    "rallous_winds-1.0.0.jar",
 )
 
 REQUIRED_FTB = (
@@ -477,6 +478,7 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             "rallous_crater_hq",
             "rallous_session",
             "rallous_recruits_bind",
+            "rallous_winds",
         ):
             if f"overrides/datapacks/{pack}/pack.mcmeta" not in names:
                 raise SystemExit(f"zip missing datapack folder {pack}")
@@ -496,6 +498,8 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("zip missing session win")
         if "overrides/datapacks/rallous_recruits_bind/data/rallous_recruits_bind/functions/on_contact.mcfunction" not in names:
             raise SystemExit("zip missing recruits_bind on_contact")
+        if "overrides/datapacks/rallous_winds/data/rallous_winds/functions/hint.mcfunction" not in names:
+            raise SystemExit("zip missing winds hint")
         if "overrides/resourcepacks/Rallous Continuity/assets/rallous_recruits_bind/lang/en_us.json" not in names:
             raise SystemExit("zip Continuity missing recruits_bind lang")
         for cfg in (

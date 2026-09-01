@@ -39,7 +39,7 @@
 				}
 			]
 			description: [
-				"You did not arrive with Iron's book equipped. The Winds are a path, not a loadout."
+				"You did not arrive with Iron's book equipped. The Winds are a path, not a loadout. Walk to a camp lectern."
 				""
 				"Colleges (fire / light), Ice, death, and Blood are rumors until you walk to them. Do not craft a book just to tick a boot list."
 				""
@@ -76,7 +76,7 @@
 				}
 			]
 			description: [
-				"Altdorf's rumour: lecterns, a licensed fire, holy light. Find a book or a college sign. Do not start with one in the hotbar."
+				"Walk to an Empire or Lizardmen camp. Read the named lectern (College Letter). The barrel rarely holds Iron's common ink. Dungeon chests hide ink and scrolls. Do not start with a book in the hotbar."
 				""
 				"Sets rallous.magic = 1 (colleges)."
 			]
@@ -111,7 +111,7 @@
 				}
 			]
 			description: [
-				"North talk: ice is a court, not a novelty. Reach cold, or find the rumour."
+				"Nordland, Ostland, Hochland, Middenland, or snow: a Kislevite Ice Primer on the lectern. Ink in the barrel or a cold ruin. Ice is a court, not a novelty."
 				""
 				"Sets rallous.magic = 2 (ice)."
 			]
@@ -146,7 +146,7 @@
 				}
 			]
 			description: [
-				"Grave-talk. A priest who does not smile. Malum is slower occult if you want it later."
+				"Vampire camp lectern: Grave Missive. A priest who does not smile. Ink in the barrel or a crypt. Malum is slower occult if you want it later."
 				""
 				"Sets rallous.magic = 3 (death)."
 			]
@@ -181,7 +181,7 @@
 				}
 			]
 			description: [
-				"A rite, a count's cellar, a wheel that smells of iron. Blood is a school you walk to."
+				"Lahmia, a Khorne picket, or a Beastmen herd: Vein Rite on the lectern. A count's cellar. Ink first. Blood is a school you walk to."
 				""
 				"Sets rallous.magic = 4 (blood)."
 			]

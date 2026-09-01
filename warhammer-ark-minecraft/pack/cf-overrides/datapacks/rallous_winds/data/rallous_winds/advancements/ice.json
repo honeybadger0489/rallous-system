@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:packed_ice"
+    },
+    "title": {
+      "text": "Path to Ice"
+    },
+    "description": {
+      "text": "North talk on a lectern. Iron's ink in the cold. rallous.magic=2"
+    },
+    "frame": "task",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false
+  },
+  "criteria": {
+    "letter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{rallous:{school:\"ice\"}}"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "letter"
+    ]
+  ],
+  "parent": "rallous_winds:root",
+  "rewards": {
+    "function": "rallous_winds:found/ice"
+  }
+}

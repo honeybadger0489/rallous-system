@@ -94,6 +94,7 @@ Sibling folders under `content/datapacks/` compile or copy into `pack/cf-overrid
 | `rallous_recruits_bind` | Copies crash-camp **display name** onto scores / storage / book | Hooked from `rallous_factions:contact/assign`. **Does not found a RecruitsFaction.** |
 | `rallous-recruits-bridge` | Java Forge jar. Calls Recruits `FactionEvents.createTeam` so U / chat say **Reikland** / **Clan Mors**, not Team 2 | Source: `mods/rallous-recruits-bridge/`. API notes: [`content/RECRUITS-API.md`](content/RECRUITS-API.md). In the 0.3.6 zip. |
 | `rallous_kit` | Tier-1 levy kit after first-contact greet (`rallous_kit:on_greet`) | Race 1–8. Sets `rallous.kitted`. Folder or jar, not both. Do not edit `compile_factions.py` from here. |
+| `rallous_winds` | Camp lecterns + barrel loot point to Iron’s ink/scroll. `/function rallous_winds:hint` | No filled spellbook. Tick plants letters on `rallous.camp`. Folder or jar, not both. |
 | `rallous_crater_hq` | Oak fence + white banner + storage at crater | **Hook only.** Not faction gameplay. Later DLC. |
 | `rallous_roaming` | Scheduled Waaagh / herd / Khorne host (no capital) | Crash-gate until day ≥ 1 or 128+ from crater. |
 | `rallous_temple_herd` | Fossils / Tameable Beasts flavor (temple / herdstone) | Cannot per-race Fossils tame difficulty. |

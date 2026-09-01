@@ -4,6 +4,9 @@
 # First-contact FTB book + rallous_contact scores/advancements + Continuity lang
 python3 scripts/author_contact.py
 
+# Camp lecterns + barrel loot pointing to Iron's ink/scroll (does not rebuild the zip)
+python3 scripts/author_winds.py
+
 # Warp-crash overlay + sibling ingest + zip (does not re-resolve fileIDs)
 python3 scripts/compile_factions.py
 python3 scripts/integrate-overrides.py --version 0.3.6

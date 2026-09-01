@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:blaze_powder"
+    },
+    "title": {
+      "text": "Path to the Colleges"
+    },
+    "description": {
+      "text": "A lectern letter. Iron's ink, then a scroll. rallous.magic=1"
+    },
+    "frame": "task",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false
+  },
+  "criteria": {
+    "letter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{rallous:{school:\"colleges\"}}"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "letter"
+    ]
+  ],
+  "parent": "rallous_winds:root",
+  "rewards": {
+    "function": "rallous_winds:found/colleges"
+  }
+}

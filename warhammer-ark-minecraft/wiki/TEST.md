@@ -80,6 +80,13 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 - [ ] They wake in a **different** crater. You do not share a spawn circle.
 - [ ] Meet on the road. Their contact camp can be a different race. That is the point.
 
+### The Winds
+
+- [ ] Crash hotbar / wreckage: **no** Iron’s spellbook.
+- [ ] At a bannered camp, a **named lectern** holds a letter (College / Ice / Grave / Vein / primer).
+- [ ] Take the letter. Advancement. Barrel may have Iron’s common ink. **No** filled spellbook in the barrel.
+- [ ] `/function rallous_winds:hint` restates the path.
+
 ### Continuity (if names are wrong)
 
 - [ ] Options → Resource Packs → **Rallous Continuity** is on (lang overlay, **not** Fabric Continuity).

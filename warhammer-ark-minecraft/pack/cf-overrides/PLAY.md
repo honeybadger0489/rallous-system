@@ -36,7 +36,7 @@ A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crat
 - Warp-Crash FTB book (Crash / Paths / First Hour / The Winds / optional Host / Temple and Herd) + Smoke
 - Recruits / OPAC / Vassal lang overlay (**Rallous Continuity**) and grim defaultconfigs
 - Force functions: `/function rallous_old_world:force_roaming` and `/function rallous_old_world:lm_bm/summon`
-- Sibling jars: `rallous_roaming`, `rallous_temple_herd`, `rallous_contact`, `rallous_factions`, `rallous_diplomacy`, `rallous_crater_hq`, `rallous_session`, `rallous_recruits_bind`, `rallous-recruits-bridge`
+- Sibling jars: `rallous_roaming`, `rallous_temple_herd`, `rallous_contact`, `rallous_factions`, `rallous_diplomacy`, `rallous_crater_hq`, `rallous_session`, `rallous_recruits_bind`, `rallous_winds`, `rallous-recruits-bridge`
 - Strip of the 0.2.2 `summon_lords` first-join court
 
 **We borrowed (engine):** Recruits, Iron’s Spells, Fossils and Archeology, Tameable Beasts, Epic Fight, Terralith, Towns and Towers, LSO, FTB Quests, Sons of the Empire kits, Faithful 32x, Grimdark Battlepack, Grimdark Sky, Gothic RPG Font, Complementary Unbound. **We did not sculpt Total War models.** Bodies stay Steve-like / villager.
@@ -82,7 +82,10 @@ Useful (cheats ON):
 /function rallous_session:start
 /function rallous_session:win
 /function rallous_recruits_bind:on_contact
+/function rallous_winds:hint
 ```
+
+**The Winds (first hour):** no spellbook in the crater. Walk to a bannered camp, read the named lectern, take the letter. Camp barrels rarely hold Iron’s common ink. Dungeon and library chests already hide Iron’s ink and scrolls. Inscribe later. Spell wheel **R** waits. `/function rallous_winds:hint` restates this.
 
 `/function rallous_old_world:summon_lords` is a refuse line. It does **not** rebuild the 0.2.2 court.
 
