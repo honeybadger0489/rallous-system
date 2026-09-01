@@ -1,0 +1,27 @@
+# Oculus / Iris shader selection for Complementary Unbound
+shaderPack=ComplementaryUnbound_r5.8.1.zip
+oldLighting=default
+tweakBlockDamage=false
+skyBox=true
+dynamicHandLight=true
+dynamicFov=true
+oldHandLight=default
+antialiasingLevel=0
+oldLighting=default
+renderResMul=1.0
+shadowResMul=1.0
+handDepthMul=0.125
+cloudShadow=false
+oldHandLight=default
+specular=true
+rainDepth=false
+beaconBeamDepth=true
+separateAo=false
+frustumCulling=true
+shadowCulling=true
+backFaceSolid=true
+backFaceTranslucent=true
+underwaterOverlay=true
+sunPathRotation=0.0
+vignette=true
+program=0
