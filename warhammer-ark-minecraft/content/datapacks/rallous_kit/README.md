@@ -6,7 +6,7 @@ No new mods. This folder only. Zip agent may ingest it (jar **or** world datapac
 
 ## Hook
 
-Warp-crash / factions should call this **as the greeted player** after the lord voice:
+Wired from `rallous_factions:contact/assign` and `rallous_warp_crash:first_contact` **as the greeted player** after the lord voice:
 
 ```
 /function rallous_kit:on_greet

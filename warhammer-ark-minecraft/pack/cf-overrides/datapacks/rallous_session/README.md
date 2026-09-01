@@ -21,7 +21,7 @@ That binds the contact camp (or nearest), reads `rallous.fac.stance`, and speaks
 /function rallous_session:win
 ```
 
-Sets `rallous.session` **1** (FTB can task on that). Also `rallous.proved` 1, `rallous.crash` 2 (village/defend) or 3 (fight). Manual complete is allowed.
+Sets `rallous.session` **1** (FTB can task on that), then calls `rallous_grow:on_session`. Also `rallous.proved` 1, `rallous.crash` 2 (village/defend) or 3 (fight). Manual complete is allowed.
 
 ```
 /function rallous_session:take_picket

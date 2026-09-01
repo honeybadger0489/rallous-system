@@ -492,6 +492,7 @@ kill @e[type=minecraft:marker,tag=rallous.probe]
 function rallous_factions:gen/boot
 execute unless entity @e[tag=rallous.camp,distance=..220,limit=1] run function rallous_factions:gen/place_near
 execute unless entity @e[tag=rallous.camp,distance=..260,limit=1] run function rallous_factions:gen/place_one
+execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
 function rallous_factions:contact/assign
 """,
     )
@@ -509,6 +510,8 @@ tag @s add rallous.contacted
 tag @s add rallous.fac.greeted
 function rallous_factions:contact/greet
 function rallous_recruits_bind:on_contact
+function rallous_kit:on_greet
+execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
 """,
     )
     w(

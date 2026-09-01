@@ -7,7 +7,7 @@ This folder only. Do not run pack integrate. Zip agent may ingest it (jar **or**
 ## How a player grows a place in one night
 
 1. Crash next to a `rallous.camp` (already a 7×7 picket).
-2. Run the help / defend night (`rallous_session` → `rallous.session` **1**). That is **+1**, or **+2** if `rallous.session_kind` is help (**1**).
+2. Run the help / defend night (`rallous_session:win` → `rallous.session` **1** → `rallous_grow:on_session`). That is **+1**, or **+2** if `rallous.session_kind` is help (**1**).
 3. Hire a levy or trade / spend **emeralds** within 24 blocks of the banner. Each spend or villager trade is **+1**.
 4. At `rallous.grow` **1 / 2 / 3** the camp places a hut, a second hut, then a hall + banners + one settler.
 

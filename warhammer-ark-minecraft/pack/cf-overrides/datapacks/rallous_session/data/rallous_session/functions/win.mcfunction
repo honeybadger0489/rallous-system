@@ -4,6 +4,7 @@ execute unless entity @e[tag=rallous.session.camp,limit=1] run function rallous_
 scoreboard players operation #race rallous.session_race = @s rallous.session_race
 execute unless score #race rallous.session_race matches 1..8 run scoreboard players operation #race rallous.session_race = @s rallous.race
 scoreboard players set @s rallous.session 1
+execute if entity @s[tag=!rallous.session.done] run function rallous_grow:on_session
 scoreboard players set @s rallous.session_on 0
 scoreboard players set @s rallous.proved 1
 execute if score @s rallous.session_kind matches 1 run scoreboard players set @s rallous.crash 2
