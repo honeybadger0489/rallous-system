@@ -10,6 +10,7 @@ scoreboard objectives add rallous.civ_bed dummy
 scoreboard objectives add rallous.wc_deaths deathCount
 scoreboard objectives add rallous.wc_seen dummy
 scoreboard objectives add rallous.join_wait dummy
+scoreboard objectives add rallous.joined dummy
 scoreboard objectives add rallous.contact dummy
 scoreboard objectives add rallous.claimed dummy
 scoreboard objectives add rallous.retry dummy
