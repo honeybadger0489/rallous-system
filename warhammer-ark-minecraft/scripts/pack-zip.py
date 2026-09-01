@@ -22,7 +22,7 @@ MODLIST = PACK / "curseforge" / "modlist.html"
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.8", help="Pack version stamped into the zip manifest")
+    parser.add_argument("--version", default="0.3.9", help="Pack version stamped into the zip manifest")
     args = parser.parse_args()
 
     if not MANIFEST.exists():
@@ -34,6 +34,7 @@ def main() -> None:
 
     if MODLIST.exists():
         text = MODLIST.read_text()
+        text = text.replace("Rallous Warhammer Fantasy 0.3.8", f"Rallous Warhammer Fantasy {args.version}")
         for old in ("0.2.0", "0.2.1", "0.2.2", "0.3.0", "0.3.1", "0.3.2", "0.3.3", "0.3.4", "0.3.5", "0.3.6", "0.3.7"):
             text = text.replace(old, args.version)
         MODLIST.write_text(text)

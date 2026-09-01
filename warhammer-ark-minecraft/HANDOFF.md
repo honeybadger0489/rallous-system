@@ -67,21 +67,21 @@ Work here. Do not open a second GitHub fork. A sibling Java tree (`mods/rallous-
 
 ## Current zip version
 
-**PLAY.md + `pack/curseforge/manifest.json` + `dist/`:** **0.3.8**
+**PLAY.md + `pack/curseforge/manifest.json` + `dist/`:** **0.3.9**
 
-File: `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.8.zip`
+File: `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.9.zip`
 
-Raw: https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.8.zip
+Raw: https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.9.zip
 
-Older archives (0.2.0–0.3.7) stay in `dist/` for history. **Import 0.3.8 as a new CurseForge profile.** Do not update 0.2.1 / 0.2.2 / 0.3.0–0.3.7.
+Older archives (0.2.0–0.3.7) stay in `dist/` for history. **Import 0.3.9 as a new CurseForge profile.** Do not update 0.2.1 / 0.2.2 / 0.3.0–0.3.8.
 
-0.3.8 payload: double-tick fix (old-world `#minecraft:tick` / `load` list **only** `rallous_old_world`), kit/winds/grow hooks (`rallous_kit:on_greet` after greet, `rallous_grow:on_session` on session win, winds own tick), compiled thicker camps, `rallous_session`, `rallous_recruits_bind`, **`rallous-recruits-bridge-1.0.0.jar`** (`FactionEvents.createTeam(false, …)`), `rallous_winds`, `rallous_grow`, `rallous_kit`, updated `rallous_roaming` (`/recruits spawn recruitPatrol tiny`), `overrides/wiki/`, `options.txt` pack order with **Rallous Continuity** last, 76 CF files, no Fabric Continuity jar, no MineColonies, no first-join court. If the bridge fails on boot: `crash-*-fml.txt` and fall back to U → Found a Banner.
+0.3.9 payload: 0.3.8 jar tick de-dup (old-world `#minecraft:tick` / `load` list **only** `rallous_old_world`, `sanitize_tick_load_tags`) plus first_join / land_go / assign / kit guards (`rallous.warp_landed`, `rallous.joined`, `rallous.contacted`, `rallous.kitted`). kit/winds/grow hooks (`rallous_kit:on_greet` after greet, `rallous_grow:on_session` on session win, winds own tick), compiled thicker camps, `rallous_session`, `rallous_recruits_bind`, **`rallous-recruits-bridge-1.0.0.jar`** (`FactionEvents.createTeam(false, …)`), `rallous_winds`, `rallous_grow`, `rallous_kit`, updated `rallous_roaming` (`/recruits spawn recruitPatrol tiny`), `overrides/wiki/`, `options.txt` pack order with **Rallous Continuity** last, 76 CF files, no Fabric Continuity jar, no MineColonies, no first-join court. If the bridge fails on boot: `crash-*-fml.txt` and fall back to U → Found a Banner.
 
 ---
 
 ## Datapack / jar map
 
-Sibling folders under `content/datapacks/` compile into LowCodeFML jars under `pack/cf-overrides/mods/`. **0.3.8 ships jars only** (folder copies in `overrides/datapacks/` are dropped so a world copy cannot double-fire `#minecraft:tick`). Enable **folder or jar, not both**.
+Sibling folders under `content/datapacks/` compile into LowCodeFML jars under `pack/cf-overrides/mods/`. **0.3.9 ships jars only** (folder copies in `overrides/datapacks/` are dropped so a world copy cannot double-fire `#minecraft:tick`). Enable **folder or jar, not both**.
 
 | Pack | Role | Hook |
 | --- | --- | --- |
@@ -92,7 +92,7 @@ Sibling folders under `content/datapacks/` compile into LowCodeFML jars under `p
 | `rallous_contact` | First-contact path scores / FTB rewards | Path verbs call diplomacy then factions sync. |
 | `rallous_session` | `/function rallous_session:start` / `:win` — one village or one fight | Needs `rallous.contact` or a nearby `rallous.camp`. After `rallous.session` **1**, `win` calls `rallous_grow:on_session`. |
 | `rallous_recruits_bind` | Copies crash-camp **display name** onto scores / storage / book | Hooked from `rallous_factions:contact/assign`. **Does not found a RecruitsFaction.** |
-| `rallous-recruits-bridge` | Java Forge jar. Calls Recruits `FactionEvents.createTeam(false, …)` so U / chat say **Reikland** / **Clan Mors**, not Team 2 | Source: `mods/rallous-recruits-bridge/`. API notes: [`content/RECRUITS-API.md`](content/RECRUITS-API.md). In the 0.3.8 zip. |
+| `rallous-recruits-bridge` | Java Forge jar. Calls Recruits `FactionEvents.createTeam(false, …)` so U / chat say **Reikland** / **Clan Mors**, not Team 2 | Source: `mods/rallous-recruits-bridge/`. API notes: [`content/RECRUITS-API.md`](content/RECRUITS-API.md). In the 0.3.9 zip. |
 | `rallous_kit` | Tier-1 levy kit after first-contact greet (`rallous_kit:on_greet`) | Called from `contact/assign` and `warp_crash:first_contact`. Race 1–8. Sets `rallous.kitted`. Folder or jar, not both. |
 | `rallous_winds` | Camp lecterns + barrel loot point to Iron’s ink/scroll. `/function rallous_winds:hint` | No filled spellbook. After a camp exists, `crash/on_land` and `contact/assign` call `rallous_winds:place` unless the marker already has `rallous.winds`. Tick is a backup. |
 | `rallous_grow` | Millénaire-style camp tiers on the 7×7 picket (help / session / emeralds) | `rallous_session:win` → `rallous_grow:on_session`. Cap 3. Not MineColonies. |
@@ -143,20 +143,20 @@ From `warhammer-ark-minecraft/`:
 
 ```bash
 python3 scripts/compile_factions.py
-python3 scripts/integrate-overrides.py --version 0.3.8
+python3 scripts/integrate-overrides.py --version 0.3.9
 ```
 
-`integrate-overrides.py` (default `--version 0.3.8`):
+`integrate-overrides.py` (default `--version 0.3.9`):
 
 1. `compile_factions()`
 2. Ingest siblings: `content/factions/`, `content/datapacks/`, `content/resourcepacks/`, `pack-src/` datapacks / resourcepacks / quests / config, `options.txt` pack order, `rallous-recruits-bridge*.jar`, `wiki/` → `overrides/wiki/`
 3. `apply_warp_crash()` unless `--skip-author`
 4. Restore sibling FTB, `strip_court_hooks()`, rebuild LowCodeFML jars
 5. Copy `PLAY.md` into overrides
-6. `pack-zip.py --version …` → `dist/rallous-warhammer-fantasy-0.3.8.zip`
-7. Assert: 76 CF files, Forge-only loaders, no court on join, no Continuity jar, no MineColonies, camps / session / bind / winds / grow / kit / wiki / bridge present, old-world tick own-only, kit/grow hooks wired
+6. `pack-zip.py --version …` → `dist/rallous-warhammer-fantasy-0.3.9.zip`
+7. Assert: 76 CF files, Forge-only loaders, no court on join, no Continuity jar, no MineColonies, camps / session / bind / winds / grow / kit / wiki / bridge present, old-world tick own-only, join/land/assign/kit guards, kit/grow hooks wired
 
-Does **not** resolve CurseForge fileIDs. Full pin refresh is `scripts/build-cf-pack.py` (dependency agent owns that). Zip-only from existing overrides: `python3 scripts/pack-zip.py --version 0.3.8`.
+Does **not** resolve CurseForge fileIDs. Full pin refresh is `scripts/build-cf-pack.py` (dependency agent owns that). Zip-only from existing overrides: `python3 scripts/pack-zip.py --version 0.3.9`.
 
 Client is **not** booted in CI. Two-hour test is [`wiki/TEST.md`](wiki/TEST.md). Crashes: `crash-*-fml.txt`.
 

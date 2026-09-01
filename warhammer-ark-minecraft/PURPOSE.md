@@ -30,7 +30,7 @@ You should feel: *I landed in someone else’s war.* Not: *I sat in Karl’s cou
 
 ## Success test
 
-v1 succeeds if a **new** CurseForge profile of **0.3.8** (do not “update” an older profile) passes the two-hour test in [`wiki/TEST.md`](wiki/TEST.md):
+v1 succeeds if a **new** CurseForge profile of **0.3.9** (do not “update” an older profile) passes the two-hour test in [`wiki/TEST.md`](wiki/TEST.md):
 
 1. **Crash** — Bowl of blackstone / crying obsidian. Wreckage chest. Title says Warp-crash. **No six named lords.** Forge 47.4.10 boots (if not: `crash-*-fml.txt`).
 2. **Named lord + stance** — Nearest bannered camp speaks as a real faction. Chat names the camp (Reikland, Clan Mors, …). **Never Team 2.**
