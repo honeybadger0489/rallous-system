@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Overwrite the 0.2.2 six-lord court with a Warp-crash first join.
 
-Keeps letters/recipes/advancements in the jar but they are no longer the
-spawn. Safe to re-run. Called by integrate-overrides.py and, if someone
-re-authors 0.2.2, from the end of author_old_world.py.
+Strips leftover unused court letters, Kislev commission recipes, and unused
+lord advancements. Does not restore first-join court. Safe to re-run.
+Called by integrate-overrides.py and, if someone re-authors 0.2.2, from the
+end of author_old_world.py.
 """
 
 from __future__ import annotations
@@ -354,19 +355,12 @@ def write_quests() -> None:
     write_all_quests()
 
 def write_cnpc_note() -> None:
+    """Leftover court letters stay deleted. Do not restore first-join court."""
     root = OV / "customnpcs" / "rallous_lords"
     if not root.exists():
         return
     for path in root.glob("*.json"):
-        try:
-            data = json.loads(path.read_text())
-        except json.JSONDecodeError:
-            continue
-        data["spawn"] = (
-            "NOT first-join. Warp-crash discarded the Reikland court. "
-            "summon_lords is a refuse message. These files are leftover letter text."
-        )
-        dump_json(path, data)
+        path.unlink()
 
 
 def rebuild_jar() -> Path:
@@ -383,28 +377,50 @@ def rebuild_jar() -> Path:
 
 
 def strip_unused_court_files() -> None:
-    """Delete leftover unused court summons and Kislev/Karl letters. Do not restore first-join court."""
-    lords_dir = FN / "lords"
-    if lords_dir.is_dir():
-        for path in lords_dir.glob("*.mcfunction"):
+    """Delete leftover unused court chrome. Do not restore first-join court. Do not delete faction camps."""
+    lords_fn = FN / "lords"
+    if lords_fn.is_dir():
+        for path in lords_fn.glob("*.mcfunction"):
             path.unlink()
-    for name in ("give_karl_letter.mcfunction", "give_katarin_letter.mcfunction"):
+        if lords_fn.is_dir() and not any(lords_fn.iterdir()):
+            lords_fn.rmdir()
+    leftover_letters = (
+        "give_karl_letter.mcfunction",
+        "give_katarin_letter.mcfunction",
+        "give_archaon_letter.mcfunction",
+        "give_grimgor_letter.mcfunction",
+        "give_mannfred_letter.mcfunction",
+        "give_thorgrim_letter.mcfunction",
+    )
+    for name in leftover_letters:
         p = FN / name
         if p.exists():
             p.unlink()
     cnpc = OV / "customnpcs" / "rallous_lords"
-    for name in ("karl.json", "katarin.json"):
-        p = cnpc / name
-        if p.exists():
-            p.unlink()
+    if cnpc.is_dir():
+        for path in cnpc.glob("*.json"):
+            path.unlink()
+        if not any(cnpc.iterdir()):
+            cnpc.rmdir()
     adv = DATA / "advancements"
-    for rel in ("lords/karl.json", "lords/katarin.json", "kislev/root.json"):
+    lords_adv = adv / "lords"
+    if lords_adv.is_dir():
+        for path in lords_adv.glob("*.json"):
+            path.unlink()
+        if not any(lords_adv.iterdir()):
+            lords_adv.rmdir()
+    for rel in ("kislev/root.json",):
         p = adv / rel
         if p.exists():
             p.unlink()
     kislev = adv / "kislev"
     if kislev.is_dir() and not any(kislev.iterdir()):
         kislev.rmdir()
+    recipes = DATA / "recipes"
+    for name in ("commission_kislev_chestplate.json", "commission_kislev_helmet.json"):
+        p = recipes / name
+        if p.exists():
+            p.unlink()
     host = adv / "reikland" / "host.json"
     if host.exists():
         try:
@@ -414,6 +430,15 @@ def strip_unused_court_files() -> None:
         if data and data.get("parent") == "rallous_old_world:lords/karl":
             data["parent"] = "rallous_old_world:root"
             dump_json(host, data)
+    night = adv / "sylvania" / "night.json"
+    if night.exists():
+        try:
+            data = json.loads(night.read_text())
+        except json.JSONDecodeError:
+            data = None
+        if data and str(data.get("parent") or "").startswith("rallous_old_world:lords/"):
+            data["parent"] = "rallous_old_world:sylvania/root"
+            dump_json(night, data)
 
 
 def strip_court_hooks() -> None:

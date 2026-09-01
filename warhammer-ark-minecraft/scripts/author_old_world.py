@@ -339,15 +339,8 @@ function rallous_old_world:give_primer
             f"ArmorItems:[{{id:\"{lord['boots']}\",Count:1}},{{id:\"{lord['legs']}\",Count:1}},{{id:\"{lord['chest']}\",Count:1}},{{id:\"{lord['helmet']}\",Count:1}}],"
             f"HandItems:[{{id:\"{lord['hand']}\",Count:1}},{{}}]}}"
         )
-        # Unused court summons stay unwritten. Do not restore first-join court.
-        # Karl / Kislev leftover letters stay unwritten.
-        if lord["id"] not in ("karl", "katarin"):
-            w(
-                data / "functions" / f"give_{lord['id']}_letter.mcfunction",
-                f"give @s minecraft:written_book{{{nbt}}} 1\n"
-                f"scoreboard players add @s rallous.{_score(lord['id'])} 1\n"
-                f"advancement grant @s only rallous_old_world:lords/{lord['id']}\n",
-            )
+        # Unused court summons and leftover court letters stay unwritten.
+        # Do not restore first-join court. Do not write Archaon/Grimgor/Mannfred/Thorgrim letters.
     w(data / "functions" / "summon_lords.mcfunction", "\n".join(summon_all) + "\n")
 
     # Advancements
@@ -393,10 +386,7 @@ function rallous_old_world:give_primer
             "rewards": {"experience": 25, "recipes": _recipes_for(lord["id"])},
         }
 
-    for lord in LORDS:
-        if lord["id"] in ("karl", "katarin"):
-            continue
-        dump_json(data / "advancements" / "lords" / f"{lord['id']}.json", letter_adv(lord, "rallous_old_world:root"))
+    # Unused leftover lord letter advancements stay unwritten.
 
     chapters = [
         ("reikland", "Reikland", "Altdorf and the Electors. Raise a host. Claim a province.", "minecraft:plains", "sonsoftheempire:altdorfbanner"),
@@ -451,7 +441,7 @@ function rallous_old_world:give_primer
     dump_json(
         data / "advancements" / "sylvania" / "night.json",
         {
-            "parent": "rallous_old_world:lords/mannfred",
+            "parent": "rallous_old_world:sylvania/root",
             "display": {
                 "icon": {"item": "minecraft:skeleton_skull"},
                 "title": {"text": "Night of the Dead"},
@@ -480,16 +470,6 @@ function rallous_old_world:give_primer
             "commission_bretonnia_chestplate",
             ["minecraft:iron_chestplate", "minecraft:blue_banner", "minecraft:book"],
             "sonsoftheempire:grailknight_armor_chestplate",
-        ),
-        (
-            "commission_kislev_chestplate",
-            ["minecraft:iron_chestplate", "minecraft:light_blue_banner", "minecraft:packed_ice"],
-            "sonsoftheempire:armoredkossar_armor_chestplate",
-        ),
-        (
-            "commission_kislev_helmet",
-            ["minecraft:iron_helmet", "minecraft:light_blue_banner", "minecraft:packed_ice"],
-            "sonsoftheempire:armoredkossar_armor_helmet",
         ),
         (
             "commission_dawi_chestplate",
@@ -560,25 +540,11 @@ def _recipes_for(lord_id: str) -> list[str]:
 # ---------------------------------------------------------------------------
 
 def write_cnpc() -> None:
+    """Leftover court letters stay unwritten. Do not restore first-join court."""
     root = OV / "customnpcs" / "rallous_lords"
-    for lord in LORDS:
-        if lord["id"] in ("karl", "katarin"):
-            continue
-        dump_json(
-            root / f"{lord['id']}.json",
-            {
-                "id": lord["id"],
-                "name": lord["name"],
-                "title": lord["title"],
-                "faction": lord["faction"],
-                "job": lord["job"],
-                "diplomacy": lord["diplomacy"],
-                "book_title": lord["book_title"],
-                "pages": lord["pages"],
-                "spawn": "datapack function rallous_old_world:summon_lords on first join (named villager + armored stand). Not a hand-placed CNPC clone.",
-                "skin": "Steve-like villager body + Sons of the Empire / vanilla armor on the stand. No pirated GW meshes.",
-            },
-        )
+    if root.is_dir():
+        for path in root.glob("*.json"):
+            path.unlink()
 
 
 # ---------------------------------------------------------------------------

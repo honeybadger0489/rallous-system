@@ -67,15 +67,15 @@ Work here. Do not open a second GitHub fork. A sibling Java tree (`mods/rallous-
 
 ## Current zip version
 
-**PLAY.md + `pack/curseforge/manifest.json` + `dist/`:** **0.3.12**
+**PLAY.md + `pack/curseforge/manifest.json` + `dist/`:** **0.3.13**
 
-File: `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.12.zip`
+File: `warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.13.zip`
 
-Raw: https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.12.zip
+Raw: https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.13.zip
 
-Older archives (0.2.0–0.3.11) stay in `dist/` for history. **Import 0.3.12 as a new CurseForge profile.** Do not update 0.2.1 / 0.2.2 / 0.3.0–0.3.11.
+Older archives (0.2.0–0.3.12) stay in `dist/` for history. **Import 0.3.13 as a new CurseForge profile.** Do not update 0.2.1 / 0.2.2 / 0.3.0–0.3.12.
 
-**0.3.12** is the player zip: 0.3.11 plus honest wreckage/death copy, Villages/Factions wiki pins, unused `lords/karl` + Kislev letters deleted. Dedicated-server smoke **passed on 0.3.11**. **0.3.12 is unsmoked** (copy / leftover-court cut only).
+**0.3.13** is the player zip: leftover 0.2.2 court chrome stripped (CNPC letters Archaon/Grimgor/Mannfred/Thorgrim, Kislev commission recipes, unused lord advancements). Dedicated-server smoke **passed on 0.3.12** (`Done`, 0 function parse fails). **0.3.13** is that leftover cut and must be smoked after rebuild. SHIP_READY: **no**. Client `wiki/TEST.md` is the remaining success line.
 
 0.3.9 payload: 0.3.8 jar tick de-dup (old-world `#minecraft:tick` / `load` list **only** `rallous_old_world`, `sanitize_tick_load_tags`) plus first_join / land_go / assign / kit guards (`rallous.warp_landed`, `rallous.joined`, `rallous.contacted`, `rallous.kitted`). kit/winds/grow hooks (`rallous_kit:on_greet` after greet, `rallous_grow:on_session` on session win, winds own tick), compiled thicker camps, `rallous_session`, `rallous_recruits_bind`, **`rallous-recruits-bridge-1.0.0.jar`** (`FactionEvents.createTeam(false, …)`), `rallous_winds`, `rallous_grow`, `rallous_kit`, updated `rallous_roaming` (`/recruits spawn recruitPatrol tiny`), `overrides/wiki/`, `options.txt` pack order with **Rallous Continuity** last, 76 CF files, no Fabric Continuity jar, no MineColonies, no first-join court. If the bridge fails on boot: `crash-*-fml.txt` and fall back to U → Found a Banner.
 
@@ -145,24 +145,26 @@ From `warhammer-ark-minecraft/`:
 
 ```bash
 python3 scripts/compile_factions.py
-python3 scripts/integrate-overrides.py --version 0.3.12
+python3 scripts/integrate-overrides.py --version 0.3.13
 ```
 
-`integrate-overrides.py` (default `--version 0.3.11`; pass `--version 0.3.12` for this ship):
+`integrate-overrides.py` (default `--version 0.3.11`; pass `--version 0.3.13` for this ship):
 
 1. `compile_factions()`
 2. Ingest siblings: `content/factions/`, `content/datapacks/`, `content/resourcepacks/`, `pack-src/` datapacks / resourcepacks / quests / config, `options.txt` pack order, `rallous-recruits-bridge*.jar`, `wiki/` → `overrides/wiki/`
 3. `apply_warp_crash()` unless `--skip-author`
 4. Restore sibling FTB, `strip_court_hooks()`, rebuild LowCodeFML jars
 5. Copy `PLAY.md` into overrides
-6. `pack-zip.py --version …` → `dist/rallous-warhammer-fantasy-0.3.12.zip`
+6. `pack-zip.py --version …` → `dist/rallous-warhammer-fantasy-0.3.13.zip`
 7. Assert: 76 CF files, Forge-only loaders, no court on join, no Continuity jar, no MineColonies, camps / session / bind / winds / grow / kit / wiki / bridge present, old-world tick own-only, join/land/assign/kit guards, kit/grow hooks wired
 
 Does **not** resolve CurseForge fileIDs. Full pin refresh is `scripts/build-cf-pack.py` (dependency agent owns that). Zip-only from existing overrides: `python3 scripts/pack-zip.py --version 0.3.11`.
 
 Client is **not** booted in CI. Two-hour test is [`wiki/TEST.md`](wiki/TEST.md). Crashes: `crash-*-fml.txt`.
 
-**0.3.11 dedicated-server smoke (2026-09-01):** **boot YES.** Reused the 0.3.9 Forge 47.4.10 dir, refreshed `rallous_*` jars from `dist/rallous-warhammer-fantasy-0.3.11.zip`. `Done (1.987s)`, no `ModLoadingException`, **0** `Failed to load function`. Report: [`content/SERVER-SMOKE-0.3.11.md`](content/SERVER-SMOKE-0.3.11.md). Log: [`content/SERVER-SMOKE-0.3.11.latest.log`](content/SERVER-SMOKE-0.3.11.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin). **0.3.12** is unsmoked (copy / leftover-court cut).
+**0.3.12 dedicated-server smoke (2026-09-01):** **boot YES.** Reused `/tmp/rallous-smoke-039`, refreshed `rallous_*` jars from `dist/rallous-warhammer-fantasy-0.3.12.zip`. `Done (2.306s)`, no `ModLoadingException`, **0** `Failed to load function`. Report: [`content/SERVER-SMOKE-0.3.12.md`](content/SERVER-SMOKE-0.3.12.md). Log: [`content/SERVER-SMOKE-0.3.12.latest.log`](content/SERVER-SMOKE-0.3.12.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin). **0.3.13** is the leftover-court cut after that smoke.
+
+**0.3.11 dedicated-server smoke (2026-09-01):** **boot YES.** Reused the 0.3.9 Forge 47.4.10 dir, refreshed `rallous_*` jars from `dist/rallous-warhammer-fantasy-0.3.11.zip`. `Done (1.987s)`, no `ModLoadingException`, **0** `Failed to load function`. Report: [`content/SERVER-SMOKE-0.3.11.md`](content/SERVER-SMOKE-0.3.11.md).
 
 **0.3.11 leftover IDs (now in the zip):** Recruits 1.15.2 `ModEntityTypes` registers `CommanderEntity` as **`recruits:patrol_leader`** (not `recruits:commander`). Fossils 9.3.4 has no `fossil:egg`; `loyal_beast` uses **`fossil:egg_item_triceratops`**.
 

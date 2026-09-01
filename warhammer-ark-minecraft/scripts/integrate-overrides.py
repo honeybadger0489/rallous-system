@@ -804,6 +804,30 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         from io import BytesIO
 
         ow = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous-old-world-1.0.0.jar")))
+        leftover_cnpc = (
+            "overrides/customnpcs/rallous_lords/archaon.json",
+            "overrides/customnpcs/rallous_lords/grimgor.json",
+            "overrides/customnpcs/rallous_lords/mannfred.json",
+            "overrides/customnpcs/rallous_lords/thorgrim.json",
+            "overrides/customnpcs/rallous_lords/karl.json",
+            "overrides/customnpcs/rallous_lords/katarin.json",
+        )
+        for n in leftover_cnpc:
+            if n in names:
+                raise SystemExit(f"zip still ships leftover court letter {n}")
+        ow_names = set(ow.namelist())
+        for leftover in (
+            "data/rallous_old_world/recipes/commission_kislev_chestplate.json",
+            "data/rallous_old_world/recipes/commission_kislev_helmet.json",
+            "data/rallous_old_world/advancements/lords/archaon.json",
+            "data/rallous_old_world/advancements/lords/grimgor.json",
+            "data/rallous_old_world/advancements/lords/mannfred.json",
+            "data/rallous_old_world/advancements/lords/thorgrim.json",
+            "data/rallous_old_world/advancements/lords/karl.json",
+            "data/rallous_old_world/advancements/lords/katarin.json",
+        ):
+            if leftover in ow_names:
+                raise SystemExit(f"old-world jar still ships leftover court file {leftover}")
         ow_tick = json.loads(ow.read("data/minecraft/tags/functions/tick.json"))
         ow_tick_vals = ow_tick.get("values") or []
         if ow_tick_vals != ["rallous_old_world:tick"]:
@@ -845,6 +869,22 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         for bad in ("ensure_court", "summon_lords", "place_court"):
             if bad in wj:
                 raise SystemExit(f"warp_crash jar first_join calls {bad}")
+        leftover_letters = [
+            n
+            for n in ow.namelist()
+            if n.endswith(
+                (
+                    "give_archaon_letter.mcfunction",
+                    "give_grimgor_letter.mcfunction",
+                    "give_mannfred_letter.mcfunction",
+                    "give_thorgrim_letter.mcfunction",
+                    "give_karl_letter.mcfunction",
+                    "give_katarin_letter.mcfunction",
+                )
+            )
+        ]
+        if leftover_letters:
+            raise SystemExit(f"old_world jar still has leftover court letters: {leftover_letters}")
     print("zip payload ok", zip_path.name)
 
 
@@ -888,6 +928,7 @@ def main() -> None:
     rebuild_jar()
     ingest_siblings()
     sanitize_all_tick_load()
+    strip_court_hooks()
     rebuild_jar()
     restore_sibling_ftb()
     drop_folder_datapacks()

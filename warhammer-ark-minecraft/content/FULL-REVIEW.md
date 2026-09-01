@@ -1,5 +1,7 @@
 # FULL-REVIEW — player zip 0.3.11
 
+**0.3.13 (this ship):** leftover 0.2.2 court chrome stripped from overrides and zip — CNPC letters Archaon/Grimgor/Mannfred/Thorgrim, Kislev commission recipes, unused `lords/*` advancements. Faction-table lords (Grimgor/Mannfred/Thorgrim as compiled camp templates) stay. SHIP_READY: **no**. Client TEST not run.
+
 Audited `dist/rallous-warhammer-fantasy-0.3.11.zip` (24 819 594 bytes, 212 files, 2026-09-01 01:34) against the locked-goal list, conversation extras, `PLAY.md`, `wiki/`, `HANDOFF.md`, `FORKS.md`, `PURPOSE.md`, `content/HONESTY-0.3.10.md`, and `content/SERVER-SMOKE-0.3.10.md` / `0.3.9`.
 
 **Zip under review:** newest `dist/rallous-warhammer-fantasy-0.3.*.zip` = **0.3.11** (newer than 0.3.10).

@@ -1,5 +1,5 @@
 {
-  "parent": "rallous_old_world:lords/mannfred",
+  "parent": "rallous_old_world:sylvania/root",
   "display": {
     "icon": {
       "item": "minecraft:skeleton_skull"

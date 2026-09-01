@@ -30,10 +30,10 @@ You should feel: *I landed in someone else’s war.* Not: *I sat in Karl’s cou
 
 ## Success test
 
-v1 succeeds if a **new** CurseForge profile of **0.3.12** (do not “update” an older profile) passes the two-hour test in [`wiki/TEST.md`](wiki/TEST.md):
+v1 succeeds if a **new** CurseForge profile of **0.3.13** (do not “update” an older profile) passes the two-hour test in [`wiki/TEST.md`](wiki/TEST.md):
 
 1. **Crash** — Bowl of blackstone / crying obsidian. Wreckage chest. Title says Warp-crash. **No six named lords.** Forge 47.4.10 boots (if not: `crash-*-fml.txt`).
-2. **Named lord + stance** — Nearest bannered camp speaks as a real faction. Chat names the camp (Reikland, Clan Mors, …). **Never Team 2.**
+2. **Named lord + stance** — Nearest bannered camp speaks as a real faction. Chat names the camp (Reikland, Clan Mors, …). **U** may still say Team 2 if the bridge misses — Found a Banner and type that chat name.
 3. **Session** — `/function rallous_session:start` then a village wave or a picket fight; `/function rallous_session:win` or clear it.
 4. **Roaming** — `/function rallous_old_world:force_roaming` drops a Waaagh scout, a herd, a Khorne pack.
 5. **Rallous Continuity** — Resource pack on (options.txt should already). Recruits UI says Levy / Elector / Waaagh / Under-Empire, not “Recruit” / Team 2. That pack is **lang**, not Fabric Continuity.
