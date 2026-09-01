@@ -1,4 +1,4 @@
-# Recruits-unfriendly Horned Woods. Brown skull banners. Ravager is nerfed (40 HP).
+# Vanilla named Horned Woods (fallback if /recruits spawn fails). Brown skull banners. Ravager is nerfed (40 HP).
 particle minecraft:mycelium ~ ~1 ~ 3 0.5 3 0.02 50
 particle minecraft:crit ~ ~2 ~ 2 1 2 0.1 20
 

@@ -1,9 +1,11 @@
 # Rallous Warhammer Fantasy — play this
 
-**This is the only player doc.** Import **0.3.6** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5.
+**Player wiki:** [wiki/Home.md](wiki/Home.md) · two-hour test: [wiki/TEST.md](wiki/TEST.md)
+
+**This is the only player doc.** Import **0.3.7** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6.
 
 **Download:**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.6.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.7.zip
 
 CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, ~8 GB RAM. **Minecraft 1.20.1 + Forge 47.4.10**. New world: Survival, Hard, cheats ON (smoke commands). Terralith default. Private pack — do not upload.
 
@@ -32,11 +34,13 @@ A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crat
 - Compiled faction map (`rallous_factions`): mix of major+minor camps from the 8 v1 races, lords from templates, crash contact + stance, path scores change that faction
 - First-contact path stance (`rallous_diplomacy`) — FTB Paths and the factions tick both call `apply_path`
 - One-night session (`rallous_session`): `/function rallous_session:start` / `:win` — one village or one fight in the contact lord’s voice
-- Recruits bind (`rallous_recruits_bind`): scores + book + crash-camp name after assign. Plus `rallous-recruits-bridge-1.0.0.jar` to found / rename the Recruits host to that camp.
+- Recruits bind (`rallous_recruits_bind`): scores + book + crash-camp name after assign. Plus `rallous-recruits-bridge-1.0.0.jar` to found / rename the Recruits host to that camp (`FactionEvents.createTeam(false, …)`).
+- Race levy kit on first-contact greet (`rallous_kit`)
+- Camp growth (`rallous_grow`) — help / trade / session and the 7×7 gains huts (Millénaire loop, not MineColonies)
 - Warp-Crash FTB book (Crash / Paths / First Hour / The Winds / optional Host / Temple and Herd) + Smoke
 - Recruits / OPAC / Vassal lang overlay (**Rallous Continuity**) and grim defaultconfigs
 - Force functions: `/function rallous_old_world:force_roaming` and `/function rallous_old_world:lm_bm/summon`
-- Sibling jars: `rallous_roaming`, `rallous_temple_herd`, `rallous_contact`, `rallous_factions`, `rallous_diplomacy`, `rallous_crater_hq`, `rallous_session`, `rallous_recruits_bind`, `rallous_winds`, `rallous-recruits-bridge`
+- Sibling jars: `rallous_roaming`, `rallous_temple_herd`, `rallous_contact`, `rallous_factions`, `rallous_diplomacy`, `rallous_crater_hq`, `rallous_session`, `rallous_recruits_bind`, `rallous_winds`, `rallous_grow`, `rallous_kit`, `rallous-recruits-bridge`
 - Strip of the 0.2.2 `summon_lords` first-join court
 
 **We borrowed (engine):** Recruits, Iron’s Spells, Fossils and Archeology, Tameable Beasts, Epic Fight, Terralith, Towns and Towers, LSO, FTB Quests, Sons of the Empire kits, Faithful 32x, Grimdark Battlepack, Grimdark Sky, Gothic RPG Font, Complementary Unbound. **We did not sculpt Total War models.** Bodies stay Steve-like / villager.
@@ -44,6 +48,10 @@ A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crat
 **0.2.1 libraries stay** (76 CurseForge fileIDs). Continuity (connected textures, Fabric-leaning) stays **out** so the instance boots.
 
 ---
+
+## Two-hour test
+
+Do **[wiki/TEST.md](wiki/TEST.md)** (copied into the instance folder as `wiki/TEST.md`). The grave-book list below is the short smoke.
 
 ## One-hour smoke
 
@@ -83,6 +91,8 @@ Useful (cheats ON):
 /function rallous_session:win
 /function rallous_recruits_bind:on_contact
 /function rallous_winds:hint
+/function rallous_grow:on_session
+/function rallous_kit:on_greet
 ```
 
 **The Winds (first hour):** no spellbook in the crater. Walk to a bannered camp, read the named lectern, take the letter. Camp barrels rarely hold Iron’s common ink. Dungeon and library chests already hide Iron’s ink and scrolls. Inscribe later. Spell wheel **R** waits. `/function rallous_winds:hint` restates this.

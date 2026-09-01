@@ -1,4 +1,4 @@
-# Recruits-unfriendly Greenhost. Lime skull banners. No raid join (avoids village-raid brick).
+# Vanilla named Greenhost (fallback if /recruits spawn fails). Lime skull banners. No raid join.
 particle minecraft:cloud ~ ~1 ~ 3 0.4 3 0.02 40
 particle minecraft:angry_villager ~ ~2 ~ 2 1 2 0 16
 

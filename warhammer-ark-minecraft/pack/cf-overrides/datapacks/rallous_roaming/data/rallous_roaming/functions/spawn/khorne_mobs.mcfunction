@@ -1,4 +1,4 @@
-# Recruits-unfriendly Blood Host. Red skull banners. Overworld-hostile only (no neutral piglins).
+# Vanilla named Blood Host (fallback if /recruits spawn fails). Red skull banners. Overworld-hostile only.
 particle minecraft:damage_indicator ~ ~1.5 ~ 2 0.6 2 0.1 24
 particle minecraft:flame ~ ~1 ~ 2 0.3 2 0.01 30
 particle minecraft:smoke ~ ~1 ~ 2 0.4 2 0.01 20
