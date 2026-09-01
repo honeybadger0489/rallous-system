@@ -739,7 +739,17 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         wc_tick = json.loads(wc.read("data/minecraft/tags/functions/tick.json"))
         if (wc_tick.get("values") or []) != ["rallous_warp_crash:tick"]:
             raise SystemExit(f"warp_crash tick lists siblings: {wc_tick.get('values')}")
+        wc_land = wc.read("data/rallous_warp_crash/functions/land_go.mcfunction").decode()
+        if "unless entity @s[tag=rallous.warp_landed]" not in wc_land:
+            raise SystemExit("warp_crash land_go missing warp_landed guard")
+        if "data/rallous_warp_crash/functions/first_join_go.mcfunction" not in set(wc.namelist()):
+            raise SystemExit("warp_crash jar missing first_join_go")
         wj = wc.read("data/rallous_warp_crash/functions/first_join.mcfunction").decode()
+        if "rallous.joined" not in wj:
+            raise SystemExit("warp_crash first_join missing rallous.joined guard")
+        fac_assign = fac.read("data/rallous_factions/functions/contact/assign.mcfunction").decode()
+        if "unless entity @s[tag=rallous.contacted]" not in fac_assign:
+            raise SystemExit("factions assign missing contacted guard")
         for bad in ("ensure_court", "summon_lords", "place_court"):
             if bad in wj:
                 raise SystemExit(f"warp_crash jar first_join calls {bad}")
