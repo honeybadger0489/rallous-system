@@ -698,6 +698,8 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("factions jar missing host/levy")
         if "data/rallous_factions/functions/gen/place_rings.mcfunction" not in fac_names:
             raise SystemExit("factions jar missing gen/place_rings")
+        if "data/rallous_factions/functions/gen/place_mix.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing gen/place_mix")
         if "data/rallous_factions/functions/path/burn_welcome.mcfunction" not in fac_names:
             raise SystemExit("factions jar missing path/burn_welcome")
         if "data/rallous_factions/functions/debug/headless_proof.mcfunction" not in fac_names:

@@ -5,7 +5,7 @@ Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x /
 **Download (latest on this branch):**  
 https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.15.zip
 
-Dedicated-server smoke **passed on 0.3.12–0.3.14**. **0.3.15** is the living-host pass (named lord + Recruits patrol, mixed-race rings, first-hour Paths, burn-welcome Khorne). Client TEST is still unverified.
+Dedicated-server smoke **passed on 0.3.15**. Living-host pass: named lord + Recruits patrol, mixed-race rings, first-hour Paths, burn-welcome Khorne. Client TEST is still unverified. **SHIP_READY no.**
 
 ## CurseForge
 

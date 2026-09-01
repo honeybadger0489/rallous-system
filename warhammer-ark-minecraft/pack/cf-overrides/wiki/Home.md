@@ -24,7 +24,7 @@ See [Factions](Factions.md). First days place about **16** camps; walking farthe
 - Session night is vanilla pillagers / zombies **named as that race’s enemies**, not a Recruits battle.
 - Recruits hire / orders / Ally–Enemy still live in Recruits’ GUIs. See [Recruits](Recruits.md).
 - No starter spellbook. See [Magic](Magic.md).
-- Client is not booted in CI. Crash on boot → send `crash-*-fml.txt`. Dedicated-server smoke **passed on 0.3.12–0.3.14**. **0.3.15** is this ship (living host + mixed rings + first-hour paths). Client TEST is still the remaining success line.
+- Client is not booted in CI. Crash on boot → send `crash-*-fml.txt`. Dedicated-server smoke **passed on 0.3.15** (`Done (2.029s)!`, RCON 7 camps / 7 lords / 42 Recruits). Client TEST is still the remaining success line. **SHIP_READY no.**
 
 ## Play
 

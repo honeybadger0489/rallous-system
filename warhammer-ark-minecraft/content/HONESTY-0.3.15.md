@@ -1,6 +1,6 @@
 # HONESTY-0.3.15 — living field
 
-SHIP_READY: **no**. Dedicated-server smoke on 0.3.15 is recorded in `SERVER-SMOKE-0.3.15.md` when run. Client `wiki/TEST.md` was not run. CurseForge / GPU client boot is unverified.
+SHIP_READY: **no**. Dedicated-server smoke **passed on 0.3.15** — `Done (2.029s)!`, 86 mods, 0 failed functions, RCON 7 camps / 7 lords / 42 Recruits (`content/SERVER-SMOKE-0.3.15.md`). Client `wiki/TEST.md` was not run. CurseForge / GPU client boot is unverified.
 
 **0.3.15 gameplay (not essays):**
 
