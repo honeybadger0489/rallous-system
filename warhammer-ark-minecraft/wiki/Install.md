@@ -5,7 +5,7 @@ Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x /
 **Download (latest on this branch):**  
 https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.10.zip
 
-Dedicated-server smoke **passed on 0.3.9**. **0.3.10** parse fixes are pending re-smoke. Older `dist/rallous-warhammer-fantasy-0.3.9.zip` is the last smoked pin.
+Dedicated-server smoke **passed on 0.3.10** (`Done`, four function parse errors gone). Older `dist/rallous-warhammer-fantasy-0.3.9.zip` remains for history.
 
 ## CurseForge
 

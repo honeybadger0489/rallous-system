@@ -75,7 +75,7 @@ Raw: https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-
 
 Older archives (0.2.0–0.3.9) stay in `dist/` for history. **Import 0.3.10 as a new CurseForge profile.** Do not update 0.2.1 / 0.2.2 / 0.3.0–0.3.9.
 
-**0.3.10** is the player zip: 0.3.9 plus four function parse fixes (`fossilsandarcheology:triceratops` → Fossils ids, drop unknown `irons_spellbooks:necronomicon`, `rallous_crater_hq:load` pathless `data set`, `give_book` SNBT newlines) and thicker temple/herdstone NBTs. Dedicated-server smoke **passed on 0.3.9**; those 0.3.10 parse fixes are **pending re-smoke**.
+**0.3.10** is the player zip: 0.3.9 plus four function parse fixes (`fossilsandarcheology:triceratops` → Fossils ids, drop unknown `irons_spellbooks:necronomicon`, `rallous_crater_hq:load` pathless `data set`, `give_book` SNBT newlines) and thicker temple/herdstone NBTs. Dedicated-server smoke **passed on 0.3.10** (`Done`, those four parse errors gone).
 
 0.3.9 payload: 0.3.8 jar tick de-dup (old-world `#minecraft:tick` / `load` list **only** `rallous_old_world`, `sanitize_tick_load_tags`) plus first_join / land_go / assign / kit guards (`rallous.warp_landed`, `rallous.joined`, `rallous.contacted`, `rallous.kitted`). kit/winds/grow hooks (`rallous_kit:on_greet` after greet, `rallous_grow:on_session` on session win, winds own tick), compiled thicker camps, `rallous_session`, `rallous_recruits_bind`, **`rallous-recruits-bridge-1.0.0.jar`** (`FactionEvents.createTeam(false, …)`), `rallous_winds`, `rallous_grow`, `rallous_kit`, updated `rallous_roaming` (`/recruits spawn recruitPatrol tiny`), `overrides/wiki/`, `options.txt` pack order with **Rallous Continuity** last, 76 CF files, no Fabric Continuity jar, no MineColonies, no first-join court. If the bridge fails on boot: `crash-*-fml.txt` and fall back to U → Found a Banner.
 
@@ -162,7 +162,7 @@ Does **not** resolve CurseForge fileIDs. Full pin refresh is `scripts/build-cf-p
 
 Client is **not** booted in CI. Two-hour test is [`wiki/TEST.md`](wiki/TEST.md). Crashes: `crash-*-fml.txt`.
 
-**0.3.9 dedicated-server smoke (2026-09-01):** **boot YES.** Forge 47.4.10, 76 CF fileIDs, `Done (35.871s)`, no `ModLoadingException`. Report: [`content/SERVER-SMOKE-0.3.9.md`](content/SERVER-SMOKE-0.3.9.md). Log: [`content/SERVER-SMOKE-0.3.9.latest.log`](content/SERVER-SMOKE-0.3.9.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin). **0.3.10** parse fixes (those four leftover function errors + thicker temple/herdstone) are **pending re-smoke**.
+**0.3.10 dedicated-server smoke (2026-09-01):** **boot YES.** Reused the 0.3.9 Forge 47.4.10 dir, refreshed `rallous_*` jars from `dist/rallous-warhammer-fantasy-0.3.10.zip`. `Done (1.918s)`, no `ModLoadingException`, **0** `Failed to load function`. Report: [`content/SERVER-SMOKE-0.3.10.md`](content/SERVER-SMOKE-0.3.10.md). Log: [`content/SERVER-SMOKE-0.3.10.latest.log`](content/SERVER-SMOKE-0.3.10.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin). No 0.3.11 zip.
 
 ---
 

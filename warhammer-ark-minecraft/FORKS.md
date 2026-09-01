@@ -91,6 +91,6 @@ Do not start a **second** Java project for the same call.
 
 ## Open
 
-- Player zip is **0.3.10**. Dedicated-server smoke passed on **0.3.9**; **0.3.10** parse fixes pending re-smoke. Client GUI boot is unverified.
+- Player zip is **0.3.10**. Dedicated-server smoke **passed on 0.3.10** (`Done`, four function parse errors gone). Client GUI boot is unverified.
 
 <!-- Later goals add undecided forks here. Keep the seeds above stable. -->
