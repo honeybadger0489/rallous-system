@@ -2,10 +2,10 @@
 
 **Player wiki:** [wiki/Home.md](wiki/Home.md) · two-hour test: [wiki/TEST.md](wiki/TEST.md)
 
-**This is the only player doc.** Import **0.3.10** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9.
+**This is the only player doc.** Import **0.3.11** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9 / 0.3.10.
 
 **Download:**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.10.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.11.zip
 
 CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, ~8 GB RAM. **Minecraft 1.20.1 + Forge 47.4.10**. New world: Survival, Hard, cheats ON (smoke commands). Terralith default. Private pack — do not upload.
 
@@ -57,7 +57,7 @@ Do **[wiki/TEST.md](wiki/TEST.md)** (copied into the instance folder as `wiki/TE
 
 Quest book **`` ` ``** (grave). Chapter **Warp-crash Smoke** ticks the same list.
 
-1. **Crash** — Look down. Bowl of blackstone / crying obsidian, campfire, wreckage chest. No six named lords. Title says Warp-crash. Forge 47.4.10. If it dies on boot, send `crash-*-fml.txt`.
+1. **Crash** — Look down. Bowl of blackstone / crying obsidian, campfire, wreckage chest. No six named lords. Title names the Warp-crash (**Cast from the Warp**). Forge 47.4.10. If it dies on boot, send `crash-*-fml.txt`.
 2. **Named lord + stance** — Walk to the nearest bannered camp. A **named lord from a real faction** (Elector, High King, Beastlord, …) speaks a **stance** (blade gift, prove-yourself, brief raid, or daemon accusation). Not a mute village tagged “Faction Contact”. Chat should name the camp (Reikland, Clan Mors, …). If **U** still says Team 2, Found a Banner and type that chat name.
 3. **Session start / win** — Cheats ON, stand at that camp: `/function rallous_session:start`. The lord speaks; a short wave or the camp raid begins. Clear it, or `/function rallous_session:win`. Night + walking to **that** camp can also auto-start once.
 4. **Force roaming** — `/function rallous_old_world:force_roaming` spawns a Waaagh scout, a Beastmen herd, and a Khorne pack near you.

@@ -23,7 +23,7 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 ### Crash
 
 - [ ] Look down: blackstone / crying obsidian bowl, campfire, wreckage chest.
-- [ ] Title says Warp-crash. Forge 47.4.10.
+- [ ] Title names the Warp-crash (**Cast from the Warp**). Forge 47.4.10.
 - [ ] Chest is bread / leather / stone. **No** Iron’s spellbook.
 - [ ] Open the quest book (`` ` ``). **The Warp-Crash**, not a Reikland tutorial court.
 
