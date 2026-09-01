@@ -75,13 +75,15 @@ Raw: https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-
 
 Older archives (0.2.0–0.3.9) stay in `dist/` for history. **Import 0.3.10 as a new CurseForge profile.** Do not update 0.2.1 / 0.2.2 / 0.3.0–0.3.9.
 
+**0.3.10** is the player zip: 0.3.9 plus four function parse fixes (`fossilsandarcheology:triceratops` → Fossils ids, drop unknown `irons_spellbooks:necronomicon`, `rallous_crater_hq:load` pathless `data set`, `give_book` SNBT newlines) and thicker temple/herdstone NBTs. Dedicated-server smoke **passed on 0.3.9**; those 0.3.10 parse fixes are **pending re-smoke**.
+
 0.3.9 payload: 0.3.8 jar tick de-dup (old-world `#minecraft:tick` / `load` list **only** `rallous_old_world`, `sanitize_tick_load_tags`) plus first_join / land_go / assign / kit guards (`rallous.warp_landed`, `rallous.joined`, `rallous.contacted`, `rallous.kitted`). kit/winds/grow hooks (`rallous_kit:on_greet` after greet, `rallous_grow:on_session` on session win, winds own tick), compiled thicker camps, `rallous_session`, `rallous_recruits_bind`, **`rallous-recruits-bridge-1.0.0.jar`** (`FactionEvents.createTeam(false, …)`), `rallous_winds`, `rallous_grow`, `rallous_kit`, updated `rallous_roaming` (`/recruits spawn recruitPatrol tiny`), `overrides/wiki/`, `options.txt` pack order with **Rallous Continuity** last, 76 CF files, no Fabric Continuity jar, no MineColonies, no first-join court. If the bridge fails on boot: `crash-*-fml.txt` and fall back to U → Found a Banner.
 
 ---
 
 ## Datapack / jar map
 
-Sibling folders under `content/datapacks/` compile into LowCodeFML jars under `pack/cf-overrides/mods/`. **0.3.9 ships jars only** (folder copies in `overrides/datapacks/` are dropped so a world copy cannot double-fire `#minecraft:tick`). Enable **folder or jar, not both**.
+Sibling folders under `content/datapacks/` compile into LowCodeFML jars under `pack/cf-overrides/mods/`. **0.3.10 ships jars only** (folder copies in `overrides/datapacks/` are dropped so a world copy cannot double-fire `#minecraft:tick`). Enable **folder or jar, not both**.
 
 | Pack | Role | Hook |
 | --- | --- | --- |
@@ -92,7 +94,7 @@ Sibling folders under `content/datapacks/` compile into LowCodeFML jars under `p
 | `rallous_contact` | First-contact path scores / FTB rewards | Path verbs call diplomacy then factions sync. |
 | `rallous_session` | `/function rallous_session:start` / `:win` — one village or one fight | Needs `rallous.contact` or a nearby `rallous.camp`. After `rallous.session` **1**, `win` calls `rallous_grow:on_session`. |
 | `rallous_recruits_bind` | Copies crash-camp **display name** onto scores / storage / book | Hooked from `rallous_factions:contact/assign`. **Does not found a RecruitsFaction.** |
-| `rallous-recruits-bridge` | Java Forge jar. Calls Recruits `FactionEvents.createTeam(false, …)` so U / chat say **Reikland** / **Clan Mors**, not Team 2 | Source: `mods/rallous-recruits-bridge/`. API notes: [`content/RECRUITS-API.md`](content/RECRUITS-API.md). In the 0.3.9 zip. |
+| `rallous-recruits-bridge` | Java Forge jar. Calls Recruits `FactionEvents.createTeam(false, …)` so U / chat say **Reikland** / **Clan Mors**, not Team 2 | Source: `mods/rallous-recruits-bridge/`. API notes: [`content/RECRUITS-API.md`](content/RECRUITS-API.md). In the 0.3.10 zip. |
 | `rallous_kit` | Tier-1 levy kit after first-contact greet (`rallous_kit:on_greet`) | Called from `contact/assign` and `warp_crash:first_contact`. Race 1–8. Sets `rallous.kitted`. Folder or jar, not both. |
 | `rallous_winds` | Camp lecterns + barrel loot point to Iron’s ink/scroll. `/function rallous_winds:hint` | No filled spellbook. After a camp exists, `crash/on_land` and `contact/assign` call `rallous_winds:place` unless the marker already has `rallous.winds`. Tick is a backup. |
 | `rallous_grow` | Millénaire-style camp tiers on the 7×7 picket (help / session / emeralds) | `rallous_session:win` → `rallous_grow:on_session`. Cap 3. Not MineColonies. |
@@ -160,7 +162,7 @@ Does **not** resolve CurseForge fileIDs. Full pin refresh is `scripts/build-cf-p
 
 Client is **not** booted in CI. Two-hour test is [`wiki/TEST.md`](wiki/TEST.md). Crashes: `crash-*-fml.txt`.
 
-**0.3.9 dedicated-server smoke (2026-09-01):** **boot YES.** Forge 47.4.10, 76 CF fileIDs, `Done (35.871s)`, no `ModLoadingException`. Report: [`content/SERVER-SMOKE-0.3.9.md`](content/SERVER-SMOKE-0.3.9.md). Log: [`content/SERVER-SMOKE-0.3.9.latest.log`](content/SERVER-SMOKE-0.3.9.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin). **0.3.10** fixes the four leftover function parse errors and ships thicker temple/herdstone NBTs.
+**0.3.9 dedicated-server smoke (2026-09-01):** **boot YES.** Forge 47.4.10, 76 CF fileIDs, `Done (35.871s)`, no `ModLoadingException`. Report: [`content/SERVER-SMOKE-0.3.9.md`](content/SERVER-SMOKE-0.3.9.md). Log: [`content/SERVER-SMOKE-0.3.9.latest.log`](content/SERVER-SMOKE-0.3.9.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin). **0.3.10** parse fixes (those four leftover function errors + thicker temple/herdstone) are **pending re-smoke**.
 
 ---
 
