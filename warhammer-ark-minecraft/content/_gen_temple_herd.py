@@ -184,98 +184,21 @@ def build_platform(palette_index_fn, blocks, sx, sz, y, default_state):
 
 
 def make_temple_nbt(path: Path) -> None:
-    pal = [
-        {"Name": "minecraft:air"},
-        {"Name": "minecraft:mossy_cobblestone"},
-        {"Name": "minecraft:mossy_stone_bricks"},
-        {"Name": "minecraft:chiseled_stone_bricks"},
-        {"Name": "minecraft:jungle_planks"},
-        {"Name": "minecraft:gold_block"},
-        {"Name": "minecraft:chest", "Properties": {"facing": "west", "type": "single", "waterlogged": "false"}},
-        {"Name": "minecraft:lime_banner", "Properties": {"rotation": "0"}},
-        {"Name": "minecraft:lime_banner", "Properties": {"rotation": "8"}},
-        {"Name": "minecraft:jungle_leaves", "Properties": {"persistent": "true", "distance": "1", "waterlogged": "false"}},
-        {"Name": "minecraft:sea_lantern"},
-        {"Name": "minecraft:mossy_stone_brick_stairs", "Properties": {"facing": "south", "half": "bottom", "shape": "straight", "waterlogged": "false"}},
-    ]
-    blocks = []
-    for x in range(7):
-        for z in range(7):
-            state = 1
-            if x in (0, 6) or z in (0, 6):
-                state = 2
-            if (x, z) in ((0, 0), (0, 6), (6, 0), (6, 6)):
-                state = 4
-            if x == 3 and z == 3:
-                state = 3
-            blocks.append({"pos": [x, 0, z], "state": state})
-    blocks.append({"pos": [3, 1, 3], "state": 10})
-    blocks.append({"pos": [5, 1, 3], "state": 6, "nbt": chest_nbt("rallous_temple_herd:chests/temple_cache")})
-    blocks.append({"pos": [3, 1, 0], "state": 7, "nbt": banner_be("lime")})
-    blocks.append({"pos": [3, 1, 6], "state": 8, "nbt": banner_be("lime")})
-    blocks.append({"pos": [0, 1, 3], "state": 7, "nbt": banner_be("lime")})
-    blocks.append({"pos": [6, 1, 3], "state": 8, "nbt": banner_be("lime")})
-    blocks.append({"pos": [1, 1, 1], "state": 9})
-    blocks.append({"pos": [5, 1, 1], "state": 9})
-    blocks.append({"pos": [1, 1, 5], "state": 9})
-    blocks.append({"pos": [5, 1, 5], "state": 9})
-    blocks.append({"pos": [3, 1, 2], "state": 11})
-    blocks.append({"pos": [2, 1, 3], "state": 5})
-    entities = [
-        {
-            "pos": [3.5, 1.0, 3.5],
-            "blockPos": [3, 1, 3],
-            "nbt": stand_nbt("Temple-Spawn Marker", "dark_green", ["rallous.temple_marker"], "minecraft:lime_banner"),
-        }
-    ]
-    write_structure(path, [7, 3, 7], pal, blocks, entities)
+    import sys
+
+    sys.path.insert(0, str(DP))
+    import build_sites
+
+    build_sites.make_temple_nbt(path, gen=sys.modules[__name__])
 
 
 def make_herd_nbt(path: Path) -> None:
-    pal = [
-        {"Name": "minecraft:air"},
-        {"Name": "minecraft:mossy_cobblestone"},
-        {"Name": "minecraft:dark_oak_planks"},
-        {"Name": "minecraft:cracked_stone_bricks"},
-        {"Name": "minecraft:cobbled_deepslate"},
-        {"Name": "minecraft:soul_campfire", "Properties": {"facing": "north", "lit": "true", "signal_fire": "false", "waterlogged": "false"}},
-        {"Name": "minecraft:chest", "Properties": {"facing": "east", "type": "single", "waterlogged": "false"}},
-        {"Name": "minecraft:red_banner", "Properties": {"rotation": "0"}},
-        {"Name": "minecraft:black_banner", "Properties": {"rotation": "8"}},
-        {"Name": "minecraft:skeleton_skull", "Properties": {"rotation": "0"}},
-        {"Name": "minecraft:wither_skeleton_skull", "Properties": {"rotation": "4"}},
-        {"Name": "minecraft:dark_oak_fence", "Properties": {"north": "false", "south": "false", "east": "false", "west": "false", "waterlogged": "false"}},
-        {"Name": "minecraft:red_wool"},
-    ]
-    blocks = []
-    for x in range(7):
-        for z in range(7):
-            state = 1
-            if x in (0, 6) or z in (0, 6):
-                state = 4
-            if (x + z) % 3 == 0:
-                state = 2
-            if x == 3 and z == 3:
-                state = 3
-            blocks.append({"pos": [x, 0, z], "state": state})
-    blocks.append({"pos": [3, 1, 3], "state": 5})
-    blocks.append({"pos": [1, 1, 3], "state": 6, "nbt": chest_nbt("rallous_temple_herd:chests/herdstone_cache")})
-    blocks.append({"pos": [3, 1, 0], "state": 7, "nbt": banner_be("red")})
-    blocks.append({"pos": [3, 1, 6], "state": 8, "nbt": banner_be("black")})
-    blocks.append({"pos": [0, 1, 3], "state": 8, "nbt": banner_be("black")})
-    blocks.append({"pos": [6, 1, 3], "state": 7, "nbt": banner_be("red")})
-    for x, z in ((1, 1), (5, 1), (1, 5), (5, 5)):
-        blocks.append({"pos": [x, 1, z], "state": 11})
-        blocks.append({"pos": [x, 2, z], "state": 9 if (x + z) % 2 == 0 else 10})
-    blocks.append({"pos": [4, 1, 3], "state": 12})
-    entities = [
-        {
-            "pos": [3.5, 1.0, 4.5],
-            "blockPos": [3, 1, 4],
-            "nbt": stand_nbt("Herdstone", "dark_red", ["rallous.herdstone"], "minecraft:wither_skeleton_skull"),
-        }
-    ]
-    write_structure(path, [7, 4, 7], pal, blocks, entities)
+    import sys
+
+    sys.path.insert(0, str(DP))
+    import build_sites
+
+    build_sites.make_herd_nbt(path, gen=sys.modules[__name__])
 
 
 # ---------------------------------------------------------------------------
@@ -439,11 +362,11 @@ def write_datapack() -> None:
             [
                 "# Rallous Temple Herd",
                 "Fossils + Tameable Beasts stay the engine (haul / fight / travel / tank). No new creature mods. No 40k.",
-                "Lizardmen: Temple-Spawn names, jungle/warm markers, extra TB *tame-food* tags (global — anyone can use the extra offerings).",
-                "Fossils 9.3.4 has no per-faction tame tag. Only global `whipToTameDino` (we do not flip it). Hatch-near / scarab still apply.",
-                "Beastmen: herdstone markers, uglier loot, Broken Beast advancement, herd-mutt names, rotten-flesh/bone added to racoon/roly tame tags.",
+                "Lizardmen own the jungle walk: a 13×13 mossy courtyard, a 5×5 spawning-pool pit, lime banners, named stands, temple-cache chests.",
+                "Beastmen own the taiga walk: a 5×5 soul pit and a 5-high herdstone, skull banners, named stands, uglier cache (Broken Collar).",
+                "Tame rolls stay global. Fossils 9.3.4 has no per-faction tame tag — only `whipToTameDino` (we do not flip it). Extra TB tame-food tags apply to everyone.",
                 "Other races: Worse Hands book + advancement if you already have `rallous.old_world`. No hidden tame penalty.",
-                "Markers are banners + named armor stands + chests — not silent dinos. `/locate structure rallous_temple_herd:temple_marker` or `herdstone`.",
+                "`/locate structure rallous_temple_herd:temple_marker` in jungle / warm. `/locate structure rallous_temple_herd:herdstone` in taiga / dark forest.",
                 "Pickup: this folder → world `datapacks/`. RP `Rallous Temple Herd` or `content/lang`. FTB `temple_and_herd.snbt` → `config/ftbquests/quests/chapters/`.",
                 "Place by hand: `/function rallous_temple_herd:place_temple_marker` / `place_herdstone`.",
                 "Honest gap: we cannot make only Lizardmen players roll easier Fossils tames without a new mod or KubeJS.",
@@ -502,11 +425,11 @@ def write_datapack() -> None:
     temple_pages = [
         '{"text":"Temple-Spawn. The jungle is not empty dinos. Fossils and Tameable Beasts are the engine: haul, fight, travel, tank."}',
         '{"text":"A living beast that hatches near you, or takes a Temple Scarab, is loyal. We cannot make the vat roll easier for one race. Extra Tameable Beasts offerings (honey, cooked meat, seeds) are the only easier-tame hook."}',
-        '{"text":"Look for lime banners and a named stand on mossy stone. /locate structure rallous_temple_herd:temple_marker"}',
+        '{"text":"Look for a mossy courtyard and a glowing spawning-pool pit. Lime banners, named stands, caches. /locate structure rallous_temple_herd:temple_marker"}',
         '{"text":"Empire, Dawi, Kislev, the dead, and greenskins are worse at this. They treat a temple-beast as a horse with teeth."}',
     ]
     herd_pages = [
-        '{"text":"Horned Woods. No town. A herdstone is skulls, red and black banners, and a hung stand. The herd does not tame. It enslaves."}',
+        '{"text":"Horned Woods. No town. A herdstone is a stone rising from a soul pit, skulls, red and black banners, and a hung stand. The herd does not tame. It enslaves."}',
         '{"text":"Uglier loot: offal, carrion, a Broken Collar (lead). Failuresaurus is a Broken Beast. Rotten flesh and bone now count as herd-mutt / rolling-beast offerings."}',
         '{"text":"/locate structure rallous_temple_herd:herdstone  — dark forest and taiga, including Terralith belts."}',
         '{"text":"Same engine as the temple. The difference is the relationship: loyal companion versus broken slave."}',
@@ -550,51 +473,11 @@ def write_datapack() -> None:
         ),
     )
 
-    w(
-        DP / "data/rallous_temple_herd/functions/place_temple_marker.mcfunction",
-        "\n".join(
-            [
-                "# Visible Temple-Spawn marker. Cheats / quest reward.",
-                "fill ~-3 ~-1 ~-3 ~3 ~-1 ~3 minecraft:mossy_cobblestone",
-                "fill ~-3 ~-1 ~-3 ~3 ~-1 ~-3 minecraft:mossy_stone_bricks",
-                "fill ~-3 ~-1 ~3 ~3 ~-1 ~3 minecraft:mossy_stone_bricks",
-                "setblock ~ ~-1 ~ minecraft:chiseled_stone_bricks",
-                "setblock ~ ~ ~ minecraft:sea_lantern",
-                "setblock ~ ~ ~-3 minecraft:lime_banner",
-                "setblock ~ ~ ~3 minecraft:lime_banner",
-                "setblock ~-3 ~ ~ minecraft:lime_banner",
-                "setblock ~3 ~ ~ minecraft:lime_banner",
-                "setblock ~2 ~ ~ minecraft:chest{LootTable:\"rallous_temple_herd:chests/temple_cache\"}",
-                "setblock ~-2 ~-1 ~ minecraft:gold_block",
-                "summon minecraft:armor_stand ~ ~1 ~ {CustomName:'{\"text\":\"Temple-Spawn Marker\",\"color\":\"dark_green\"}',CustomNameVisible:1b,NoGravity:1b,PersistenceRequired:1b,Invulnerable:1b,Tags:[\"rallous.temple_marker\"],ArmorItems:[{},{},{},{id:\"minecraft:lime_banner\",Count:1b}]}",
-                "advancement grant @s only rallous_temple_herd:lizardmen/temple_marker",
-            ]
-        ),
-    )
-    w(
-        DP / "data/rallous_temple_herd/functions/place_herdstone.mcfunction",
-        "\n".join(
-            [
-                "# Visible herdstone. Cheats / quest reward.",
-                "fill ~-3 ~-1 ~-3 ~3 ~-1 ~3 minecraft:mossy_cobblestone",
-                "fill ~-3 ~-1 ~-3 ~3 ~-1 ~-3 minecraft:cobbled_deepslate",
-                "fill ~-3 ~-1 ~3 ~3 ~-1 ~3 minecraft:dark_oak_planks",
-                "setblock ~ ~-1 ~ minecraft:cracked_stone_bricks",
-                "setblock ~ ~ ~ minecraft:soul_campfire",
-                "setblock ~ ~ ~-3 minecraft:red_banner",
-                "setblock ~ ~ ~3 minecraft:black_banner",
-                "setblock ~-3 ~ ~ minecraft:black_banner",
-                "setblock ~3 ~ ~ minecraft:red_banner",
-                "setblock ~1 ~ ~ minecraft:dark_oak_fence",
-                "setblock ~1 ~1 ~ minecraft:skeleton_skull",
-                "setblock ~-1 ~ ~ minecraft:dark_oak_fence",
-                "setblock ~-1 ~1 ~ minecraft:wither_skeleton_skull",
-                "setblock ~-2 ~ ~ minecraft:chest{LootTable:\"rallous_temple_herd:chests/herdstone_cache\"}",
-                "summon minecraft:armor_stand ~ ~1 ~1 {CustomName:'{\"text\":\"Herdstone\",\"color\":\"dark_red\"}',CustomNameVisible:1b,NoGravity:1b,PersistenceRequired:1b,Invulnerable:1b,Tags:[\"rallous.herdstone\"],ArmorItems:[{},{},{},{id:\"minecraft:wither_skeleton_skull\",Count:1b}]}",
-                "advancement grant @s only rallous_temple_herd:beastmen/herdstone",
-            ]
-        ),
-    )
+    # 13x13 courtyard / herdstone pit live in the .mcfunction files. Do not thin them.
+    for _place in ("place_temple_marker", "place_herdstone"):
+        _p = DP / f"data/rallous_temple_herd/functions/{_place}.mcfunction"
+        if "13x13" not in _p.read_text():
+            raise SystemExit(f"{_place} is thin; thicken the courtyard/pit, do not regen a 7x7 pad")
 
     # Advancements
     dump(
@@ -1011,7 +894,7 @@ def write_datapack() -> None:
             "terrain_adaptation": "beard_thin",
             "start_pool": pool,
             "size": 1,
-            "start_height": {"absolute": 0},
+            "start_height": {"absolute": -1},
             "project_start_to_heightmap": "WORLD_SURFACE_WG",
             "max_distance_from_center": 16,
             "use_expansion_hack": False,
@@ -1041,14 +924,14 @@ def write_datapack() -> None:
         DP / "data/rallous_temple_herd/worldgen/structure_set/temple_markers.json",
         {
             "structures": [{"structure": "rallous_temple_herd:temple_marker", "weight": 1}],
-            "placement": {"type": "minecraft:random_spread", "salt": 18472011, "spacing": 26, "separation": 10},
+            "placement": {"type": "minecraft:random_spread", "salt": 18472011, "spacing": 20, "separation": 8},
         },
     )
     dump(
         DP / "data/rallous_temple_herd/worldgen/structure_set/herdstones.json",
         {
             "structures": [{"structure": "rallous_temple_herd:herdstone", "weight": 1}],
-            "placement": {"type": "minecraft:random_spread", "salt": 18472027, "spacing": 30, "separation": 12},
+            "placement": {"type": "minecraft:random_spread", "salt": 18472027, "spacing": 20, "separation": 8},
         },
     )
     dump(
