@@ -1,0 +1,26 @@
+{
+  "id": "redhorn-tribe",
+  "race": "beastmen",
+  "tier": "minor",
+  "name": "Redhorn Tribe",
+  "banner": {
+    "pattern": "redhorn",
+    "primary": "#8B1E2D",
+    "secondary": "#3D2B1F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -30,
+  "lord": {
+    "title": "Gorebull",
+    "name": "Redhorn",
+    "personality": "Bloodied minotaurs. War or a skull-tithe.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "mountains",
+    "forest",
+    "windswept"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

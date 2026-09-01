@@ -1,0 +1,27 @@
+{
+  "id": "barak-varr",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Barak Varr",
+  "banner": {
+    "pattern": "sea_hold",
+    "primary": "#1E4A8B",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 5,
+  "lord": {
+    "title": "King of Barak Varr",
+    "name": "Byrrnoth Grundadrakk",
+    "personality": "Sea Hold. Open roads (sea-lanes) for those who pay the dock-tithe.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "beach",
+    "ocean",
+    "mountains",
+    "river"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

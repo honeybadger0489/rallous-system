@@ -1,0 +1,3626 @@
+{
+  "generated": "2026-08-31T17:23:01Z",
+  "minecraft": "1.20.1",
+  "loader": "forge",
+  "loader_version": "47.4.0",
+  "default_count": 69,
+  "starter_count": 7,
+  "resolved": [
+    {
+      "slug": "jei",
+      "title": "Just Enough Items (JEI)",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "qol",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "jei",
+      "curseforge_id": 238222,
+      "notes": "Recipe browser. EMI is an alternative; pick one.",
+      "project_id": "u6dRKJwZ",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/jei",
+      "version_id": "9jqubC9n",
+      "version_number": "15.56.0.205",
+      "version_date": "2026-08-31T13:57:20.356805Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "jei-1.20.1-forge-15.56.0.205.jar",
+      "url": "https://cdn.modrinth.com/data/u6dRKJwZ/versions/9jqubC9n/jei-1.20.1-forge-15.56.0.205.jar",
+      "size": 1778129,
+      "sha1": "7f64b7f8fde7f001ef054dabe3618a8780ba2650",
+      "sha512": "1306fe15c81d54aa9ff8f3d9f04812c0d61ffaaae433c29621f926db8f8e2c898669ccdd99e025849859d38b7a2eac170c466390b467f4dfa77542b5dbdd1678",
+      "dependencies": []
+    },
+    {
+      "slug": "jade",
+      "title": "Jade",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "qol",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "jade",
+      "notes": "HWYLA-style overlay. Helps identify unknown fauna.",
+      "project_id": "nvQzSEkH",
+      "license": "CC-BY-NC-SA-4.0",
+      "modrinth_url": "https://modrinth.com/mod/jade",
+      "version_id": "xJQHCmWJ",
+      "version_number": "11.13.3+forge",
+      "version_date": "2026-07-21T11:08:31.396433Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "Jade-1.20.1-Forge-11.13.3.jar",
+      "url": "https://cdn.modrinth.com/data/nvQzSEkH/versions/xJQHCmWJ/Jade-1.20.1-Forge-11.13.3.jar",
+      "size": 553487,
+      "sha1": "d08e64e66521d69e083c8525f1fc507f1c202384",
+      "sha512": "72025c4ad6d26522bafe3d5d6ac9d4702c006a868312cb34df8a7a2398a4618205839607b129c167fd176e58cb7655f08e3afbf1993925c80d4fcc559c45a037",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "u6dRKJwZ",
+          "file_name": null,
+          "dependency_type": "optional"
+        }
+      ]
+    },
+    {
+      "slug": "cloth-config",
+      "title": "Cloth Config API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "cloth-config",
+      "project_id": "9s6osm5g",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/cloth-config",
+      "version_id": "t8TXrZvZ",
+      "version_number": "11.1.136+forge",
+      "version_date": "2024-09-16T17:13:50.725690Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "cloth-config-11.1.136-forge.jar",
+      "url": "https://cdn.modrinth.com/data/9s6osm5g/versions/t8TXrZvZ/cloth-config-11.1.136-forge.jar",
+      "size": 1181413,
+      "sha1": "c65d07748acc57ceb45d53b3964368b84f34d54f",
+      "sha512": "137c4af99c53d77317cbfb1cc8c49fc2761708b49d1992f51fd846960df41dde3a83519c987e081508d4ed90c603566f3d5a6cb620ad9d85b8f4de59aa9115ef",
+      "dependencies": []
+    },
+    {
+      "slug": "architectury-api",
+      "title": "Architectury API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "architectury-api",
+      "project_id": "lhGA9TYQ",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/architectury-api",
+      "version_id": "1MKTLiiG",
+      "version_number": "9.2.14+forge",
+      "version_date": "2024-02-26T13:19:00.816154Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "architectury-9.2.14-forge.jar",
+      "url": "https://cdn.modrinth.com/data/lhGA9TYQ/versions/1MKTLiiG/architectury-9.2.14-forge.jar",
+      "size": 580602,
+      "sha1": "a52918a500ff421180a1cbd1a0cabee712134ec4",
+      "sha512": "cf67f2050cafa00f0bee42e6d7bef77fdb808ac4f71742f7b4d6d5c1e6ffb49561a5a252f332d2b78a9767bdb5faa284611790dba303fbdc736ae36d794f61c7",
+      "dependencies": []
+    },
+    {
+      "slug": "geckolib",
+      "title": "GeckoLib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "geckolib",
+      "curseforge_id": 388172,
+      "notes": "Required by Jurassic Revived, Cataclysm, many creature mods.",
+      "project_id": "8BmcQJ2H",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/geckolib",
+      "version_id": "aC5KMoNg",
+      "version_number": "4.8.4",
+      "version_date": "2026-06-20T11:07:31.386330Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "geckolib-forge-1.20.1-4.8.4.jar",
+      "url": "https://cdn.modrinth.com/data/8BmcQJ2H/versions/aC5KMoNg/geckolib-forge-1.20.1-4.8.4.jar",
+      "size": 1038209,
+      "sha1": "50e1407869ef0e909e3bdda9328b8bd7db03fdc0",
+      "sha512": "443a321a293e3cb92fbbc3c97a38b179a45d1db703cd7bdb123270a9e04e7b7d67d5b06cd8e77a6d4d9139e033e901b9660cccf53ad5f9beaae6d06eae68febf",
+      "dependencies": []
+    },
+    {
+      "slug": "citadel",
+      "title": "Citadel",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "citadel",
+      "curseforge_id": 331936,
+      "notes": "Required by Alex's Mobs, Alex's Caves, Ice and Fire.",
+      "project_id": "jJfV67b1",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/citadel",
+      "version_id": "lTAAe4sZ",
+      "version_number": "2.6.3",
+      "version_date": "2026-01-17T18:17:35.005213Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "citadel-2.6.3-1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/jJfV67b1/versions/lTAAe4sZ/citadel-2.6.3-1.20.1.jar",
+      "size": 3185275,
+      "sha1": "fb0b1fa96ce28e4be77b38ad95d83c3da7ec8316",
+      "sha512": "42e3fa0ddefb1ebdbba4242d81caede834cd0bbd96e4e90b12b2157a5b07c68b625f64046de1f9e1ad4d6056d3536e17207be5f4b24960582052d713b13f22c0",
+      "dependencies": []
+    },
+    {
+      "slug": "curios",
+      "title": "Curios API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "curios",
+      "curseforge_id": 309927,
+      "project_id": "vvuO3ImH",
+      "license": "LGPL-3.0-or-later",
+      "modrinth_url": "https://modrinth.com/mod/curios",
+      "version_id": "IPQlZkz1",
+      "version_number": "5.14.1+1.20.1",
+      "version_date": "2025-04-13T13:09:28.168539Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "curios-forge-5.14.1+1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/vvuO3ImH/versions/IPQlZkz1/curios-forge-5.14.1%2B1.20.1.jar",
+      "size": 398066,
+      "sha1": "452175b95ad3db6ff58bb8968f6bf7a9d1e0f480",
+      "sha512": "1373f95fd111c977db2f6adcef8e4eb486a2d926a3e17374692dee4ac3d65857de6446c16922b531aa5ace2c23c666a7fcc28c720b2917c1e04808d15648ba87",
+      "dependencies": []
+    },
+    {
+      "slug": "playeranimator",
+      "title": "Player Animator",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "playeranimator",
+      "notes": "Required by Better Combat / some animation mods. Keep even if using Epic Fight.",
+      "project_id": "gedNE4y2",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/playeranimator",
+      "version_id": "xe2EVE6q",
+      "version_number": "1.0.2-rc1+1.20-forge",
+      "version_date": "2023-06-14T20:01:58.026800Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+      "url": "https://cdn.modrinth.com/data/gedNE4y2/versions/xe2EVE6q/player-animation-lib-forge-1.0.2-rc1%2B1.20.jar",
+      "size": 181437,
+      "sha1": "16808f94a41d45d8e986b4e4ea6b02ba57fa058a",
+      "sha512": "cb9f6a3aaa943823a85fdd716ddb3c7623af2b3520926c3a98d170c52d31908894808fb61c52bea39bae622dbab59d50b4bad56f7ca0533a9c3350d412c33729",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "aRnIEV0F",
+          "file_name": null,
+          "dependency_type": "optional"
+        }
+      ]
+    },
+    {
+      "slug": "kotlin-for-forge",
+      "title": "Kotlin for Forge",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "kotlin-for-forge",
+      "project_id": "ordsPcFz",
+      "license": "LGPL-2.1-only",
+      "modrinth_url": "https://modrinth.com/mod/kotlin-for-forge",
+      "version_id": "Zsh14XeQ",
+      "version_number": "4.12.0",
+      "version_date": "2025-12-03T19:48:01.561702Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.19.3",
+        "1.19.4",
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4"
+      ],
+      "filename": "kotlinforforge-4.12.0-all.jar",
+      "url": "https://cdn.modrinth.com/data/ordsPcFz/versions/Zsh14XeQ/kotlinforforge-4.12.0-all.jar",
+      "size": 7442998,
+      "sha1": "962fdb760409d6d71cbf079235f1ca94e3863a22",
+      "sha512": "767f40030ed4b370a3838fa65ae1b79974f31979342fff7cc834a0d5f39eb28612642519352ff2a1dd5226ce1f745f8b3156ee3625ffde01219137d064c1ee40",
+      "dependencies": []
+    },
+    {
+      "slug": "lionfish-api",
+      "title": "Lionfish API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "notes": "Required by L_Ender's Cataclysm.",
+      "project_id": "FoVacERa",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/lionfish-api",
+      "version_id": "CPftDBcY",
+      "version_number": "3.0",
+      "version_date": "2026-06-11T08:09:56.313734Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "lionfishapi-3.0.jar",
+      "url": "https://cdn.modrinth.com/data/FoVacERa/versions/CPftDBcY/lionfishapi-3.0.jar",
+      "size": 101931,
+      "sha1": "79d0404f87fa066480b18c844c1e0b1c5f5475f9",
+      "sha512": "a7cf6c9bf27a77b45efe434a166f9c99efdb6db14e5d88ce8417c6364aea9d250a9f43627e9e0ac162e106517fccf51cebb5035852c8449fb7fb299a083770c4",
+      "dependencies": []
+    },
+    {
+      "slug": "moonlight",
+      "title": "Moonlight Lib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "selene",
+      "notes": "Required by Supplementaries / Amendments.",
+      "project_id": "twkfQtEc",
+      "license": "LicenseRef-LGPL-with-additional-dependency-clause",
+      "modrinth_url": "https://modrinth.com/mod/moonlight",
+      "version_id": "43kjMXMx",
+      "version_number": "1.20-2.16.34-forge",
+      "version_date": "2026-06-16T21:20:49.479331Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "moonlight-1.20-2.16.34-forge.jar",
+      "url": "https://cdn.modrinth.com/data/twkfQtEc/versions/43kjMXMx/moonlight-1.20-2.16.34-forge.jar",
+      "size": 1419416,
+      "sha1": "5e20f2f0ce56a534accb32f80853d5a246599a4d",
+      "sha512": "a83c960d783314f1d423a16225f92835429e1276ae0549698cf3560afae8ba05a0c54694e048d3fc05188216414fb268838992e480648e1e568e58c29eb995da",
+      "dependencies": []
+    },
+    {
+      "slug": "puzzles-lib",
+      "title": "Puzzles Lib",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "puzzles-lib",
+      "project_id": "QAGBst4M",
+      "license": "MPL-2.0",
+      "modrinth_url": "https://modrinth.com/mod/puzzles-lib",
+      "version_id": "mIyVGf3d",
+      "version_number": "v8.1.33-1.20.1-Forge",
+      "version_date": "2025-08-23T12:27:37.945208Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
+      "url": "https://cdn.modrinth.com/data/QAGBst4M/versions/mIyVGf3d/PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
+      "size": 1342987,
+      "sha1": "285b7c7616971338ccbe0022c9ea0f8ad3036aaf",
+      "sha512": "4e0a6243f70a7f99bb631940bfeca49f31b13ec34f338d994fe129f0445e738ffd925e5c440f4e6bf822f9013bb8c2156de6dfcd62741d85c3ca3e8221d86a19",
+      "dependencies": []
+    },
+    {
+      "slug": "sophisticated-core",
+      "title": "Sophisticated Core",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "sophisticated-core",
+      "project_id": "nmoqTijg",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/sophisticated-core",
+      "version_id": "JGT2DD0v",
+      "version_number": "1.20.1-1.3.84.2308",
+      "version_date": "2026-08-22T08:36:19.052805Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "sophisticatedcore-1.20.1-1.3.84.2308.jar",
+      "url": "https://cdn.modrinth.com/data/nmoqTijg/versions/JGT2DD0v/sophisticatedcore-1.20.1-1.3.84.2308.jar",
+      "size": 1640160,
+      "sha1": "8aa610db0e761f2ea0f0d3c37c609347ddfae962",
+      "sha512": "f287c44700f38673e8691ca07a24ab579bcd72ce596950cbeb2d2566fda00069f7535c8deac06ae05bc92cba3efc75427822b7e3aacfdd6f166b18a3dc24d40e",
+      "dependencies": []
+    },
+    {
+      "slug": "yungs-api",
+      "title": "YUNG's API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "yungs-api",
+      "project_id": "Ua7DFN59",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/yungs-api",
+      "version_id": "PJOYAmAs",
+      "version_number": "1.20-Forge-4.0.6",
+      "version_date": "2024-09-30T06:13:58.953111Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "YungsApi-1.20-Forge-4.0.6.jar",
+      "url": "https://cdn.modrinth.com/data/Ua7DFN59/versions/PJOYAmAs/YungsApi-1.20-Forge-4.0.6.jar",
+      "size": 370524,
+      "sha1": "af584b690f5646c6032002b58abc4591beed3833",
+      "sha512": "7d83d94a90e55a712f6508485c044ff202916e9b9b9166b75177cb8f2eb919543bbbe1547d11c41cfd4763820f934235f47c0b26dd9e89bc1030954afa9fb889",
+      "dependencies": []
+    },
+    {
+      "slug": "embeddium",
+      "title": "Embeddium",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "embeddium",
+      "curseforge_id": 908741,
+      "notes": "Forge Sodium fork. Required with Oculus for shaders. Do not also install Rubidium/Sodium.",
+      "project_id": "sk9rgfiA",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/embeddium",
+      "version_id": "UTbfe5d1",
+      "version_number": "0.3.31+mc1.20.1",
+      "version_date": "2024-08-31T23:11:49.184634Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "embeddium-0.3.31+mc1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/sk9rgfiA/versions/UTbfe5d1/embeddium-0.3.31%2Bmc1.20.1.jar",
+      "size": 1320675,
+      "sha1": "bb2fa8f3e493af16af9160d049f96c614a1faf2f",
+      "sha512": "ffbf2da4685260a4d5c14c621708bd20722563f084f042d3dfb0a7b87f048e39299648c854a93939129da0d23a15a91ec628560d601e76074b08e275f6e132e9",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "S1tndFDa",
+          "file_name": null,
+          "dependency_type": "incompatible"
+        },
+        {
+          "version_id": null,
+          "project_id": "4ZqxOvjD",
+          "file_name": null,
+          "dependency_type": "incompatible"
+        }
+      ]
+    },
+    {
+      "slug": "oculus",
+      "title": "Oculus",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "oculus",
+      "curseforge_id": 581495,
+      "notes": "Iris port for Forge. Pairs with Embeddium.",
+      "project_id": "GchcoXML",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/oculus",
+      "version_id": "iQ1SwGc3",
+      "version_number": "1.20.1-1.8.0",
+      "version_date": "2024-12-24T23:33:42.216148Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "oculus-mc1.20.1-1.8.0.jar",
+      "url": "https://cdn.modrinth.com/data/GchcoXML/versions/iQ1SwGc3/oculus-mc1.20.1-1.8.0.jar",
+      "size": 2851119,
+      "sha1": "984f774e71790deaec674c7587bd24e0711871b2",
+      "sha512": "1bb4ac77400d6684347988ed298a692c2cb15cf7923693607eb8739b171a20fef7412259e9e157111d9ce21779badab386029956f7d2283a9e611722a373e9d5",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "sk9rgfiA",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "ferrite-core",
+      "title": "FerriteCore",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "ferritecore",
+      "project_id": "uXXizFIs",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/ferrite-core",
+      "version_id": "DG5Fn9Sz",
+      "version_number": "6.0.1",
+      "version_date": "2023-10-22T13:40:26.306516Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "ferritecore-6.0.1-forge.jar",
+      "url": "https://cdn.modrinth.com/data/uXXizFIs/versions/DG5Fn9Sz/ferritecore-6.0.1-forge.jar",
+      "size": 123034,
+      "sha1": "417fb6ce8f52abf40bd9d0390371790f9576f8ba",
+      "sha512": "a1960a7c03dc32d4ccaccaf28afdd9b078758bbd62d15a91d4039a83fa9397a098e89b69591f6bd5190254d9ee97e502504154b9aec764adb8c65f000b75ba2c",
+      "dependencies": []
+    },
+    {
+      "slug": "modernfix",
+      "title": "ModernFix",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "modernfix",
+      "project_id": "nmDcB62a",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/modernfix",
+      "version_id": "jAZ7Ge3d",
+      "version_number": "5.27.83+mc1.20.1",
+      "version_date": "2026-08-31T02:28:56.728812Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "modernfix-forge-5.27.83+mc1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/nmDcB62a/versions/jAZ7Ge3d/modernfix-forge-5.27.83%2Bmc1.20.1.jar",
+      "size": 1003230,
+      "sha1": "24109106b51846d387aa00c06d1445c35410c31c",
+      "sha512": "2987d43ab991c31c94e53d16fe0694dd29a405fc7cdf6be69f5bf5b3d6a06a5d1b82ba8f5d8ecb4df45e592c649e39bc69787caa62b3417b5548392793be6e55",
+      "dependencies": []
+    },
+    {
+      "slug": "entityculling",
+      "title": "Entity Culling",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "entityculling",
+      "project_id": "NNAgCjsB",
+      "license": "LicenseRef-tr7zw-Protective-License",
+      "modrinth_url": "https://modrinth.com/mod/entityculling",
+      "version_id": "MloBcsQQ",
+      "version_number": "1.10.5",
+      "version_date": "2026-06-20T14:41:39.040375Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "entityculling-forge-1.10.5-mc1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/NNAgCjsB/versions/MloBcsQQ/entityculling-forge-1.10.5-mc1.20.1.jar",
+      "size": 1590221,
+      "sha1": "b818f6d792b79f4ec116c89704e70292bd6f72b5",
+      "sha512": "00f4d6987a7902597e6e3f178f77308d795b2e1c46a2bfdad79f718e8a7417373971b83004cbbe491582d91d1658718187383a368a813af0266ba99804746814",
+      "dependencies": []
+    },
+    {
+      "slug": "appleskin",
+      "title": "AppleSkin",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "qol",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "appleskin",
+      "project_id": "EsAfCjCV",
+      "license": "Unlicense",
+      "modrinth_url": "https://modrinth.com/mod/appleskin",
+      "version_id": "XdXDExVF",
+      "version_number": "2.5.1+mc1.20.1",
+      "version_date": "2023-09-27T05:07:37.394825Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "appleskin-forge-mc1.20.1-2.5.1.jar",
+      "url": "https://cdn.modrinth.com/data/EsAfCjCV/versions/XdXDExVF/appleskin-forge-mc1.20.1-2.5.1.jar",
+      "size": 47428,
+      "sha1": "81919356f84eab14258db98924b66c3c38e372b1",
+      "sha512": "3176f928fb6c60d27f5edb610ca4ab0236175404eebf32797a1ec6cdd794bb294a260231579578536d03571377e43c6181adc75d8dd2c0733f17fce4f7e636b9",
+      "dependencies": []
+    },
+    {
+      "slug": "controlling",
+      "title": "Controlling",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "controlling",
+      "project_id": "xv94TkTM",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/controlling",
+      "version_id": "LH6Bi6Am",
+      "version_number": "12.0.2",
+      "version_date": "2023-07-16T04:39:30.644589Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "Controlling-forge-1.20.1-12.0.2.jar",
+      "url": "https://cdn.modrinth.com/data/xv94TkTM/versions/LH6Bi6Am/Controlling-forge-1.20.1-12.0.2.jar",
+      "size": 115280,
+      "sha1": "6195a3d1464f8fb641d7e165163aea1a857ce08e",
+      "sha512": "3945bf3f6d843957f13584dfc70bede253d1e48f0dcb96f647fbcc6fcd3d1748a0dd9c6ca5c882e07a41f98eb84057934f51e43ab6023ed0a19695de2e6fe9f5",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "fuuu3xnx",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "searchables",
+      "title": "Searchables",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "searchables",
+      "notes": "Dependency of Controlling on 1.20.1.",
+      "project_id": "fuuu3xnx",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/searchables",
+      "version_id": "PM9yAW1G",
+      "version_number": "1.0.3",
+      "version_date": "2024-04-23T06:56:56.381361Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "Searchables-forge-1.20.1-1.0.3.jar",
+      "url": "https://cdn.modrinth.com/data/fuuu3xnx/versions/PM9yAW1G/Searchables-forge-1.20.1-1.0.3.jar",
+      "size": 77732,
+      "sha1": "5b976f6e76ec74cdef21865e31f56bcb11558db7",
+      "sha512": "185617d6d446f3d4ef6c7d5c6ee4e2fb731a89f7495157313b21292ec6b8e3dbcc10c0379ab49ecb2d0c64d0a78df74750d7f7336d5e6c43516a7c92f278c0a2",
+      "dependencies": []
+    },
+    {
+      "slug": "mouse-tweaks",
+      "title": "Mouse Tweaks",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "mouse-tweaks",
+      "project_id": "aC3cM3Vq",
+      "license": "BSD-3-Clause",
+      "modrinth_url": "https://modrinth.com/mod/mouse-tweaks",
+      "version_id": "7JVXOe3K",
+      "version_number": "1.20.1-2.25.1-forge",
+      "version_date": "2024-05-12T16:27:50.280746Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "MouseTweaks-forge-mc1.20.1-2.25.1.jar",
+      "url": "https://cdn.modrinth.com/data/aC3cM3Vq/versions/7JVXOe3K/MouseTweaks-forge-mc1.20.1-2.25.1.jar",
+      "size": 76237,
+      "sha1": "d751153e722a4e014691c83f39f5b07c6ec5333c",
+      "sha512": "a3bb0272c0a1a3be9250dfee030bb8f86217fa6a32bd534be8c940fdd8c466c800c2df85874877983ced36ecfc28c8ced6c0d42107c1ab621385b4be9a7c65eb",
+      "dependencies": []
+    },
+    {
+      "slug": "carry-on",
+      "title": "Carry On",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "carry-on",
+      "notes": "Carry animals/chests \u2014 useful for relocating tames.",
+      "project_id": "joEfVgkn",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/carry-on",
+      "version_id": "edGQD16r",
+      "version_number": "2.1.2.7",
+      "version_date": "2023-11-19T22:29:28.090790Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "carryon-forge-1.20.1-2.1.2.7.jar",
+      "url": "https://cdn.modrinth.com/data/joEfVgkn/versions/edGQD16r/carryon-forge-1.20.1-2.1.2.7.jar",
+      "size": 439457,
+      "sha1": "9999714ca3dd2f2401f0396ca44f3b27c3784c4f",
+      "sha512": "4f75afb703dd71c322d4e2e27d28d7ab4afeb0c242bcee6d1eb5fef59ee4347352f1ca55f1826743957d2e95a951ed13884356485b0a979b14010915079e2c29",
+      "dependencies": []
+    },
+    {
+      "slug": "entitytexturefeatures",
+      "title": "Entity Texture Features",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "visual",
+      "include_in_default": true,
+      "curseforge_slug": "entity-texture-features-fabric",
+      "notes": "Enables Fresh Animations / emissive mob textures on Forge too.",
+      "project_id": "BVzZfTc1",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/entitytexturefeatures",
+      "version_id": "GQlTHleX",
+      "version_number": "7.1-forge-1.20.1",
+      "version_date": "2026-04-15T13:06:17.178904Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "entity_texture_features_1.20.1-forge-7.1.jar",
+      "url": "https://cdn.modrinth.com/data/BVzZfTc1/versions/GQlTHleX/entity_texture_features_1.20.1-forge-7.1.jar",
+      "size": 944851,
+      "sha1": "e13ba95a0388d7d5b1f479e5bd7e2df78e4c4a23",
+      "sha512": "0857b572a8695148f72eb9edc6218039ceeab8d11068fdfb567a5b1182232d7500ccccd75d6223b96ec5a5a1123910a6ebb1d9e8c8988d3cdb989797b9cc2228",
+      "dependencies": []
+    },
+    {
+      "slug": "entity-model-features",
+      "title": "Entity Model Features",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "visual",
+      "include_in_default": true,
+      "notes": "Companion to ETF for Fresh Animations.",
+      "project_id": "4I1XuqiY",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/entity-model-features",
+      "version_id": "VSBDdOOY",
+      "version_number": "3.2.4-forge-1.20.1",
+      "version_date": "2026-05-09T15:21:40.209291Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "entity_model_features-3.2.4-1.20.1-forge.jar",
+      "url": "https://cdn.modrinth.com/data/4I1XuqiY/versions/VSBDdOOY/entity_model_features-3.2.4-1.20.1-forge.jar",
+      "size": 752458,
+      "sha1": "535a94543d295f9609808a7e3e205d17547570bc",
+      "sha512": "77ca53e926822faa5069d3698618c5ee5cd01c6154e383820a989e15a0ad135ebf63c741137a39559f80b62a8a860487058ed168c25a4d840e84b248d4afa7a7",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "BVzZfTc1",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "fossils-and-archeology-revival",
+      "title": "Fossils and Archeology: Revival",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "creatures",
+      "include_in_default": true,
+      "curseforge_slug": "fossils",
+      "curseforge_id": 223908,
+      "notes": "Primary Ark-like loop: fossils, DNA, embryos, taming/riding. Do not also enable Jurassic Revived or Jurassic Reborn.",
+      "project_id": "IJY7IqPP",
+      "license": "LicenseRef-FA-License",
+      "modrinth_url": "https://modrinth.com/mod/fossils-and-archeology-revival",
+      "version_id": "ChiOT0xS",
+      "version_number": "1.20.1-9.3.4.0-forge",
+      "version_date": "2026-06-08T17:48:22.713827Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "fossil-forge-1.20.1-9.3.4.0.jar",
+      "url": "https://cdn.modrinth.com/data/IJY7IqPP/versions/ChiOT0xS/fossil-forge-1.20.1-9.3.4.0.jar",
+      "size": 29642542,
+      "sha1": "4703df8bb0ef567350a865d94b902f5e3cbb12c5",
+      "sha512": "e3f4b813b0c389a1f58079fe62285ac3d036956e6296f5c08361bb2d70ca445b6b09750ff6b00e4b36512c3423f206be933d47fe292b2d5e1389ff31372e5fae",
+      "dependencies": [
+        {
+          "version_id": "M4VvMcZQ",
+          "project_id": "BOVAW87Z",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "kkmrDlKT",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "8BmcQJ2H",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "lhGA9TYQ",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "alexs-mobs",
+      "title": "Alex's Mobs",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "creatures",
+      "include_in_default": true,
+      "curseforge_slug": "alexs-mobs",
+      "notes": "Living-world fauna. Citadel required. Last 1.20.1 file Sep 2024 \u2014 still the standard.",
+      "project_id": "2cMuAZAp",
+      "license": "GPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/alexs-mobs",
+      "version_id": "XoIASRVU",
+      "version_number": "1.22.9",
+      "version_date": "2024-09-06T21:39:41.100913Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "alexsmobs-1.22.9.jar",
+      "url": "https://cdn.modrinth.com/data/2cMuAZAp/versions/XoIASRVU/alexsmobs-1.22.9.jar",
+      "size": 26350793,
+      "sha1": "dbf93d2f1da19e16739e91e8ea0fc6f4bc2f228f",
+      "sha512": "b50280057926d750f9ffbf6a8df36deb37529356895f6bf59f25d272ecf69afccec65ec1a5c3a8bfad24f9475c15b93c5ec4666447b1fce26a90c41445bbfb04",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "jJfV67b1",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "alexs-caves",
+      "title": "Alex's Caves",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "alexs-caves",
+      "curseforge_id": 924854,
+      "notes": "Alien/xeno cave biomes without GW IP. Citadel required.",
+      "project_id": "U6GY0xp0",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/alexs-caves",
+      "version_id": "lC8HHXOF",
+      "version_number": "2.0.2",
+      "version_date": "2024-10-26T17:20:17.825067Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "alexscaves-2.0.2.jar",
+      "url": "https://cdn.modrinth.com/data/U6GY0xp0/versions/lC8HHXOF/alexscaves-2.0.2.jar",
+      "size": 74871657,
+      "sha1": "a1e5c7b7c7eadda4c8e954acbcbaf75a7b500d53",
+      "sha512": "d23092cf507f4cf66ead45d7b393393ea83a9002056962ee6c341e91323ae39e10f2aefbbbc9f5e54409eb3ee522ad0c2dd5661077b09f1e37d034cfdd4333a0",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "jJfV67b1",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "tameable-beasts",
+      "title": "Tameable Beasts",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "taming",
+      "include_in_default": true,
+      "curseforge_slug": "tameable-beasts",
+      "curseforge_id": 646425,
+      "notes": "Expands taming/riding. Configure so it does not trivialize Fossils dinos.",
+      "project_id": "IOZULlo2",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/tameable-beasts",
+      "version_id": "owLHRsun",
+      "version_number": "1.20.1-7.1.3",
+      "version_date": "2026-01-02T13:15:45.465339Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "tameablebeasts-1.20.1-7.1.3.jar",
+      "url": "https://cdn.modrinth.com/data/IOZULlo2/versions/owLHRsun/tameablebeasts-1.20.1-7.1.3.jar",
+      "size": 1798574,
+      "sha1": "8f00b42a60985b181ab034ab72937ef20c1fb62b",
+      "sha512": "e285736d4588784fec5d97063d5ddf554bf3fd69df6947343cea7957439b93cb99d293bc24230da6857fa23b1a3cf90c25b699d943b3b4413494757dcee0767c",
+      "dependencies": []
+    },
+    {
+      "slug": "borninchaos",
+      "title": "Born in Chaos",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "grimdark",
+      "include_in_default": true,
+      "curseforge_slug": "born-in-chaos",
+      "curseforge_id": 686437,
+      "notes": "Hostile grimdark mobs/structures. Original IP.",
+      "project_id": "1kcHy4de",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/borninchaos",
+      "version_id": "8wmEhUSt",
+      "version_number": "1.7.5",
+      "version_date": "2026-04-12T21:21:43.162788Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "born_in_chaos_[Forge]1.20.1_1.7.5.jar",
+      "url": "https://cdn.modrinth.com/data/1kcHy4de/versions/8wmEhUSt/born_in_chaos_%5BForge%5D1.20.1_1.7.5.jar",
+      "size": 11839865,
+      "sha1": "4d616e1ccef4c55e14b04ca63228d826f4fdda5e",
+      "sha512": "8b889b43dcbdb4882a4144d41b49f7e14f567abe24041cc9577082fa6f653795796966d203bb2870c55419ee24aaa15a743ae17dc515a33d24e60f3619f5a27f",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "5sy6g3kz",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "u6dRKJwZ",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "8BmcQJ2H",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "l_enders-cataclysm",
+      "title": "L_Ender's Cataclysm",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "grimdark",
+      "include_in_default": true,
+      "curseforge_slug": "lendercataclysm",
+      "curseforge_id": 551586,
+      "notes": "Boss fauna (Leviathan, Ancient Remnant, etc.) as Carnifex/greater-daemon analogues. Lionfish API + Curios + GeckoLib.",
+      "project_id": "46KJle7n",
+      "license": "CC-BY-NC-ND-4.0",
+      "modrinth_url": "https://modrinth.com/mod/l_enders-cataclysm",
+      "version_id": "C3H0azzB",
+      "version_number": "3.31",
+      "version_date": "2026-06-14T07:44:06.024911Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "L_Enders_Cataclysm-3.31.jar",
+      "url": "https://cdn.modrinth.com/data/46KJle7n/versions/C3H0azzB/L_Enders_Cataclysm-3.31.jar",
+      "size": 73916104,
+      "sha1": "4f1165cb39521292e826b471b4808bb89f0f4f3f",
+      "sha512": "0dccedd79e3e555f5a38075612d91aec23e1f6ca674e7637ea88c669095b44554385abb75826dfa5a0170585c6b3c3b6d9465bed049c0186d80f75d88f45c5e8",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "FoVacERa",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "vvuO3ImH",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "epic-fight",
+      "title": "Epic Fight",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "combat",
+      "include_in_default": true,
+      "curseforge_slug": "epic-fight-mod",
+      "curseforge_id": 405076,
+      "notes": "Souls-like melee. Forge/NeoForge only. Do not stack Better Combat unless you add a compat mod.",
+      "project_id": "vu3NZ5Ma",
+      "license": "GPL-3.0-or-later",
+      "modrinth_url": "https://modrinth.com/mod/epic-fight",
+      "version_id": "KEBfkBat",
+      "version_number": "20.14.17-mc1.20.1-forge",
+      "version_date": "2026-05-06T21:02:13.293854Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "epic-fight-20.14.17-mc1.20.1-forge.jar",
+      "url": "https://cdn.modrinth.com/data/vu3NZ5Ma/versions/KEBfkBat/epic-fight-20.14.17-mc1.20.1-forge.jar",
+      "size": 8071119,
+      "sha1": "faa8eddad9d80adb9c4ba81fd0a8a21c81989d3d",
+      "sha512": "cfb8ab5c6f2014ce10dae59947f9f4e35e7bbe88c2ffbb66da9bfe78876d7a0a65de843a62e324971d5a923ec6e96d9b7e5c72248a262a6e220a071c6d05a8cf",
+      "dependencies": []
+    },
+    {
+      "slug": "simply-swords",
+      "title": "Simply Swords",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "combat",
+      "include_in_default": true,
+      "curseforge_slug": "simply-swords",
+      "curseforge_id": 659887,
+      "notes": "Weapon variety for gothic/fantasy warhammer feel. Original designs.",
+      "project_id": "bK3Ubu9p",
+      "license": "LicenseRef-Custom",
+      "modrinth_url": "https://modrinth.com/mod/simply-swords",
+      "version_id": "Na6e94J1",
+      "version_number": "1.70.2-1.20.1",
+      "version_date": "2026-08-27T11:57:05.309708Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "simplyswords-forge-neoforge-1.70.2-1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/bK3Ubu9p/versions/Na6e94J1/simplyswords-forge-neoforge-1.70.2-1.20.1.jar",
+      "size": 15765792,
+      "sha1": "7e8b9cc255f57df9ed00b507435308d600aebc24",
+      "sha512": "f4ba377dc5a3cfa99859933c45746f2c730e5fa2b7a0af40fc3b93a396fa3f671799231af0286e9766e5629a334105f1ede63668a3aa9fff72fbf5f97a76ac61",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "hYykXjDp",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "5sy6g3kz",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "lhGA9TYQ",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "6avVoBVB",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "timeless-and-classics-zero",
+      "title": "TaCZ (Timeless and Classics Zero)",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "combat",
+      "include_in_default": true,
+      "curseforge_slug": "timeless-and-classics-zero",
+      "curseforge_id": 1028108,
+      "notes": "Gun framework for bolter-feel. Use original gunpacks \u2014 do not install tacz40k (GW IP).",
+      "project_id": "SzzJttH8",
+      "license": "GPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/timeless-and-classics-zero",
+      "version_id": "yOVIzIJR",
+      "version_number": "1.1.8-hotfix",
+      "version_date": "2026-05-25T01:39:24.425785Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "tacz-1.20.1-1.1.8-hotfix.jar",
+      "url": "https://cdn.modrinth.com/data/SzzJttH8/versions/yOVIzIJR/tacz-1.20.1-1.1.8-hotfix.jar",
+      "size": 57465167,
+      "sha1": "bddafeea4c9c1132ed720c30fbaedfe5ab25e846",
+      "sha512": "bf35bd51dfe39fdffc3f4f7b6695e85348b64807e2977bca813decdfbe4c2d7cd5e15c437e42a012aaa067e271b02cd92f3d32e4fa08d36fedc141e668a115c6",
+      "dependencies": []
+    },
+    {
+      "slug": "legendary-survival-overhaul",
+      "title": "Legendary Survival Overhaul",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "survival",
+      "include_in_default": true,
+      "curseforge_slug": "legendary-survival-overhaul",
+      "curseforge_id": 840254,
+      "notes": "Thirst, temperature, body health. Do not also install Tough As Nails, Cold Sweat, or Thirst Was Taken.",
+      "project_id": "TQr3t8Sb",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/legendary-survival-overhaul",
+      "version_id": "BsBOQNzX",
+      "version_number": "1.20.1-2.4.7",
+      "version_date": "2026-08-09T03:22:39.514112Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "legendarysurvivaloverhaul-1.20.1-2.4.7.jar",
+      "url": "https://cdn.modrinth.com/data/TQr3t8Sb/versions/BsBOQNzX/legendarysurvivaloverhaul-1.20.1-2.4.7.jar",
+      "size": 3751172,
+      "sha1": "f92ec8698f4aa48807b01ccfddf4b379cbc9d1e6",
+      "sha512": "3727b4254f8610292cf2f878d0e3284b34c08d3b1e22cb12d83f98fa8e19d3ab96d198bf7576fbcdebf429bae6bd4c8c650fd6924fd2b046b278e16d33296703",
+      "dependencies": []
+    },
+    {
+      "slug": "serene-seasons",
+      "title": "Serene Seasons",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "survival",
+      "include_in_default": true,
+      "curseforge_slug": "serene-seasons",
+      "curseforge_id": 291874,
+      "notes": "Seasons feed LSO temperature. Crop windows = Ark-like climate pressure.",
+      "project_id": "e0bNACJD",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/serene-seasons",
+      "version_id": "WMrhrybF",
+      "version_number": "9.1.0.3",
+      "version_date": "2026-06-14T11:04:51.638824Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "SereneSeasons-forge-1.20.1-9.1.0.3.jar",
+      "url": "https://cdn.modrinth.com/data/e0bNACJD/versions/WMrhrybF/SereneSeasons-forge-1.20.1-9.1.0.3.jar",
+      "size": 160886,
+      "sha1": "aaf4fb2289c085f758032dc0537ba40f10f3df89",
+      "sha512": "038af92c577c3cf71a4cfd2a388641c7b942bee61f47982e269395eb46147083f5e492f83829ab4af6d95a7b8a7c926a6250539ff1a52d6c30970f544dc4873b",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "s3dmwKy5",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "farmers-delight",
+      "title": "Farmer's Delight",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "survival",
+      "include_in_default": true,
+      "curseforge_slug": "farmers-delight",
+      "curseforge_id": 398521,
+      "project_id": "R2OftAxM",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/farmers-delight",
+      "version_id": "SiIpcZzM",
+      "version_number": "1.20.1-1.3.4",
+      "version_date": "2026-08-29T23:19:47.678159Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "FarmersDelight-1.20.1-1.3.4.jar",
+      "url": "https://cdn.modrinth.com/data/R2OftAxM/versions/SiIpcZzM/FarmersDelight-1.20.1-1.3.4.jar",
+      "size": 3311051,
+      "sha1": "26f615fd35f652021f5b0f1cba68afa7d578fe15",
+      "sha512": "932ae0ab95fa0755bb5a79fbf1d1e31d0e86f3c0f5186796ed06973a3019a618ee8c66a4eae5b901909aed6232abb2bd3b1ff0e1905f74fc70644fada94a80b5",
+      "dependencies": []
+    },
+    {
+      "slug": "open-parties-and-claims",
+      "title": "Open Parties and Claims",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "tribes",
+      "include_in_default": true,
+      "curseforge_slug": "open-parties-and-claims",
+      "curseforge_id": 636608,
+      "notes": "Ark tribe analogue: parties + land claims. Prefer this over stacking FTB Teams+Chunks unless you need FTB Quests.",
+      "project_id": "gF3BGWvG",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/open-parties-and-claims",
+      "version_id": "KlMaZyyE",
+      "version_number": "forge-1.20.1-0.30.3",
+      "version_date": "2026-08-20T11:17:51.414128Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "open-parties-and-claims-forge-1.20.1-0.30.3.jar",
+      "url": "https://cdn.modrinth.com/data/gF3BGWvG/versions/KlMaZyyE/open-parties-and-claims-forge-1.20.1-0.30.3.jar",
+      "size": 1825885,
+      "sha1": "31d3f4c649512eedf394652797e8a4183b82c7e6",
+      "sha512": "5daf4e6daa3b5051b3b458902d1cfa2d263ccc643c52e092004975de045b9e87e614f64a8dcaae15d5a292f1e9985e53f74f21e9c0105c65147c01ee86261a43",
+      "dependencies": []
+    },
+    {
+      "slug": "when-dungeons-arise",
+      "title": "When Dungeons Arise",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "when-dungeons-arise",
+      "notes": "Large gothic/imperial ruin structures.",
+      "project_id": "8DfbfASn",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/when-dungeons-arise",
+      "version_id": "6hQpx5Tc",
+      "version_number": "2.1.58-1.20.x",
+      "version_date": "2025-06-07T21:01:56.772313Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6"
+      ],
+      "filename": "DungeonsArise-1.20.x-2.1.58-release.jar",
+      "url": "https://cdn.modrinth.com/data/8DfbfASn/versions/6hQpx5Tc/DungeonsArise-1.20.x-2.1.58-release.jar",
+      "size": 8762342,
+      "sha1": "30b4520e4fab40a6bb6153a2c72e34bcb721f0a5",
+      "sha512": "021bc9558af43492c45c05874fa9f2e87f1e90298b70681f8d3b845716d29b4a5eae57d06c3c4308fd7d7cd45194dea513e78c891d1f546a8f5474acc204153d",
+      "dependencies": []
+    },
+    {
+      "slug": "terralith",
+      "title": "Terralith",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "terralith",
+      "curseforge_id": 513688,
+      "notes": "Primary biome overhaul. Do not also enable Biomes O' Plenty or Oh The Biomes We've Gone in v0.1.",
+      "project_id": "8oi3bsk5",
+      "license": "LicenseRef-Stardust-Labs-License",
+      "modrinth_url": "https://modrinth.com/mod/terralith",
+      "version_id": "WeYhEb5d",
+      "version_number": "2.5.4",
+      "version_date": "2024-07-07T22:15:51.167522Z",
+      "loaders": [
+        "fabric",
+        "forge",
+        "neoforge",
+        "quilt"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6"
+      ],
+      "filename": "Terralith_1.20.x_v2.5.4.jar",
+      "url": "https://cdn.modrinth.com/data/8oi3bsk5/versions/WeYhEb5d/Terralith_1.20.x_v2.5.4.jar",
+      "size": 3156901,
+      "sha1": "79e1409b8db4ce86df9d6d6730f09c4bd8860a30",
+      "sha512": "885e171d8b34aae7e142f082d0364285ec5a8e8342f11c60d341f7a94083d5a42c4e30612fe4f9f64d57b484396a3dff3a224e2a2497d4ced8d22f2ad6cd561d",
+      "dependencies": []
+    },
+    {
+      "slug": "create",
+      "title": "Create",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "create",
+      "curseforge_id": 328085,
+      "notes": "Gothic-industrial factories. Create 6.x bundles Flywheel \u2014 do not install legacy Flywheel.",
+      "project_id": "LNytGWDc",
+      "license": "LicenseRef-Create-Mod-License",
+      "modrinth_url": "https://modrinth.com/mod/create",
+      "version_id": "8amzvn9x",
+      "version_number": "mc1.20.1-6.0.8",
+      "version_date": "2025-11-02T16:10:25.364809Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "create-1.20.1-6.0.8.jar",
+      "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/8amzvn9x/create-1.20.1-6.0.8.jar",
+      "size": 19170905,
+      "sha1": "b13d912b9247a38d66d11598c121442585a1c1e9",
+      "sha512": "5b51f5d31437d9bfbf221b67459abd87260d284874e1e23b7ed1d522b23a48059a3b1d2c1c541428da35dc6be15561b4f3c7f36aac6df3a0e8db6a278f6b0316",
+      "dependencies": []
+    },
+    {
+      "slug": "supplementaries",
+      "title": "Supplementaries",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "supplementaries",
+      "notes": "Decorative/functional blocks. Needs Moonlight Lib.",
+      "project_id": "fFEIiSDQ",
+      "license": "LicenseRef-Supplementaries-Team-License",
+      "modrinth_url": "https://modrinth.com/mod/supplementaries",
+      "version_id": "S0TIJ1hU",
+      "version_number": "1.20-3.1.43-forge",
+      "version_date": "2026-04-06T12:12:16.092272Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "supplementaries-1.20-3.1.43-forge.jar",
+      "url": "https://cdn.modrinth.com/data/fFEIiSDQ/versions/S0TIJ1hU/supplementaries-1.20-3.1.43-forge.jar",
+      "size": 13667742,
+      "sha1": "326d65a29981de28016e3828370d68a8f63e1798",
+      "sha512": "70faa19266ffd70787f6484aa1ab5cbea69c9f39af36faebb6534eeb2123e333c5b39df06a151b52d78d701a037a36adc53eb5aa51a6710096e6ee216b45d59c",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "twkfQtEc",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "amendments",
+      "title": "Amendments",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "amendments",
+      "project_id": "6iTJugQR",
+      "license": "LicenseRef-Supplementaries-Team-License-1.1",
+      "modrinth_url": "https://modrinth.com/mod/amendments",
+      "version_id": "nJORWvdh",
+      "version_number": "1.20-2.2.6",
+      "version_date": "2026-08-15T21:11:24.478820Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "amendments-1.20-2.2.6.jar",
+      "url": "https://cdn.modrinth.com/data/6iTJugQR/versions/nJORWvdh/amendments-1.20-2.2.6.jar",
+      "size": 1315525,
+      "sha1": "dc79f8c5326b059c8f136765b4bca826147cf2d7",
+      "sha512": "7d35e27c65d721011cf9d1b42e37630e4bb8eddf87da4d4344ecb1cc86596ae8f7fb8c942a327c7af0f2c4d1d8a6f77ea55a93d8731295cef837e55a8bdb8503",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "twkfQtEc",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "chipped",
+      "title": "Chipped",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "chipped",
+      "notes": "Block variants for gothic masonry.",
+      "project_id": "BAscRYKm",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/chipped",
+      "version_id": "pi3f4er3",
+      "version_number": "3.0.7",
+      "version_date": "2024-10-15T01:04:21.377236Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "chipped-forge-1.20.1-3.0.7.jar",
+      "url": "https://cdn.modrinth.com/data/BAscRYKm/versions/pi3f4er3/chipped-forge-1.20.1-3.0.7.jar",
+      "size": 15060263,
+      "sha1": "25ee2a0846059d8f21d28b94b7e0229b60cb5499",
+      "sha512": "be1871655e213cf488d5049058200e03655f63b5922b6031af142d79d8958dca6653e7fa501f1aa2fda5544ad44a4f593521a7927a516e99579406a23a187045",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "G1hIVOrD",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "b1ZV3DIJ",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "architects-palette",
+      "title": "Architect's Palette",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "architects-palette",
+      "project_id": "vt0VyseM",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/architects-palette",
+      "version_id": "bZg21BDb",
+      "version_number": "1.3.6.1",
+      "version_date": "2024-01-26T10:58:55.538756Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "Architects-Palette-1.20.1-1.3.6.1.jar",
+      "url": "https://cdn.modrinth.com/data/vt0VyseM/versions/bZg21BDb/Architects-Palette-1.20.1-1.3.6.1.jar",
+      "size": 2538637,
+      "sha1": "a8f4ca56f23007ad3a34d9fcbda2f241d86c314b",
+      "sha512": "13bbbe62cd4707123ffbfb925ddc852211cecfc3cc1343a2f8b49e77ea6068d114ce641bb4f15bf0c70b52625a2dc8237b5cff717ea720a9dd277c592d9ae94d",
+      "dependencies": []
+    },
+    {
+      "slug": "malum",
+      "title": "Malum",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "grimdark",
+      "include_in_default": true,
+      "curseforge_slug": "malum",
+      "notes": "Spirit/warp-adjacent magic without GW names. Optional if you want less magic.",
+      "project_id": "jgzwYsAN",
+      "license": "LGPL-3.0-or-later",
+      "modrinth_url": "https://modrinth.com/mod/malum",
+      "version_id": "U88VbrNU",
+      "version_number": "1.20.1-1.6.7",
+      "version_date": "2025-06-13T06:58:46.282050Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "malum-1.20.1-1.6.7.jar",
+      "url": "https://cdn.modrinth.com/data/jgzwYsAN/versions/U88VbrNU/malum-1.20.1-1.6.7.jar",
+      "size": 26296223,
+      "sha1": "ecf1d9a6e4e69119f9583f90b9587107a75d8195",
+      "sha512": "76b3a9d6fad5a4f0e1a24dd4ff40b3215b78319373f5b3ed7261570f2ae22c3601dd873907356476a03e10104669194c9fdb693ef7643edccd6062c97083cd2b",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "bN3xUWdo",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "vvuO3ImH",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "enhanced-celestials",
+      "title": "Enhanced Celestials",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "grimdark",
+      "include_in_default": true,
+      "curseforge_slug": "enhanced-celestials",
+      "notes": "Blood moons as warp-tide analogue.",
+      "project_id": "2rL16t1O",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/enhanced-celestials",
+      "version_id": "FU1k4KeY",
+      "version_number": "1.20.1-5.0.3.3-forge",
+      "version_date": "2026-08-07T03:07:26.706163Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "Enhanced-Celestials-forge-1.20.1-5.0.3.3.jar",
+      "url": "https://cdn.modrinth.com/data/2rL16t1O/versions/FU1k4KeY/Enhanced-Celestials-forge-1.20.1-5.0.3.3.jar",
+      "size": 1638200,
+      "sha1": "3a7ac29b6e3561b34fd68d9c140de89319462213",
+      "sha512": "29f2d480fad633b6ea2d5b0910ba320a646ec5aa0fd241e68fa89e5e3278703bd6a2f47f0dc9c130d4077ee7f44f5336f8db43db131ee49e0bd804019c0aa384",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "z2XEADmE",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "ziOp6EO8",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "yungs-better-dungeons",
+      "title": "YUNG's Better Dungeons",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "yungs-better-dungeons",
+      "project_id": "o1C1Dkj5",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/yungs-better-dungeons",
+      "version_id": "kPiQ6v4q",
+      "version_number": "1.20-Forge-4.0.4",
+      "version_date": "2024-04-18T05:10:19.907545Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "YungsBetterDungeons-1.20-Forge-4.0.4.jar",
+      "url": "https://cdn.modrinth.com/data/o1C1Dkj5/versions/kPiQ6v4q/YungsBetterDungeons-1.20-Forge-4.0.4.jar",
+      "size": 792381,
+      "sha1": "67a9e1c2ff126ab54cea8e0709d178915243039e",
+      "sha512": "56bd11a7aca3bacb908381a668af8f5b574c5557c21370ace783d637c949802187110a4f5dc26afae4d9af74cdf64cee81d59fac3513a9bec3f921193fc938b8",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "Ua7DFN59",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "yungs-better-nether-fortresses",
+      "title": "YUNG's Better Nether Fortresses",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "yungs-better-nether-fortresses",
+      "project_id": "Z2mXHnxP",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/yungs-better-nether-fortresses",
+      "version_id": "2nUEz0zq",
+      "version_number": "1.20-Forge-2.0.6",
+      "version_date": "2024-03-18T23:17:12.110689Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "YungsBetterNetherFortresses-1.20-Forge-2.0.6.jar",
+      "url": "https://cdn.modrinth.com/data/Z2mXHnxP/versions/2nUEz0zq/YungsBetterNetherFortresses-1.20-Forge-2.0.6.jar",
+      "size": 619255,
+      "sha1": "889cd16a93764d1d6af2e2dda5bbc286a2683e7a",
+      "sha512": "bceefeaf84dffd7386a61118d6b1c6c2107e17e7a8f4340eff2c1f0234dba0e6d8f43903521d5a70334362ab6e4069788e5b29cf42d8ee9cd4f2a98feb64112b",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "Ua7DFN59",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "yungs-better-strongholds",
+      "title": "YUNG's Better Strongholds",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "yungs-better-strongholds",
+      "project_id": "kidLKymU",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/yungs-better-strongholds",
+      "version_id": "rwiShgsc",
+      "version_number": "1.20-Forge-4.0.3",
+      "version_date": "2023-09-25T20:59:29.408825Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "YungsBetterStrongholds-1.20-Forge-4.0.3.jar",
+      "url": "https://cdn.modrinth.com/data/kidLKymU/versions/rwiShgsc/YungsBetterStrongholds-1.20-Forge-4.0.3.jar",
+      "size": 473564,
+      "sha1": "3730238c56edca4bb5b2238e1314aec572ced385",
+      "sha512": "7fbb51f761ca1a514ce95e9967bcc93c09766a8929f19029390d46b18d7e876c4354d11350a5f8410dc28e485680f4eaf1019e4bd074cff34e8cfc5b232480d4",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "Ua7DFN59",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "towns-and-towers",
+      "title": "Towns and Towers",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "towns-and-towers",
+      "project_id": "DjLobEOy",
+      "license": "CC-BY-NC-SA-4.0",
+      "modrinth_url": "https://modrinth.com/mod/towns-and-towers",
+      "version_id": "7ZwnSrVW",
+      "version_number": "1.12",
+      "version_date": "2023-12-03T19:18:27.477830Z",
+      "loaders": [
+        "fabric",
+        "forge"
+      ],
+      "game_versions": [
+        "1.19.3",
+        "1.19.4",
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.4"
+      ],
+      "filename": "Towns-and-Towers-1.12-Fabric+Forge.jar",
+      "url": "https://cdn.modrinth.com/data/DjLobEOy/versions/7ZwnSrVW/Towns-and-Towers-1.12-Fabric%2BForge.jar",
+      "size": 2864275,
+      "sha1": "5a28ec56457cf1bf154e993cf73dba0428a7921b",
+      "sha512": "ed734046c356bb996b628c2e0c47e64ba598c87016591fd77533069de68f27b8bfdcd2173d7d3db97f1981ebb806133c3d1751c330d539ade3d6c37ed2d5598f",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "cl223EMc",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "structory",
+      "title": "Structory",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "structory",
+      "project_id": "aKCwCJlY",
+      "license": "LicenseRef-Stardust-Labs-License",
+      "modrinth_url": "https://modrinth.com/mod/structory",
+      "version_id": "FkaSuQb0",
+      "version_number": "1.3.5",
+      "version_date": "2024-09-16T10:34:00.739293Z",
+      "loaders": [
+        "fabric",
+        "forge",
+        "neoforge",
+        "quilt"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6"
+      ],
+      "filename": "Structory_1.20.x_v1.3.5.jar",
+      "url": "https://cdn.modrinth.com/data/aKCwCJlY/versions/FkaSuQb0/Structory_1.20.x_v1.3.5.jar",
+      "size": 1286462,
+      "sha1": "4196a2fa68f755b46616f4071e84c72ec4d6dacc",
+      "sha512": "2239b6232b32b1358f56c8095b855b7ad3032cc872e2089359682b31dc16b7cad316ba601bfcfe314ab32a51f26cb5a4eb12d27d62a8c879eeda45a251d5839a",
+      "dependencies": []
+    },
+    {
+      "slug": "explorify",
+      "title": "Explorify",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "explorify",
+      "project_id": "HSfsxuTo",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/explorify",
+      "version_id": "CuBdAr31",
+      "version_number": "v1.6.5",
+      "version_date": "2026-05-13T14:00:26.385835Z",
+      "loaders": [
+        "fabric",
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6",
+        "1.21",
+        "1.21.1",
+        "1.21.2",
+        "1.21.3",
+        "1.21.4",
+        "1.21.5",
+        "1.21.6",
+        "1.21.7",
+        "1.21.8",
+        "1.21.9",
+        "1.21.10",
+        "1.21.11",
+        "26.1",
+        "26.1.1",
+        "26.1.2",
+        "26.2"
+      ],
+      "filename": "Explorify v1.6.5.mod.jar",
+      "url": "https://cdn.modrinth.com/data/HSfsxuTo/versions/CuBdAr31/Explorify%20v1.6.5.mod.jar",
+      "size": 767884,
+      "sha1": "5fb28be29200a41b034e423d87823eb19ad651cd",
+      "sha512": "9b22adeb1952ec25856e160b93aaa41934fd41e8d1aef985317cb2c9d64aae1012e134e23f52ba39fac3a98b3309b60f0b55b98a4db4de1731960b998117c83e",
+      "dependencies": []
+    },
+    {
+      "slug": "macaws-windows",
+      "title": "Macaw's Windows",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "macaws-windows",
+      "project_id": "C7I0BCni",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/macaws-windows",
+      "version_id": "SSIlzrPf",
+      "version_number": "2.4.2",
+      "version_date": "2025-12-10T21:43:27.750096Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "mcw-mcwwindows-2.4.2-mc1.20.1forge.jar",
+      "url": "https://cdn.modrinth.com/data/C7I0BCni/versions/SSIlzrPf/mcw-mcwwindows-2.4.2-mc1.20.1forge.jar",
+      "size": 1320692,
+      "sha1": "214da89b2153d496343bde8626283975e358edbd",
+      "sha512": "904a1aba082944f14dd012704b5867e1da2ba51e0139c209c7dcd0303bb170f05d78626027dceec2a2d6cf607f6f1324646637d32d12bc085617d9e60fd9072c",
+      "dependencies": []
+    },
+    {
+      "slug": "macaws-roofs",
+      "title": "Macaw's Roofs",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "macaws-roofs",
+      "project_id": "B8jaH3P1",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/macaws-roofs",
+      "version_id": "31e80GhE",
+      "version_number": "2.3.2",
+      "version_date": "2025-05-04T09:52:43.036408Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "mcw-roofs-2.3.2-mc1.20.1forge.jar",
+      "url": "https://cdn.modrinth.com/data/B8jaH3P1/versions/31e80GhE/mcw-roofs-2.3.2-mc1.20.1forge.jar",
+      "size": 1864023,
+      "sha1": "2b02beb2bd177aa695dc6fc030fc3bb230ca96b1",
+      "sha512": "ff7d8be7efb2c427dba8898ed181804b93d2d7523227a190a4c100370f485e5e734c83930b6888652c9469bf01b89a3c7fd2cd00e37c5b6021ec9bd3aa6ea3e3",
+      "dependencies": []
+    },
+    {
+      "slug": "macaws-bridges",
+      "title": "Macaw's Bridges",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "macaws-bridges",
+      "project_id": "GURcjz8O",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/macaws-bridges",
+      "version_id": "KImk0Oo1",
+      "version_number": "3.1.2",
+      "version_date": "2026-02-15T11:45:14.353763Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "mcw-bridges-3.1.2-mc1.20.1forge.jar",
+      "url": "https://cdn.modrinth.com/data/GURcjz8O/versions/KImk0Oo1/mcw-bridges-3.1.2-mc1.20.1forge.jar",
+      "size": 693579,
+      "sha1": "24f30313977ec61520a2adab321188b51c208d16",
+      "sha512": "931fa9077b5a7b286de7c08bf885e393c5632ebb499b0ff5a8d0dfe8b39edd42f6705f51e5755af7dc6a74eb08023ebf2001fe87d064aa9584057d52714815ce",
+      "dependencies": []
+    },
+    {
+      "slug": "macaws-furniture",
+      "title": "Macaw's Furniture",
+      "type": "mod",
+      "tier": "optional",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "macaws-furniture",
+      "project_id": "dtWC90iB",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/macaws-furniture",
+      "version_id": "mvGf4LNK",
+      "version_number": "3.4.1",
+      "version_date": "2025-11-24T00:15:39.603459Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "mcw-furniture-3.4.1-mc1.20.1forge.jar",
+      "url": "https://cdn.modrinth.com/data/dtWC90iB/versions/mvGf4LNK/mcw-furniture-3.4.1-mc1.20.1forge.jar",
+      "size": 2174615,
+      "sha1": "c05189646bbde5c0d4486b93de0d707115f8445c",
+      "sha512": "8f15825b2a7dbee68f9fde4f6c6d56b0064365832459ac526e8bdf5d00bf5a5348cc19540dc89f2e78b1746941357cc4382ffa409dacca47fe1877a486af60db",
+      "dependencies": []
+    },
+    {
+      "slug": "another-furniture",
+      "title": "Another Furniture",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "another-furniture",
+      "project_id": "ulloLmqG",
+      "license": "LicenseRef-Custom",
+      "modrinth_url": "https://modrinth.com/mod/another-furniture",
+      "version_id": "S9tNKT5R",
+      "version_number": "3.0.4",
+      "version_date": "2025-10-21T02:53:14.739553Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "another_furniture-forge-1.20.1-3.0.4.jar",
+      "url": "https://cdn.modrinth.com/data/ulloLmqG/versions/S9tNKT5R/another_furniture-forge-1.20.1-3.0.4.jar",
+      "size": 2463633,
+      "sha1": "bffc5f4d6ae0a906222990c9d0fa8a632b2aa8ed",
+      "sha512": "c57011a7e078cdb05ca05123d2ca3d01b1f3baca3555c067150e23d75268bb250b45a780da1488a49c08c46f6ed38e883f6cd47981babffe43b5f501984f1afc",
+      "dependencies": []
+    },
+    {
+      "slug": "decorative-blocks",
+      "title": "Decorative Blocks",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "decorative-blocks",
+      "project_id": "t6BIRVZn",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/decorative-blocks",
+      "version_id": "nGmyeiug",
+      "version_number": "4.1.3+forge",
+      "version_date": "2024-02-08T12:01:47.419222Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "decorative_blocks-forge-1.20.1-4.1.3.jar",
+      "url": "https://cdn.modrinth.com/data/t6BIRVZn/versions/nGmyeiug/decorative_blocks-forge-1.20.1-4.1.3.jar",
+      "size": 573928,
+      "sha1": "10263d3e99807662ff065edce0e470fe62e84b30",
+      "sha512": "e48dae175eb053ce0f7035e634264f8e84e60560609a5e0391bff01c3e584e6c0fa28fd88fde852b674876b8e21f923444c9ad2726326e337da2d69af0261a70",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "d6MhxwRo",
+          "file_name": null,
+          "dependency_type": "optional"
+        }
+      ]
+    },
+    {
+      "slug": "parcool",
+      "title": "ParCool!",
+      "type": "mod",
+      "tier": "optional",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "parcool",
+      "notes": "Parkour/mantling \u2014 Ark-like traversal. Optional if it fights Epic Fight animations.",
+      "project_id": "Fsvx2bdR",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/parcool",
+      "version_id": "LDZtXIqM",
+      "version_number": "1.20.1-4.0.0.3",
+      "version_date": "2026-08-30T00:02:30.183197Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "ParCool-1.20.1-4.0.0.3.jar",
+      "url": "https://cdn.modrinth.com/data/Fsvx2bdR/versions/LDZtXIqM/ParCool-1.20.1-4.0.0.3.jar",
+      "size": 1139684,
+      "sha1": "abfbc13fcd730fac0a1dd5d55ad66bf677212d40",
+      "sha512": "33c80db2f499cfeeee1bbff872dc832c957a3c3874bb24d487da10fd8ac7022e022793afb5e5c6da1e95296dee1f20f652d3da2acf9caea41b2e6cb132a291a8",
+      "dependencies": []
+    },
+    {
+      "slug": "sophisticated-backpacks",
+      "title": "Sophisticated Backpacks",
+      "type": "mod",
+      "tier": "optional",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "sophisticated-backpacks",
+      "project_id": "TyCTlI4b",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/sophisticated-backpacks",
+      "version_id": "as0tf712",
+      "version_number": "1.20.1-3.24.67.2109",
+      "version_date": "2026-08-19T23:05:31.730816Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "sophisticatedbackpacks-1.20.1-3.24.67.2109.jar",
+      "url": "https://cdn.modrinth.com/data/TyCTlI4b/versions/as0tf712/sophisticatedbackpacks-1.20.1-3.24.67.2109.jar",
+      "size": 1159096,
+      "sha1": "2f0b40179699a9a93fb3953fcd3b3e69bd38f382",
+      "sha512": "11c2e8084686d3a2bd9c94a4a7d0a52773adc6ebd2ba0b28bba05975862240a57dc48e83b92029e266de3bcb2214d7a5dd8c1c9bdd314b6863eb8cbe1cff9c1b",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "u6dRKJwZ",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "BAscRYKm",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "DMu0oBKf",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "b1fMg6sH",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "vvuO3ImH",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "vRYk0bv7",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "nmoqTijg",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "immersiveengineering",
+      "title": "Immersive Engineering",
+      "type": "mod",
+      "tier": "optional",
+      "role": "bases",
+      "include_in_default": false,
+      "curseforge_slug": "immersive-engineering",
+      "curseforge_id": 231951,
+      "notes": "Heavy industrial \u2014 great later, noisy with Create 6. Enable in a tech-forward instance.",
+      "project_id": "tIm2nV03",
+      "license": "LicenseRef-Custom",
+      "modrinth_url": "https://modrinth.com/mod/immersiveengineering",
+      "version_id": "WUzj4tgJ",
+      "version_number": "10.2.0-183",
+      "version_date": "2025-02-18T16:55:55.347411Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "ImmersiveEngineering-1.20.1-10.2.0-183.jar",
+      "url": "https://cdn.modrinth.com/data/tIm2nV03/versions/WUzj4tgJ/ImmersiveEngineering-1.20.1-10.2.0-183.jar",
+      "size": 12129396,
+      "sha1": "b6e403e0e5be1802268be366ad1a7791f07fb793",
+      "sha512": "fdb52fb1faf5522c97820480e436216114c931672d3b0ff1c26c64a5bfd350d3599df31dcb14a5dba49236d8fac3d99b4bb96b0a84d55443e282754d687536f7",
+      "dependencies": []
+    },
+    {
+      "slug": "create-steam-n-rails",
+      "title": "Create: Steam 'n' Rails",
+      "type": "mod",
+      "tier": "optional",
+      "role": "bases",
+      "include_in_default": false,
+      "curseforge_slug": "create-steam-n-rails",
+      "project_id": "ZzjhlDgM",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/create-steam-n-rails",
+      "version_id": "7Uk6lWkU",
+      "version_number": "1.7.3+forge-mc1.20.1",
+      "version_date": "2026-08-27T09:52:44.279434Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "Steam_Rails-1.7.3+forge-mc1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/ZzjhlDgM/versions/7Uk6lWkU/Steam_Rails-1.7.3%2Bforge-mc1.20.1.jar",
+      "size": 17042037,
+      "sha1": "5f904126d942cdbd272a5254ec6145851e5e1e7a",
+      "sha512": "c46bd5e48e64914433157e8cb92f5679d3407fc6e3e3b40a1a41b043efa6f32a2eb9c486313358e92f9e4cf169710ab161bbfa86a2763afcadff3b6e92021175",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "LNytGWDc",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "immersive-aircraft",
+      "title": "Immersive Aircraft",
+      "type": "mod",
+      "tier": "optional",
+      "role": "transport",
+      "include_in_default": false,
+      "curseforge_slug": "immersive-aircraft",
+      "notes": "Dropship analogue. Add after core loop is fun.",
+      "project_id": "x3HZvrj6",
+      "license": "GPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/immersive-aircraft",
+      "version_id": "QQI7iHKf",
+      "version_number": "1.4.1+1.20.1",
+      "version_date": "2026-06-07T20:50:25.150759Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "immersive_aircraft-1.4.1+1.20.1-forge.jar",
+      "url": "https://cdn.modrinth.com/data/x3HZvrj6/versions/QQI7iHKf/immersive_aircraft-1.4.1%2B1.20.1-forge.jar",
+      "size": 2435800,
+      "sha1": "e0fcdfe54114d49b53b50514e5e2a2255a396f3f",
+      "sha512": "561feeababe1a75984eed66c5b62ac4bc5d1eaf6db35b8dda7295eb5d88b452b0c0170b35d7c3da4409c8253f4794ee8ffbda0b0ec59432b3d0b1736832a7867",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "Duramjh8",
+          "file_name": null,
+          "dependency_type": "optional"
+        }
+      ]
+    },
+    {
+      "slug": "hardcore-torches",
+      "title": "Hardcore Torches",
+      "type": "mod",
+      "tier": "optional",
+      "role": "survival",
+      "include_in_default": false,
+      "curseforge_slug": "hardcore-torches",
+      "notes": "Primitive lighting. Can stack with LSO; test burnout pacing.",
+      "project_id": "Ru97clEJ",
+      "license": "CC0-1.0",
+      "modrinth_url": "https://modrinth.com/mod/hardcore-torches",
+      "version_id": "nelN8ILF",
+      "version_number": "1.20.1-x",
+      "version_date": "2026-07-31T01:02:10.100292Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6"
+      ],
+      "filename": "hardcore_torches-1.20.1-x.jar",
+      "url": "https://cdn.modrinth.com/data/Ru97clEJ/versions/nelN8ILF/hardcore_torches-1.20.1-x.jar",
+      "size": 237192,
+      "sha1": "15eef34e46ec6808591f6c04199b45a2f1f055dd",
+      "sha512": "9ebbd310367288d84df89162120660e796fa1b6efe91c93fc055362d66c567c801c047a345658d341939fd80c187e6a56d23a4b7d5e5a9e655038866336906bc",
+      "dependencies": []
+    },
+    {
+      "slug": "spice-of-life-apple-pie-edition",
+      "title": "Spice of Life: Apple Pie Edition",
+      "type": "mod",
+      "tier": "optional",
+      "role": "survival",
+      "include_in_default": false,
+      "notes": "Diet diversity. SOL Carrot Edition is not current on Modrinth for 1.20.1.",
+      "project_id": "u1aDdOsQ",
+      "license": "LGPL-2.1-only",
+      "modrinth_url": "https://modrinth.com/mod/spice-of-life-apple-pie-edition",
+      "version_id": "KI7f8OkE",
+      "version_number": "2.3.1",
+      "version_date": "2023-06-19T05:38:13.094321Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "solapplepie-1.20.1-2.3.0.jar",
+      "url": "https://cdn.modrinth.com/data/u1aDdOsQ/versions/KI7f8OkE/solapplepie-1.20.1-2.3.0.jar",
+      "size": 189826,
+      "sha1": "db306008033065fc4ca97f66d38183206a55d458",
+      "sha512": "8da054a5f7578841413f90d64dbbe715c712c5042ea796fff52a9c754192cdcf59480900a368d86a3d99a1f68e7ed0b36b52e092dbedff3fd709bfa539b23aaf",
+      "dependencies": []
+    },
+    {
+      "slug": "irons-spells-n-spellbooks",
+      "title": "Iron's Spells 'n Spellbooks",
+      "type": "mod",
+      "tier": "optional",
+      "role": "grimdark",
+      "include_in_default": false,
+      "curseforge_slug": "irons-spells-n-spellbooks",
+      "notes": "Psyker analogue. Skip in v0.1 if you want survival-first rather than wizard fantasy.",
+      "project_id": "s4OWxYQQ",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/irons-spells-n-spellbooks",
+      "version_id": "hZaEegS9",
+      "version_number": "1.20.1-3.16.3",
+      "version_date": "2026-08-18T20:34:56.404558Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "irons_spellbooks-1.20.1-3.16.3.jar",
+      "url": "https://cdn.modrinth.com/data/s4OWxYQQ/versions/hZaEegS9/irons_spellbooks-1.20.1-3.16.3.jar",
+      "size": 15570397,
+      "sha1": "726345aa215756bd30b7cf8c338c9ae6bbc59799",
+      "sha512": "a699631fa56568d39a30773b8fe96d7a49f1cd7f8e243340ce7ad91b09ccf49c9a6802a944f4bd04b2d88d9fc796a70add1d18d8f326bb2be238b02a8c8076da",
+      "dependencies": []
+    },
+    {
+      "slug": "ice-and-fire-dragons",
+      "title": "Ice and Fire: Dragons",
+      "type": "mod",
+      "tier": "later",
+      "role": "creatures",
+      "include_in_default": false,
+      "curseforge_slug": "ice-and-fire-dragons",
+      "curseforge_id": 264231,
+      "notes": "1.20.1 last file is still a 2024 beta. Dragons as wyvern analogues. Compatibility risk with worldgen/mobs.",
+      "project_id": "LVnvHVBp",
+      "license": "LGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/ice-and-fire-dragons",
+      "version_id": "EzN8KQYF",
+      "version_number": "2.1.13-1.20.1-beta-5",
+      "version_date": "2024-08-15T23:30:14.876035Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "iceandfire-2.1.13-1.20.1-beta-5.jar",
+      "url": "https://cdn.modrinth.com/data/LVnvHVBp/versions/EzN8KQYF/iceandfire-2.1.13-1.20.1-beta-5.jar",
+      "size": 21854126,
+      "sha1": "7e828cbb046ca3d622e92c68f956bd1c0155dc6f",
+      "sha512": "9e3559efccfb898a1f96c16910c07d26bafa730603a335db04df5a1ef511bd2e60b6bbb788c12aa80b12c8ffd8228e7eddf840f90f356577bfd0e439e24eb4f1",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "jJfV67b1",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "prehistoric-fauna",
+      "title": "Prehistoric Fauna",
+      "type": "mod",
+      "tier": "later",
+      "role": "creatures",
+      "include_in_default": false,
+      "curseforge_slug": "prehistoric-fauna",
+      "curseforge_id": 311600,
+      "notes": "Accurate time-travel dimensions, limited taming. Conflicts conceptually with Fossils revival loop. Use in a separate 'expedition' instance.",
+      "project_id": "u7Pv6ogu",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/prehistoric-fauna",
+      "version_id": "lCrE7sS7",
+      "version_number": "2.3.3",
+      "version_date": "2025-03-14T11:09:09.278988Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "Prehistoric_Fauna-2.3.3.jar",
+      "url": "https://cdn.modrinth.com/data/u7Pv6ogu/versions/lCrE7sS7/Prehistoric_Fauna-2.3.3.jar",
+      "size": 49696274,
+      "sha1": "d3d8d3593bffb8d0c839f0192279b88420e8b385",
+      "sha512": "9195040725da05db9f844fb4719bca8eca09826ccb09d463490357f476f70902dab35f708458466cde2170d1aafe3eeb165f15ea170275cf08c72eafd5e1d52e",
+      "dependencies": []
+    },
+    {
+      "slug": "jurassic-revived",
+      "title": "Jurassic Revived",
+      "type": "mod",
+      "tier": "later",
+      "role": "creatures",
+      "include_in_default": false,
+      "curseforge_slug": "jurassic-revived",
+      "curseforge_id": 1343227,
+      "notes": "JurassiCraft successor (park/DNA). Do not mix with Fossils in the same world.",
+      "project_id": "o8XByMF0",
+      "license": "CC-BY-ND-4.0",
+      "modrinth_url": "https://modrinth.com/mod/jurassic-revived",
+      "version_id": "Bq1heY8p",
+      "version_number": "0.215.0",
+      "version_date": "2026-06-06T03:09:32.006523Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "jurassicrevived-minecraftforge-0.215.0+mc1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/o8XByMF0/versions/Bq1heY8p/jurassicrevived-minecraftforge-0.215.0%2Bmc1.20.1.jar",
+      "size": 19128871,
+      "sha1": "4b2c7db87e15017e98eb2d099811ae4edea781d5",
+      "sha512": "b819bfe91a80a768e06f5d2c47031209b69f8f6e09533e0facca97656c07624ae1fd6392b6e6b233c5728127a10387df813b9d2fce44df932340ff7c3a589367",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "nvQzSEkH",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "lhGA9TYQ",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "8BmcQJ2H",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "9s6osm5g",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "u6dRKJwZ",
+          "file_name": null,
+          "dependency_type": "optional"
+        }
+      ]
+    },
+    {
+      "slug": "better-combat",
+      "title": "Better Combat",
+      "type": "mod",
+      "tier": "later",
+      "role": "combat",
+      "include_in_default": false,
+      "curseforge_slug": "better-combat",
+      "notes": "Conflicts with Epic Fight unless you add a dedicated compat mod. Default pack uses Epic Fight only.",
+      "project_id": "5sy6g3kz",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/better-combat",
+      "version_id": "rnhiaw3t",
+      "version_number": "1.9.0+1.20.1-forge",
+      "version_date": "2025-12-02T21:48:41.489880Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "bettercombat-forge-1.9.0+1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/5sy6g3kz/versions/rnhiaw3t/bettercombat-forge-1.9.0%2B1.20.1.jar",
+      "size": 1054339,
+      "sha1": "ea7e7247132cb3acacadd96b2b6b635c4cc63a74",
+      "sha512": "0778902ce693ae56afd9a928e0629470095dff0324c6856fc45ee51a8efcfa622cc22edaa07ed40814d3b13851d62b27d144e9858e5209a6cf70fd3651f081e8",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "gedNE4y2",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "9s6osm5g",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "tough-as-nails",
+      "title": "Tough As Nails",
+      "type": "mod",
+      "tier": "later",
+      "role": "survival",
+      "include_in_default": false,
+      "curseforge_slug": "tough-as-nails",
+      "curseforge_id": 246391,
+      "notes": "Conflicts with Legendary Survival Overhaul. Listed as TAN-style alternative, not both.",
+      "project_id": "ge1sOdFH",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/tough-as-nails",
+      "version_id": "kWVOI0iS",
+      "version_number": "9.2.0.171",
+      "version_date": "2024-10-16T02:19:57.757705Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "ToughAsNails-forge-1.20.1-9.2.0.171.jar",
+      "url": "https://cdn.modrinth.com/data/ge1sOdFH/versions/kWVOI0iS/ToughAsNails-forge-1.20.1-9.2.0.171.jar",
+      "size": 459479,
+      "sha1": "2aa5d544d8bdfebd4f258899b008f8e7e252167a",
+      "sha512": "4d9c61a79119051095ba7682fc00930a14df05ed9464b0647ad37ae281eeee212c11d6f506b0ba6f89d7b80543cd28a7df114e610d741dc96a312126d33265f7",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "s3dmwKy5",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "cold-sweat",
+      "title": "Cold Sweat",
+      "type": "mod",
+      "tier": "later",
+      "role": "survival",
+      "include_in_default": false,
+      "curseforge_slug": "cold-sweat",
+      "curseforge_id": 506194,
+      "notes": "Temperature-only alternative to LSO. Do not stack with LSO.",
+      "project_id": "uXhSmPjd",
+      "license": "GPL-3.0-or-later",
+      "modrinth_url": "https://modrinth.com/mod/cold-sweat",
+      "version_id": "arQLKRjC",
+      "version_number": "2.4.2",
+      "version_date": "2026-06-22T19:01:30.126474Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "ColdSweat-2.4.2.jar",
+      "url": "https://cdn.modrinth.com/data/uXhSmPjd/versions/arQLKRjC/ColdSweat-2.4.2.jar",
+      "size": 2705107,
+      "sha1": "f5e203dbdca07470d29d872348e3233cd698f3a9",
+      "sha512": "11c9fb632d207fa7f60d29bb12753d84dac34b3ca0813f3a201ad1b9635ec2a0c935572a43acd886be58e1ea8c198ed77b170b3159335b936e9ada50b941114b",
+      "dependencies": []
+    },
+    {
+      "slug": "create-big-cannons",
+      "title": "Create Big Cannons",
+      "type": "mod",
+      "tier": "later",
+      "role": "combat",
+      "include_in_default": false,
+      "curseforge_slug": "create-big-cannons",
+      "project_id": "GWp4jCJj",
+      "license": "LicenseRef-Create-Big-Cannons-License",
+      "modrinth_url": "https://modrinth.com/mod/create-big-cannons",
+      "version_id": "ZRgu5o3x",
+      "version_number": "5.11.4",
+      "version_date": "2026-05-31T11:08:37.249152Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+      "url": "https://cdn.modrinth.com/data/GWp4jCJj/versions/ZRgu5o3x/createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+      "size": 4058306,
+      "sha1": "d9be0ace572fe54be904da1bb0b0cc8711db3b70",
+      "sha512": "11b919dcce377dfce563c9250e287e870ac22b622ac9b4a4839bcc2ea8b894956d42632ef5f9d2701534aa3eba6f896761e26ada0e6bbd2042353507164b7dd0",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "LNytGWDc",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "B3pb093D",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "ad-astra",
+      "title": "Ad Astra",
+      "type": "mod",
+      "tier": "later",
+      "role": "world",
+      "include_in_default": false,
+      "curseforge_slug": "ad-astra",
+      "notes": "Death-world planets. Saves for a later 'void crusade' phase.",
+      "project_id": "3ufwT9JF",
+      "license": "LicenseRef-Terrarium-Licence",
+      "modrinth_url": "https://modrinth.com/mod/ad-astra",
+      "version_id": "Qf7QFXk2",
+      "version_number": "1.15.20",
+      "version_date": "2025-03-04T01:59:42.652052Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "ad_astra-forge-1.20.1-1.15.20.jar",
+      "url": "https://cdn.modrinth.com/data/3ufwT9JF/versions/Qf7QFXk2/ad_astra-forge-1.20.1-1.15.20.jar",
+      "size": 7508861,
+      "sha1": "537ac3e358a97efd7b03648a9bfd7b11f1ae7ff7",
+      "sha512": "c7337add217258cea0cb7d9f9136b5a7c8a17600bc2cc9c722321af838690b6c285628dcaebfccedb3e1274683591ef7a45a3514094e5a3bcd8fe1c1f25626bf",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "b1ZV3DIJ",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "fEWKxVzh",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "uBKACKpl",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "G1hIVOrD",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "bb2EpKpx",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "M1953qlQ",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "2u6LRnMa",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "deeperdarker",
+      "title": "Deeper and Darker",
+      "type": "mod",
+      "tier": "later",
+      "role": "world",
+      "include_in_default": false,
+      "curseforge_slug": "deeperdarker",
+      "project_id": "fnAffV0n",
+      "license": "AGPL-3.0-only",
+      "modrinth_url": "https://modrinth.com/mod/deeperdarker",
+      "version_id": "e2oirgc2",
+      "version_number": "1.3.3-forge+1.20.1",
+      "version_date": "2024-11-16T11:56:50.787713Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "deeperdarker-forge-1.20.1-1.3.3.jar",
+      "url": "https://cdn.modrinth.com/data/fnAffV0n/versions/e2oirgc2/deeperdarker-forge-1.20.1-1.3.3.jar",
+      "size": 17844266,
+      "sha1": "12f95fa85c62123140d1962702a97a3bb746bbf5",
+      "sha512": "fcf08e2d1bfb0bf40120f426826b25e6d483a83cf7f04d221798bcc8cb46cedb9065dc5c0d33213f5c708cebd0081aba4ca7265fcd96c76b16d2f99bd4297aae",
+      "dependencies": []
+    },
+    {
+      "slug": "the-undergarden",
+      "title": "The Undergarden",
+      "type": "mod",
+      "tier": "later",
+      "role": "world",
+      "include_in_default": false,
+      "curseforge_slug": "the-undergarden",
+      "project_id": "Ejfl5qDL",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/the-undergarden",
+      "version_id": "pXfmvzA9",
+      "version_number": "0.8.14",
+      "version_date": "2024-03-14T18:45:30.598573Z",
+      "loaders": [
+        "forge",
+        "neoforge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "The_Undergarden-1.20.1-0.8.14.jar",
+      "url": "https://cdn.modrinth.com/data/Ejfl5qDL/versions/pXfmvzA9/The_Undergarden-1.20.1-0.8.14.jar",
+      "size": 45084263,
+      "sha1": "d823f6da5ea81ee09df8038dc5645986b184a451",
+      "sha512": "1fa7bc50530af3d4f551bb617103c3556b37bb53bb1939203e6d623c0e33404562bb8b772a33d3d0034fd5a29d1fac8cb531a664893e57f2dd3b7d968e71a7a1",
+      "dependencies": []
+    },
+    {
+      "slug": "hammercraft40k",
+      "title": "Hammercraft 40k",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false,
+      "curseforge_slug": "wh40kmc-project",
+      "curseforge_id": 964310,
+      "notes": "LEGAL RISK: uses Games Workshop 40k setting. Forge 1.20.1. Not in default pack. See LEGAL-NOTES.md.",
+      "project_id": "rCFeiDnK",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/hammercraft40k",
+      "version_id": "LO0D9f6F",
+      "version_number": "1.0.6",
+      "version_date": "2026-02-14T18:26:42.317254Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "warhammer40kmod-1.0.6-forge-1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/rCFeiDnK/versions/LO0D9f6F/warhammer40kmod-1.0.6-forge-1.20.1.jar",
+      "size": 95728019,
+      "sha1": "a04024fe82f972e273334d235a1b905194d68006",
+      "sha512": "fc805212d56c03bc7fc2578a6d13bf38560ee33752bb7c82151c871025754be5deed6aa1d3dd56cf6c3dfc9a5e1c5035b802881e91e5fea52f4497274095803f",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "u6dRKJwZ",
+          "file_name": null,
+          "dependency_type": "optional"
+        },
+        {
+          "version_id": null,
+          "project_id": "8BmcQJ2H",
+          "file_name": null,
+          "dependency_type": "required"
+        },
+        {
+          "version_id": null,
+          "project_id": "t5W7Jfwy",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "tacz40k",
+      "title": "Tacz40k",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false,
+      "notes": "LEGAL RISK: 40k gunpack for TaCZ. Do not include in default.",
+      "project_id": "Xw8WbxX6",
+      "license": "MIT",
+      "modrinth_url": "https://modrinth.com/mod/tacz40k",
+      "version_id": "F5wXYhrD",
+      "version_number": "2.0.0",
+      "version_date": "2026-02-15T01:12:48.473284Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "tacz40k-2.0.0.jar",
+      "url": "https://cdn.modrinth.com/data/Xw8WbxX6/versions/F5wXYhrD/tacz40k-2.0.0.jar",
+      "size": 958069,
+      "sha1": "f30f44fdad215abd8ac111e98f5ff066b05d9e41",
+      "sha512": "9338e0d54b591fbd1f91d25ad5b01505ca9d427fabe3351217e2ac97a99035127af63a051ae2c26bab9d45b1830bf8bceb9f58e8d2cc145ed76c164b1a37a295",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "SzzJttH8",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "warhammer-sons-of-the-empire",
+      "title": "Warhammer: Sons of the Empire",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false,
+      "notes": "LEGAL RISK: Warhammer-branded. All Rights Reserved.",
+      "project_id": "b0Sl4fW1",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/warhammer-sons-of-the-empire",
+      "version_id": "IlIuxEDG",
+      "version_number": "1.1.9",
+      "version_date": "2025-07-19T07:21:45.040945Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "sonsoftheempire-1.1.9-forge-1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/b0Sl4fW1/versions/IlIuxEDG/sonsoftheempire-1.1.9-forge-1.20.1.jar",
+      "size": 2394755,
+      "sha1": "7db348f999e380c5cb39bd64965392dedbbbc6cd",
+      "sha512": "88959de7b19072d98fe971fa9ba21ace1464840797302c77289285dae01d5230b0139bf462e771f545b1c6036d159a100747024a929aa7e9521526989fb19f25",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "8BmcQJ2H",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "create-warhammer",
+      "title": "create: warhammer",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false,
+      "project_id": "r0tHBfMH",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/create-warhammer",
+      "version_id": "Mi95vRn1",
+      "version_number": "1.0.0",
+      "version_date": "2025-01-17T17:23:47.272176Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "createwarhammer-1.0.3-forge-1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/r0tHBfMH/versions/Mi95vRn1/createwarhammer-1.0.3-forge-1.20.1.jar",
+      "size": 49268,
+      "sha1": "b7288b16970e285262cc6a8ddd9138d72ca75044",
+      "sha512": "5abd0dea7dd36240f1b463e0212d15314bc9cc05340bd15ba1bcf4fd76a0bddd3bf76debae6d7251412f0561bf6d9b11d5c2ee9a610cacf5152d2a6130cae723",
+      "dependencies": [
+        {
+          "version_id": null,
+          "project_id": "LNytGWDc",
+          "file_name": null,
+          "dependency_type": "required"
+        }
+      ]
+    },
+    {
+      "slug": "ultimate-warhammer-40k",
+      "title": "Ultimate warhammer mod",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false,
+      "project_id": "VEEALknD",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/mod/ultimate-warhammer-40k",
+      "version_id": "j498aFZK",
+      "version_number": "1.0.0",
+      "version_date": "2025-08-20T12:44:21.326466Z",
+      "loaders": [
+        "forge"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "warhammer-1.0.0-forge-1.20.1.jar",
+      "url": "https://cdn.modrinth.com/data/VEEALknD/versions/j498aFZK/warhammer-1.0.0-forge-1.20.1.jar",
+      "size": 1737206,
+      "sha1": "16100d3170a03bf199d79cebb3df3ff4bd4bd5f6",
+      "sha512": "b991bda4be4e4a59176c0b5bd1ecfb223b0a84c8d1bc0c7f454d16c6bffbc606d97b1cf001b889e07df21b5f6c4a5a93629090561eeef9def35757628d902a49",
+      "dependencies": []
+    },
+    {
+      "slug": "grimdark-sky",
+      "title": "Grimdark Sky Pack",
+      "type": "resourcepack",
+      "tier": "must-have",
+      "role": "visual",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "grimdark-sky",
+      "notes": "Chaos moon / exoplanet sky. Stack above block packs. Needs custom-sky support (Oculus/OptiFine).",
+      "project_id": "TzZ0IFZH",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/resourcepack/grimdark-sky",
+      "version_id": "CNVn1axx",
+      "version_number": "1.1",
+      "version_date": "2023-10-04T16:50:14.462556Z",
+      "loaders": [
+        "minecraft"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "GrimdarkSky-v11-15.zip",
+      "url": "https://cdn.modrinth.com/data/TzZ0IFZH/versions/CNVn1axx/GrimdarkSky-v11-15.zip",
+      "size": 8589438,
+      "sha1": "d521d112ff1e65e9f3b7782cd30c328ac6d4d2dc",
+      "sha512": "a62d57028ab602882f97df921a4fcdbfc8549c1e5990c613e6e83403f1c9ee4c6cb2eb4b16e4ef536697638a707f11f7ad856ade9781273f563143386a9a0f66",
+      "dependencies": []
+    },
+    {
+      "slug": "battlepack",
+      "title": "Grimdark Battlepack",
+      "type": "resourcepack",
+      "tier": "must-have",
+      "role": "visual",
+      "include_in_default": true,
+      "curseforge_slug": "grimdark-battlepack",
+      "notes": "Armor/weapon CIT variants. Anvil-rename variants need CIT (OptiFine) or may be limited on Oculus.",
+      "project_id": "wYoL3hIp",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/resourcepack/battlepack",
+      "version_id": "FZ4ChquB",
+      "version_number": "2.7",
+      "version_date": "2024-09-30T04:53:47.920122Z",
+      "loaders": [
+        "minecraft"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6",
+        "1.21",
+        "1.21.1"
+      ],
+      "filename": "GrimdarkBattlepack-v27.zip",
+      "url": "https://cdn.modrinth.com/data/wYoL3hIp/versions/FZ4ChquB/GrimdarkBattlepack-v27.zip",
+      "size": 12199101,
+      "sha1": "720e016d7066fe1213521dfd5612a468d5a594b8",
+      "sha512": "01a97f043612731e15b32b770d5e899844a445df95bcde052f1b2f58ccee115d75b02b19e32e43117de4f645869aacfbb7a477ed19fe597a147b66d7f339a9eb",
+      "dependencies": []
+    },
+    {
+      "slug": "faithful-32x",
+      "title": "Faithful 32x",
+      "type": "resourcepack",
+      "tier": "strongly-recommended",
+      "role": "visual",
+      "include_in_default": true,
+      "curseforge_slug": "faithful-32x",
+      "notes": "Base 32x pack under grimdark addons.",
+      "project_id": "w0TnApzs",
+      "license": "LicenseRef-Faithful-License",
+      "modrinth_url": "https://modrinth.com/resourcepack/faithful-32x",
+      "version_id": "VgTWEXF2",
+      "version_number": "1.20.1-june-2026",
+      "version_date": "2026-06-19T17:16:05.903153Z",
+      "loaders": [
+        "minecraft"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "Faithful 32x - 1.20.1.zip",
+      "url": "https://cdn.modrinth.com/data/w0TnApzs/versions/VgTWEXF2/Faithful%2032x%20-%201.20.1.zip",
+      "size": 11088963,
+      "sha1": "7084d82b48844f7c1b625e157463c4d7b87a82d3",
+      "sha512": "924fa489a4e5877541e28bd51ef1839fca887e7deab5857ca3d6c18dd831b684918556b28072516f29f22039374043e6de4eefa697bc3979d3c568d090fd5862",
+      "dependencies": []
+    },
+    {
+      "slug": "fresh-animations",
+      "title": "Fresh Animations",
+      "type": "resourcepack",
+      "tier": "strongly-recommended",
+      "role": "visual",
+      "include_in_default": true,
+      "notes": "Needs ETF + EMF.",
+      "project_id": "50dA9Sha",
+      "license": "LicenseRef-See-Terms-of-Use-in-Description",
+      "modrinth_url": "https://modrinth.com/resourcepack/fresh-animations",
+      "version_id": "xN57JJts",
+      "version_number": "1.10.4",
+      "version_date": "2026-02-24T01:17:22.685658Z",
+      "loaders": [
+        "minecraft"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6",
+        "1.21",
+        "1.21.1",
+        "1.21.2",
+        "1.21.3",
+        "1.21.4",
+        "1.21.5",
+        "1.21.6",
+        "1.21.7",
+        "1.21.8",
+        "1.21.9",
+        "1.21.10",
+        "1.21.11"
+      ],
+      "filename": "FreshAnimations_v1.10.4.zip",
+      "url": "https://cdn.modrinth.com/data/50dA9Sha/versions/xN57JJts/FreshAnimations_v1.10.4.zip",
+      "size": 850941,
+      "sha1": "73db740a6868e043c5e615c036fca2c912615b6e",
+      "sha512": "41258f9bea1a773d823f9a014d0c08206e9e7b339bc538e1538211fff28fadd06878a836d292cbb636ed6829cd2801a509368ae3eb3ad4bedf42190a0d5f7a90",
+      "dependencies": []
+    },
+    {
+      "slug": "gothic-rpg-font",
+      "title": "Gothic RPG Font",
+      "type": "resourcepack",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": true,
+      "starter": true,
+      "project_id": "nX8FKH9H",
+      "license": "GPL-2.0-only",
+      "modrinth_url": "https://modrinth.com/resourcepack/gothic-rpg-font",
+      "version_id": "oPyih1Dw",
+      "version_number": "1.0.0",
+      "version_date": "2024-03-30T12:05:52.312796Z",
+      "loaders": [
+        "minecraft"
+      ],
+      "game_versions": [
+        "1.16.5",
+        "1.17",
+        "1.17.1",
+        "1.18",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "Gothic RPG Font.zip",
+      "url": "https://cdn.modrinth.com/data/nX8FKH9H/versions/oPyih1Dw/Gothic%20RPG%20Font.zip",
+      "size": 31056,
+      "sha1": "14e22fdae6cceab9bd9a53f2c870cd23fd2a7548",
+      "sha512": "53859a192e5db03062d6df765c31903d89446295258769170ff60bba3f13500948ebde9ee608c04f4b5a30800a8a24c1bbce0021e5160d4124a3e0df87c9f84e",
+      "dependencies": []
+    },
+    {
+      "slug": "thalyrus2",
+      "title": "Thalyrus II Medieval Age",
+      "type": "resourcepack",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false,
+      "notes": "Alternative medieval overhaul pack. Do not stack with Faithful as both bases.",
+      "project_id": "d9VUoJb8",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/resourcepack/thalyrus2",
+      "version_id": "DEa4YnjM",
+      "version_number": "0.5a",
+      "version_date": "2025-08-07T23:06:56.366282Z",
+      "loaders": [
+        "minecraft"
+      ],
+      "game_versions": [
+        "1.20.1"
+      ],
+      "filename": "ThalyrusII_v0.5a_1.20.1.zip",
+      "url": "https://cdn.modrinth.com/data/d9VUoJb8/versions/DEa4YnjM/ThalyrusII_v0.5a_1.20.1.zip",
+      "size": 11060142,
+      "sha1": "16268ebe5188a5f40ab78302b698dddd86b5d0f9",
+      "sha512": "cbaf3f5f22629a2e717b10901237e430c419ac4269ea07f1917151880ba554e27455cb62e46bebe307838620261ff54779e4aa39eeb1db6eb40daf50a45dbb24",
+      "dependencies": []
+    },
+    {
+      "slug": "default-dark-mode",
+      "title": "Default Dark Mode",
+      "type": "resourcepack",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false,
+      "project_id": "6SLU7tS5",
+      "license": "CC-BY-NC-SA-4.0",
+      "modrinth_url": "https://modrinth.com/resourcepack/default-dark-mode",
+      "version_id": "SEAHWiIS",
+      "version_number": "2023.7.0-1.20",
+      "version_date": "2023-07-09T19:33:29.613313Z",
+      "loaders": [
+        "minecraft"
+      ],
+      "game_versions": [
+        "1.20",
+        "1.20.1"
+      ],
+      "filename": "Default-Dark-Mode-1.20-2023.7.0.zip",
+      "url": "https://cdn.modrinth.com/data/6SLU7tS5/versions/SEAHWiIS/Default-Dark-Mode-1.20-2023.7.0.zip",
+      "size": 664752,
+      "sha1": "fc488eca9d771b6bd7ce5c651793d812a0adb1ae",
+      "sha512": "52012b320a1d6e7c5c1e391cd475cc8d733b954a99f227131c2a7271198b403c3e2ce06cbfacb61328936c7618792a6a6a6ce557a1f82bbf95232e19dec1306e",
+      "dependencies": []
+    },
+    {
+      "slug": "dramatic-skys",
+      "title": "Dramatic Skys",
+      "type": "resourcepack",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false,
+      "notes": "Conflicts with Grimdark Sky \u2014 pick one sky pack.",
+      "project_id": "2YyNMled",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/resourcepack/dramatic-skys",
+      "version_id": "obHItVKX",
+      "version_number": "1.5.3.36.5",
+      "version_date": "2026-06-29T18:09:03.301428Z",
+      "loaders": [
+        "minecraft"
+      ],
+      "game_versions": [
+        "1.8",
+        "1.8.1",
+        "1.8.2",
+        "1.8.3",
+        "1.8.4",
+        "1.8.5",
+        "1.8.6",
+        "1.8.7",
+        "1.8.8",
+        "1.8.9",
+        "1.9",
+        "1.9.1",
+        "1.9.2",
+        "1.9.3",
+        "1.9.4",
+        "1.10",
+        "1.10.1",
+        "1.10.2",
+        "1.11",
+        "1.11.1",
+        "1.11.2",
+        "1.12",
+        "1.12.1",
+        "1.12.2",
+        "1.13",
+        "1.13.1",
+        "1.13.2",
+        "1.14",
+        "1.14.1",
+        "1.14.2",
+        "1.14.3",
+        "1.14.4",
+        "1.15",
+        "1.15.1",
+        "1.15.2",
+        "1.16",
+        "1.16.1",
+        "1.16.2",
+        "1.16.3",
+        "1.16.4",
+        "1.16.5",
+        "1.17",
+        "1.17.1",
+        "1.18",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20",
+        "1.20.1",
+        "23w31a",
+        "23w32a",
+        "23w33a",
+        "23w35a",
+        "1.20.2-pre1",
+        "1.20.2",
+        "23w42a",
+        "23w43a",
+        "23w43b",
+        "23w44a",
+        "23w45a",
+        "23w46a",
+        "1.20.3",
+        "1.20.4",
+        "24w03a",
+        "24w03b",
+        "24w04a",
+        "24w05a",
+        "24w05b",
+        "24w06a",
+        "24w07a",
+        "24w09a",
+        "24w10a",
+        "24w11a",
+        "24w12a",
+        "24w13a",
+        "24w14potato",
+        "24w14a",
+        "1.20.5-pre1",
+        "1.20.5-pre2",
+        "1.20.5-pre3",
+        "1.20.5",
+        "1.20.6",
+        "24w18a",
+        "24w19a",
+        "24w19b",
+        "24w20a",
+        "1.21",
+        "1.21.1",
+        "24w33a",
+        "24w34a",
+        "24w35a",
+        "24w36a",
+        "24w37a",
+        "24w38a",
+        "24w39a",
+        "24w40a",
+        "1.21.2-pre1",
+        "1.21.2-pre2",
+        "1.21.2",
+        "1.21.3",
+        "24w44a",
+        "24w45a",
+        "24w46a",
+        "1.21.4",
+        "1.21.5",
+        "1.21.6",
+        "1.21.7",
+        "1.21.8",
+        "1.21.9",
+        "1.21.10",
+        "1.21.11",
+        "26.1",
+        "26.1.1",
+        "26.1.2",
+        "26.2"
+      ],
+      "filename": "Dramatic Skys Demo 1.5.3.36.5.zip",
+      "url": "https://cdn.modrinth.com/data/2YyNMled/versions/obHItVKX/Dramatic%20Skys%20Demo%201.5.3.36.5.zip",
+      "size": 13912171,
+      "sha1": "c7d3a0911135f2c1f873283faaa34879df46326c",
+      "sha512": "6fe9ed68c7950a7b8de7e430b73107e0f9b7c8367bdbe3854704ebcb118e9f819e0387593acbf7364d0a857f0db32ad058348bb3125782e4564d27733885ac81",
+      "dependencies": []
+    },
+    {
+      "slug": "complementary-unbound",
+      "title": "Complementary Shaders - Unbound",
+      "type": "shader",
+      "tier": "must-have",
+      "role": "visual",
+      "include_in_default": true,
+      "starter": true,
+      "notes": "Darker/more cinematic Complementary profile. Use with Oculus+Embeddium.",
+      "project_id": "R6NEzAwj",
+      "license": "LicenseRef-Custom",
+      "modrinth_url": "https://modrinth.com/shader/complementary-unbound",
+      "version_id": "VMHXIk50",
+      "version_number": "r5.8.1",
+      "version_date": "2026-05-21T14:50:33.267877Z",
+      "loaders": [
+        "iris",
+        "optifine"
+      ],
+      "game_versions": [
+        "1.7.10",
+        "1.8",
+        "1.8.1",
+        "1.8.2",
+        "1.8.3",
+        "1.8.4",
+        "1.8.5",
+        "1.8.6",
+        "1.8.7",
+        "1.8.8",
+        "1.8.9",
+        "1.9",
+        "1.9.1",
+        "1.9.2",
+        "1.9.3",
+        "1.9.4",
+        "1.10",
+        "1.10.1",
+        "1.10.2",
+        "1.11",
+        "1.11.1",
+        "1.11.2",
+        "1.12",
+        "1.12.1",
+        "1.12.2",
+        "1.13",
+        "1.13.1",
+        "1.13.2",
+        "1.14",
+        "1.14.1",
+        "1.14.2",
+        "1.14.3",
+        "1.14.4",
+        "1.15",
+        "1.15.1",
+        "1.15.2",
+        "1.16",
+        "1.16.1",
+        "1.16.2",
+        "1.16.3",
+        "1.16.4",
+        "1.16.5",
+        "1.17",
+        "1.17.1",
+        "1.18",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6",
+        "1.21",
+        "1.21.1",
+        "1.21.2",
+        "1.21.3",
+        "1.21.4",
+        "1.21.5",
+        "1.21.6",
+        "1.21.7",
+        "1.21.8",
+        "1.21.9",
+        "1.21.10",
+        "1.21.11",
+        "26.1",
+        "26.1.1",
+        "26.1.2",
+        "26.2"
+      ],
+      "filename": "ComplementaryUnbound_r5.8.1.zip",
+      "url": "https://cdn.modrinth.com/data/R6NEzAwj/versions/VMHXIk50/ComplementaryUnbound_r5.8.1.zip",
+      "size": 546928,
+      "sha1": "af656a33be2cbd217ea08986ad2cdd76f6bbfe1c",
+      "sha512": "9098dd9e0c18b80f7aba2839cea33ce9a614d97665bbfcac87ccce6e4771667c41602d99088852cb1642ccab20b2ceff9b98af8f2e795bd0d3b90b7c9cbab914",
+      "dependencies": []
+    },
+    {
+      "slug": "complementary-reimagined",
+      "title": "Complementary Shaders - Reimagined",
+      "type": "shader",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false,
+      "notes": "Brighter Complementary profile. Alternative to Unbound.",
+      "project_id": "HVnmMxH1",
+      "license": "LicenseRef-Custom",
+      "modrinth_url": "https://modrinth.com/shader/complementary-reimagined",
+      "version_id": "yCCduG44",
+      "version_number": "r5.8.1",
+      "version_date": "2026-05-21T14:50:03.992642Z",
+      "loaders": [
+        "iris",
+        "optifine"
+      ],
+      "game_versions": [
+        "1.7.10",
+        "1.8",
+        "1.8.1",
+        "1.8.2",
+        "1.8.3",
+        "1.8.4",
+        "1.8.5",
+        "1.8.6",
+        "1.8.7",
+        "1.8.8",
+        "1.8.9",
+        "1.9",
+        "1.9.1",
+        "1.9.2",
+        "1.9.3",
+        "1.9.4",
+        "1.10",
+        "1.10.1",
+        "1.10.2",
+        "1.11",
+        "1.11.1",
+        "1.11.2",
+        "1.12",
+        "1.12.1",
+        "1.12.2",
+        "1.13",
+        "1.13.1",
+        "1.13.2",
+        "1.14",
+        "1.14.1",
+        "1.14.2",
+        "1.14.3",
+        "1.14.4",
+        "1.15",
+        "1.15.1",
+        "1.15.2",
+        "1.16",
+        "1.16.1",
+        "1.16.2",
+        "1.16.3",
+        "1.16.4",
+        "1.16.5",
+        "1.17",
+        "1.17.1",
+        "1.18",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6",
+        "1.21",
+        "1.21.1",
+        "1.21.2",
+        "1.21.3",
+        "1.21.4",
+        "1.21.5",
+        "1.21.6",
+        "1.21.7",
+        "1.21.8",
+        "1.21.9",
+        "1.21.10",
+        "1.21.11",
+        "26.1",
+        "26.1.1",
+        "26.1.2",
+        "26.2"
+      ],
+      "filename": "ComplementaryReimagined_r5.8.1.zip",
+      "url": "https://cdn.modrinth.com/data/HVnmMxH1/versions/yCCduG44/ComplementaryReimagined_r5.8.1.zip",
+      "size": 546925,
+      "sha1": "5a021081f0178ed91dd911194071465ab0a4348b",
+      "sha512": "6bd95215755d25812556ce790d976221f7d677d63112e3e4d3e70b08a62ed41348fa3792dd31bbe720d1e46fe2d525cadb4f66e6358118e1f4aa8e0d11f25c39",
+      "dependencies": []
+    },
+    {
+      "slug": "bsl-shaders",
+      "title": "BSL Shaders",
+      "type": "shader",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false,
+      "project_id": "Q1vvjJYV",
+      "license": "LicenseRef-All-Rights-Reserved",
+      "modrinth_url": "https://modrinth.com/shader/bsl-shaders",
+      "version_id": "hIibTfxn",
+      "version_number": "10.1.3",
+      "version_date": "2026-04-20T13:19:25.441679Z",
+      "loaders": [
+        "iris",
+        "optifine"
+      ],
+      "game_versions": [
+        "1.7.10",
+        "1.8",
+        "1.8.1",
+        "1.8.2",
+        "1.8.3",
+        "1.8.4",
+        "1.8.5",
+        "1.8.6",
+        "1.8.7",
+        "1.8.8",
+        "1.8.9",
+        "1.9",
+        "1.9.1",
+        "1.9.2",
+        "1.9.3",
+        "1.9.4",
+        "1.10",
+        "1.10.1",
+        "1.10.2",
+        "1.11",
+        "1.11.1",
+        "1.11.2",
+        "1.12",
+        "1.12.1",
+        "1.12.2",
+        "1.13",
+        "1.13.1",
+        "1.13.2",
+        "1.14",
+        "1.14.1",
+        "1.14.2",
+        "1.14.3",
+        "1.14.4",
+        "1.15",
+        "1.15.1",
+        "1.15.2",
+        "1.16",
+        "1.16.1",
+        "1.16.2",
+        "1.16.3",
+        "1.16.4",
+        "1.16.5",
+        "1.17",
+        "1.17.1",
+        "1.18",
+        "1.18.1",
+        "1.18.2",
+        "1.19",
+        "1.19.1",
+        "1.19.2",
+        "1.19.3",
+        "1.19.4",
+        "1.20",
+        "1.20.1",
+        "1.20.2",
+        "1.20.3",
+        "1.20.4",
+        "1.20.5",
+        "1.20.6",
+        "1.21",
+        "1.21.1",
+        "1.21.2",
+        "1.21.3",
+        "1.21.4",
+        "1.21.5",
+        "1.21.6",
+        "1.21.7",
+        "1.21.8",
+        "1.21.9",
+        "1.21.10",
+        "1.21.11",
+        "26.1",
+        "26.1.1",
+        "26.1.2",
+        "26.2"
+      ],
+      "filename": "BSL_v10.1.3.zip",
+      "url": "https://cdn.modrinth.com/data/Q1vvjJYV/versions/hIibTfxn/BSL_v10.1.3.zip",
+      "size": 1127026,
+      "sha1": "c2459c82c23dc7442eaf1976dade30c2c2f18a9f",
+      "sha512": "3e68c8038e38b0860cf1258e5fc84bcd98007a70fb7ba49e306186be6e905187527b630b77cb9e8cc8ee80865606c0fb398c419a22f0076b2ed5c7d73748a9ba",
+      "dependencies": []
+    }
+  ],
+  "errors": [],
+  "manual_curseforge_only": [
+    {
+      "curseforge_slug": "epic-knights-armor-and-weapons",
+      "curseforge_id": 509041,
+      "title": "Epic Knights: Shields, Armor and Weapons (Magistu)",
+      "tier": "strongly-recommended",
+      "notes": "Not on Modrinth. Add via CurseForge/Prism from CF. Gothic plate that reads as chapter/knight armour. 1.20.1 Forge file updated Mar 2026."
+    }
+  ],
+  "conflicts": [
+    {
+      "group": "dinosaur-revival",
+      "pick_one": [
+        "fossils-and-archeology-revival",
+        "jurassic-revived",
+        "jurassic-reborn",
+        "prehistoric-fauna"
+      ],
+      "reason": "Overlapping DNA/dino systems and spawn tables. Default: Fossils only."
+    },
+    {
+      "group": "survival-needs",
+      "pick_one": [
+        "legendary-survival-overhaul",
+        "tough-as-nails+cold-sweat+thirst-was-taken"
+      ],
+      "reason": "Duplicate thirst/temperature/body-health. Default: LSO only."
+    },
+    {
+      "group": "melee-overhaul",
+      "pick_one": [
+        "epic-fight",
+        "better-combat"
+      ],
+      "reason": "Both rewrite combat. Compat mods exist but are extra moving parts. Default: Epic Fight."
+    },
+    {
+      "group": "biome-overhaul",
+      "pick_one": [
+        "terralith",
+        "biomes-o-plenty",
+        "oh-the-biomes-weve-gone"
+      ],
+      "reason": "Stacked biome mods wreck spawn rates and performance. Default: Terralith."
+    },
+    {
+      "group": "sky-pack",
+      "pick_one": [
+        "grimdark-sky",
+        "dramatic-skys"
+      ],
+      "reason": "Both replace the skybox."
+    },
+    {
+      "group": "gun-framework",
+      "pick_one": [
+        "timeless-and-classics-zero",
+        "pointblank"
+      ],
+      "reason": "Reported scope/zoom breakage when both are loaded."
+    }
+  ]
+}

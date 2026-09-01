@@ -1,0 +1,26 @@
+{
+  "id": "the-black-pit-tribe",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "The Black Pit Tribe",
+  "banner": {
+    "pattern": "black_pit",
+    "primary": "#1A1A1A",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -18,
+  "lord": {
+    "title": "Night Goblin Warboss",
+    "name": "Black Pit",
+    "personality": "Drakwald hole. War from below.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "forest",
+    "dark_forest",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

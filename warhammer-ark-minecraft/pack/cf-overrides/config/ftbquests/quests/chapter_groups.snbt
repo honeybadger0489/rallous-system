@@ -1,0 +1,20 @@
+{
+	chapter_groups: [
+		{
+			id: "1A010000"
+			title: "The Warp-Crash"
+		}
+		{
+			id: "1A020000"
+			title: "Side Paths"
+		}
+		{
+			id: "0A020000"
+			title: "Warp-crash Smoke"
+		}
+		{
+			id: "0A030000"
+			title: "Temple and Herd"
+		}
+	]
+}

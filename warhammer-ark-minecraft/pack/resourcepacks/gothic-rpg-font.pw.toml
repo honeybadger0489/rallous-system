@@ -1,0 +1,14 @@
+name = "Gothic RPG Font"
+filename = "Gothic RPG Font.zip"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "14e22fdae6cceab9bd9a53f2c870cd23fd2a7548"
+mode = "url"
+url = "https://cdn.modrinth.com/data/nX8FKH9H/versions/oPyih1Dw/Gothic%20RPG%20Font.zip"
+
+[update]
+[update.modrinth]
+mod-id = "nX8FKH9H"
+version = "oPyih1Dw"

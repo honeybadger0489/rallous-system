@@ -1,0 +1,27 @@
+{
+  "id": "reikland",
+  "race": "empire",
+  "tier": "major",
+  "name": "Reikland",
+  "banner": {
+    "pattern": "griffon_imperial",
+    "primary": "#8B1E2D",
+    "secondary": "#F4E8C1"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 10,
+  "lord": {
+    "title": "Prince of Altdorf, Emperor",
+    "name": "Karl Franz",
+    "personality": "Duty-bound elector who hires a useful sword and expects it to hold the coach road.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "plains",
+    "forest",
+    "river",
+    "meadow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

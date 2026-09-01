@@ -1,0 +1,26 @@
+{
+  "id": "clan-pestilens",
+  "race": "skaven",
+  "tier": "major",
+  "name": "Clan Pestilens",
+  "banner": {
+    "pattern": "pestilens_censer",
+    "primary": "#3D5A1F",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -30,
+  "lord": {
+    "title": "Plague Lord",
+    "name": "Lord Skrolk",
+    "personality": "Faith of disease. War on the temple-cities; strangers are plague-test subjects.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "jungle",
+    "swamp",
+    "mangrove"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

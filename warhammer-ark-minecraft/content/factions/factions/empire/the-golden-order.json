@@ -1,0 +1,27 @@
+{
+  "id": "the-golden-order",
+  "race": "empire",
+  "tier": "major",
+  "name": "The Golden Order",
+  "banner": {
+    "pattern": "college_pyramid",
+    "primary": "#C9A227",
+    "secondary": "#4A2A6B"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": 0,
+  "lord": {
+    "title": "Supreme Patriarch",
+    "name": "Balthasar Gelt",
+    "personality": "Gold-masked academic. Prove you are not a daemon; then he will sell you a formula.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "plains",
+    "desert",
+    "savanna",
+    "badlands"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

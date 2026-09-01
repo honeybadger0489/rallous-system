@@ -1,0 +1,14 @@
+name = "Rallous Warhammer Fantasy"
+author = "Rallous System"
+version = "0.3.0"
+pack-format = "packwiz:1.1.0"
+description = "Private Old World pack: Warhammer Fantasy + Total War on the ground + Ark-style survival. Minecraft 1.20.1 Forge."
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "afafaf44c7b72f0fec7809c2148674143d3c47a8c5af4e6e39160a4a0a996c01"
+
+[versions]
+minecraft = "1.20.1"
+forge = "47.4.10"

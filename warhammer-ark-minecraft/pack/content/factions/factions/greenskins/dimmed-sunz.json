@@ -1,0 +1,26 @@
+{
+  "id": "dimmed-sunz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Dimmed Sunz",
+  "banner": {
+    "pattern": "dimmed_sun",
+    "primary": "#5A4A1A",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -14,
+  "lord": {
+    "title": "Savage Orc Warboss",
+    "name": "Dimmed Sun",
+    "personality": "Eclipse-painted tribe. War under a bad sky.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "savanna",
+    "desert",
+    "badlands"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires_savage_orc"
+}

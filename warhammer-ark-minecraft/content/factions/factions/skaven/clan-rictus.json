@@ -1,0 +1,26 @@
+{
+  "id": "clan-rictus",
+  "race": "skaven",
+  "tier": "major",
+  "name": "Clan Rictus",
+  "banner": {
+    "pattern": "rictus_tail",
+    "primary": "#3A3A3A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": -15,
+  "lord": {
+    "title": "Warlord",
+    "name": "Tretch Craventail",
+    "personality": "Coward-genius. Tribute and ambushes; he will hire you to die first.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "mountains",
+    "caves",
+    "dark_forest"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

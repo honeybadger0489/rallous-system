@@ -1,0 +1,26 @@
+{
+  "id": "clan-mordkin",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Mordkin",
+  "banner": {
+    "pattern": "mordkin",
+    "primary": "#C4B48A",
+    "secondary": "#2B0B1A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -18,
+  "lord": {
+    "title": "Warlord",
+    "name": "Mordkin",
+    "personality": "Bone-obsessed. Prove with a trophy-skull.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "desert",
+    "badlands",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

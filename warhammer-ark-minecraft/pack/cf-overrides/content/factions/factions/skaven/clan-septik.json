@@ -1,0 +1,26 @@
+{
+  "id": "clan-septik",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Septik",
+  "banner": {
+    "pattern": "septik",
+    "primary": "#3D5A1F",
+    "secondary": "#8B5A2B"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -22,
+  "lord": {
+    "title": "Plague Priest",
+    "name": "Septik",
+    "personality": "Festering clan. Tribute in spoiled grain.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "swamp",
+    "plains",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "xlanhuapec",
+  "race": "lizardmen",
+  "tier": "minor",
+  "name": "Xlanhuapec",
+  "banner": {
+    "pattern": "city_of_mist",
+    "primary": "#3A5A6B",
+    "secondary": "#C4B48A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -18,
+  "lord": {
+    "title": "Mage-Priest of the Mists",
+    "name": "Uaxti",
+    "personality": "City of Mist. Outsiders who glimpse the plaza are a war-casus.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "jungle",
+    "swamp",
+    "mangrove"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

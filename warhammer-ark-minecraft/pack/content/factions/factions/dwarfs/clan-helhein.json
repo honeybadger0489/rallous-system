@@ -1,0 +1,26 @@
+{
+  "id": "clan-helhein",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Clan Helhein",
+  "banner": {
+    "pattern": "helhein",
+    "primary": "#7A1F1F",
+    "secondary": "#3D2B1F"
+  },
+  "starting_attitude": "grim",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Thane",
+    "name": "Helhein",
+    "personality": "Exiles in the east. Prove you are not another broken oath.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "mountains",
+    "desert",
+    "badlands"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

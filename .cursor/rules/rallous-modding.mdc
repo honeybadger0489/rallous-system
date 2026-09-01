@@ -1,0 +1,9 @@
+---
+description: Rallous analogue names, no GW/Wildcard IP, Minecraft 1.20.1 Forge
+alwaysApply: true
+---
+
+- In-game and public names are original **Rallous** analogues. Do not ship Games Workshop or Studio Wildcard IP (no Empire/Kislev/Skaven/etc. as product identity, no Ark creature/engram names, no “Warhammer” on pack titles).
+- Target **Minecraft 1.20.1 + Forge 47.4.x** and **Java 17** (Temurin). Do not bump to Java 21 or NeoForge 1.21 unless the task is an explicit port.
+- Vision docs in `warhammer-ark-minecraft/` (`CAMPAIGN.md`, `FACTIONS-AND-DIPLOMACY.md`, pack files) are source of truth — **add files, do not clobber** them.
+- First code ship is **Rallous Allegiance** (warband banner, camp claim, standing, one envoy, one ally/war flag), not dinosaurs + guns + quests + colonies.

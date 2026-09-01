@@ -1,0 +1,26 @@
+{
+  "id": "karak-azorn",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Karak Azorn",
+  "banner": {
+    "pattern": "azorn",
+    "primary": "#C9A227",
+    "secondary": "#5A3A1A"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -12,
+  "lord": {
+    "title": "King of Karak Azorn",
+    "name": "Azorn",
+    "personality": "Mountains of Mourn hold. Help against ogres or leave the gate shut.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "mountains",
+    "snow",
+    "peaks"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

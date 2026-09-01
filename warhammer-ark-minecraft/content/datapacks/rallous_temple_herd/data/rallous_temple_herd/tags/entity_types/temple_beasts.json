@@ -1,0 +1,93 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "fossil:triceratops",
+      "required": false
+    },
+    {
+      "id": "fossil:stegosaurus",
+      "required": false
+    },
+    {
+      "id": "fossil:ankylosaurus",
+      "required": false
+    },
+    {
+      "id": "fossil:parasaurolophus",
+      "required": false
+    },
+    {
+      "id": "fossil:gallimimus",
+      "required": false
+    },
+    {
+      "id": "fossil:velociraptor",
+      "required": false
+    },
+    {
+      "id": "fossil:deinonychus",
+      "required": false
+    },
+    {
+      "id": "fossil:dilophosaurus",
+      "required": false
+    },
+    {
+      "id": "fossil:spinosaurus",
+      "required": false
+    },
+    {
+      "id": "fossil:tyrannosaurus",
+      "required": false
+    },
+    {
+      "id": "fossil:pteranodon",
+      "required": false
+    },
+    {
+      "id": "fossil:quetzalcoatlus",
+      "required": false
+    },
+    {
+      "id": "fossil:sarcosuchus",
+      "required": false
+    },
+    {
+      "id": "fossil:brachiosaurus",
+      "required": false
+    },
+    {
+      "id": "fossil:diplodocus",
+      "required": false
+    },
+    {
+      "id": "tameablebeasts:crested_gecko",
+      "required": false
+    },
+    {
+      "id": "tameablebeasts:quetzalcoatlus",
+      "required": false
+    },
+    {
+      "id": "tameablebeasts:graptera",
+      "required": false
+    },
+    {
+      "id": "tameablebeasts:tameable_beetle",
+      "required": false
+    },
+    {
+      "id": "tameablebeasts:ground_beetle",
+      "required": false
+    },
+    {
+      "id": "tameablebeasts:argentavis",
+      "required": false
+    },
+    {
+      "id": "tameablebeasts:tameable_chikote",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "tlaqua",
+  "race": "lizardmen",
+  "tier": "major",
+  "name": "Tlaqua",
+  "banner": {
+    "pattern": "terradon_sun",
+    "primary": "#2EC4B6",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 0,
+  "lord": {
+    "title": "Master of Skies",
+    "name": "Tiktaq'to",
+    "personality": "Aerial temple-city. Prove you can scout; he will not open the star-chamber.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "jungle",
+    "savanna",
+    "mountains",
+    "windswept"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "vampire-counts",
+  "race": "vampire_counts",
+  "tier": "major",
+  "name": "Vampire Counts",
+  "banner": {
+    "pattern": "ghorst_wagon",
+    "primary": "#3A2A1A",
+    "secondary": "#6B1028"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -22,
+  "lord": {
+    "title": "Master Necromancer",
+    "name": "Helman Ghorst",
+    "personality": "Plague-cart scholar of undeath. Prove you can fetch corpses; he will not ride to save the living.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "swamp",
+    "plains",
+    "dark_forest",
+    "river"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

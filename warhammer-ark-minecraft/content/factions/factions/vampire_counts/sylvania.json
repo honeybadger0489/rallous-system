@@ -1,0 +1,27 @@
+{
+  "id": "sylvania",
+  "race": "vampire_counts",
+  "tier": "major",
+  "name": "Sylvania",
+  "banner": {
+    "pattern": "von_carstein_bat",
+    "primary": "#2B0B1A",
+    "secondary": "#C4B48A"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Vampire Count of Sylvania",
+    "name": "Vlad von Carstein",
+    "personality": "Courteous tyrant. Prove you can keep a living town quiet, or join the grave-levy.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "swamp",
+    "dark_forest",
+    "plains",
+    "river"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

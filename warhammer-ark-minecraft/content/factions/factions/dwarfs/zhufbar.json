@@ -1,0 +1,27 @@
+{
+  "id": "zhufbar",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Zhufbar",
+  "banner": {
+    "pattern": "zhufbar_gear",
+    "primary": "#5A6A7A",
+    "secondary": "#7A1F1F"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 0,
+  "lord": {
+    "title": "King of Zhufbar",
+    "name": "Barundin Stoneheart",
+    "personality": "Engineer-hold. Recruit if you can mind a gyrocopter; Warp-engines are grudges.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "mountains",
+    "river",
+    "caves",
+    "taiga"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "ironbrows-expedition",
+  "race": "dwarfs",
+  "tier": "major",
+  "name": "Ironbrow's Expedition",
+  "banner": {
+    "pattern": "anvil_of_doom",
+    "primary": "#C9A227",
+    "secondary": "#1A1A1A"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -8,
+  "lord": {
+    "title": "Runelord",
+    "name": "Thorek Ironbrow",
+    "personality": "Recovering relics. Help haul an anvil; daemon-toys get a rune-hammer.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "jungle",
+    "savanna",
+    "mountains",
+    "desert"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

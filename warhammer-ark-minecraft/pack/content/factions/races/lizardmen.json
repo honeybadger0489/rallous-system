@@ -1,0 +1,59 @@
+{
+  "id": "lizardmen",
+  "name": "Lizardmen",
+  "culture": "Temple-cities of the Great Plan: slann meditation, saurus hosts, skink diplomacy, and sacred beasts. High affinity for jungle warbeasts. Warp-strangers smell of the Great Enemy until an omen clears them.",
+  "settlement": "settled",
+  "taming_affinity": "high",
+  "warp_stranger_stance": "daemon_suspicion",
+  "colors": {
+    "primary": "#1F6B3A",
+    "secondary": "#C9A227",
+    "accent": "#2EC4B6"
+  },
+  "lord_title_pool": [
+    "Slann Mage-Priest",
+    "Saurus Oldblood",
+    "Skink Oracle",
+    "Skink Chief",
+    "Kroxigor Ancient",
+    "Red Crested Skink Chief",
+    "Scar-Veteran",
+    "Skink Priest"
+  ],
+  "name_pool": {
+    "given": [
+      "Mazdamundi",
+      "Kroq-Gar",
+      "Gor-Rok",
+      "Tehenhauin",
+      "Tiktaq'to",
+      "Nakai",
+      "Oxyotl",
+      "Uaxti",
+      "Tenehuini",
+      "Itzi-Bitzi",
+      "Chakax",
+      "Lotl-Botl",
+      "Tikli",
+      "Quetz",
+      "Xlotl",
+      "Huatl",
+      "Tenoq",
+      "Zlatanq",
+      "Skink-Speaker"
+    ],
+    "epithet": [
+      "of the Third Sun",
+      "of Hexoatl",
+      "of Itza",
+      "the Wanderer",
+      "the Sentinel",
+      "of Sotek",
+      "of Pahuax",
+      "Cold-Blood",
+      "Star-Watcher",
+      "Temple-Guard"
+    ]
+  },
+  "notes": "Jungle, mangrove, warm caves. Temple-cities are capitals except Spirit of the Jungle (horde)."
+}

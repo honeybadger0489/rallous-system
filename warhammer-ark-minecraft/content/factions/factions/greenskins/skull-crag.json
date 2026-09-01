@@ -1,0 +1,26 @@
+{
+  "id": "skull-crag",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Skull Crag",
+  "banner": {
+    "pattern": "skull_crag",
+    "primary": "#5A4A3A",
+    "secondary": "#C4B48A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -18,
+  "lord": {
+    "title": "Orc Warboss",
+    "name": "Skull Crag",
+    "personality": "Mountain scrap-hold. War.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "mountains",
+    "peaks",
+    "badlands"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

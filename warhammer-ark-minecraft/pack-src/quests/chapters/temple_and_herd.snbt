@@ -1,0 +1,307 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "temple_and_herd"
+	group: "0A030000"
+	icon: "minecraft:lime_banner"
+	id: "0C020700"
+	images: [ ]
+	order_index: 10
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "minecraft:bone"
+			id: "0D010001"
+			rewards: [
+				{
+					id: "0D010101"
+					type: "xp"
+					xp: 15
+				}
+			]
+			shape: "hexagon"
+			size: 1.5d
+			subtitle: "Fossils + Tameable Beasts stay the engine."
+			tasks: [
+				{
+					id: "0D010201"
+					title: "The engine is Fossils / Tameable Beasts"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"No new creature mods. Haul, fight, travel, tank."
+				""
+				"Lizardmen hear temple-beasts. Beastmen break what they steal. Other races are worse at it (book, not a hidden penalty)."
+				""
+				"Fossils 9.3.4 cannot make only Temple-Spawn roll easier tames. Extra Tameable Beasts foods are the only easier-tame hook."
+			]
+			title: "The Beast Engine"
+			x: -4d
+			y: 0d
+		}
+		{
+			dependencies: ["0D010001"]
+			icon: "minecraft:jungle_sapling"
+			id: "0D010002"
+			rewards: [
+				{
+					id: "0D010102"
+					type: "xp"
+					xp: 25
+				}
+			]
+			tasks: [
+				{
+					id: "0D010202"
+					title: "Warm canopy"
+					type: "advancement"
+					advancement: "rallous_temple_herd:lizardmen/warm_canopy"
+				}
+			]
+			description: [
+				"Walk Terralith jungle / warm (savanna, oasis, summer skylands). The datapack grants Warm Canopy and a Temple-Beast Primer."
+				""
+				"These are Temple-Spawn lands. Markers are lime banners, not silent dinos."
+			]
+			title: "Temple-Spawn Canopy"
+			x: -2d
+			y: -2d
+		}
+		{
+			dependencies: ["0D010002"]
+			icon: "minecraft:lime_banner"
+			id: "0D010003"
+			rewards: [
+				{
+					id: "0D010103"
+					type: "xp"
+					xp: 40
+				}
+				{
+					id: "0D010104"
+					item: "minecraft:honey_bottle"
+					count: 4
+					type: "item"
+				}
+			]
+			tasks: [
+				{
+					id: "0D010203"
+					title: "Found a temple marker"
+					type: "advancement"
+					advancement: "rallous_temple_herd:lizardmen/temple_marker"
+				}
+			]
+			description: [
+				"/locate structure rallous_temple_herd:temple_marker"
+				"Or stand on the mossy platform: named armor stand + lime banners + chest."
+				"Cheats: /function rallous_temple_herd:place_temple_marker"
+			]
+			title: "Temple Marker"
+			x: 0d
+			y: -2d
+		}
+		{
+			dependencies: ["0D010003"]
+			icon: "minecraft:saddle"
+			id: "0D010004"
+			rewards: [
+				{
+					id: "0D010105"
+					type: "xp"
+					xp: 50
+				}
+			]
+			tasks: [
+				{
+					id: "0D010204"
+					title: "Loyal temple-beast"
+					type: "advancement"
+					advancement: "rallous_temple_herd:lizardmen/loyal_beast"
+				}
+			]
+			description: [
+				"Fossils: fossil → analyzer → spawning pool → hatch near you or Temple Scarab."
+				"Tameable Beasts: Temple Flyer Meal / Temple-Beast Bait, plus extra offerings (honey, cooked meat, seeds)."
+				"Name it. It is intelligent and loyal — haul, fight, travel, or tank."
+			]
+			title: "A Loyal Beast"
+			x: 2d
+			y: -2d
+		}
+		{
+			dependencies: ["0D010001"]
+			icon: "minecraft:dark_oak_sapling"
+			id: "0D010005"
+			rewards: [
+				{
+					id: "0D010106"
+					type: "xp"
+					xp: 25
+				}
+			]
+			tasks: [
+				{
+					id: "0D010205"
+					title: "Horned Woods"
+					type: "advancement"
+					advancement: "rallous_temple_herd:beastmen/horned_woods"
+				}
+			]
+			description: [
+				"Dark forest or taiga (Terralith belts included). No town. A herdstone hung with skulls."
+			]
+			title: "Into the Horned Woods"
+			x: -2d
+			y: 2d
+		}
+		{
+			dependencies: ["0D010005"]
+			icon: "minecraft:wither_skeleton_skull"
+			id: "0D010006"
+			rewards: [
+				{
+					id: "0D010107"
+					type: "xp"
+					xp: 40
+				}
+				{
+					count: 8
+					id: "0D010108"
+					item: "minecraft:rotten_flesh"
+					type: "item"
+				}
+			]
+			tasks: [
+				{
+					id: "0D010206"
+					title: "Stood at a herdstone"
+					type: "advancement"
+					advancement: "rallous_temple_herd:beastmen/herdstone"
+				}
+			]
+			description: [
+				"/locate structure rallous_temple_herd:herdstone"
+				"Red/black banners, skulls, soul fire, uglier chest."
+				"Cheats: /function rallous_temple_herd:place_herdstone"
+			]
+			title: "Herdstone"
+			x: 0d
+			y: 2d
+		}
+		{
+			dependencies: ["0D010006"]
+			icon: "minecraft:iron_sword"
+			id: "0D010007"
+			rewards: [
+				{
+					id: "0D010109"
+					type: "xp"
+					xp: 40
+				}
+			]
+			tasks: [
+				{
+					id: "0D010207"
+					title: "Fought the hostile herd"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"The herd does not trade. Night in the Horned Woods, or anything that hangs skulls on the stand."
+				"If roaming wars are loaded: /function rallous_roaming:events/herd — Bray-Shaman / Gor / Herd-Beast."
+				"Combat mode on. This is a raid on a herdstone, not two zombies at spawn."
+			]
+			title: "Hostile Herd"
+			x: 2d
+			y: 3d
+		}
+		{
+			dependencies: ["0D010006"]
+			icon: "minecraft:lead"
+			id: "0D010008"
+			rewards: [
+				{
+					id: "0D01010A"
+					type: "xp"
+					xp: 50
+				}
+			]
+			tasks: [
+				{
+					id: "0D010208"
+					title: "Broken Beast"
+					type: "advancement"
+					advancement: "rallous_temple_herd:beastmen/broken_beast"
+				}
+			]
+			description: [
+				"Hold a lead (Broken Collar in the chest) and carrion, or Fossils offal / stunted essence / frozen meat."
+				"This is enslave framing. Same engine. Worse relationship."
+			]
+			title: "Broken Beast"
+			x: 2d
+			y: 1d
+		}
+		{
+			dependencies: ["0D010001"]
+			icon: "minecraft:iron_horse_armor"
+			id: "0D010009"
+			rewards: [
+				{
+					id: "0D01010B"
+					type: "xp"
+					xp: 15
+				}
+			]
+			tasks: [
+				{
+					id: "0D010209"
+					title: "Worse Hands"
+					type: "advancement"
+					advancement: "rallous_temple_herd:other_races/worse_hands"
+				}
+			]
+			description: [
+				"Empire, Dawi, Kislev, the dead, greenskins: livestock or siege engines."
+				"If you already took an Old World first-join, the canopy primer also gives Worse Hands."
+				"Cheats: /function rallous_temple_herd:give_lesser_bond"
+				"Not a hidden tame penalty."
+			]
+			title: "Other Races, Worse Hands"
+			x: -2d
+			y: 0d
+		}
+		{
+			dependencies: ["0D010004", "0D010008"]
+			icon: "minecraft:saddle"
+			id: "0D01000A"
+			rewards: [
+				{
+					id: "0D01010C"
+					type: "xp"
+					xp: 80
+				}
+			]
+			shape: "hexagon"
+			size: 1.5d
+			tasks: [
+				{
+					id: "0D01020A"
+					title: "Haul, fight, travel, tank"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Tick when you have used a living creature for two of: haul (chest/lead), fight (combat), travel (mount/fly), tank (it took hits)."
+				"Temple or herd. The engine does not change."
+			]
+			title: "Warbeast Work"
+			x: 4d
+			y: 0d
+		}
+	]
+	title: "Temple and Herd"
+}

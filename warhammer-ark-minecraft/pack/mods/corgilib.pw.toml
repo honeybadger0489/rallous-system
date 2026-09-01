@@ -1,0 +1,14 @@
+name = "CorgiLib"
+filename = "Corgilib-Forge-1.20.1-4.0.3.5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ef71df3c9a3d22432d63957a8db00645353bfe36"
+mode = "url"
+url = "https://cdn.modrinth.com/data/ziOp6EO8/versions/HXTB2EAy/Corgilib-Forge-1.20.1-4.0.3.5.jar"
+
+[update]
+[update.modrinth]
+mod-id = "ziOp6EO8"
+version = "HXTB2EAy"

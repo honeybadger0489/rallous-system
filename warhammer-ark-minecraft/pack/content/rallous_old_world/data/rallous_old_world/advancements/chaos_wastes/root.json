@@ -1,0 +1,33 @@
+{
+  "parent": "rallous_old_world:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:netherite_helmet"
+    },
+    "title": {
+      "text": "Chaos Wastes"
+    },
+    "description": {
+      "text": "North of the last city. The Wound remains."
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "there": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "minecraft:frozen_peaks"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

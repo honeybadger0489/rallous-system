@@ -1,0 +1,38 @@
+{
+  "parent": "rallous_old_world:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:emerald"
+    },
+    "title": {
+      "text": "State Troop Host"
+    },
+    "description": {
+      "text": "Hire Recruits. This is an Elector's company, not a pet wolf."
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "emerald": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:emerald"
+            ],
+            "count": {
+              "min": 8
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "rallous_old_world:commission_reikland_chestplate",
+      "rallous_old_world:commission_reikland_helmet"
+    ]
+  }
+}

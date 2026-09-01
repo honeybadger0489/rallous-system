@@ -1,0 +1,26 @@
+{
+  "id": "southern-sentinels",
+  "race": "lizardmen",
+  "tier": "minor",
+  "name": "Southern Sentinels",
+  "banner": {
+    "pattern": "southlands_sun",
+    "primary": "#2F6B3A",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": -5,
+  "lord": {
+    "title": "Saurus Oldblood",
+    "name": "Lotl of the South",
+    "personality": "Watch-posts on the Cape. Help hold the coast against warmblood landings.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "jungle",
+    "beach",
+    "savanna"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

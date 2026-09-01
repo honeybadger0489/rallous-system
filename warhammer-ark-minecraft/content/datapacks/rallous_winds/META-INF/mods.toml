@@ -1,0 +1,10 @@
+modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="rallous_winds"
+version="1.0.0"
+displayName="Rallous Winds"
+authors="Rallous System"
+description='''Camp lecterns and rare barrel loot point to Iron's ink and scrolls. No filled spellbook. No new mods.'''

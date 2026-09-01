@@ -1,0 +1,297 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "first_hour"
+	group: "1A010000"
+	icon: "minecraft:compass"
+	id: "1C030000"
+	images: [ ]
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: ["1D010001"]
+			optional: true
+			icon: "sonsoftheempire:altdorfbanner"
+			id: "1D010021"
+			rewards: [
+				{
+					id: "1E01001F"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:race/empire"
+					elevate_perms: true
+					id: "1E010020"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E010021"
+					title: "Heard an Elector named in town"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Plains, coach roads, a town with a bell. They will call you soldier if you stand still long enough. Electors are banners, not a court at spawn."
+				""
+				"Thin first-hour: walk a settlement. Sets rallous.race = 1 and rallous.empire."
+			]
+			title: "Empire"
+			x: -3.5d
+			y: -1.5d
+		},
+		{
+			dependencies: ["1D010001"]
+			optional: true
+			icon: "minecraft:red_banner"
+			id: "1D010022"
+			rewards: [
+				{
+					id: "1E010022"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:race/vampire"
+					elevate_perms: true
+					id: "1E010023"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E010024"
+					title: "Walked the night counties"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Swamp, dark wood, bells that stop. Night is the county. No invitation is waiting on a stand."
+				""
+				"Thin first-hour: stay out after dusk in wet or dark trees. Sets rallous.race = 2 and rallous.vampire."
+			]
+			title: "Vampire Counts"
+			x: -1.5d
+			y: -1.5d
+		},
+		{
+			dependencies: ["1D010001"]
+			optional: true
+			icon: "minecraft:jungle_leaves"
+			id: "1D010023"
+			rewards: [
+				{
+					id: "1E010025"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:race/lizard"
+					elevate_perms: true
+					id: "1E010026"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E010027"
+					title: "Found a warm ruin"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Jungle, warm ruin, something older than the Empire's calendar. They will not explain the Great Plan."
+				""
+				"Thin first-hour: reach jungle or a temple-shaped pile. Sets rallous.race = 3 and rallous.lizard."
+			]
+			title: "Lizardmen"
+			x: 0.5d
+			y: -1.5d
+		},
+		{
+			dependencies: ["1D010001"]
+			optional: true
+			icon: "minecraft:goat_horn"
+			id: "1D010024"
+			rewards: [
+				{
+					id: "1E010028"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:race/beast"
+					elevate_perms: true
+					id: "1E010029"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E01002A"
+					title: "Read herd-sign"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Herd-sign on a tree. Dark forest. They do not hire. They gather."
+				""
+				"Thin first-hour: hear a horn or walk a dark wood at night. Sets rallous.race = 4 and rallous.beast."
+			]
+			title: "Beastmen"
+			x: 2.5d
+			y: -1.5d
+		},
+		{
+			dependencies: ["1D010001"]
+			optional: true
+			icon: "minecraft:lime_banner"
+			id: "1D010025"
+			rewards: [
+				{
+					id: "1E01002B"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:race/greenskin"
+					elevate_perms: true
+					id: "1E01002C"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E01002D"
+					title: "Joined a scrap, or started one"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Hills, savanna, a scrap already in progress. A Waaagh is a banner on Raid, not a lord with a letter."
+				""
+				"Thin first-hour: win a messy fight in open country. Sets rallous.race = 5 and rallous.waaagh."
+			]
+			title: "Greenskins"
+			x: -3.5d
+			y: 1.5d
+		},
+		{
+			dependencies: ["1D010001"]
+			optional: true
+			icon: "minecraft:stone_bricks"
+			id: "1D010026"
+			rewards: [
+				{
+					id: "1E01002E"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:race/dwarf"
+					elevate_perms: true
+					id: "1E01002F"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E010030"
+					title: "Walked a hold-road or a deep cut"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Stone, deepslate, a gate that does not care about your crash. Umgi prove themselves with work, not speeches."
+				""
+				"Thin first-hour: take the high road or a deep cut. Sets rallous.race = 6 and rallous.dwarf."
+			]
+			title: "Dwarfs"
+			x: -1.5d
+			y: 1.5d
+		},
+		{
+			dependencies: ["1D010001"]
+			optional: true
+			icon: "minecraft:deepslate"
+			id: "1D010027"
+			rewards: [
+				{
+					id: "1E010031"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:race/skaven"
+					elevate_perms: true
+					id: "1E010032"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E010033"
+					title: "Heard claws under the floor"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Under-Empire is below the map. Mineshafts, sewers, eyes in the dark. They will sell you, then sell the sale."
+				""
+				"Thin first-hour: go under. Sets rallous.race = 7 and rallous.skaven."
+			]
+			title: "Skaven"
+			x: 0.5d
+			y: 1.5d
+		},
+		{
+			dependencies: ["1D010001"]
+			optional: true
+			icon: "minecraft:netherite_axe"
+			id: "1D010028"
+			rewards: [
+				{
+					id: "1E010034"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:race/khorne"
+					elevate_perms: true
+					id: "1E010035"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E010036"
+					title: "Blood for the first hour"
+					type: "kill"
+					entity: "minecraft:skeleton"
+					value: 6
+				}
+			]
+			description: [
+				"Skulls. Brass. No wizard's excuse. If you came here for a spellbook, you came to the wrong ruin."
+				""
+				"Thin first-hour: take heads in combat mode. Sets rallous.race = 8, rallous.khorne, and rallous.chaos."
+			]
+			title: "Khorne"
+			x: 2.5d
+			y: 1.5d
+		}
+	]
+	title: "First Hour"
+}

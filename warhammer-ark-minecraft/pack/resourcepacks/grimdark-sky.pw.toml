@@ -1,0 +1,14 @@
+name = "Grimdark Sky Pack"
+filename = "GrimdarkSky-v11-15.zip"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "d521d112ff1e65e9f3b7782cd30c328ac6d4d2dc"
+mode = "url"
+url = "https://cdn.modrinth.com/data/TzZ0IFZH/versions/CNVn1axx/GrimdarkSky-v11-15.zip"
+
+[update]
+[update.modrinth]
+mod-id = "TzZ0IFZH"
+version = "CNVn1axx"

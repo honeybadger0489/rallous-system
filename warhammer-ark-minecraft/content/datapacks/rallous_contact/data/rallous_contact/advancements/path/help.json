@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:bread"
+    },
+    "title": {
+      "text": "Help"
+    },
+    "description": {
+      "text": "rallous.path=1"
+    },
+    "frame": "task",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ],
+  "parent": "rallous_contact:crash/root"
+}

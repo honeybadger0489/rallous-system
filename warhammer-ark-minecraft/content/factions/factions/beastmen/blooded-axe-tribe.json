@@ -1,0 +1,26 @@
+{
+  "id": "blooded-axe-tribe",
+  "race": "beastmen",
+  "tier": "minor",
+  "name": "Blooded-Axe Tribe",
+  "banner": {
+    "pattern": "blooded_axe",
+    "primary": "#6B2A1A",
+    "secondary": "#1A1A1A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -35,
+  "lord": {
+    "title": "Beastlord",
+    "name": "Ghorros Blood-Axe",
+    "personality": "Axe-herd of the deep wood. War is the greeting.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "forest",
+    "dark_forest",
+    "taiga"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

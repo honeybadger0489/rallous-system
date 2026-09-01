@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:bell"
+    },
+    "title": {
+      "text": "An Hour in a Village"
+    },
+    "description": {
+      "text": "Walk a settlement. They will not believe the warp."
+    },
+    "frame": "task",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false
+  },
+  "criteria": {
+    "here": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "minecraft:village"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "here"
+    ]
+  ],
+  "parent": "rallous_contact:crash/root"
+}

@@ -1,0 +1,2 @@
+# One Warp-tainted relic. Not a spellbook. Not a gun. Run at the player's stand position.
+setblock ~1 ~-1 ~ minecraft:chest[facing=south]{CustomName:'{"text":"Warp-Wound Cache","color":"dark_purple"}',Items:[{Slot:13b,id:"minecraft:echo_shard",Count:1b,tag:{display:{Name:'{"text":"Warp-Tainted Relic","italic":false,"color":"dark_purple"}',Lore:['{"text":"A shard torn from the crash-wound.","color":"gray","italic":true}','{"text":"It still hums.","color":"dark_gray"}']},Enchantments:[{id:"minecraft:unbreaking",lvl:1s}],HideFlags:1,rallous:{warp_relic:1b}}}]}

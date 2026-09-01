@@ -1,0 +1,27 @@
+{
+  "id": "the-silver-host",
+  "race": "vampire_counts",
+  "tier": "minor",
+  "name": "The Silver Host",
+  "banner": {
+    "pattern": "silver_skull",
+    "primary": "#C4B48A",
+    "secondary": "#2B0B1A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Wight King",
+    "name": "Krell's Banner-Bearer",
+    "personality": "Barrow host. War is the only offer that does not insult the dead.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "desert",
+    "badlands",
+    "plains",
+    "snow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

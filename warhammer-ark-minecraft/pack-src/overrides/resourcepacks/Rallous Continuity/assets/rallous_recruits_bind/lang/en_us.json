@@ -1,0 +1,8 @@
+{
+  "rallous_recruits_bind.tellraw.controls": "rallous-recruits-bridge founds this host as a Recruits banner (not Team 2). If chat does not say founded, open U → Found a Banner and type this name.",
+  "rallous_recruits_bind.tellraw.ally_gui": "Open this GUI to make Recruits Ally: Options → Controls → Hosts of the Old World → Open Elector / Waaagh / Under-Empire Screen (default U) → Diplomacy → Ally. Found a Banner first, named as the crash-camp host.",
+  "rallous_recruits_bind.tellraw.war_gui": "Open this GUI to make Recruits Enemy: Options → Controls → Hosts of the Old World → Open Elector / Waaagh / Under-Empire Screen (default U) → Diplomacy → Enemy. Found a Banner first, named as the crash-camp host.",
+  "rallous_recruits_bind.tellraw.prove": "This camp is prove-yourself. Scores name their host. Recruits Ally waits for the U Diplomacy screen after you prove it.",
+  "rallous_recruits_bind.tellraw.daemon": "This camp is daemon-suspicion. Scores name their host. Recruits will not treat you as Ally until the U Diplomacy screen.",
+  "rallous_recruits_bind.book.title": "Crash-Camp Host"
+}

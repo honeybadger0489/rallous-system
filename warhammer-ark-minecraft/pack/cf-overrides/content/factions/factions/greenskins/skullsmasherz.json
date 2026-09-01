@@ -1,0 +1,26 @@
+{
+  "id": "skullsmasherz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Skullsmasherz",
+  "banner": {
+    "pattern": "skullsmash",
+    "primary": "#2B2B2B",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -15,
+  "lord": {
+    "title": "Orc Warboss",
+    "name": "Skullsmash",
+    "personality": "Simple politics: smash skulls. Prove yours is harder.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "badlands",
+    "plains",
+    "mountains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

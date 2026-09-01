@@ -1,0 +1,26 @@
+{
+  "id": "bloody-spearz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Bloody Spearz",
+  "banner": {
+    "pattern": "bloody_spear",
+    "primary": "#8B1E2D",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -15,
+  "lord": {
+    "title": "Night Goblin Warboss",
+    "name": "Bloody Spearz Boss",
+    "personality": "Worlds Edge lurkers. War under the peaks.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "mountains",
+    "caves",
+    "taiga"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

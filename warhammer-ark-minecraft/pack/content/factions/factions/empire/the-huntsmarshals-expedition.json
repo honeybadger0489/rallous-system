@@ -1,0 +1,27 @@
+{
+  "id": "the-huntsmarshals-expedition",
+  "race": "empire",
+  "tier": "major",
+  "name": "The Huntsmarshal's Expedition",
+  "banner": {
+    "pattern": "hunter_stag",
+    "primary": "#2F5A2F",
+    "secondary": "#8B5A2B"
+  },
+  "starting_attitude": "open",
+  "starting_standing": 15,
+  "lord": {
+    "title": "Huntsmarshal of the Empire",
+    "name": "Markus Wulfhart",
+    "personality": "Wants guides, trackers, and anyone who can put a bolt in a temple-beast.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "jungle",
+    "mangrove",
+    "swamp",
+    "beach"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

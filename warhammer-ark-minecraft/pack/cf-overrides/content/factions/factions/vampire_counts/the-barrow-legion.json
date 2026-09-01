@@ -1,0 +1,27 @@
+{
+  "id": "the-barrow-legion",
+  "race": "vampire_counts",
+  "tier": "major",
+  "name": "The Barrow Legion",
+  "banner": {
+    "pattern": "lich_crown",
+    "primary": "#3A3A3A",
+    "secondary": "#6B1028"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -30,
+  "lord": {
+    "title": "Lichemaster",
+    "name": "Heinrich Kemmler",
+    "personality": "Hates the living on principle. A Warp-stranger is a reagent unless they feed his war.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "snow",
+    "mountains",
+    "taiga",
+    "dark_forest"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

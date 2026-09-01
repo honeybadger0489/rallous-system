@@ -1,0 +1,27 @@
+{
+  "id": "averland",
+  "race": "empire",
+  "tier": "minor",
+  "name": "Averland",
+  "banner": {
+    "pattern": "sun_and_black_lion",
+    "primary": "#C9A227",
+    "secondary": "#1A1A1A"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 8,
+  "lord": {
+    "title": "Elector Count of Averland",
+    "name": "Marius Leitdorf",
+    "personality": "Erratic but generous to riders and pistoliers who keep the pass open.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "plains",
+    "savanna",
+    "meadow",
+    "mountains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

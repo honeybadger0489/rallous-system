@@ -1,0 +1,27 @@
+{
+  "id": "hochland",
+  "race": "empire",
+  "tier": "minor",
+  "name": "Hochland",
+  "banner": {
+    "pattern": "longrifle",
+    "primary": "#7A1F1F",
+    "secondary": "#2F5A2F"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 5,
+  "lord": {
+    "title": "Elector Count of Hochland",
+    "name": "Aldebrand Ludenhof",
+    "personality": "Quiet forest count. Hires marksmen; distrusts loud magic and Warp-stink.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "forest",
+    "taiga",
+    "mountains",
+    "meadow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

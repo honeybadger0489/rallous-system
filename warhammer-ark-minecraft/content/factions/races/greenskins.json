@@ -1,0 +1,59 @@
+{
+  "id": "greenskins",
+  "name": "Greenskins",
+  "culture": "Waaagh! politics: orc bosses, goblin schemers, and night-goblin lurkers. Some tribes hold a crag; many just roam. Strangers prove themselves in a scrap or get krumped.",
+  "settlement": "mixed",
+  "taming_affinity": "low",
+  "warp_stranger_stance": "help_with_blade",
+  "colors": {
+    "primary": "#2F6B2F",
+    "secondary": "#C4A035",
+    "accent": "#1A1A1A"
+  },
+  "lord_title_pool": [
+    "Warboss",
+    "Great Shaman",
+    "Night Goblin Warboss",
+    "Goblin Great Shaman",
+    "Savage Orc Warboss",
+    "Black Orc Warboss",
+    "Giant River Troll Hag"
+  ],
+  "name_pool": {
+    "given": [
+      "Grimgor",
+      "Azhag",
+      "Wurrzag",
+      "Skarsnik",
+      "Grom",
+      "Gorbad",
+      "Gruk",
+      "Gorfang",
+      "Morglum",
+      "Ruglud",
+      "Gitilla",
+      "Snagla",
+      "Wizzgit",
+      "Tusk",
+      "Durkol",
+      "Skumwort",
+      "Bolg",
+      "Urk",
+      "Skrag",
+      "Dagskar"
+    ],
+    "epithet": [
+      "Ironhide",
+      "da Great Green Prophet",
+      "the Paunch",
+      "Ironclaw",
+      "Dump-Banner",
+      "Bonerattla",
+      "Teef-Taka",
+      "of the Eight Peaks",
+      "da Mean",
+      "Skull-Krumpa"
+    ]
+  },
+  "notes": "Majors usually keep a crag capital. Savage orc tribes and some minors roam. After majors placed, minors only."
+}

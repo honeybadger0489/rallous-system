@@ -1,0 +1,194 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "crash"
+	group: "1A010000"
+	icon: "minecraft:crying_obsidian"
+	id: "1C010000"
+	images: [ ]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "minecraft:crying_obsidian"
+			id: "1D010001"
+			rewards: [
+				{
+					id: "1E010001"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:crash/awake"
+					elevate_perms: true
+					id: "1E010002"
+					silent: true
+					type: "command"
+				}
+			]
+			shape: "hexagon"
+			size: 1.5d
+			subtitle: "Warp-crash. No court. No letters."
+			tasks: [
+				{
+					id: "1E010003"
+					title: "I woke in the warp crater"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"You crash-landed. Scorched blackstone, crying obsidian, a wreckage chest. Nobody lined six lords at your feet. If a peasant names an Emperor, they mean a rumor on a coin."
+				""
+				"This book is not a campaign map. The Old World is skeptical. Quest book: grave (`). Combat: V. Map: M. No starter spellbook."
+				""
+				"Prove you can last an hour — village or fight. Then help, betray, join, or align and leave."
+			]
+			title: "The Crater"
+			x: -4d
+			y: 0d
+		},
+		{
+			dependencies: ["1D010001"]
+			optional: true
+			icon: "minecraft:player_head"
+			id: "1D010005"
+			rewards: [
+				{
+					id: "1E010004"
+					type: "xp"
+					xp: 10
+				}
+			]
+			tasks: [
+				{
+					id: "1E010005"
+					title: "A second crash exists elsewhere"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"A friend who joins this world is spread hundreds of blocks away and gets their own crater."
+				""
+				"Solo: /function rallous_old_world:crash/demo_friend_elsewhere then /function rallous_old_world:crash/return_crater"
+			]
+			title: "Friend elsewhere"
+			x: -2d
+			y: -3d
+		},
+		{
+			dependencies: ["1D010001"]
+			icon: "minecraft:bell"
+			id: "1D010002"
+			rewards: [
+				{
+					id: "1E010006"
+					type: "xp"
+					xp: 25
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:crash/village"
+					elevate_perms: true
+					id: "1E010007"
+					silent: true
+					type: "command"
+				},
+				{
+					command: "execute as @p at @s run function rallous_warp_crash:first_contact"
+					elevate_perms: true
+					id: "1E010008"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E010009"
+					title: "Lived an hour among them"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Find a real settlement (Towns and Towers / a village the map M can see). Walk it. Drink. Eat. Hear them talk. They will not believe you fell from the warp."
+				""
+				"One hour of village life is proof. You do not need a banner yet."
+			]
+			title: "An Hour in a Village"
+			x: -1d
+			y: -2d
+		},
+		{
+			dependencies: ["1D010001"]
+			icon: "minecraft:iron_sword"
+			id: "1D010003"
+			rewards: [
+				{
+					id: "1E01000A"
+					type: "xp"
+					xp: 25
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:crash/fight"
+					elevate_perms: true
+					id: "1E01000B"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E01000C"
+					title: "Lasted an hour of steel"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Or skip the well. Night, a road ambush, a dungeon mouth. Combat mode (V). Eight things that wanted you dead."
+				""
+				"The Old World respects a survivor more than a story. Thirst still counts."
+			]
+			title: "An Hour in a Fight"
+			x: -1d
+			y: 2d
+		},
+		{
+			dependencies: ["1D010002", "1D010003"]
+			min_required_dependencies: 1
+			icon: "minecraft:filled_map"
+			id: "1D010004"
+			rewards: [
+				{
+					id: "1E01000D"
+					type: "xp"
+					xp: 40
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:crash/proved"
+					elevate_perms: true
+					id: "1E01000E"
+					silent: true
+					type: "command"
+				}
+			]
+			shape: "hexagon"
+			size: 1.5d
+			subtitle: "Village or fight. Paths already opened at the crater."
+			tasks: [
+				{
+					id: "1E01000F"
+					title: "The first hour is mine"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Either hour is enough. The book will not make you finish both."
+				""
+				"Help, betray, join, or align-and-leave already opened when you woke. This is the hour-mark, not the gate."
+			]
+			title: "Proved Yourself"
+			x: 2d
+			y: 0d
+		}
+	]
+	title: "Crash"
+}

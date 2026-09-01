@@ -1,0 +1,27 @@
+{
+  "id": "necrarch-brotherhood",
+  "race": "vampire_counts",
+  "tier": "minor",
+  "name": "Necrarch Brotherhood",
+  "banner": {
+    "pattern": "necrarch_eye",
+    "primary": "#3A3A4A",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -22,
+  "lord": {
+    "title": "Necrarch Master",
+    "name": "Melkhior the Ancient",
+    "personality": "Tower-scholar of undeath. Prove you can fetch reagents; he will not ride to save you.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "mountains",
+    "dark_forest",
+    "caves",
+    "snow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

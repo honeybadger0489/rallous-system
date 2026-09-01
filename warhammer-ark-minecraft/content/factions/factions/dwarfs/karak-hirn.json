@@ -1,0 +1,26 @@
+{
+  "id": "karak-hirn",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Karak Hirn",
+  "banner": {
+    "pattern": "hirn_horn",
+    "primary": "#C9A227",
+    "secondary": "#1E3A6B"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": -5,
+  "lord": {
+    "title": "King of Karak Hirn",
+    "name": "Alrik Ranulfsson",
+    "personality": "Hornhold on the Empire border. Tribute in ore-contracts if you want passage.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "mountains",
+    "forest",
+    "taiga"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

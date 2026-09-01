@@ -1,0 +1,26 @@
+{
+  "id": "dark-land-orcs",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Dark Land Orcs",
+  "banner": {
+    "pattern": "dark_land",
+    "primary": "#3A3A3A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Black Orc Warboss",
+    "name": "Durkol da Dark",
+    "personality": "Ash-plain orcs. War on anything that looks rich.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "badlands",
+    "desert",
+    "nether_waste"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

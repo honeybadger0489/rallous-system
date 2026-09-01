@@ -1,0 +1,26 @@
+{
+  "id": "da-cage-breakaz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Da Cage Breakaz",
+  "banner": {
+    "pattern": "cage_break",
+    "primary": "#5A4A3A",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -8,
+  "lord": {
+    "title": "Orc Warboss",
+    "name": "Cage-Breaka",
+    "personality": "Chorfs' escaped labour. Help smash furnaces.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "badlands",
+    "desert",
+    "nether_waste"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

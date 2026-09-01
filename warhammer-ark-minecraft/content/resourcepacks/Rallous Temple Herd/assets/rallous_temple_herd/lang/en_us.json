@@ -1,0 +1,18 @@
+{
+  "advancements.rallous_temple_herd.root.title": "Temple and Herd",
+  "advancements.rallous_temple_herd.root.description": "Fossils and Tameable Beasts stay the engine.",
+  "advancements.rallous_temple_herd.lizardmen.warm_canopy.title": "Warm Canopy",
+  "advancements.rallous_temple_herd.lizardmen.warm_canopy.description": "Jungle or warm land. Temple-Spawn markers live here — not silent dinos.",
+  "advancements.rallous_temple_herd.lizardmen.temple_marker.title": "Temple Marker",
+  "advancements.rallous_temple_herd.lizardmen.temple_marker.description": "Lime banners and a named stand. The temple negotiates by omen.",
+  "advancements.rallous_temple_herd.lizardmen.loyal_beast.title": "Loyal Temple-Beast",
+  "advancements.rallous_temple_herd.lizardmen.loyal_beast.description": "You earned a living creature. Haul, fight, travel, or tank.",
+  "advancements.rallous_temple_herd.beastmen.horned_woods.title": "Horned Woods",
+  "advancements.rallous_temple_herd.beastmen.horned_woods.description": "Dark forest or taiga. Herdstones, not towns.",
+  "advancements.rallous_temple_herd.beastmen.herdstone.title": "Herdstone",
+  "advancements.rallous_temple_herd.beastmen.herdstone.description": "Skull banners and a hung stand. The herd enslaves what it cannot hear.",
+  "advancements.rallous_temple_herd.beastmen.broken_beast.title": "Broken Beast",
+  "advancements.rallous_temple_herd.beastmen.broken_beast.description": "Carrion, a lead, offal. This is a slave, not a companion.",
+  "advancements.rallous_temple_herd.other_races.worse_hands.title": "Worse Hands",
+  "advancements.rallous_temple_herd.other_races.worse_hands.description": "Empire, Dawi, Kislev, dead, and greenskins use beasts as livestock or engines. They do not hear the temple."
+}

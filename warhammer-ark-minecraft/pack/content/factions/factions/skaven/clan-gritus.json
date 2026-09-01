@@ -1,0 +1,26 @@
+{
+  "id": "clan-gritus",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Gritus",
+  "banner": {
+    "pattern": "gritus",
+    "primary": "#4A3A2A",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": -14,
+  "lord": {
+    "title": "Warlord",
+    "name": "Gritus",
+    "personality": "Southlands under-city. Recruit stormvermin if you pay warp-tokens.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "jungle",
+    "savanna",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

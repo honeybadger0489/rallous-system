@@ -1,0 +1,27 @@
+{
+  "id": "clan-moulder",
+  "race": "skaven",
+  "tier": "major",
+  "name": "Clan Moulder",
+  "banner": {
+    "pattern": "moulder_rat",
+    "primary": "#8B5A2B",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -22,
+  "lord": {
+    "title": "Master Moulder",
+    "name": "Throt the Unclean",
+    "personality": "Wants living specimens. Tribute in beasts; your tames are inventory.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "taiga",
+    "snow",
+    "caves",
+    "dark_forest"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

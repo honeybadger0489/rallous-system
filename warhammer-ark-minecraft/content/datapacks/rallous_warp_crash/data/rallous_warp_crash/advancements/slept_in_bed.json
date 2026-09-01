@@ -1,0 +1,10 @@
+{
+  "criteria": {
+    "slept": {
+      "trigger": "minecraft:slept_in_bed"
+    }
+  },
+  "rewards": {
+    "function": "rallous_warp_crash:on_sleep"
+  }
+}

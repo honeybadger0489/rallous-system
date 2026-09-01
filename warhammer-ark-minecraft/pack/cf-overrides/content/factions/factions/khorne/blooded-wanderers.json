@@ -1,0 +1,27 @@
+{
+  "id": "blooded-wanderers",
+  "race": "khorne",
+  "tier": "major",
+  "name": "Blooded Wanderers",
+  "banner": {
+    "pattern": "cloak_of_skulls",
+    "primary": "#8B1E2D",
+    "secondary": "#1A1A1A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -55,
+  "lord": {
+    "title": "Khorne's Champion",
+    "name": "Skulltaker",
+    "personality": "Hunts named lords. A Warp-stranger with a reputation is a cloak-ornament.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "nether_waste",
+    "plains",
+    "badlands",
+    "crimson"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

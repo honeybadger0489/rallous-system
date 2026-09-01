@@ -1,0 +1,1158 @@
+{
+  "pack": {
+    "name": "Rallous Frontier",
+    "slug": "rallous-frontier",
+    "author": "Rallous System",
+    "version": "0.1.0",
+    "description": "Prototype Minecraft pack: original grimdark + prehistoric survival (Warhammer-inspired, Ark-like). Default set avoids Games Workshop and Wildcard IP.",
+    "minecraft": "1.20.1",
+    "loader": "forge",
+    "loader_version": "47.4.0",
+    "loader_version_note": "Use Forge 47.4.0 or newer 47.4.x (47.4.10 is commonly used by 1.20.1 overhaul packs).",
+    "java": "17"
+  },
+  "projects": [
+    {
+      "slug": "jei",
+      "title": "Just Enough Items (JEI)",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "qol",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "jei",
+      "curseforge_id": 238222,
+      "notes": "Recipe browser. EMI is an alternative; pick one."
+    },
+    {
+      "slug": "jade",
+      "title": "Jade",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "qol",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "jade",
+      "notes": "HWYLA-style overlay. Helps identify unknown fauna."
+    },
+    {
+      "slug": "cloth-config",
+      "title": "Cloth Config API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "cloth-config"
+    },
+    {
+      "slug": "architectury-api",
+      "title": "Architectury API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "architectury-api"
+    },
+    {
+      "slug": "geckolib",
+      "title": "GeckoLib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "geckolib",
+      "curseforge_id": 388172,
+      "notes": "Required by Jurassic Revived, Cataclysm, many creature mods."
+    },
+    {
+      "slug": "citadel",
+      "title": "Citadel",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "citadel",
+      "curseforge_id": 331936,
+      "notes": "Required by Alex's Mobs, Alex's Caves, Ice and Fire."
+    },
+    {
+      "slug": "curios",
+      "title": "Curios API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "curios",
+      "curseforge_id": 309927
+    },
+    {
+      "slug": "playeranimator",
+      "title": "Player Animator",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "playeranimator",
+      "notes": "Required by Better Combat / some animation mods. Keep even if using Epic Fight."
+    },
+    {
+      "slug": "kotlin-for-forge",
+      "title": "Kotlin for Forge",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "kotlin-for-forge"
+    },
+    {
+      "slug": "lionfish-api",
+      "title": "Lionfish API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "notes": "Required by L_Ender's Cataclysm."
+    },
+    {
+      "slug": "moonlight",
+      "title": "Moonlight Lib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "selene",
+      "notes": "Required by Supplementaries / Amendments."
+    },
+    {
+      "slug": "puzzles-lib",
+      "title": "Puzzles Lib",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "puzzles-lib"
+    },
+    {
+      "slug": "sophisticated-core",
+      "title": "Sophisticated Core",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "sophisticated-core"
+    },
+    {
+      "slug": "yungs-api",
+      "title": "YUNG's API",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "yungs-api"
+    },
+    {
+      "slug": "embeddium",
+      "title": "Embeddium",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "embeddium",
+      "curseforge_id": 908741,
+      "notes": "Forge Sodium fork. Required with Oculus for shaders. Do not also install Rubidium/Sodium."
+    },
+    {
+      "slug": "oculus",
+      "title": "Oculus",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "oculus",
+      "curseforge_id": 581495,
+      "notes": "Iris port for Forge. Pairs with Embeddium."
+    },
+    {
+      "slug": "ferrite-core",
+      "title": "FerriteCore",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "ferritecore"
+    },
+    {
+      "slug": "modernfix",
+      "title": "ModernFix",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "modernfix"
+    },
+    {
+      "slug": "entityculling",
+      "title": "Entity Culling",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "performance",
+      "include_in_default": true,
+      "curseforge_slug": "entityculling"
+    },
+    {
+      "slug": "appleskin",
+      "title": "AppleSkin",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "qol",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "appleskin"
+    },
+    {
+      "slug": "controlling",
+      "title": "Controlling",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "controlling"
+    },
+    {
+      "slug": "searchables",
+      "title": "Searchables",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "searchables",
+      "notes": "Dependency of Controlling on 1.20.1."
+    },
+    {
+      "slug": "mouse-tweaks",
+      "title": "Mouse Tweaks",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "mouse-tweaks"
+    },
+    {
+      "slug": "carry-on",
+      "title": "Carry On",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "carry-on",
+      "notes": "Carry animals/chests — useful for relocating tames."
+    },
+    {
+      "slug": "entitytexturefeatures",
+      "title": "Entity Texture Features",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "visual",
+      "include_in_default": true,
+      "curseforge_slug": "entity-texture-features-fabric",
+      "notes": "Enables Fresh Animations / emissive mob textures on Forge too."
+    },
+    {
+      "slug": "entity-model-features",
+      "title": "Entity Model Features",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "visual",
+      "include_in_default": true,
+      "notes": "Companion to ETF for Fresh Animations."
+    },
+    {
+      "slug": "data-anchor",
+      "title": "Data Anchor",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "data-anchor",
+      "curseforge_id": 1203668,
+      "notes": "Required by Enhanced Celestials."
+    },
+    {
+      "slug": "corgilib",
+      "title": "CorgiLib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "corgilib",
+      "curseforge_id": 693313,
+      "notes": "Required by Enhanced Celestials."
+    },
+    {
+      "slug": "glitchcore",
+      "title": "GlitchCore",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "glitchcore",
+      "curseforge_id": 955399,
+      "notes": "Required by Serene Seasons 9.1."
+    },
+    {
+      "slug": "fzzy-config",
+      "title": "Fzzy Config",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "fzzy-config",
+      "curseforge_id": 1005914,
+      "notes": "Required by Simply Swords. Needs Kotlin for Forge."
+    },
+    {
+      "slug": "simply-tooltips",
+      "title": "Simply Tooltips",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "simply-tooltips",
+      "curseforge_id": 1475755,
+      "notes": "Required by Simply Swords. Needs Fzzy Config + Architectury."
+    },
+    {
+      "slug": "more-hitboxes",
+      "title": "More Hitboxes",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "more-hitboxes",
+      "curseforge_id": 1115989,
+      "notes": "Required by Fossils and Archeology Revival 9.3."
+    },
+    {
+      "slug": "terrablender",
+      "title": "TerraBlender",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "terrablender",
+      "curseforge_id": 563928,
+      "notes": "Required by Fossils; also used by Terralith biome hooks."
+    },
+    {
+      "slug": "lodestonelib",
+      "title": "Lodestone",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "lodestone",
+      "curseforge_id": 616457,
+      "notes": "Required by Malum."
+    },
+    {
+      "slug": "cristel-lib",
+      "title": "Cristel Lib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "cristel-lib",
+      "curseforge_id": 856996,
+      "notes": "Required by Towns and Towers."
+    },
+    {
+      "slug": "irons-lib",
+      "title": "Iron's Lib",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "library",
+      "include_in_default": true,
+      "curseforge_slug": "irons-lib",
+      "curseforge_id": 1492763,
+      "notes": "Required by Iron's Spells 'n Spellbooks 3.16."
+    },
+    {
+      "slug": "fossils-and-archeology-revival",
+      "title": "Fossils and Archeology: Revival",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "creatures",
+      "include_in_default": true,
+      "curseforge_slug": "fossils",
+      "curseforge_id": 223908,
+      "notes": "Primary Ark-like loop: fossils, DNA, embryos, taming/riding. Do not also enable Jurassic Revived or Jurassic Reborn."
+    },
+    {
+      "slug": "alexs-mobs",
+      "title": "Alex's Mobs",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "creatures",
+      "include_in_default": true,
+      "curseforge_slug": "alexs-mobs",
+      "notes": "Living-world fauna. Citadel required. Last 1.20.1 file Sep 2024 — still the standard."
+    },
+    {
+      "slug": "alexs-caves",
+      "title": "Alex's Caves",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "alexs-caves",
+      "curseforge_id": 924854,
+      "notes": "Alien/xeno cave biomes without GW IP. Citadel required."
+    },
+    {
+      "slug": "tameable-beasts",
+      "title": "Tameable Beasts",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "taming",
+      "include_in_default": true,
+      "curseforge_slug": "tameable-beasts",
+      "curseforge_id": 646425,
+      "notes": "Expands taming/riding. Configure so it does not trivialize Fossils dinos."
+    },
+    {
+      "slug": "borninchaos",
+      "title": "Born in Chaos",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "grimdark",
+      "include_in_default": true,
+      "curseforge_slug": "born-in-chaos",
+      "curseforge_id": 686437,
+      "notes": "Hostile grimdark mobs/structures. Original IP."
+    },
+    {
+      "slug": "l_enders-cataclysm",
+      "title": "L_Ender's Cataclysm",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "grimdark",
+      "include_in_default": true,
+      "curseforge_slug": "lendercataclysm",
+      "curseforge_id": 551586,
+      "notes": "Boss fauna (Leviathan, Ancient Remnant, etc.) as Carnifex/greater-daemon analogues. Lionfish API + Curios + GeckoLib."
+    },
+    {
+      "slug": "epic-fight",
+      "title": "Epic Fight",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "combat",
+      "include_in_default": true,
+      "curseforge_slug": "epic-fight-mod",
+      "curseforge_id": 405076,
+      "notes": "Souls-like melee. Forge/NeoForge only. Do not stack Better Combat unless you add a compat mod."
+    },
+    {
+      "slug": "simply-swords",
+      "title": "Simply Swords",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "combat",
+      "include_in_default": true,
+      "curseforge_slug": "simply-swords",
+      "curseforge_id": 659887,
+      "notes": "Weapon variety for gothic/fantasy warhammer feel. Original designs."
+    },
+    {
+      "slug": "timeless-and-classics-zero",
+      "title": "TaCZ (Timeless and Classics Zero)",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "combat",
+      "include_in_default": true,
+      "curseforge_slug": "timeless-and-classics-zero",
+      "curseforge_id": 1028108,
+      "notes": "Gun framework for bolter-feel. Use original gunpacks — do not install tacz40k (GW IP)."
+    },
+    {
+      "slug": "legendary-survival-overhaul",
+      "title": "Legendary Survival Overhaul",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "survival",
+      "include_in_default": true,
+      "curseforge_slug": "legendary-survival-overhaul",
+      "curseforge_id": 840254,
+      "notes": "Thirst, temperature, body health. Do not also install Tough As Nails, Cold Sweat, or Thirst Was Taken."
+    },
+    {
+      "slug": "serene-seasons",
+      "title": "Serene Seasons",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "survival",
+      "include_in_default": true,
+      "curseforge_slug": "serene-seasons",
+      "curseforge_id": 291874,
+      "notes": "Seasons feed LSO temperature. Crop windows = Ark-like climate pressure."
+    },
+    {
+      "slug": "farmers-delight",
+      "title": "Farmer's Delight",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "survival",
+      "include_in_default": true,
+      "curseforge_slug": "farmers-delight",
+      "curseforge_id": 398521
+    },
+    {
+      "slug": "open-parties-and-claims",
+      "title": "Open Parties and Claims",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "tribes",
+      "include_in_default": true,
+      "curseforge_slug": "open-parties-and-claims",
+      "curseforge_id": 636608,
+      "notes": "Ark tribe analogue: parties + land claims. Prefer this over stacking FTB Teams+Chunks unless you need FTB Quests."
+    },
+    {
+      "slug": "when-dungeons-arise",
+      "title": "When Dungeons Arise",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "when-dungeons-arise",
+      "notes": "Large gothic/imperial ruin structures."
+    },
+    {
+      "slug": "terralith",
+      "title": "Terralith",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "terralith",
+      "curseforge_id": 513688,
+      "notes": "Primary biome overhaul. Do not also enable Biomes O' Plenty or Oh The Biomes We've Gone in v0.1."
+    },
+    {
+      "slug": "create",
+      "title": "Create",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "create",
+      "curseforge_id": 328085,
+      "notes": "Gothic-industrial factories. Create 6.x bundles Flywheel — do not install legacy Flywheel."
+    },
+    {
+      "slug": "supplementaries",
+      "title": "Supplementaries",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "supplementaries",
+      "notes": "Decorative/functional blocks. Needs Moonlight Lib."
+    },
+    {
+      "slug": "amendments",
+      "title": "Amendments",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "amendments"
+    },
+    {
+      "slug": "chipped",
+      "title": "Chipped",
+      "type": "mod",
+      "tier": "must-have",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "chipped",
+      "notes": "Block variants for gothic masonry."
+    },
+    {
+      "slug": "architects-palette",
+      "title": "Architect's Palette",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "architects-palette"
+    },
+    {
+      "slug": "malum",
+      "title": "Malum",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "grimdark",
+      "include_in_default": true,
+      "curseforge_slug": "malum",
+      "notes": "Spirit/warp-adjacent magic without GW names. Optional if you want less magic."
+    },
+    {
+      "slug": "enhanced-celestials",
+      "title": "Enhanced Celestials",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "grimdark",
+      "include_in_default": true,
+      "curseforge_slug": "enhanced-celestials",
+      "notes": "Blood moons as warp-tide analogue."
+    },
+    {
+      "slug": "yungs-better-dungeons",
+      "title": "YUNG's Better Dungeons",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "yungs-better-dungeons"
+    },
+    {
+      "slug": "yungs-better-nether-fortresses",
+      "title": "YUNG's Better Nether Fortresses",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "yungs-better-nether-fortresses"
+    },
+    {
+      "slug": "yungs-better-strongholds",
+      "title": "YUNG's Better Strongholds",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "yungs-better-strongholds"
+    },
+    {
+      "slug": "towns-and-towers",
+      "title": "Towns and Towers",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "towns-and-towers"
+    },
+    {
+      "slug": "structory",
+      "title": "Structory",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "structory"
+    },
+    {
+      "slug": "explorify",
+      "title": "Explorify",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "world",
+      "include_in_default": true,
+      "curseforge_slug": "explorify"
+    },
+    {
+      "slug": "macaws-windows",
+      "title": "Macaw's Windows",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "macaws-windows"
+    },
+    {
+      "slug": "macaws-roofs",
+      "title": "Macaw's Roofs",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "macaws-roofs"
+    },
+    {
+      "slug": "macaws-bridges",
+      "title": "Macaw's Bridges",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "macaws-bridges"
+    },
+    {
+      "slug": "macaws-furniture",
+      "title": "Macaw's Furniture",
+      "type": "mod",
+      "tier": "optional",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "macaws-furniture"
+    },
+    {
+      "slug": "another-furniture",
+      "title": "Another Furniture",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "another-furniture"
+    },
+    {
+      "slug": "decorative-blocks",
+      "title": "Decorative Blocks",
+      "type": "mod",
+      "tier": "strongly-recommended",
+      "role": "bases",
+      "include_in_default": true,
+      "curseforge_slug": "decorative-blocks"
+    },
+    {
+      "slug": "parcool",
+      "title": "ParCool!",
+      "type": "mod",
+      "tier": "optional",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "parcool",
+      "notes": "Parkour/mantling — Ark-like traversal. Optional if it fights Epic Fight animations."
+    },
+    {
+      "slug": "sophisticated-backpacks",
+      "title": "Sophisticated Backpacks",
+      "type": "mod",
+      "tier": "optional",
+      "role": "qol",
+      "include_in_default": true,
+      "curseforge_slug": "sophisticated-backpacks"
+    },
+    {
+      "slug": "immersiveengineering",
+      "title": "Immersive Engineering",
+      "type": "mod",
+      "tier": "optional",
+      "role": "bases",
+      "include_in_default": false,
+      "curseforge_slug": "immersive-engineering",
+      "curseforge_id": 231951,
+      "notes": "Heavy industrial — great later, noisy with Create 6. Enable in a tech-forward instance."
+    },
+    {
+      "slug": "create-steam-n-rails",
+      "title": "Create: Steam 'n' Rails",
+      "type": "mod",
+      "tier": "optional",
+      "role": "bases",
+      "include_in_default": false,
+      "curseforge_slug": "create-steam-n-rails"
+    },
+    {
+      "slug": "immersive-aircraft",
+      "title": "Immersive Aircraft",
+      "type": "mod",
+      "tier": "optional",
+      "role": "transport",
+      "include_in_default": false,
+      "curseforge_slug": "immersive-aircraft",
+      "notes": "Dropship analogue. Add after core loop is fun."
+    },
+    {
+      "slug": "hardcore-torches",
+      "title": "Hardcore Torches",
+      "type": "mod",
+      "tier": "optional",
+      "role": "survival",
+      "include_in_default": false,
+      "curseforge_slug": "hardcore-torches",
+      "notes": "Primitive lighting. Can stack with LSO; test burnout pacing."
+    },
+    {
+      "slug": "spice-of-life-apple-pie-edition",
+      "title": "Spice of Life: Apple Pie Edition",
+      "type": "mod",
+      "tier": "optional",
+      "role": "survival",
+      "include_in_default": false,
+      "notes": "Diet diversity. SOL Carrot Edition is not current on Modrinth for 1.20.1."
+    },
+    {
+      "slug": "irons-spells-n-spellbooks",
+      "title": "Iron's Spells 'n Spellbooks",
+      "type": "mod",
+      "tier": "optional",
+      "role": "grimdark",
+      "include_in_default": false,
+      "curseforge_slug": "irons-spells-n-spellbooks",
+      "notes": "Psyker analogue. Skip in v0.1 if you want survival-first rather than wizard fantasy."
+    },
+    {
+      "slug": "ice-and-fire-dragons",
+      "title": "Ice and Fire: Dragons",
+      "type": "mod",
+      "tier": "later",
+      "role": "creatures",
+      "include_in_default": false,
+      "curseforge_slug": "ice-and-fire-dragons",
+      "curseforge_id": 264231,
+      "notes": "1.20.1 last file is still a 2024 beta. Dragons as wyvern analogues. Compatibility risk with worldgen/mobs."
+    },
+    {
+      "slug": "prehistoric-fauna",
+      "title": "Prehistoric Fauna",
+      "type": "mod",
+      "tier": "later",
+      "role": "creatures",
+      "include_in_default": false,
+      "curseforge_slug": "prehistoric-fauna",
+      "curseforge_id": 311600,
+      "notes": "Accurate time-travel dimensions, limited taming. Conflicts conceptually with Fossils revival loop. Use in a separate 'expedition' instance."
+    },
+    {
+      "slug": "jurassic-revived",
+      "title": "Jurassic Revived",
+      "type": "mod",
+      "tier": "later",
+      "role": "creatures",
+      "include_in_default": false,
+      "curseforge_slug": "jurassic-revived",
+      "curseforge_id": 1343227,
+      "notes": "JurassiCraft successor (park/DNA). Do not mix with Fossils in the same world."
+    },
+    {
+      "slug": "better-combat",
+      "title": "Better Combat",
+      "type": "mod",
+      "tier": "later",
+      "role": "combat",
+      "include_in_default": false,
+      "curseforge_slug": "better-combat",
+      "notes": "Conflicts with Epic Fight unless you add a dedicated compat mod. Default pack uses Epic Fight only."
+    },
+    {
+      "slug": "tough-as-nails",
+      "title": "Tough As Nails",
+      "type": "mod",
+      "tier": "later",
+      "role": "survival",
+      "include_in_default": false,
+      "curseforge_slug": "tough-as-nails",
+      "curseforge_id": 246391,
+      "notes": "Conflicts with Legendary Survival Overhaul. Listed as TAN-style alternative, not both."
+    },
+    {
+      "slug": "cold-sweat",
+      "title": "Cold Sweat",
+      "type": "mod",
+      "tier": "later",
+      "role": "survival",
+      "include_in_default": false,
+      "curseforge_slug": "cold-sweat",
+      "curseforge_id": 506194,
+      "notes": "Temperature-only alternative to LSO. Do not stack with LSO."
+    },
+    {
+      "slug": "create-big-cannons",
+      "title": "Create Big Cannons",
+      "type": "mod",
+      "tier": "later",
+      "role": "combat",
+      "include_in_default": false,
+      "curseforge_slug": "create-big-cannons"
+    },
+    {
+      "slug": "ad-astra",
+      "title": "Ad Astra",
+      "type": "mod",
+      "tier": "later",
+      "role": "world",
+      "include_in_default": false,
+      "curseforge_slug": "ad-astra",
+      "notes": "Death-world planets. Saves for a later 'void crusade' phase."
+    },
+    {
+      "slug": "deeperdarker",
+      "title": "Deeper and Darker",
+      "type": "mod",
+      "tier": "later",
+      "role": "world",
+      "include_in_default": false,
+      "curseforge_slug": "deeperdarker"
+    },
+    {
+      "slug": "the-undergarden",
+      "title": "The Undergarden",
+      "type": "mod",
+      "tier": "later",
+      "role": "world",
+      "include_in_default": false,
+      "curseforge_slug": "the-undergarden"
+    },
+    {
+      "slug": "hammercraft40k",
+      "title": "Hammercraft 40k",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false,
+      "curseforge_slug": "wh40kmc-project",
+      "curseforge_id": 964310,
+      "notes": "LEGAL RISK: uses Games Workshop 40k setting. Forge 1.20.1. Not in default pack. See LEGAL-NOTES.md."
+    },
+    {
+      "slug": "tacz40k",
+      "title": "Tacz40k",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false,
+      "notes": "LEGAL RISK: 40k gunpack for TaCZ. Do not include in default."
+    },
+    {
+      "slug": "warhammer-sons-of-the-empire",
+      "title": "Warhammer: Sons of the Empire",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false,
+      "notes": "LEGAL RISK: Warhammer-branded. All Rights Reserved."
+    },
+    {
+      "slug": "create-warhammer",
+      "title": "create: warhammer",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false
+    },
+    {
+      "slug": "ultimate-warhammer-40k",
+      "title": "Ultimate warhammer mod",
+      "type": "mod",
+      "tier": "ip-overlay",
+      "role": "warhammer-ip",
+      "include_in_default": false
+    },
+    {
+      "slug": "grimdark-sky",
+      "title": "Grimdark Sky Pack",
+      "type": "resourcepack",
+      "tier": "must-have",
+      "role": "visual",
+      "include_in_default": true,
+      "starter": true,
+      "curseforge_slug": "grimdark-sky",
+      "notes": "Chaos moon / exoplanet sky. Stack above block packs. Needs custom-sky support (Oculus/OptiFine)."
+    },
+    {
+      "slug": "battlepack",
+      "title": "Grimdark Battlepack",
+      "type": "resourcepack",
+      "tier": "must-have",
+      "role": "visual",
+      "include_in_default": true,
+      "curseforge_slug": "grimdark-battlepack",
+      "notes": "Armor/weapon CIT variants. Anvil-rename variants need CIT (OptiFine) or may be limited on Oculus."
+    },
+    {
+      "slug": "faithful-32x",
+      "title": "Faithful 32x",
+      "type": "resourcepack",
+      "tier": "strongly-recommended",
+      "role": "visual",
+      "include_in_default": true,
+      "curseforge_slug": "faithful-32x",
+      "notes": "Base 32x pack under grimdark addons."
+    },
+    {
+      "slug": "fresh-animations",
+      "title": "Fresh Animations",
+      "type": "resourcepack",
+      "tier": "strongly-recommended",
+      "role": "visual",
+      "include_in_default": true,
+      "notes": "Needs ETF + EMF."
+    },
+    {
+      "slug": "gothic-rpg-font",
+      "title": "Gothic RPG Font",
+      "type": "resourcepack",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": true,
+      "starter": true
+    },
+    {
+      "slug": "thalyrus2",
+      "title": "Thalyrus II Medieval Age",
+      "type": "resourcepack",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false,
+      "notes": "Alternative medieval overhaul pack. Do not stack with Faithful as both bases."
+    },
+    {
+      "slug": "default-dark-mode",
+      "title": "Default Dark Mode",
+      "type": "resourcepack",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false
+    },
+    {
+      "slug": "dramatic-skys",
+      "title": "Dramatic Skys",
+      "type": "resourcepack",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false,
+      "notes": "Conflicts with Grimdark Sky — pick one sky pack."
+    },
+    {
+      "slug": "complementary-unbound",
+      "title": "Complementary Shaders - Unbound",
+      "type": "shader",
+      "tier": "must-have",
+      "role": "visual",
+      "include_in_default": true,
+      "starter": true,
+      "notes": "Darker/more cinematic Complementary profile. Use with Oculus+Embeddium."
+    },
+    {
+      "slug": "complementary-reimagined",
+      "title": "Complementary Shaders - Reimagined",
+      "type": "shader",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false,
+      "notes": "Brighter Complementary profile. Alternative to Unbound."
+    },
+    {
+      "slug": "bsl-shaders",
+      "title": "BSL Shaders",
+      "type": "shader",
+      "tier": "optional",
+      "role": "visual",
+      "include_in_default": false
+    },
+    {
+      "slug": "minecolonies",
+      "title": "MineColonies",
+      "type": "mod",
+      "tier": "optional",
+      "role": "world",
+      "include_in_default": false,
+      "curseforge_slug": "minecolonies",
+      "curseforge_id": 245506,
+      "curseforge_file_id": 8615315,
+      "filename": "minecolonies-1.20.1-1.1.1276.jar",
+      "notes": "Millénaire-scale colony sim. 1.20.1 Forge fileIDs exist on CurseForge only (Modrinth stale 1.18.2). Pin release 1.1.1276 fileID 8615315; latest snapshot 1.1.1280 fileID 8775822. Requires Structurize, BlockUI, Domum Ornamentum, MultiPiston. Do not enable as a second capital next to Recruits (already in 0.3.7). Frame as Elector / temple-city / hold / Under-Empire outpost. Cheap loop that ships tonight is content/datapacks/rallous_grow."
+    },
+    {
+      "slug": "structurize",
+      "title": "Structurize",
+      "type": "mod",
+      "tier": "optional",
+      "role": "library",
+      "include_in_default": false,
+      "curseforge_slug": "structurize",
+      "curseforge_id": 298744,
+      "curseforge_file_id": 8610456,
+      "filename": "structurize-1.20.1-1.0.818.jar",
+      "notes": "Required by MineColonies 1.1.1276+. Not in default."
+    },
+    {
+      "slug": "blockui",
+      "title": "BlockUI",
+      "type": "mod",
+      "tier": "optional",
+      "role": "library",
+      "include_in_default": false,
+      "curseforge_slug": "blockui",
+      "curseforge_id": 522992,
+      "curseforge_file_id": 7541343,
+      "filename": "blockui-1.20.1-1.0.193.jar",
+      "notes": "Required by MineColonies. GitHub asks 1.0.190+."
+    },
+    {
+      "slug": "domum-ornamentum",
+      "title": "Domum Ornamentum",
+      "type": "mod",
+      "tier": "optional",
+      "role": "library",
+      "include_in_default": false,
+      "curseforge_slug": "domum-ornamentum",
+      "curseforge_id": 527361,
+      "curseforge_file_id": 7585567,
+      "filename": "domum_ornamentum-1.20.1-1.0.296-universal.jar",
+      "notes": "Required by MineColonies. GitHub asks 1.0.288+."
+    },
+    {
+      "slug": "multi-piston",
+      "title": "Multi-Piston",
+      "type": "mod",
+      "tier": "optional",
+      "role": "library",
+      "include_in_default": false,
+      "curseforge_slug": "multi-piston",
+      "curseforge_id": 303278,
+      "curseforge_file_id": 5204918,
+      "filename": "multipiston-1.20-1.2.43-RELEASE.jar",
+      "notes": "Required by MineColonies. GitHub asks 1.2.30+."
+    }
+  ],
+  "manual_curseforge_only": [
+    {
+      "curseforge_slug": "epic-knights-armor-and-weapons",
+      "curseforge_id": 509041,
+      "title": "Epic Knights: Shields, Armor and Weapons (Magistu)",
+      "tier": "strongly-recommended",
+      "notes": "Not on Modrinth. Add via CurseForge/Prism from CF. Gothic plate that reads as chapter/knight armour. 1.20.1 Forge file updated Mar 2026."
+    }
+  ],
+  "conflicts": [
+    {
+      "group": "dinosaur-revival",
+      "pick_one": ["fossils-and-archeology-revival", "jurassic-revived", "jurassic-reborn", "prehistoric-fauna"],
+      "reason": "Overlapping DNA/dino systems and spawn tables. Default: Fossils only."
+    },
+    {
+      "group": "survival-needs",
+      "pick_one": ["legendary-survival-overhaul", "tough-as-nails+cold-sweat+thirst-was-taken"],
+      "reason": "Duplicate thirst/temperature/body-health. Default: LSO only."
+    },
+    {
+      "group": "melee-overhaul",
+      "pick_one": ["epic-fight", "better-combat"],
+      "reason": "Both rewrite combat. Compat mods exist but are extra moving parts. Default: Epic Fight."
+    },
+    {
+      "group": "biome-overhaul",
+      "pick_one": ["terralith", "biomes-o-plenty", "oh-the-biomes-weve-gone"],
+      "reason": "Stacked biome mods wreck spawn rates and performance. Default: Terralith."
+    },
+    {
+      "group": "sky-pack",
+      "pick_one": ["grimdark-sky", "dramatic-skys"],
+      "reason": "Both replace the skybox."
+    },
+    {
+      "group": "gun-framework",
+      "pick_one": ["timeless-and-classics-zero", "pointblank"],
+      "reason": "Reported scope/zoom breakage when both are loaded."
+    },
+    {
+      "group": "player-capital",
+      "pick_one": ["recruits-claims", "minecolonies"],
+      "reason": "MineColonies + Recruits as dual player capitals is the documented performance tax. Default 0.3.7 keeps Recruits. rallous_grow is the cheap camp-growth loop."
+    }
+  ]
+}

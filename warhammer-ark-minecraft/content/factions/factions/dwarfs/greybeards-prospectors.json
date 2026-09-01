@@ -1,0 +1,26 @@
+{
+  "id": "greybeards-prospectors",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Greybeard's Prospectors",
+  "banner": {
+    "pattern": "prospector_pick",
+    "primary": "#8A8A7A",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": 5,
+  "lord": {
+    "title": "Thane",
+    "name": "Greybeard",
+    "personality": "Lustrian miners. Recruit guards for the claim.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "jungle",
+    "mountains",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

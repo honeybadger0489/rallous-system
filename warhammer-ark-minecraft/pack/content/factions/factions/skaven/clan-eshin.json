@@ -1,0 +1,27 @@
+{
+  "id": "clan-eshin",
+  "race": "skaven",
+  "tier": "major",
+  "name": "Clan Eshin",
+  "banner": {
+    "pattern": "eshin_rune",
+    "primary": "#1A1A1A",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -18,
+  "lord": {
+    "title": "Deathmaster",
+    "name": "Deathmaster Snikch",
+    "personality": "Contracts only. Prove silence; then recruit as a knife.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "plains",
+    "cherry",
+    "caves",
+    "dark_forest"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

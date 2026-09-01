@@ -1,0 +1,27 @@
+{
+  "id": "slaughterhorn-tribe",
+  "race": "beastmen",
+  "tier": "major",
+  "name": "Slaughterhorn Tribe",
+  "banner": {
+    "pattern": "brass_bull",
+    "primary": "#6B2A1A",
+    "secondary": "#C4A035"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -40,
+  "lord": {
+    "title": "Doombull",
+    "name": "Taurox the Brass Bull",
+    "personality": "Minotaur rampage. Recruit only if you already wear brass and blood.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "jungle",
+    "forest",
+    "mountains",
+    "savanna"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

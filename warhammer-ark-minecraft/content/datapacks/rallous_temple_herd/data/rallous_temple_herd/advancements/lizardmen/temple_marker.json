@@ -1,0 +1,45 @@
+{
+  "parent": "rallous_temple_herd:lizardmen/warm_canopy",
+  "display": {
+    "icon": {
+      "item": "minecraft:lime_banner"
+    },
+    "title": {
+      "translate": "advancements.rallous_temple_herd.lizardmen.temple_marker.title"
+    },
+    "description": {
+      "translate": "advancements.rallous_temple_herd.lizardmen.temple_marker.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "near_stand": {
+      "trigger": "minecraft:impossible"
+    },
+    "in_structure": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "rallous_temple_herd:temple_marker"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "near_stand",
+      "in_structure"
+    ]
+  ]
+}

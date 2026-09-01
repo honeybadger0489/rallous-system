@@ -1,0 +1,18 @@
+# HUD on so thirst/temp are visible on a new world without digging menus.
+
+[general]
+	"Show Food Saturation Bar" = true
+
+[temperature]
+	"Heat Temperature Overlay" = true
+	"Cold Temperature Overlay" = true
+	"Breathing Sound Enabled" = true
+	"Temperature In Fahrenheit" = false
+	"Cold Breath Temperature Threshold" = 10.0
+
+	[temperature.wetness]
+		"Wetness Indicator X Offset" = 0
+		"Wetness Indicator Y Offset" = 0
+
+[body-damage]
+	"Body Damage Indicator Limb Health Threshold" = 1.1

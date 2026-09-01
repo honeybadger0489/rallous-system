@@ -1,0 +1,26 @@
+{
+  "id": "clan-mange",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Mange",
+  "banner": {
+    "pattern": "mange",
+    "primary": "#6B5A3A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -15,
+  "lord": {
+    "title": "Chieftain",
+    "name": "Mange",
+    "personality": "Mangy under-clan. War for food-food.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "desert",
+    "badlands",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

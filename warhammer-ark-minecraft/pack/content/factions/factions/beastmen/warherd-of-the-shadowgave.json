@@ -1,0 +1,26 @@
+{
+  "id": "warherd-of-the-shadowgave",
+  "race": "beastmen",
+  "tier": "major",
+  "name": "Warherd of the Shadowgave",
+  "banner": {
+    "pattern": "shadowgave",
+    "primary": "#4A3A4A",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -50,
+  "lord": {
+    "title": "The Shadowgave",
+    "name": "Morghur",
+    "personality": "Corruption incarnate. Tames become spawn. No diplomacy.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "forest",
+    "dark_forest",
+    "swamp"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "slaves-of-zharr",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Slaves of Zharr",
+  "banner": {
+    "pattern": "zharr_chain",
+    "primary": "#5A3A1A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -25,
+  "lord": {
+    "title": "Orc Warboss",
+    "name": "Still-Chained Urk",
+    "personality": "Still under Hashut's lash. Help break them or they fight you on orders.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "badlands",
+    "nether_waste",
+    "desert"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

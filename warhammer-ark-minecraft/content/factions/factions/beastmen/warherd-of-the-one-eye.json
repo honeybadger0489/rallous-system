@@ -1,0 +1,27 @@
+{
+  "id": "warherd-of-the-one-eye",
+  "race": "beastmen",
+  "tier": "major",
+  "name": "Warherd of the One-Eye",
+  "banner": {
+    "pattern": "one_eye",
+    "primary": "#3D2B1F",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -40,
+  "lord": {
+    "title": "Beastlord",
+    "name": "Khazrak the One-Eye",
+    "personality": "Hunts Todbringer. A stranger is a scalp or a rival. No camp-capital.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "forest",
+    "dark_forest",
+    "taiga",
+    "plains"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

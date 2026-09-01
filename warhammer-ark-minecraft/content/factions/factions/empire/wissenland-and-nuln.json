@@ -1,0 +1,27 @@
+{
+  "id": "wissenland-and-nuln",
+  "race": "empire",
+  "tier": "major",
+  "name": "Wissenland & Nuln",
+  "banner": {
+    "pattern": "cannon_and_lion",
+    "primary": "#D8D4C8",
+    "secondary": "#2B2B2B"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 5,
+  "lord": {
+    "title": "Elector Countess of Wissenland",
+    "name": "Elspeth von Draken",
+    "personality": "Amethyst pragmatist: coin, blackpowder, and no sentiment for Warp-born pets.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "plains",
+    "mountains",
+    "river",
+    "windswept"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

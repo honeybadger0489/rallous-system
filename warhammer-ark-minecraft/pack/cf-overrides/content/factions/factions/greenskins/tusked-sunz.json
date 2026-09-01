@@ -1,0 +1,26 @@
+{
+  "id": "tusked-sunz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Tusked Sunz",
+  "banner": {
+    "pattern": "tusked_sun",
+    "primary": "#C4A035",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Savage Orc Warboss",
+    "name": "Tusked Sun",
+    "personality": "Boar-tribe. Recruit if you bring tusks.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "savanna",
+    "plains",
+    "badlands"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

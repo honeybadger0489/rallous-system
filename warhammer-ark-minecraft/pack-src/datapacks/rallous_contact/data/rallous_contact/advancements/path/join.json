@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:white_banner"
+    },
+    "title": {
+      "text": "Join"
+    },
+    "description": {
+      "text": "rallous.path=3"
+    },
+    "frame": "task",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ],
+  "parent": "rallous_contact:crash/root"
+}

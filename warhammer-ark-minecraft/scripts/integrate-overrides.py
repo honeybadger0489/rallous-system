@@ -1,0 +1,1040 @@
+#!/usr/bin/env python3
+"""Copy sibling content into the zip overrides, then rebuild the CF zip.
+
+Looks at repo-root and warhammer-ark-minecraft/ for:
+  content/factions/
+  pack-src/datapacks/  pack-src/overrides/datapacks/  content/datapacks/
+  pack-src/resourcepacks/  pack-src/quests/
+  pack-src/config/  pack-src/overrides/config/
+  rallous-recruits-bridge*.jar (sibling Forge mod — required)
+  options.txt pack order
+  wiki/ → overrides/wiki/
+
+Does not resolve CurseForge fileIDs. Does not add Fabric. Strips first-join court.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import shutil
+import sys
+import zipfile
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+REPO = ROOT.parent
+PACK = ROOT / "pack"
+OV = PACK / "cf-overrides"
+CONTENT = PACK / "content" / "rallous_old_world"
+DIST = ROOT / "dist"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from author_warp_crash import apply_warp_crash, rebuild_jar, strip_court_hooks  # noqa: E402
+from compile_factions import compile_factions  # noqa: E402
+
+
+def search_roots() -> list[Path]:
+    return [REPO, ROOT, Path("/workspace"), Path("/workspace/content").parent]
+
+
+def find_dirs(rel: str) -> list[Path]:
+    found: list[Path] = []
+    seen: set[Path] = set()
+    for base in search_roots():
+        p = (base / rel).resolve()
+        if p in seen or not p.is_dir():
+            continue
+        seen.add(p)
+        found.append(p)
+    return found
+
+
+def copy_tree(src: Path, dest: Path) -> int:
+    n = 0
+    if not src.exists():
+        return 0
+    dest.mkdir(parents=True, exist_ok=True)
+    if src.is_file():
+        shutil.copy2(src, dest / src.name)
+        return 1
+    for path in src.rglob("*"):
+        if path.is_file():
+            target = dest / path.relative_to(src)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(path, target)
+            n += 1
+    return n
+
+
+def ensure_lowcode_toml(src: Path) -> None:
+    toml = src / "META-INF" / "mods.toml"
+    if toml.exists() or src.name == "rallous_old_world":
+        return
+    if not (src / "pack.mcmeta").exists():
+        return
+    mod_id = src.name.replace("-", "_")[:64]
+    w = toml
+    w.parent.mkdir(parents=True, exist_ok=True)
+    w.write_text(
+        f"""modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="{mod_id}"
+version="1.0.0"
+displayName="{src.name}"
+authors="Rallous System"
+description='''Sibling datapack shipped as LowCodeFML so it loads without Open Loader.'''
+"""
+    )
+
+
+def jar_datapack(src: Path) -> int:
+    ensure_lowcode_toml(src)
+    jar = OV / "mods" / f"{src.name}-1.0.0.jar"
+    jar.parent.mkdir(parents=True, exist_ok=True)
+    with zipfile.ZipFile(jar, "w", compression=zipfile.ZIP_DEFLATED) as zf:
+        for path in sorted(src.rglob("*")):
+            if path.is_file() and path.name != "README.md":
+                zf.write(path, path.relative_to(src).as_posix())
+    print(f"extra jar {jar}")
+    return 1
+
+
+def pack_namespace(pack_dir: Path) -> str:
+    name = pack_dir.name.replace("-", "_")
+    if name == "rallous_old_world":
+        return "rallous_old_world"
+    return name
+
+
+def sanitize_tick_load_tags(pack_dir: Path) -> int:
+    """Each jar / folder lists only its own #minecraft:tick and #minecraft:load.
+
+    Sibling jars must not re-list each other — that double-fires first join.
+    """
+    if not pack_dir.is_dir():
+        return 0
+    ns = pack_namespace(pack_dir)
+    n = 0
+    for kind in ("tick", "load"):
+        path = pack_dir / "data" / "minecraft" / "tags" / "functions" / f"{kind}.json"
+        if not path.is_file():
+            continue
+        try:
+            data = json.loads(path.read_text())
+        except json.JSONDecodeError:
+            continue
+        expected = f"{ns}:{kind}"
+        raw = data.get("values") or []
+        ids: list[str] = []
+        for v in raw:
+            if isinstance(v, str):
+                ids.append(v)
+            elif isinstance(v, dict):
+                ids.append(str(v.get("id") or v.get("function") or ""))
+        if ids == [expected]:
+            continue
+        data["values"] = [expected]
+        path.write_text(json.dumps(data, indent=2) + "\n")
+        print(f"stripped foreign {kind} tags in {pack_dir.name}: {ids} -> {[expected]}")
+        n += 1
+    return n
+
+
+def sanitize_all_tick_load() -> int:
+    """Keep sibling ticks off old-world and off each other's tags."""
+    n = sanitize_tick_load_tags(CONTENT)
+    for rel in (
+        "pack-src/datapacks",
+        "pack-src/overrides/datapacks",
+        "content/datapacks",
+        "pack/cf-overrides/datapacks",
+        "pack/content",
+    ):
+        for src in find_dirs(rel):
+            for pack in sorted(p for p in src.iterdir() if p.is_dir()):
+                n += sanitize_tick_load_tags(pack)
+    n += sanitize_tick_load_tags(CONTENT)
+    return n
+
+
+def drop_folder_datapacks() -> int:
+    """Jar only. Folder copies in overrides/datapacks re-list the same tick if
+    someone copies them into a world. Source stays in content/datapacks/.
+    """
+    n = 0
+    dp = OV / "datapacks"
+    if not dp.is_dir():
+        return 0
+    for pack in sorted(p for p in dp.iterdir() if p.is_dir() and p.name.startswith("rallous")):
+        shutil.rmtree(pack)
+        print(f"dropped folder datapack {pack.name} (jar only)")
+        n += 1
+    return n
+
+
+def merge_datapack(src: Path) -> int:
+    """Ship sibling datapacks as LowCodeFML jars only.
+
+    Do not copy their data/ into rallous_old_world — that double-fires tick tags.
+    Do not also copy overrides/datapacks — folder or jar, not both.
+    """
+    if src.name == "rallous_old_world":
+        return 0
+    if not ((src / "data").is_dir() or (src / "pack.mcmeta").exists()):
+        return 0
+    sanitize_tick_load_tags(src)
+    return jar_datapack(src)
+
+
+BRIDGE_JAR_RE = re.compile(r"rallous[-_]recruits[-_]bridge.*\.jar$", re.I)
+
+
+def find_files(rel: str) -> list[Path]:
+    found: list[Path] = []
+    seen: set[Path] = set()
+    for base in search_roots():
+        p = (base / rel).resolve()
+        if p in seen or not p.is_file():
+            continue
+        seen.add(p)
+        found.append(p)
+    return found
+
+
+def ingest_options_txt() -> int:
+    """Copy sibling pack-order options.txt into overrides if present."""
+    dest = OV / "options.txt"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for rel in (
+        "pack-src/overrides/options.txt",
+        "pack-src/options.txt",
+        "content/options.txt",
+        "pack/cf-overrides/options.txt",
+    ):
+        for src in find_files(rel):
+            if src.resolve() == dest.resolve():
+                continue
+            shutil.copy2(src, dest)
+            print(f"ingested options.txt from {src}")
+            n += 1
+    if dest.is_file():
+        text = dest.read_text()
+        if "resourcePacks:" not in text:
+            print("HONEST: options.txt has no resourcePacks line")
+        elif "Rallous Continuity" not in text:
+            print("HONEST: options.txt pack order is missing Rallous Continuity")
+        else:
+            print("options.txt pack order includes Rallous Continuity")
+        return max(n, 1)
+    print("HONEST: options.txt missing from overrides")
+    return 0
+
+
+def find_bridge_jars() -> list[Path]:
+    """Locate a sibling-built rallous-recruits-bridge jar, if any."""
+    found: list[Path] = []
+    seen: set[Path] = set()
+    rel_dirs = (
+        "pack/cf-overrides/mods",
+        "pack/mods",
+        "content/mods",
+        "pack-src/mods",
+        "dist",
+        "downloads",
+        "mods",
+        "build/libs",
+        "rallous-recruits-bridge/build/libs",
+        "rallous_recruits_bridge/build/libs",
+        "java/rallous-recruits-bridge/build/libs",
+        "mods/rallous-recruits-bridge/build/libs",
+        "warhammer-ark-minecraft/pack/cf-overrides/mods",
+        "warhammer-ark-minecraft/pack/mods",
+        "warhammer-ark-minecraft/dist",
+        "warhammer-ark-minecraft/downloads",
+        "warhammer-ark-minecraft/mods",
+    )
+    roots = list(search_roots()) + [Path("/tmp"), Path("/home/ubuntu")]
+    for base in roots:
+        if not base.exists():
+            continue
+        for rel in rel_dirs:
+            d = base / rel
+            if not d.is_dir():
+                continue
+            try:
+                for p in d.iterdir():
+                    if p.is_file() and BRIDGE_JAR_RE.search(p.name):
+                        rp = p.resolve()
+                        if rp not in seen:
+                            seen.add(rp)
+                            found.append(p)
+            except OSError:
+                continue
+    for base in (REPO, ROOT, Path("/workspace")):
+        if not base.is_dir():
+            continue
+        try:
+            for p in base.rglob("*.jar"):
+                if not BRIDGE_JAR_RE.search(p.name):
+                    continue
+                rp = p.resolve()
+                if rp not in seen:
+                    seen.add(rp)
+                    found.append(p)
+        except OSError:
+            continue
+    return found
+
+
+def ingest_bridge_jar() -> Path | None:
+    """Copy sibling rallous-recruits-bridge jar into overrides/mods if built.
+
+    Honest: Recruits still has no datapack create-banner API. This jar is the
+    only thing that can found a host. If siblings did not ship it, say so.
+    """
+    dest_dir = OV / "mods"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    jars = find_bridge_jars()
+    if not jars:
+        print("HONEST: rallous-recruits-bridge jar missing — siblings did not ship it")
+        return None
+    src = max(jars, key=lambda p: (p.stat().st_mtime, p.stat().st_size))
+    dest = dest_dir / src.name
+    if src.resolve() != dest.resolve():
+        shutil.copy2(src, dest)
+    print(f"ingested bridge jar {src} -> {dest} ({dest.stat().st_size} bytes)")
+    return dest
+
+
+def build_thicker_temple_herd() -> None:
+    """Write 13×13 temple courtyard + herdstone NBTs before the jar step."""
+    script = ROOT / "content" / "datapacks" / "rallous_temple_herd" / "build_sites.py"
+    if not script.is_file():
+        raise SystemExit("missing rallous_temple_herd/build_sites.py")
+    import subprocess
+
+    subprocess.check_call([sys.executable, str(script)], cwd=str(script.parent))
+    struct = script.parent / "data" / "rallous_temple_herd" / "structures"
+    for name in ("temple_marker.nbt", "herdstone.nbt"):
+        path = struct / name
+        if not path.is_file() or path.stat().st_size < 200:
+            raise SystemExit(f"thicker temple/herd missing or thin: {path}")
+        print(f"thicker site {path.name} ({path.stat().st_size} bytes)")
+
+
+def ingest_siblings() -> dict[str, int]:
+    counts = {
+        "factions": 0,
+        "datapacks": 0,
+        "resourcepacks": 0,
+        "quests": 0,
+        "config": 0,
+        "options": 0,
+        "bridge": 0,
+        "wiki": 0,
+    }
+    for src in find_dirs("content/factions"):
+        counts["factions"] += copy_tree(src, OV / "content" / "factions")
+        counts["factions"] += copy_tree(src, PACK / "content" / "factions")
+        if (src / "data").is_dir():
+            counts["factions"] += copy_tree(src / "data", CONTENT / "data")
+    for rel in (
+        "pack-src/datapacks",
+        "pack-src/overrides/datapacks",
+        "content/datapacks",
+    ):
+        for src in find_dirs(rel):
+            for pack in sorted(p for p in src.iterdir() if p.is_dir()):
+                counts["datapacks"] += merge_datapack(pack)
+    for rel in (
+        "pack-src/resourcepacks",
+        "pack-src/overrides/resourcepacks",
+        "content/resourcepacks",
+    ):
+        for src in find_dirs(rel):
+            for pack in sorted(p for p in src.iterdir() if p.is_dir() or p.suffix == ".zip"):
+                dest = OV / "resourcepacks" / pack.name
+                if pack.is_dir():
+                    counts["resourcepacks"] += copy_tree(pack, dest)
+                else:
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copy2(pack, dest)
+                    counts["resourcepacks"] += 1
+    counts["quests"] += ingest_ftb_chapters()
+    for rel in ("pack-src/config", "pack-src/overrides/config"):
+        for src in find_dirs(rel):
+            # FTB is ingested separately; do not stomp authored Warp-Crash chapters.
+            counts["config"] += copy_config_tree(src, OV / "config")
+            dc = src / "defaultconfigs"
+            if dc.is_dir():
+                # Forge copies <gamedir>/defaultconfigs/ → world serverconfig/.
+                counts["config"] += copy_tree(dc, OV / "defaultconfigs")
+    counts["options"] += ingest_options_txt()
+    counts["bridge"] += 1 if ingest_bridge_jar() else 0
+    counts["wiki"] += ingest_wiki()
+    print("ingested", counts)
+    return counts
+
+
+def ingest_wiki() -> int:
+    """Copy repo wiki/ into overrides/wiki so friends open it from the instance."""
+    dest = OV / "wiki"
+    n = 0
+    for src in find_dirs("wiki"):
+        if src.resolve() == dest.resolve():
+            continue
+        copied = copy_tree(src, dest)
+        n += copied
+        print(f"ingested wiki from {src} ({copied} files)")
+    if not (dest / "Home.md").is_file() or not (dest / "TEST.md").is_file():
+        raise SystemExit("overrides/wiki missing Home.md or TEST.md")
+    return n
+
+
+def copy_config_tree(src: Path, dest: Path) -> int:
+    """Copy pack-src config except ftbquests (handled by ingest_ftb_chapters)."""
+    n = 0
+    if not src.exists():
+        return 0
+    dest.mkdir(parents=True, exist_ok=True)
+    for path in src.rglob("*"):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(src)
+        if "ftbquests" in rel.parts:
+            continue
+        target = dest / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(path, target)
+        n += 1
+    return n
+
+
+COURT_CHAPTERS = (
+    "reikland",
+    "border_princes",
+    "sylvania",
+    "worlds_edge",
+    "kislev",
+    "chaos_wastes",
+    "first_contact",
+)
+
+SIBLING_CHAPTERS = ("temple_and_herd",)
+
+
+def ingest_ftb_chapters() -> int:
+    """Copy FTB from pack-src / content. Never restore court chapters."""
+    n = 0
+    dest = OV / "config" / "ftbquests" / "quests"
+    dest.mkdir(parents=True, exist_ok=True)
+    (dest / "chapters").mkdir(parents=True, exist_ok=True)
+    for rel in (
+        "pack-src/quests",
+        "pack-src/overrides/config/ftbquests/quests",
+        "content/ftbquests",
+    ):
+        for src in find_dirs(rel):
+            chapters = src / "chapters" if (src / "chapters").is_dir() else src
+            if chapters.name == "chapters":
+                for snbt in chapters.glob("*.snbt"):
+                    if snbt.stem in COURT_CHAPTERS:
+                        continue
+                    target = dest / "chapters" / snbt.name
+                    shutil.copy2(snbt, target)
+                    n += 1
+                if (src / "chapter_groups.snbt").exists():
+                    shutil.copy2(src / "chapter_groups.snbt", dest / "chapter_groups.snbt")
+                    n += 1
+                if (src / "data.snbt").exists():
+                    shutil.copy2(src / "data.snbt", dest / "data.snbt")
+                    n += 1
+            else:
+                for snbt in chapters.glob("*.snbt"):
+                    if snbt.name.startswith("chapter_groups") or snbt.stem in COURT_CHAPTERS:
+                        continue
+                    target = dest / "chapters" / snbt.name
+                    shutil.copy2(snbt, target)
+                    n += 1
+    for old in COURT_CHAPTERS:
+        p = dest / "chapters" / f"{old}.snbt"
+        if p.exists():
+            p.unlink()
+    return n
+
+
+def restore_sibling_ftb() -> None:
+    """author_contact rewrites the Warp-Crash book; keep sibling chapters."""
+    dest = OV / "config" / "ftbquests" / "quests" / "chapters"
+    dest.mkdir(parents=True, exist_ok=True)
+    for name in SIBLING_CHAPTERS:
+        for rel in (
+            f"content/ftbquests/chapters/{name}.snbt",
+            f"pack-src/quests/chapters/{name}.snbt",
+        ):
+            for base in search_roots():
+                src = base / rel
+                if src.is_file():
+                    shutil.copy2(src, dest / f"{name}.snbt")
+                    print(f"restored sibling FTB {name} from {src}")
+                    break
+
+
+def validate_json() -> int:
+    errors = 0
+    roots = [CONTENT, OV]
+    for root in roots:
+        if not root.exists():
+            continue
+        for path in root.rglob("*.json"):
+            try:
+                json.loads(path.read_text())
+            except json.JSONDecodeError as e:
+                print(f"INVALID JSON {path}: {e}")
+                errors += 1
+    if errors:
+        raise SystemExit(f"JSON validation failed: {errors} file(s)")
+    print("JSON ok")
+    return 0
+
+
+def assert_no_court_on_join() -> None:
+    fj = CONTENT / "data" / "rallous_old_world" / "functions" / "first_join.mcfunction"
+    text = fj.read_text() if fj.exists() else ""
+    for bad in ("ensure_court", "summon_lords", "place_court"):
+        if bad in text:
+            raise SystemExit(f"first_join still calls {bad}")
+    welcome = CONTENT / "data" / "rallous_old_world" / "functions" / "welcome.mcfunction"
+    wt = welcome.read_text() if welcome.exists() else ""
+    if "summon_lords" in wt or "ensure_court" in wt or "function rallous_old_world:summon" in wt:
+        raise SystemExit("welcome still advertises the court")
+    live = OV / "config" / "ftbquests" / "quests" / "chapters"
+    for old in COURT_CHAPTERS:
+        if (live / f"{old}.snbt").exists():
+            raise SystemExit(f"court chapter still in overrides: {old}")
+    wc_join = (
+        ROOT / "content" / "datapacks" / "rallous_warp_crash" / "data" / "rallous_warp_crash" / "functions" / "first_join.mcfunction"
+    )
+    if wc_join.exists():
+        wct = wc_join.read_text()
+        for bad in ("ensure_court", "summon_lords", "place_court"):
+            if bad in wct:
+                raise SystemExit(f"warp_crash first_join still calls {bad}")
+    print("first-join court stripped")
+
+
+def assert_source_guards() -> None:
+    """One load/tick path per namespace, plus join/land locks. No zip required."""
+    sanitize_all_tick_load()
+    ow_tick = json.loads((CONTENT / "data" / "minecraft" / "tags" / "functions" / "tick.json").read_text())
+    if (ow_tick.get("values") or []) != ["rallous_old_world:tick"]:
+        raise SystemExit(f"old_world tick re-lists siblings: {ow_tick.get('values')}")
+    ow_load = json.loads((CONTENT / "data" / "minecraft" / "tags" / "functions" / "load.json").read_text())
+    if (ow_load.get("values") or []) != ["rallous_old_world:load"]:
+        raise SystemExit(f"old_world load re-lists siblings: {ow_load.get('values')}")
+    wc = ROOT / "content" / "datapacks" / "rallous_warp_crash" / "data"
+    fj = (wc / "rallous_warp_crash" / "functions" / "first_join.mcfunction").read_text()
+    if "rallous.joined" not in fj or "rallous.warp_landed" not in fj:
+        raise SystemExit("warp_crash first_join missing rallous.joined / warp_landed guards")
+    lg = (wc / "rallous_warp_crash" / "functions" / "land_go.mcfunction").read_text()
+    if "unless entity @s[tag=rallous.warp_landed]" not in lg:
+        raise SystemExit("warp_crash land_go missing warp_landed guard")
+    assign = (
+        ROOT / "content" / "datapacks" / "rallous_factions" / "data" / "rallous_factions" / "functions" / "contact" / "assign.mcfunction"
+    ).read_text()
+    if "unless entity @s[tag=rallous.contacted]" not in assign:
+        raise SystemExit("factions assign missing contacted guard")
+    kit = (
+        ROOT / "content" / "datapacks" / "rallous_kit" / "data" / "rallous_kit" / "functions" / "on_greet.mcfunction"
+    ).read_text()
+    if "rallous.warp_landed" not in kit or "rallous.joined" not in kit:
+        raise SystemExit("kit on_greet missing warp_landed / joined guards")
+    if (OV / "datapacks").is_dir():
+        leftover = [p.name for p in (OV / "datapacks").iterdir() if p.is_dir() and p.name.startswith("rallous")]
+        if leftover:
+            raise SystemExit(f"overrides/datapacks still has folder packs (jar only): {leftover}")
+    print("source guards ok (one tick/load path, join/land locks, jars only)")
+
+
+REQUIRED_JARS = (
+    "rallous-old-world-1.0.0.jar",
+    "rallous_contact-1.0.0.jar",
+    "rallous_roaming-1.0.0.jar",
+    "rallous_temple_herd-1.0.0.jar",
+    "rallous_warp_crash-1.0.0.jar",
+    "rallous_factions-1.0.0.jar",
+    "rallous_diplomacy-1.0.0.jar",
+    "rallous_crater_hq-1.0.0.jar",
+    "rallous_session-1.0.0.jar",
+    "rallous_recruits_bind-1.0.0.jar",
+    "rallous_winds-1.0.0.jar",
+    "rallous_grow-1.0.0.jar",
+    "rallous_kit-1.0.0.jar",
+)
+
+REQUIRED_FTB = (
+    "crash.snbt",
+    "paths.snbt",
+    "first_hour.snbt",
+    "winds.snbt",
+    "host.snbt",
+    "smoke_test.snbt",
+    "temple_and_herd.snbt",
+)
+
+
+def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> None:
+    if not zip_path.exists():
+        raise SystemExit(f"missing zip {zip_path}")
+    with zipfile.ZipFile(zip_path) as zf:
+        names = set(zf.namelist())
+        manifest = json.loads(zf.read("manifest.json"))
+        if manifest.get("version") != zip_path.stem.rsplit("-", 1)[-1]:
+            raise SystemExit(f"zip manifest version {manifest.get('version')} != {zip_path.name}")
+        loaders = manifest.get("minecraft", {}).get("modLoaders", [])
+        if loaders != [{"id": "forge-47.4.10", "primary": True}]:
+            raise SystemExit(f"zip loaders {loaders}")
+        got = {(f["projectID"], f["fileID"]) for f in manifest.get("files") or []}
+        if file_ids_021 and got != file_ids_021:
+            raise SystemExit(f"fileIDs drifted from 0.2.1: +{got-file_ids_021} -{file_ids_021-got}")
+        for jar in REQUIRED_JARS:
+            if f"overrides/mods/{jar}" not in names:
+                raise SystemExit(f"zip missing jar {jar}")
+        for ch in REQUIRED_FTB:
+            if f"overrides/config/ftbquests/quests/chapters/{ch}" not in names:
+                raise SystemExit(f"zip missing FTB {ch}")
+        for old in COURT_CHAPTERS:
+            if f"overrides/config/ftbquests/quests/chapters/{old}.snbt" in names:
+                raise SystemExit(f"zip still has court chapter {old}")
+        for pack in (
+            "rallous_warp_crash",
+            "rallous_roaming",
+            "rallous_temple_herd",
+            "rallous_contact",
+            "rallous_factions",
+            "rallous_diplomacy",
+            "rallous_crater_hq",
+            "rallous_session",
+            "rallous_recruits_bind",
+            "rallous_winds",
+            "rallous_grow",
+            "rallous_kit",
+        ):
+            if f"overrides/datapacks/{pack}/pack.mcmeta" in names:
+                raise SystemExit(f"zip ships folder and jar for {pack}")
+        if "overrides/content/factions/races/empire.json" not in names:
+            raise SystemExit("zip missing faction JSON")
+        for page in ("Home.md", "TEST.md", "Recruits.md", "Install.md"):
+            if f"overrides/wiki/{page}" not in names:
+                raise SystemExit(f"zip missing wiki/{page}")
+        rec_wiki = zf.read("overrides/wiki/Recruits.md").decode()
+        if "has no create" in rec_wiki.lower() or "**No create.**" in rec_wiki:
+            raise SystemExit("wiki/Recruits.md still says there is no create API")
+        if "createTeam" not in rec_wiki:
+            raise SystemExit("wiki/Recruits.md missing bridge createTeam")
+        play = zf.read("overrides/PLAY.md").decode()
+        ver = zip_path.stem.rsplit("-", 1)[-1]
+        if ver not in play:
+            raise SystemExit(f"zip PLAY.md missing {ver}")
+        if "wiki/Home.md" not in play or "wiki/TEST.md" not in play:
+            raise SystemExit("zip PLAY.md missing wiki Home/TEST links")
+        if any("minecolonies" in n.lower() for n in names):
+            raise SystemExit("zip contains MineColonies")
+        if "overrides/resourcepacks/Rallous Continuity/assets/rallous_recruits_bind/lang/en_us.json" not in names:
+            raise SystemExit("zip Continuity missing recruits_bind lang")
+        for cfg in (
+            "overrides/config/recruits-client.toml",
+            "overrides/config/openpartiesandclaims-client.toml",
+            "overrides/config/defaultconfigs/recruits-server.toml",
+            "overrides/config/defaultconfigs/vassalsuzerain-server.toml",
+            "overrides/config/defaultconfigs/openpartiesandclaims-server.toml",
+            "overrides/defaultconfigs/recruits-server.toml",
+            "overrides/defaultconfigs/vassalsuzerain-server.toml",
+            "overrides/defaultconfigs/openpartiesandclaims-server.toml",
+        ):
+            if cfg not in names:
+                raise SystemExit(f"zip missing {cfg}")
+        fac = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_factions-1.0.0.jar")))
+        fac_names = set(fac.namelist())
+        if "data/rallous_factions/functions/place/karaz_a_karak.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing karaz_a_karak place")
+        if "data/rallous_factions/functions/place/reikland.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing reikland place")
+        if "data/rallous_factions/functions/crash/on_land.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing crash/on_land")
+        if "data/rallous_factions/functions/contact/assign_go.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing contact/assign_go")
+        if "data/rallous_factions/functions/pool/empire/pick_major.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing empire major pool")
+        dip = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_diplomacy-1.0.0.jar")))
+        if "data/rallous_diplomacy/functions/apply_path.mcfunction" not in set(dip.namelist()):
+            raise SystemExit("diplomacy jar missing apply_path")
+        hq = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_crater_hq-1.0.0.jar")))
+        if "data/rallous_crater_hq/functions/mark.mcfunction" not in set(hq.namelist()):
+            raise SystemExit("crater_hq jar missing mark")
+        winds_hint = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_winds-1.0.0.jar")))
+        if "data/rallous_winds/functions/hint.mcfunction" not in set(winds_hint.namelist()):
+            raise SystemExit("winds jar missing hint")
+        grow = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_grow-1.0.0.jar")))
+        if "data/rallous_grow/functions/on_session.mcfunction" not in set(grow.namelist()):
+            raise SystemExit("grow jar missing on_session")
+        kit_jar_early = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_kit-1.0.0.jar")))
+        if "data/rallous_kit/functions/on_greet.mcfunction" not in set(kit_jar_early.namelist()):
+            raise SystemExit("kit jar missing on_greet")
+        if "data/rallous_kit/functions/maybe_give.mcfunction" not in set(kit_jar_early.namelist()):
+            raise SystemExit("kit jar missing maybe_give")
+        roam = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_roaming-1.0.0.jar")))
+        if "data/rallous_roaming/functions/spawn/recruits_column.mcfunction" not in set(roam.namelist()):
+            raise SystemExit("roaming jar missing recruits_column")
+        if "recruitPatrol tiny" not in roam.read("data/rallous_roaming/functions/spawn/recruits_column.mcfunction").decode():
+            raise SystemExit("roaming recruits_column missing recruitPatrol tiny")
+        roam_mark = roam.read("data/rallous_roaming/functions/spawn/place_marker.mcfunction").decode()
+        if "rallous.camp" not in roam_mark:
+            raise SystemExit("roaming place_marker is not near the player's camp gate")
+        wc = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_warp_crash-1.0.0.jar")))
+        hook = wc.read("data/rallous_warp_crash/functions/contact_hook.mcfunction").decode()
+        if "data/rallous_factions/functions/host/levy.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing host/levy")
+        if "data/rallous_factions/functions/gen/place_rings.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing gen/place_rings")
+        if "data/rallous_factions/functions/gen/place_mix.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing gen/place_mix")
+        if "data/rallous_factions/functions/gen/ring_inward.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing gen/ring_inward")
+        if "data/rallous_factions/functions/gen/ring_try.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing gen/ring_try")
+        if "data/rallous_factions/functions/stance/bite.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing stance/bite")
+        if "data/rallous_factions/functions/debug/prove_bite.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing debug/prove_bite")
+        if "data/rallous_factions/functions/debug/prove_terrain.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing debug/prove_terrain")
+        if "data/rallous_factions/functions/path/burn_welcome.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing path/burn_welcome")
+        if "data/rallous_factions/functions/debug/headless_proof.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing debug/headless_proof")
+        if "data/rallous_factions/functions/debug/count_races.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing debug/count_races")
+        if "data/rallous_factions/functions/path/offer_empire.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing race-skeptical path/offer_empire")
+        mix_fn = fac.read("data/rallous_factions/functions/gen/place_mix.mcfunction").decode()
+        if "$mix_only" not in mix_fn:
+            raise SystemExit("place_mix does not skip biome prefer via $mix_only")
+        if "place_mix_go" not in mix_fn:
+            raise SystemExit("place_mix missing place_mix_go (must not count a nearby camp as a placed race)")
+        ring_q = fac.read("data/rallous_factions/functions/gen/ring_queue_go.mcfunction").decode()
+        if "forceload add" not in ring_q:
+            raise SystemExit("ring_queue_go does not forceload the ring cell")
+        ring_in = fac.read("data/rallous_factions/functions/gen/ring_inward.mcfunction").decode()
+        if "$origin_x" not in ring_in:
+            raise SystemExit("ring_inward does not fall toward crash origin")
+        bite_fn = fac.read("data/rallous_factions/functions/stance/bite_fire.mcfunction").decode()
+        if "rallous.raid" not in bite_fn:
+            raise SystemExit("stance/bite_fire does not spawn rallous.raid")
+        tick_fn = fac.read("data/rallous_factions/functions/tick.mcfunction").decode()
+        if "rallous_factions:stance/bite" not in tick_fn:
+            raise SystemExit("factions tick does not bite on approach")
+        if "rallous.probe.pending" not in tick_fn:
+            raise SystemExit("factions tick does not finish pending ring probes")
+        if "recruitPatrol tiny" not in fac.read("data/rallous_factions/functions/host/levy_go.mcfunction").decode():
+            raise SystemExit("factions host/levy_go missing recruitPatrol tiny")
+        fac_rings = fac.read("data/rallous_factions/functions/crash/on_land.mcfunction").decode()
+        if "rallous_factions:gen/place_rings" not in fac_rings:
+            raise SystemExit("factions crash/on_land does not place mixed-race rings")
+        if "rallous_factions:crash/on_land" not in hook:
+            raise SystemExit("warp_crash contact_hook does not call compiled factions")
+        if "tag_existing_contact" in hook:
+            raise SystemExit("warp_crash still tags mute villagers as contact")
+        wc_store = wc.read("data/rallous_warp_crash/functions/store_crater.mcfunction").decode()
+        if "rallous_crater_hq:mark" not in wc_store:
+            raise SystemExit("warp_crash store_crater does not mark crater HQ")
+        if "rallous.crash.crater" not in wc_store:
+            raise SystemExit("warp_crash store_crater missing rallous.crash.crater tag")
+        wc_names = set(wc.namelist())
+        if "data/rallous_warp_crash/functions/debug/prove_slots.mcfunction" not in wc_names:
+            raise SystemExit("warp_crash jar missing debug/prove_slots")
+        if "data/rallous_warp_crash/functions/scatter_coords.mcfunction" not in wc_names:
+            raise SystemExit("warp_crash jar missing scatter_coords")
+        scatter_coords = wc.read("data/rallous_warp_crash/functions/scatter_coords.mcfunction").decode()
+        if "4200" not in scatter_coords:
+            raise SystemExit("warp_crash slots still use the 3200 ring (pile-up risk)")
+        after_sc = wc.read("data/rallous_warp_crash/functions/after_scatter.mcfunction").decode()
+        if "tag=rallous.crater,distance=..900" not in after_sc:
+            raise SystemExit("after_scatter missing crater 900 reject")
+        th = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_temple_herd-1.0.0.jar")))
+        th_fn = th.read("data/rallous_temple_herd/functions/mark_camp.mcfunction").decode()
+        if "rallous_temple_herd:spawn_temple_beasts" not in th_fn:
+            raise SystemExit("temple_herd mark_camp does not spawn temple beasts")
+        if "rallous_temple_herd:spawn_herd_beasts" not in th_fn:
+            raise SystemExit("temple_herd mark_camp does not spawn herd beasts")
+        spawn_t = th.read("data/rallous_temple_herd/functions/spawn_temple_beasts.mcfunction").decode()
+        if "fossil:triceratops" not in spawn_t:
+            raise SystemExit("spawn_temple_beasts missing fossil:triceratops")
+        wc_fc = wc.read("data/rallous_warp_crash/functions/first_contact.mcfunction").decode()
+        if "rallous_kit:on_greet" not in wc_fc:
+            raise SystemExit("warp_crash first_contact does not call kit on_greet")
+        if "rallous_winds:place" not in wc_fc:
+            raise SystemExit("warp_crash first_contact does not plant winds lectern")
+        help_path = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_contact-1.0.0.jar")))
+        help_fn = help_path.read("data/rallous_contact/functions/path/help.mcfunction").decode()
+        if "rallous_diplomacy:apply_path" not in help_fn:
+            raise SystemExit("contact path/help does not apply diplomacy")
+        fac_assign = fac.read("data/rallous_factions/functions/contact/assign.mcfunction").decode()
+        if "rallous_factions:contact/assign_go" not in fac_assign:
+            raise SystemExit("factions assign is not a once-only wrapper")
+        fac_go = fac.read("data/rallous_factions/functions/contact/assign_go.mcfunction").decode()
+        if "rallous_recruits_bind:on_contact" not in fac_go:
+            raise SystemExit("factions assign_go does not bind Recruits")
+        if "rallous_kit:on_greet" not in fac_go:
+            raise SystemExit("factions assign_go does not hook rallous_kit:on_greet")
+        if "rallous_winds:place" not in fac_go:
+            raise SystemExit("factions assign_go does not plant winds lectern")
+        fac_land = fac.read("data/rallous_factions/functions/crash/on_land.mcfunction").decode()
+        if "rallous_winds:place" not in fac_land:
+            raise SystemExit("factions crash/on_land does not hook rallous_winds:place")
+        th = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_temple_herd-1.0.0.jar")))
+        th_names = set(th.namelist())
+        if "data/rallous_temple_herd/structures/temple_marker.nbt" not in th_names:
+            raise SystemExit("temple_herd jar missing thicker temple_marker.nbt")
+        if "data/rallous_temple_herd/structures/herdstone.nbt" not in th_names:
+            raise SystemExit("temple_herd jar missing thicker herdstone.nbt")
+        ow_chk = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous-old-world-1.0.0.jar")))
+        ow_summon = ow_chk.read("data/rallous_old_world/functions/lm_bm/summon.mcfunction").decode()
+        if "fossilsandarcheology:" in ow_summon or "fossilslegacy:" in ow_summon:
+            raise SystemExit("old_world lm_bm/summon still uses unknown Fossils namespaces")
+        ow_strip = ow_chk.read("data/rallous_old_world/functions/crash/strip_starter_magic.mcfunction").decode()
+        if "irons_spellbooks:necronomicon" in ow_strip:
+            raise SystemExit("strip_starter_magic still clears unknown necronomicon")
+        hq_load = hq.read("data/rallous_crater_hq/functions/load.mcfunction").decode()
+        if "data modify storage rallous_crater_hq:data set value" in hq_load:
+            raise SystemExit("crater_hq load still has pathless data modify set")
+        if "data merge storage rallous_crater_hq:data" not in hq_load:
+            raise SystemExit("crater_hq load missing data merge init")
+        bind_early = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_recruits_bind-1.0.0.jar")))
+        give_line = next(
+            (
+                ln
+                for ln in bind_early.read("data/rallous_recruits_bind/functions/give_book.mcfunction").decode().splitlines()
+                if "written_book" in ln
+            ),
+            "",
+        )
+        leftover = give_line.replace("\\\\n", "")
+        if "\\n" in leftover:
+            raise SystemExit("recruits_bind give_book still has a bare \\n escape")
+        sess = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_session-1.0.0.jar")))
+        sess_names = set(sess.namelist())
+        if "data/rallous_session/functions/start.mcfunction" not in sess_names:
+            raise SystemExit("session jar missing start")
+        if "data/rallous_session/functions/win.mcfunction" not in sess_names:
+            raise SystemExit("session jar missing win")
+        sess_win = sess.read("data/rallous_session/functions/win.mcfunction").decode()
+        if "rallous_grow:on_session" not in sess_win:
+            raise SystemExit("session win does not hook rallous_grow:on_session")
+        bind = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_recruits_bind-1.0.0.jar")))
+        if "data/rallous_recruits_bind/functions/on_contact.mcfunction" not in set(bind.namelist()):
+            raise SystemExit("recruits_bind jar missing on_contact")
+        if "overrides/resourcepacks/Rallous Continuity/pack.mcmeta" not in names:
+            raise SystemExit("zip missing Rallous Continuity resource pack")
+        if "overrides/resourcepacks/Rallous Continuity/assets/vassalsuzerain/lang/en_us.json" not in names:
+            raise SystemExit("zip Continuity missing vassalsuzerain lang")
+        if "overrides/resourcepacks/Rallous Continuity/assets/recruits/lang/en_us.json" not in names:
+            raise SystemExit("zip Continuity missing recruits lang")
+        recruits_lang = zf.read("overrides/resourcepacks/Rallous Continuity/assets/recruits/lang/en_us.json").decode()
+        for needle in ("Elector", "Waaagh", "Under-Empire", "von Carstein", "Bloodbound"):
+            if needle not in recruits_lang:
+                raise SystemExit(f"Continuity recruits lang missing {needle}")
+        if "overrides/options.txt" not in names:
+            raise SystemExit("zip missing options.txt pack order")
+        opt = zf.read("overrides/options.txt").decode()
+        if "resourcePacks:" not in opt:
+            raise SystemExit("options.txt missing resourcePacks")
+        if "Rallous Continuity" not in opt:
+            raise SystemExit("options.txt pack order missing Rallous Continuity")
+        if any("Continuity" in n and n.endswith(".jar") for n in names):
+            raise SystemExit("zip contains Continuity jar")
+        bridge_names = [n for n in names if BRIDGE_JAR_RE.search(Path(n).name)]
+        if not bridge_names:
+            raise SystemExit("zip missing rallous-recruits-bridge jar")
+        from io import BytesIO as _BytesIO
+
+        br = zipfile.ZipFile(_BytesIO(zf.read(bridge_names[0])))
+        if "com/rallous/recruitsbridge/HostFounder.class" not in set(br.namelist()):
+            raise SystemExit("bridge jar missing HostFounder")
+        if b"createTeam" not in br.read("com/rallous/recruitsbridge/HostFounder.class"):
+            raise SystemExit("bridge HostFounder missing createTeam")
+        print("zip includes bridge jar", bridge_names)
+        reik = fac.read("data/rallous_factions/functions/place/reikland.mcfunction").decode()
+        camp_ops = sum(1 for line in reik.splitlines() if " setblock " in line or " fill " in line or " summon " in line)
+        if camp_ops < 8:
+            print(f"HONEST: reikland camp still thin ({camp_ops} place ops); sibling thicken may be missing")
+        else:
+            print(f"thicker camps: reikland place ops={camp_ops}")
+        from io import BytesIO
+
+        ow = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous-old-world-1.0.0.jar")))
+        leftover_cnpc = (
+            "overrides/customnpcs/rallous_lords/archaon.json",
+            "overrides/customnpcs/rallous_lords/grimgor.json",
+            "overrides/customnpcs/rallous_lords/mannfred.json",
+            "overrides/customnpcs/rallous_lords/thorgrim.json",
+            "overrides/customnpcs/rallous_lords/karl.json",
+            "overrides/customnpcs/rallous_lords/katarin.json",
+        )
+        for n in leftover_cnpc:
+            if n in names:
+                raise SystemExit(f"zip still ships leftover court letter {n}")
+        ow_names = set(ow.namelist())
+        for leftover in (
+            "data/rallous_old_world/recipes/commission_kislev_chestplate.json",
+            "data/rallous_old_world/recipes/commission_kislev_helmet.json",
+            "data/rallous_old_world/advancements/lords/archaon.json",
+            "data/rallous_old_world/advancements/lords/grimgor.json",
+            "data/rallous_old_world/advancements/lords/mannfred.json",
+            "data/rallous_old_world/advancements/lords/thorgrim.json",
+            "data/rallous_old_world/advancements/lords/karl.json",
+            "data/rallous_old_world/advancements/lords/katarin.json",
+        ):
+            if leftover in ow_names:
+                raise SystemExit(f"old-world jar still ships leftover court file {leftover}")
+        ow_tick = json.loads(ow.read("data/minecraft/tags/functions/tick.json"))
+        ow_tick_vals = ow_tick.get("values") or []
+        if ow_tick_vals != ["rallous_old_world:tick"]:
+            raise SystemExit(f"old_world tick lists sibling jars: {ow_tick_vals}")
+        ow_load = json.loads(ow.read("data/minecraft/tags/functions/load.json"))
+        if (ow_load.get("values") or []) != ["rallous_old_world:load"]:
+            raise SystemExit(f"old_world load lists sibling jars: {ow_load.get('values')}")
+        winds_jar = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous_winds-1.0.0.jar")))
+        winds_tick = json.loads(winds_jar.read("data/minecraft/tags/functions/tick.json"))
+        if (winds_tick.get("values") or []) != ["rallous_winds:tick"]:
+            raise SystemExit(f"winds tick is not own-only: {winds_tick.get('values')}")
+        kit_jar = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous_kit-1.0.0.jar")))
+        kit_tick = json.loads(kit_jar.read("data/minecraft/tags/functions/tick.json"))
+        if (kit_tick.get("values") or []) != ["rallous_kit:tick"]:
+            raise SystemExit(f"kit tick is not own-only: {kit_tick.get('values')}")
+        grow_jar = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous_grow-1.0.0.jar")))
+        grow_tick = json.loads(grow_jar.read("data/minecraft/tags/functions/tick.json"))
+        if (grow_tick.get("values") or []) != ["rallous_grow:tick"]:
+            raise SystemExit(f"grow tick is not own-only: {grow_tick.get('values')}")
+        fj = ow.read("data/rallous_old_world/functions/first_join.mcfunction").decode()
+        for bad in ("ensure_court", "summon_lords", "place_court"):
+            if bad in fj:
+                raise SystemExit(f"old_world jar first_join calls {bad}")
+        wc = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous_warp_crash-1.0.0.jar")))
+        wc_tick = json.loads(wc.read("data/minecraft/tags/functions/tick.json"))
+        if (wc_tick.get("values") or []) != ["rallous_warp_crash:tick"]:
+            raise SystemExit(f"warp_crash tick lists siblings: {wc_tick.get('values')}")
+        wc_land = wc.read("data/rallous_warp_crash/functions/land_go.mcfunction").decode()
+        if "unless entity @s[tag=rallous.warp_landed]" not in wc_land:
+            raise SystemExit("warp_crash land_go missing warp_landed guard")
+        if "data/rallous_warp_crash/functions/first_join_go.mcfunction" not in set(wc.namelist()):
+            raise SystemExit("warp_crash jar missing first_join_go")
+        wj = wc.read("data/rallous_warp_crash/functions/first_join.mcfunction").decode()
+        if "rallous.joined" not in wj:
+            raise SystemExit("warp_crash first_join missing rallous.joined guard")
+        fac_assign = fac.read("data/rallous_factions/functions/contact/assign.mcfunction").decode()
+        if "unless entity @s[tag=rallous.contacted]" not in fac_assign:
+            raise SystemExit("factions assign missing contacted guard")
+        for bad in ("ensure_court", "summon_lords", "place_court"):
+            if bad in wj:
+                raise SystemExit(f"warp_crash jar first_join calls {bad}")
+        leftover_letters = [
+            n
+            for n in ow.namelist()
+            if n.endswith(
+                (
+                    "give_archaon_letter.mcfunction",
+                    "give_grimgor_letter.mcfunction",
+                    "give_mannfred_letter.mcfunction",
+                    "give_thorgrim_letter.mcfunction",
+                    "give_karl_letter.mcfunction",
+                    "give_katarin_letter.mcfunction",
+                )
+            )
+        ]
+        if leftover_letters:
+            raise SystemExit(f"old_world jar still has leftover court letters: {leftover_letters}")
+    print("zip payload ok", zip_path.name)
+
+
+def assert_no_fabric_files(manifest: dict) -> None:
+    # Keep existing ETF project (slug contains 'fabric' but the pinned file is Forge).
+    # Refuse any new loader besides forge.
+    loaders = manifest.get("minecraft", {}).get("modLoaders", [])
+    for loader in loaders:
+        lid = str(loader.get("id", ""))
+        if lid.startswith("fabric") or lid.startswith("quilt"):
+            raise SystemExit(f"Fabric/Quilt loader in manifest: {lid}")
+    if "fabric" in json.dumps(loaders).lower() and "forge-47.4.10" not in json.dumps(loaders):
+        raise SystemExit("Unexpected non-Forge loader")
+    print("manifest Forge-only", loaders)
+
+
+def file_ids_from_021() -> set[tuple[int, int]]:
+    z021 = DIST / "rallous-warhammer-fantasy-0.2.1.zip"
+    if not z021.exists():
+        return set()
+    with zipfile.ZipFile(z021) as zf:
+        manifest = json.loads(zf.read("manifest.json"))
+    return {(f["projectID"], f["fileID"]) for f in manifest.get("files") or []}
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--version", default="0.3.11")
+    parser.add_argument("--skip-author", action="store_true", help="Do not rewrite crash functions")
+    args = parser.parse_args()
+
+    compile_factions()
+    build_thicker_temple_herd()
+    ingested = ingest_siblings()
+    sanitize_all_tick_load()
+    if not args.skip_author:
+        apply_warp_crash()
+    restore_sibling_ftb()
+    strip_court_hooks()
+    sanitize_all_tick_load()
+    rebuild_jar()
+    ingest_siblings()
+    sanitize_all_tick_load()
+    strip_court_hooks()
+    rebuild_jar()
+    restore_sibling_ftb()
+    drop_folder_datapacks()
+    assert_no_court_on_join()
+    assert_source_guards()
+    validate_json()
+
+    play = ROOT / "PLAY.md"
+    if play.exists():
+        (OV / "PLAY.md").write_text(play.read_text())
+
+    script = Path(__file__).with_name("pack-zip.py")
+    import subprocess
+
+    subprocess.check_call([sys.executable, str(script), "--version", args.version])
+
+    manifest = json.loads((PACK / "curseforge" / "manifest.json").read_text())
+    assert_no_fabric_files(manifest)
+    zip_path = DIST / f"rallous-warhammer-fantasy-{args.version}.zip"
+    assert_zip_payload(zip_path, file_ids_from_021())
+    nfiles = len(manifest.get("files") or [])
+    if nfiles != 76:
+        raise SystemExit(f"expected 76 CF files, got {nfiles}")
+    print(f"CF files pinned: {nfiles} version={manifest.get('version')}")
+    print("sibling ingest", ingested)
+    if ingested.get("bridge"):
+        print("bridge jar: yes")
+    else:
+        raise SystemExit("bridge jar: NO — siblings did not ship rallous-recruits-bridge")
+    print("zip", zip_path)
+
+
+if __name__ == "__main__":
+    main()

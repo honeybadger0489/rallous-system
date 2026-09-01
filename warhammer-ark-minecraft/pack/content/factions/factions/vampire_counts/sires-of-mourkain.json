@@ -1,0 +1,27 @@
+{
+  "id": "sires-of-mourkain",
+  "race": "vampire_counts",
+  "tier": "minor",
+  "name": "Sires of Mourkain",
+  "banner": {
+    "pattern": "mourkain_crown",
+    "primary": "#3D2B1F",
+    "secondary": "#6B1028"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -25,
+  "lord": {
+    "title": "Strigoi King",
+    "name": "Ushoran's Get",
+    "personality": "Ruined dynasty. War first; the living are cattle until a city is raised again.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "badlands",
+    "savanna",
+    "desert",
+    "mountains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

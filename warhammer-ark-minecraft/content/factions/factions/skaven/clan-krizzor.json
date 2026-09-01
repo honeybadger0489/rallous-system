@@ -1,0 +1,26 @@
+{
+  "id": "clan-krizzor",
+  "race": "skaven",
+  "tier": "minor",
+  "name": "Clan Krizzor",
+  "banner": {
+    "pattern": "krizzor",
+    "primary": "#5A3A1A",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -16,
+  "lord": {
+    "title": "Packmaster",
+    "name": "Krizzor",
+    "personality": "Moulder-cousins. Tribute in livestock.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "plains",
+    "caves",
+    "savanna"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

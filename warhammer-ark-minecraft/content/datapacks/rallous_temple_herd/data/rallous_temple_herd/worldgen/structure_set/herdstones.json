@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "rallous_temple_herd:herdstone",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 18472027,
+    "spacing": 20,
+    "separation": 8
+  }
+}

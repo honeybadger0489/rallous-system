@@ -1,0 +1,27 @@
+{
+  "id": "strygos-empire",
+  "race": "vampire_counts",
+  "tier": "minor",
+  "name": "Strygos Empire",
+  "banner": {
+    "pattern": "strygos_ziggurat",
+    "primary": "#5A3A1A",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Ghoul King",
+    "name": "Gashnag",
+    "personality": "Southlands remnant. Tribute in meat and captives; no open roads.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "savanna",
+    "jungle",
+    "badlands",
+    "desert"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

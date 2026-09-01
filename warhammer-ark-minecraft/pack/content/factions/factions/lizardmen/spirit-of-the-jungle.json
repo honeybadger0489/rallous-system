@@ -1,0 +1,27 @@
+{
+  "id": "spirit-of-the-jungle",
+  "race": "lizardmen",
+  "tier": "major",
+  "name": "Spirit of the Jungle",
+  "banner": {
+    "pattern": "kroxigor_spirit",
+    "primary": "#2F5A2F",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "indifferent",
+  "starting_standing": -5,
+  "lord": {
+    "title": "The Wanderer",
+    "name": "Nakai the Wanderer",
+    "personality": "Horde kroxigor. No capital. Help if you bleed for the jungle; otherwise walk around.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "jungle",
+    "mangrove",
+    "swamp",
+    "dark_forest"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

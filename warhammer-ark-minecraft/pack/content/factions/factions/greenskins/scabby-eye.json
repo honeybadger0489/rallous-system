@@ -1,0 +1,26 @@
+{
+  "id": "scabby-eye",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Scabby Eye",
+  "banner": {
+    "pattern": "scabby_eye",
+    "primary": "#3D5A1F",
+    "secondary": "#8B5A2B"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -14,
+  "lord": {
+    "title": "Goblin Warboss",
+    "name": "Scabby Eye",
+    "personality": "Badlands gits. Tribute or a kicking.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "badlands",
+    "desert",
+    "plains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

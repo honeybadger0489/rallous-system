@@ -1,0 +1,26 @@
+{
+  "id": "arachnos",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Arachnos",
+  "banner": {
+    "pattern": "spider_totem",
+    "primary": "#1A1A1A",
+    "secondary": "#6B2FA0"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -20,
+  "lord": {
+    "title": "Night Goblin Warboss",
+    "name": "Snagla Grobspit",
+    "personality": "Forest spiders. War from the canopy.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "forest",
+    "dark_forest",
+    "jungle"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

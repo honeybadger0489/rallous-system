@@ -1,0 +1,109 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "title": {
+      "text": "The Winds"
+    },
+    "description": {
+      "text": "No book of spells in the crater. A camp lectern or ink is the path."
+    },
+    "frame": "challenge",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false,
+    "background": "minecraft:textures/block/amethyst_block.png"
+  },
+  "criteria": {
+    "colleges_letter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{rallous:{school:\"colleges\"}}"
+          }
+        ]
+      }
+    },
+    "ice_letter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{rallous:{school:\"ice\"}}"
+          }
+        ]
+      }
+    },
+    "death_letter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{rallous:{school:\"death\"}}"
+          }
+        ]
+      }
+    },
+    "blood_letter": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{rallous:{school:\"blood\"}}"
+          }
+        ]
+      }
+    },
+    "primer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:written_book"
+            ],
+            "nbt": "{rallous:{school:\"primer\"}}"
+          }
+        ]
+      }
+    },
+    "ink": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "irons_spellbooks:common_ink",
+              "irons_spellbooks:uncommon_ink",
+              "irons_spellbooks:rare_ink"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "colleges_letter",
+      "ice_letter",
+      "death_letter",
+      "blood_letter",
+      "primer",
+      "ink"
+    ]
+  ]
+}

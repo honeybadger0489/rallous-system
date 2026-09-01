@@ -1,0 +1,26 @@
+{
+  "id": "broken-nose",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Broken Nose",
+  "banner": {
+    "pattern": "broken_nose",
+    "primary": "#2F6B2F",
+    "secondary": "#8B5A2B"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -12,
+  "lord": {
+    "title": "Goblin Warboss",
+    "name": "Broken Nose",
+    "personality": "Badlands sneaks. Tribute in teef.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "badlands",
+    "savanna",
+    "mountains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

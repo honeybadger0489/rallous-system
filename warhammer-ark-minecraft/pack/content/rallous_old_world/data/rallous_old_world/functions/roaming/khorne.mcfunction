@@ -1,0 +1,3 @@
+summon hoglin ~6 ~ ~-10 {CustomName:'{"text":"Khorne Flesh-hound","color":"dark_red"}',CustomNameVisible:1b,PersistenceRequired:1b,IsImmuneToZombification:1b,Tags:["rallous.roaming","rallous.khorne"]}
+summon zombified_piglin ~8 ~ ~-12 {CustomName:'{"text":"Bloodletter","color":"red"}',CustomNameVisible:1b,PersistenceRequired:1b,HandItems:[{id:"minecraft:netherite_axe",Count:1b},{}],Tags:["rallous.roaming","rallous.khorne"]}
+summon zombified_piglin ~5 ~ ~-14 {CustomName:'{"text":"Bloodletter","color":"red"}',CustomNameVisible:1b,PersistenceRequired:1b,HandItems:[{id:"minecraft:iron_axe",Count:1b},{}],Tags:["rallous.roaming","rallous.khorne"]}

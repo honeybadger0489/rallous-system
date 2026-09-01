@@ -1,0 +1,26 @@
+{
+  "id": "ironclaw-orcs",
+  "race": "greenskins",
+  "tier": "major",
+  "name": "Ironclaw Orcs",
+  "banner": {
+    "pattern": "ironclaw",
+    "primary": "#2B2B2B",
+    "secondary": "#8B1E2D"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -12,
+  "lord": {
+    "title": "Orc Warboss",
+    "name": "Gorbad Ironclaw",
+    "personality": "Classic Waaagh general. Help if you want to sack an elector; otherwise war.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "badlands",
+    "plains",
+    "mountains"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

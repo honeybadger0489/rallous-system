@@ -1,0 +1,27 @@
+{
+  "id": "cult-of-sigmar",
+  "race": "empire",
+  "tier": "major",
+  "name": "Cult of Sigmar",
+  "banner": {
+    "pattern": "twin-tailed_comet",
+    "primary": "#8B1E2D",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -5,
+  "lord": {
+    "title": "Grand Theogonist",
+    "name": "Volkmar the Grim",
+    "personality": "Faith first. A Warp-stranger may carry a hammer if they take the comet-oath.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "plains",
+    "forest",
+    "dark_forest",
+    "meadow"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

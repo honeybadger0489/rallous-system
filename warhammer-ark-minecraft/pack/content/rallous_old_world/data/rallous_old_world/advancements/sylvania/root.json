@@ -1,0 +1,33 @@
+{
+  "parent": "rallous_old_world:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:red_banner"
+    },
+    "title": {
+      "text": "Sylvania"
+    },
+    "description": {
+      "text": "The dead voted. Night is the boss."
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "there": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "minecraft:swamp"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:crying_obsidian"
+    },
+    "title": {
+      "text": "Warp-crash",
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "You hit the Old World. No war council."
+    },
+    "background": "minecraft:textures/block/crying_obsidian.png",
+    "frame": "challenge",
+    "announce_to_chat": true,
+    "show_toast": true
+  },
+  "criteria": {
+    "joined": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "requirements": [
+    [
+      "joined"
+    ]
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "challengers-of-khorne",
+  "race": "khorne",
+  "tier": "major",
+  "name": "Challengers of Khorne",
+  "banner": {
+    "pattern": "undefeated",
+    "primary": "#7A1212",
+    "secondary": "#F4E8C1"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -50,
+  "lord": {
+    "title": "The Undefeated",
+    "name": "Arbaal the Undefeated",
+    "personality": "Issues challenges. Prove in single combat or be listed as coward-meat.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "snow",
+    "mountains",
+    "nether_waste",
+    "plains"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

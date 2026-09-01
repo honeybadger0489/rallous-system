@@ -1,0 +1,1 @@
+function rallous_factions:path/burn_welcome

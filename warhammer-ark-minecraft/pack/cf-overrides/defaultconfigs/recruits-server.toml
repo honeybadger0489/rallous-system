@@ -1,0 +1,106 @@
+# Rallous Old World — Recruits as provincial war, not a toy army.
+# Server configs copy into a new world's serverconfig/ on first create.
+# Name banners Elector / Waaagh / Under-Empire / von Carstein / Dawi / herd / temple-city / Bloodbound.
+# Do not use vanilla /team — that prints Team 1 / Team 2 and breaks hosts.
+
+[Recruits]
+	# Grim host, not a deathball. Faction lords still use MaxNPCsInFaction.
+	MaxRecruitsForPlayer = 48
+	RecruitCurrency = "minecraft:emerald"
+	RecruitCost = 6
+	BowmanCost = 8
+	CrossbowmanCost = 10
+	ShieldmanCost = 12
+	HorsemanCost = 22
+	NomadCost = 20
+	RecruitsMaxXpForLevelUp = 250
+	RecruitsMaxXpLevel = 20
+	# Pay the host or morale dies. Starving-to-death stays off (grim, not broken).
+	RecruitsPayment = true
+	RecruitsPaymentInterval = 20
+	RecruitsPaymentAmount = 1
+	RecruitsNoPaymentAction = "MORALE_LOSS"
+	RecruitsStarving = false
+	RecruitsUpdateHungerAndMorale = true
+	RecruitHorseUnitsHorse = true
+	# New captains should not be blocked by empty quivers.
+	RangedRecruitsNeedArrowsToShoot = false
+	RecruitsChunkLoading = true
+	UpdateCheckerServerside = true
+
+[Villages]
+	RecruitTablesPOIReleasing = true
+	OverrideIronGolemSpawn = true
+	MaxSpawnRecruitsInVillage = 2
+	NobleVillagerSpawns = true
+	NobleVillagerNeedsVillagers = true
+	ShouldProfessionBlocksTrade = false
+
+[Equipments]
+	RecruitStartEquipments = [["minecraft:iron_sword", "", "", "", "sonsoftheempire:altdorfswordsman_armor_chestplate", "sonsoftheempire:altdorfswordsman_armor_helmet"], ["minecraft:stone_sword", "", "", "", "sonsoftheempire:swordsman_armor_chestplate", "sonsoftheempire:swordsman_armor_helmet"]]
+	ShieldmanStartEquipments = [["minecraft:iron_sword", "minecraft:shield", "", "sonsoftheempire:altdorfswordsman_armor_leggings", "sonsoftheempire:altdorfswordsman_armor_chestplate", "sonsoftheempire:altdorfswordsman_armor_helmet"]]
+	BowmanStartEquipments = [["minecraft:bow", "", "", "", "sonsoftheempire:hochlandarmor_chestplate", "sonsoftheempire:archer_armor_helmet"]]
+	CrossbowmanStartEquipments = [["minecraft:crossbow", "", "", "", "sonsoftheempire:hochlandarmor_chestplate", "sonsoftheempire:archer_armor_helmet"]]
+	HorsemanStartEquipments = [["minecraft:iron_sword", "minecraft:shield", "sonsoftheempire:empireknight_armor_boots", "sonsoftheempire:empireknight_armor_leggings", "sonsoftheempire:empireknight_armor_chestplate", "sonsoftheempire:empireknight_armor_helmet"]]
+	NomadStartEquipments = [["minecraft:bow", "", "sonsoftheempire:armoredkossar_armor_boots", "", "sonsoftheempire:armoredkossar_armor_chestplate", "sonsoftheempire:armoredkossar_armor_helmet"]]
+
+[Hostiles]
+	PillagerFriendlyFire = true
+	PillagerSpawn = false
+	PillagerAttackMonsters = false
+	MonstersAttackPillagers = false
+	ShouldPillagersRaidNaturally = false
+	PillagerIncreasedCombatRange = false
+	VindicatorSpawnItems = false
+	PillagerSpawnItems = false
+	QuickStartPillagerRaid = true
+
+[Patrols]
+	ShouldRecruitPatrolsSpawn = true
+	RecruitPatrolsSpawnChance = 18.0
+	RecruitPatrolSpawnInterval = 25
+	RecruitPatrolDespawnTime = 45
+	ShouldPillagerPatrolsSpawn = false
+	PillagerPatrolsSpawnChance = 25.0
+	PillagerPatrolSpawnInterval = 45
+
+[Damage]
+	NoDamageImmunity = false
+
+[Factions]
+	FactionCreationCost = 16
+	MaxPlayersInFaction = 8
+	MaxNPCsInFaction = 200
+	ShouldFactionEditingBeAllowed = true
+	ShouldFactionManagingBeAllowed = true
+
+	["Global Faction/Team Settings"]
+		# Recruits scoreboard teams follow the banner. Friendly fire off so a Waaagh does not eat itself.
+		GlobalTeamSetting = true
+		GlobalTeamFriendlyFireSetting = false
+		GlobalTeamSeeFriendlyInvisibleSetting = true
+
+[Compat]
+	CompatCorpseMod = true
+
+[Performance]
+	AllowArrowCleaning = true
+
+	[Performance.Async]
+		UseAsyncPathfinding = true
+		AsyncPathfindingThreadsCount = 1
+
+[Claiming]
+	# Provincial war: claims and sieges on. Building outside a claim stays allowed (not broken).
+	AllowClaiming = true
+	ClaimingCost = 48
+	ChunkCost = 12
+	MaxClaimChunks = 80
+	CascadeThePriceOfClaims = false
+	BlockPlacingBreakingOnlyWhenClaimed = false
+	ExplosionBreaksBlocksInClaims = false
+	# Singleplayer / offline captains can still be sieged.
+	SiegeRequiresOwnerOnline = false
+	SiegeClaimsRecruitsAmount = 8
+	SiegeClaimsConquerTime = 8
+	FogOfWarEnabled = true

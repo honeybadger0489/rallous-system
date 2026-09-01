@@ -1,0 +1,26 @@
+{
+  "id": "zlatlan",
+  "race": "lizardmen",
+  "tier": "minor",
+  "name": "Zlatlan",
+  "banner": {
+    "pattern": "southlands_gold",
+    "primary": "#C9A227",
+    "secondary": "#1F6B3A"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": -5,
+  "lord": {
+    "title": "Oldblood of Zlatlan",
+    "name": "Zlatanq",
+    "personality": "Hidden Southlands city. Help if you keep ratkin and tomb-kings off the ziggurat.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "jungle",
+    "savanna",
+    "desert"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

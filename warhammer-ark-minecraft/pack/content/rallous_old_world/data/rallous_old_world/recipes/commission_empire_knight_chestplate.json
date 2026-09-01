@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond_chestplate"
+    },
+    {
+      "item": "minecraft:yellow_banner"
+    },
+    {
+      "item": "minecraft:book"
+    }
+  ],
+  "result": {
+    "item": "sonsoftheempire:empireknight_armor_chestplate",
+    "count": 1
+  }
+}

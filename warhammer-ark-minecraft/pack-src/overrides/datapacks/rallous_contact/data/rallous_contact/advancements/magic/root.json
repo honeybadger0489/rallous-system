@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:book"
+    },
+    "title": {
+      "text": "Not in the Hotbar"
+    },
+    "description": {
+      "text": "No starter spellbook. The Winds are a path."
+    },
+    "frame": "task",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ],
+  "parent": "rallous_contact:root"
+}

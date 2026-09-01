@@ -1,0 +1,33 @@
+{
+  "parent": "rallous_old_world:root",
+  "display": {
+    "icon": {
+      "item": "sonsoftheempire:highking_armor_helmet"
+    },
+    "title": {
+      "text": "Worlds Edge Mountains"
+    },
+    "description": {
+      "text": "The Hold-Road. Grudges. Ancestor beasts."
+    },
+    "frame": "task"
+  },
+  "criteria": {
+    "there": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "minecraft:windswept_hills"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

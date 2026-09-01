@@ -1,0 +1,32 @@
+# Rallous Old World — grim, not sadistic.
+# Exposure and thirst matter. You get a short march to the first town.
+
+[core]
+	"Temperature Enabled" = true
+	"Thirst Enabled" = true
+	"Health Overhaul Enabled" = false
+	"Localized Body Damage Enabled" = true
+
+	[core.advanced]
+		"Routine Packet Sync" = 30
+
+	[core.misc]
+		"Natural Regeneration Enabled" = true
+		"Vanilla Freeze Enabled" = false
+		"Initial Player Health" = 20.0
+		"Hide Info From Debug" = false
+
+[temperature]
+	"Dangerous Heat Temperature Effects" = true
+	"Dangerous Cold Temperature Effects" = true
+
+	[temperature.temperature-immunity]
+		"Temperature Immunity On Death Enabled" = true
+		"Temperature Immunity On First Spawn Enabled" = true
+		"Temperature Immunity On First Spawn Time" = 6000
+
+[thirst]
+	"Dangerous Dehydration" = true
+
+[body-damage]
+	"Body Part Health Mode" = "DYNAMIC"

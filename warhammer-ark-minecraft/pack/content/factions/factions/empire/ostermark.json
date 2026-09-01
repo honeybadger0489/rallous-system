@@ -1,0 +1,27 @@
+{
+  "id": "ostermark",
+  "race": "empire",
+  "tier": "minor",
+  "name": "Ostermark",
+  "banner": {
+    "pattern": "crowned_oster",
+    "primary": "#6B1028",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "grim",
+  "starting_standing": 0,
+  "lord": {
+    "title": "Elector Count of Ostermark",
+    "name": "Wolfram Hertwig",
+    "personality": "Marcher count on the dead border. Help hold the east or get off his road.",
+    "offer": "help"
+  },
+  "biome_tags": [
+    "plains",
+    "swamp",
+    "dark_forest",
+    "taiga"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "bloody-sword",
+  "race": "khorne",
+  "tier": "minor",
+  "name": "Bloody Sword",
+  "banner": {
+    "pattern": "bloody_sword",
+    "primary": "#7A1212",
+    "secondary": "#5A5A5A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -45,
+  "lord": {
+    "title": "Herald of Khorne",
+    "name": "Bloody Sword",
+    "personality": "Roaming brass host. War is the only offer.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "nether_waste",
+    "crimson",
+    "badlands"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires"
+}

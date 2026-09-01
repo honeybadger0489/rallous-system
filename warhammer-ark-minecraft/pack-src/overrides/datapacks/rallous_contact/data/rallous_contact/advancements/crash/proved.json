@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:filled_map"
+    },
+    "title": {
+      "text": "Proved Yourself"
+    },
+    "description": {
+      "text": "Village or fight. Paths open."
+    },
+    "frame": "goal",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ],
+  "parent": "rallous_contact:crash/root"
+}

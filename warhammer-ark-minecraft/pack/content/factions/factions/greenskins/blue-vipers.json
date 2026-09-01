@@ -1,0 +1,26 @@
+{
+  "id": "blue-vipers",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Blue Vipers",
+  "banner": {
+    "pattern": "blue_viper",
+    "primary": "#1E4A8B",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -12,
+  "lord": {
+    "title": "Savage Orc Warboss",
+    "name": "Blue Viper",
+    "personality": "Southlands savages. Prove in a painted scrap.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "jungle",
+    "savanna",
+    "river"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires_savage_orc"
+}

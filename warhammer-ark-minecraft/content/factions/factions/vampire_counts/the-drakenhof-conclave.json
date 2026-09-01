@@ -1,0 +1,27 @@
+{
+  "id": "the-drakenhof-conclave",
+  "race": "vampire_counts",
+  "tier": "major",
+  "name": "The Drakenhof Conclave",
+  "banner": {
+    "pattern": "drakenhof_dragon",
+    "primary": "#4A0F24",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "predatory",
+  "starting_standing": -25,
+  "lord": {
+    "title": "Count of Sylvania",
+    "name": "Mannfred von Carstein",
+    "personality": "Schemer. Offers alliance-as-use: fight his rivals, pay in blood, expect betrayal.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "swamp",
+    "dark_forest",
+    "mountains",
+    "caves"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

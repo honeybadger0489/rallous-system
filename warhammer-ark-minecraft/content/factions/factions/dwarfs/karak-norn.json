@@ -1,0 +1,26 @@
+{
+  "id": "karak-norn",
+  "race": "dwarfs",
+  "tier": "minor",
+  "name": "Karak Norn",
+  "banner": {
+    "pattern": "norn_oak",
+    "primary": "#3D5A1F",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "suspicious",
+  "starting_standing": -10,
+  "lord": {
+    "title": "King of Karak Norn",
+    "name": "Brokk Ironpick",
+    "personality": "Grey Mountains. Daemon-suspicion of anything from Athel Loren or the Warp.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "mountains",
+    "forest",
+    "dark_forest"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

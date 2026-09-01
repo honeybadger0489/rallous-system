@@ -1,0 +1,26 @@
+{
+  "id": "black-venom",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Black Venom",
+  "banner": {
+    "pattern": "black_venom",
+    "primary": "#1A1A1A",
+    "secondary": "#3D5A1F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -18,
+  "lord": {
+    "title": "Forest Goblin Warboss",
+    "name": "Black Venom",
+    "personality": "Poison-tribe. Tribute in captives for the spiders.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "forest",
+    "dark_forest",
+    "swamp"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

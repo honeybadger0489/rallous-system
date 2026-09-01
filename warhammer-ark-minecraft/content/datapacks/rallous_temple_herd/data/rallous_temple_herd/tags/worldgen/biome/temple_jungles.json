@@ -1,0 +1,77 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:is_jungle",
+    "#minecraft:is_savanna",
+    "minecraft:sparse_jungle",
+    "minecraft:bamboo_jungle",
+    {
+      "id": "terralith:tropical_jungle",
+      "required": false
+    },
+    {
+      "id": "terralith:jungle_mountains",
+      "required": false
+    },
+    {
+      "id": "terralith:rocky_jungle",
+      "required": false
+    },
+    {
+      "id": "terralith:amethyst_rainforest",
+      "required": false
+    },
+    {
+      "id": "terralith:amethyst_canyon",
+      "required": false
+    },
+    {
+      "id": "terralith:desert_oasis",
+      "required": false
+    },
+    {
+      "id": "terralith:red_oasis",
+      "required": false
+    },
+    {
+      "id": "terralith:orchid_swamp",
+      "required": false
+    },
+    {
+      "id": "terralith:skylands_summer",
+      "required": false
+    },
+    {
+      "id": "terralith:cave/underground_jungle",
+      "required": false
+    },
+    {
+      "id": "terralith:lush_desert",
+      "required": false
+    },
+    {
+      "id": "terralith:hot_shrubland",
+      "required": false
+    },
+    {
+      "id": "terralith:brushland",
+      "required": false
+    },
+    {
+      "id": "terralith:ashen_savanna",
+      "required": false
+    },
+    {
+      "id": "terralith:arid_highlands",
+      "required": false
+    },
+    {
+      "id": "terralith:savanna_slopes",
+      "required": false
+    },
+    {
+      "id": "terralith:fractured_savanna",
+      "required": false
+    }
+  ]
+}

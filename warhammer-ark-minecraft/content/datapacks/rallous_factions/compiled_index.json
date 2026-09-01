@@ -1,0 +1,127 @@
+{
+  "races": {
+    "beastmen": {
+      "name": "Beastmen",
+      "settlement": "roaming",
+      "warp_stranger_stance": "hostile",
+      "majors": 4,
+      "minors": 8
+    },
+    "dwarfs": {
+      "name": "Dwarfs",
+      "settlement": "settled",
+      "warp_stranger_stance": "daemon_suspicion",
+      "majors": 6,
+      "minors": 10
+    },
+    "empire": {
+      "name": "The Empire",
+      "settlement": "settled",
+      "warp_stranger_stance": "help_with_blade",
+      "majors": 5,
+      "minors": 9
+    },
+    "greenskins": {
+      "name": "Greenskins",
+      "settlement": "mixed",
+      "warp_stranger_stance": "help_with_blade",
+      "majors": 6,
+      "minors": 27
+    },
+    "khorne": {
+      "name": "Khorne",
+      "settlement": "roaming",
+      "warp_stranger_stance": "hostile",
+      "majors": 3,
+      "minors": 4
+    },
+    "lizardmen": {
+      "name": "Lizardmen",
+      "settlement": "settled",
+      "warp_stranger_stance": "daemon_suspicion",
+      "majors": 7,
+      "minors": 7
+    },
+    "skaven": {
+      "name": "Skaven",
+      "settlement": "settled",
+      "warp_stranger_stance": "hostile",
+      "majors": 6,
+      "minors": 13
+    },
+    "vampire_counts": {
+      "name": "Vampire Counts",
+      "settlement": "settled",
+      "warp_stranger_stance": "daemon_suspicion",
+      "majors": 5,
+      "minors": 9
+    }
+  },
+  "totals": {
+    "factions": 129,
+    "majors": 42,
+    "minors": 87
+  },
+  "caps": {
+    "first_days": 16,
+    "explore": 40
+  },
+  "examples": [
+    {
+      "id": "shadowgor-warherd",
+      "race": "beastmen",
+      "tier": "minor",
+      "lord": "Shadowgor",
+      "site": "roaming"
+    },
+    {
+      "id": "karaz-a-karak",
+      "race": "dwarfs",
+      "tier": "major",
+      "lord": "Thorgrim Grudgebearer",
+      "site": "settled"
+    },
+    {
+      "id": "reikland",
+      "race": "empire",
+      "tier": "major",
+      "lord": "Karl Franz",
+      "site": "settled"
+    },
+    {
+      "id": "skull-takerz",
+      "race": "greenskins",
+      "tier": "minor",
+      "lord": "Skull-taka",
+      "site": "roaming"
+    },
+    {
+      "id": "exiles-of-khorne",
+      "race": "khorne",
+      "tier": "major",
+      "lord": "Skarbrand the Exiled",
+      "site": "roaming"
+    },
+    {
+      "id": "itza",
+      "race": "lizardmen",
+      "tier": "major",
+      "lord": "Gor-Rok",
+      "site": "settled"
+    },
+    {
+      "id": "clan-mors",
+      "race": "skaven",
+      "tier": "major",
+      "lord": "Queek Headtaker",
+      "site": "settled"
+    },
+    {
+      "id": "vampire-counts",
+      "race": "vampire_counts",
+      "tier": "major",
+      "lord": "Helman Ghorst",
+      "site": "settled"
+    }
+  ]
+}

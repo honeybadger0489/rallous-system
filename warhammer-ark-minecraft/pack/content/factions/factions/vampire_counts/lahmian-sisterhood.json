@@ -1,0 +1,27 @@
+{
+  "id": "lahmian-sisterhood",
+  "race": "vampire_counts",
+  "tier": "minor",
+  "name": "Lahmian Sisterhood",
+  "banner": {
+    "pattern": "lahmian_serpent",
+    "primary": "#4A0F24",
+    "secondary": "#C4B48A"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": -5,
+  "lord": {
+    "title": "Lahmian Mistress",
+    "name": "Neferata's Hand",
+    "personality": "Court poison and soft words. Prove discretion; she will use your warband as a knife.",
+    "offer": "prove"
+  },
+  "biome_tags": [
+    "mountains",
+    "snow",
+    "caves",
+    "peaks"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

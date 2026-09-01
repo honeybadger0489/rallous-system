@@ -1,0 +1,119 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "host"
+	group: "1A020000"
+	icon: "minecraft:emerald"
+	id: "1C060000"
+	images: [ ]
+	order_index: 91
+	quest_links: [ ]
+	quests: [
+		{
+			optional: true
+			icon: "minecraft:emerald"
+			id: "1D010051"
+			rewards: [
+				{
+					count: 4
+					id: "1E010046"
+					item: "minecraft:emerald"
+					type: "item"
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:army/open"
+					elevate_perms: true
+					id: "1E010047"
+					silent: true
+					type: "command"
+				}
+			]
+			subtitle: "Optional. Never required."
+			tasks: [
+				{
+					id: "1E010048"
+					title: "Hired one soldier"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"SIDE PATH. Crash, Paths, First Hour, and the Winds do not need this."
+				""
+				"Hire a Recruits soldier. Continuity calls the UI Elector / Waaagh / Under-Empire / the rest. They are a host, not a tutorial."
+			]
+			title: "Levy a Body"
+			x: -2d
+			y: 0d
+		},
+		{
+			dependencies: ["1D010051"]
+			optional: true
+			icon: "minecraft:iron_sword"
+			id: "1D010052"
+			rewards: [
+				{
+					id: "1E010049"
+					type: "xp"
+					xp: 10
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:army/orders"
+					elevate_perms: true
+					id: "1E01004A"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E01004B"
+					title: "Command screen used"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Open Host Command. Follow. Stay. Aggressive. You are allowed to fire them."
+			]
+			title: "Give an Order"
+			x: 0d
+			y: 0d
+		},
+		{
+			dependencies: ["1D010051"]
+			optional: true
+			icon: "minecraft:white_banner"
+			id: "1D010053"
+			rewards: [
+				{
+					id: "1E01004C"
+					type: "xp"
+					xp: 15
+				},
+				{
+					command: "execute as @p at @s run function rallous_contact:army/banner"
+					elevate_perms: true
+					id: "1E01004D"
+					silent: true
+					type: "command"
+				}
+			]
+			tasks: [
+				{
+					id: "1E01004E"
+					title: "Banner named"
+					type: "checkmark"
+				}
+			]
+			description: [
+				"Faction screen: Elector, Waaagh, Under-Empire, von Carstein, Dawi hold, herd, temple-city, Bloodbound. Ally / Enemy. OPAC is warband land."
+				""
+				"Still optional. A lone body can finish the first hour."
+			]
+			title: "Name a Banner"
+			x: 2d
+			y: 0d
+		}
+	]
+	title: "The Host"
+}

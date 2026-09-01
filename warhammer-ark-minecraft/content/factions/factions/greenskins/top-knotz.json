@@ -1,0 +1,26 @@
+{
+  "id": "top-knotz",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Top Knotz",
+  "banner": {
+    "pattern": "top_knot",
+    "primary": "#8B5A2B",
+    "secondary": "#2F6B2F"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -10,
+  "lord": {
+    "title": "Savage Orc Warboss",
+    "name": "Top Knot",
+    "personality": "Hair-tribe of the Southlands. Recruit wild boys.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "savanna",
+    "desert",
+    "plains"
+  ],
+  "site": "roaming",
+  "tww_source": "immortal_empires_savage_orc"
+}

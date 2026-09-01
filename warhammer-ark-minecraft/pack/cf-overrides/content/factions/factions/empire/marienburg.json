@@ -1,0 +1,28 @@
+{
+  "id": "marienburg",
+  "race": "empire",
+  "tier": "minor",
+  "name": "Marienburg",
+  "banner": {
+    "pattern": "merchant_cog",
+    "primary": "#1E4A8B",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "opportunistic",
+  "starting_standing": 12,
+  "lord": {
+    "title": "Director of Marienburg",
+    "name": "Leopold van Haagen",
+    "personality": "Everything is a contract. Tribute and river-tolls before friendship.",
+    "offer": "tribute"
+  },
+  "biome_tags": [
+    "beach",
+    "river",
+    "plains",
+    "ocean",
+    "swamp"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

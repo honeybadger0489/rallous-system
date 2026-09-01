@@ -1,0 +1,10 @@
+modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="rallous_old_world"
+version="1.1.0"
+displayName="Rallous Old World"
+authors="Rallous System"
+description='''Warp-crash Old World: crater spawn, scattered friends, no Reikland court.'''

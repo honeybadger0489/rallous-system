@@ -1,0 +1,26 @@
+{
+  "id": "red-eye",
+  "race": "greenskins",
+  "tier": "minor",
+  "name": "Red Eye",
+  "banner": {
+    "pattern": "red_eye",
+    "primary": "#8B1E2D",
+    "secondary": "#1A1A1A"
+  },
+  "starting_attitude": "hostile",
+  "starting_standing": -16,
+  "lord": {
+    "title": "Night Goblin Warboss",
+    "name": "Red Eye",
+    "personality": "Karak Ungor squatters. War on anything dwarfen.",
+    "offer": "war"
+  },
+  "biome_tags": [
+    "mountains",
+    "caves",
+    "taiga"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

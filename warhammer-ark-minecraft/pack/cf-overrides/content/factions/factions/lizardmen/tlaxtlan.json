@@ -1,0 +1,26 @@
+{
+  "id": "tlaxtlan",
+  "race": "lizardmen",
+  "tier": "minor",
+  "name": "Tlaxtlan",
+  "banner": {
+    "pattern": "moon_city",
+    "primary": "#1A5A62",
+    "secondary": "#C9A227"
+  },
+  "starting_attitude": "wary",
+  "starting_standing": 0,
+  "lord": {
+    "title": "Mage-Priest of Tlaxtlan",
+    "name": "Adohi-Tehga",
+    "personality": "City of the Moon. Recruit skink envoys if you bring star-metal, not Warp-toys.",
+    "offer": "recruit"
+  },
+  "biome_tags": [
+    "jungle",
+    "river",
+    "swamp"
+  ],
+  "site": "settled",
+  "tww_source": "immortal_empires"
+}

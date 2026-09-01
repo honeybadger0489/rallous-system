@@ -1,0 +1,51 @@
+{
+  "id": "khorne",
+  "name": "Khorne",
+  "culture": "Blood hosts with no diplomacy worth the name. Skull-tithe or flight. They raise no capitals — only brass camps that move when the killing dries up. Warp-strangers are a challenge, not guests.",
+  "settlement": "roaming",
+  "taming_affinity": "low",
+  "warp_stranger_stance": "hostile",
+  "colors": {
+    "primary": "#7A1212",
+    "secondary": "#C4A035",
+    "accent": "#1A1A1A"
+  },
+  "lord_title_pool": [
+    "Bloodthirster",
+    "Herald of Khorne",
+    "Bloodmaster",
+    "Skullmaster",
+    "Exalted Hero of Khorne",
+    "Slaughterpriest",
+    "Wrath of Khorne Bloodthirster"
+  ],
+  "name_pool": {
+    "given": [
+      "Skarbrand",
+      "Skulltaker",
+      "Arbaal",
+      "Karanak",
+      "Skarr",
+      "Scyla",
+      "Valkia",
+      "Ka'Bandha",
+      "An'ggrath",
+      "Khorghar",
+      "Brass-Tongue",
+      "Eight-Kill",
+      "Gorehand",
+      "Skull-Tithe",
+      "Wrathborn"
+    ],
+    "epithet": [
+      "the Exiled",
+      "the Undefeated",
+      "of the Brass Throne",
+      "Bloodwrath",
+      "the Rage of Khorne",
+      "Skull-Harvest",
+      "of the Eightfold Path"
+    ]
+  },
+  "notes": "Roaming race: skip capitals. Place brass camps in nether-waste, crimson, badlands, snow wastes, mountains."
+}

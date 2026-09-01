@@ -1,0 +1,41 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:yellow_banner"
+    },
+    "title": {
+      "text": "Empire"
+    },
+    "description": {
+      "text": "rallous.race=1 Elector towns"
+    },
+    "frame": "task",
+    "announce_to_chat": false,
+    "show_toast": true,
+    "hidden": false
+  },
+  "criteria": {
+    "here": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "structure": "minecraft:village"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "here"
+    ]
+  ],
+  "parent": "rallous_contact:root"
+}

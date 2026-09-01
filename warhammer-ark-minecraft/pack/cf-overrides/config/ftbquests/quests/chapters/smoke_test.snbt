@@ -1,0 +1,226 @@
+{
+	always_invisible: false
+	default_hide_dependency_lines: false
+	default_quest_shape: "rsquare"
+	filename: "smoke_test"
+	group: "0A020000"
+	icon: "minecraft:crying_obsidian"
+	id: "0C010001"
+	images: [ ]
+	order_index: 0
+	quest_links: [ ]
+	quests: [
+		{
+			icon: "minecraft:crying_obsidian"
+			id: "0A010101"
+			rewards: [{
+				id: "0A010102"
+				type: "xp"
+				xp: 5
+			}]
+			shape: "hexagon"
+			size: 1.0d
+			tasks: [{
+				id: "0A010103"
+				title: "Stood in the crater"
+				type: "checkmark"
+			}]
+			description: [
+				"1. CRASH — blackstone / crying obsidian bowl, wreckage chest, no six named lords. Title says Warp-crash. Forge 47.4.10."
+			]
+			title: "1. Crash"
+			x: -4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:yellow_banner"
+			id: "0A010201"
+			rewards: [{
+				id: "0A010202"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "0A010203"
+				title: "Named lord spoke a stance"
+				type: "checkmark"
+			}]
+			description: [
+				"2. NAMED LORD + STANCE — walk to the nearest bannered camp. A named lord from the faction tables speaks a stance. Chat names the camp (Reikland, Clan Mors, …). If U still says Team 2, Found a Banner."
+			]
+			title: "2. Named lord + stance"
+			x: -2.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["0A010201"]
+			icon: "minecraft:iron_sword"
+			id: "0A010301"
+			rewards: [{
+				id: "0A010302"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "0A010303"
+				title: "Session start then win"
+				type: "checkmark"
+			}]
+			description: [
+				"3. SESSION START / WIN — /function rallous_session:start at the contact camp, then clear the wave or /function rallous_session:win."
+			]
+			title: "3. Session start / win"
+			x: -2.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:lime_banner"
+			id: "0A010401"
+			rewards: [{
+				id: "0A010402"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "0A010403"
+				title: "Roaming packs appeared"
+				type: "checkmark"
+			}]
+			description: [
+				"4. FORCE ROAMING — /function rallous_old_world:force_roaming  (Waaagh, herd, Khorne)."
+			]
+			title: "4. Force roaming"
+			x: 0.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["0A010201"]
+			icon: "minecraft:writable_book"
+			id: "0A010501"
+			rewards: [{
+				id: "0A010502"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "0A010503"
+				title: "Rallous Continuity enabled"
+				type: "checkmark"
+			}]
+			description: [
+				"5. ENABLE RALLOUS CONTINUITY — Options → Resource Packs. Recruits UI says Levy / Elector / Waaagh / Under-Empire, not Team 2. Lang overlay only; not the Fabric Continuity mod."
+			]
+			title: "5. Enable Rallous Continuity"
+			x: 2.0d
+			y: -1.5d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:player_head"
+			id: "0A010601"
+			rewards: [{
+				id: "0A010602"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "0A010603"
+				title: "Second crash elsewhere"
+				type: "checkmark"
+			}]
+			description: [
+				"Also: FRIEND ELSEWHERE — second player, or /function rallous_old_world:crash/demo_friend_elsewhere"
+			]
+			title: "Friend elsewhere"
+			x: 4.0d
+			y: -1.0d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:book"
+			id: "0A010701"
+			rewards: [{
+				id: "0A010702"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "0A010703"
+				title: "No Iron's book in the crater"
+				type: "checkmark"
+			}]
+			description: [
+				"Also: NO STARTER MAGIC — wreckage chest is a Warp-tainted relic (echo shard). No spellbook."
+			]
+			title: "No starter magic"
+			x: 0.0d
+			y: 1.5d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:red_bed"
+			id: "0A010801"
+			rewards: [{
+				id: "0A010802"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "0A010803"
+				title: "Died to crater, then to a bed"
+				type: "checkmark"
+			}]
+			description: [
+				"Also: DEATH — die with no civ-bed → your crater. Sleep in a claimed village or after join. Wilderness beds do not stick."
+			]
+			title: "Death crater / bed"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:nether_star"
+			id: "0A010901"
+			rewards: [{
+				id: "0A010902"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "0A010903"
+				title: "Instance booted"
+				type: "checkmark"
+			}]
+			description: [
+				"Also: BOOT — grim sky, gothic font, Unbound. Forge 47.4.10. Continuity mod absent on purpose."
+			]
+			title: "Boot"
+			x: 4.0d
+			y: 1.0d
+		}
+		{
+			dependencies: ["0A010101"]
+			icon: "minecraft:written_book"
+			id: "0A010B01"
+			rewards: [{
+				id: "0A010B02"
+				type: "xp"
+				xp: 5
+			}]
+			tasks: [{
+				id: "0A010B03"
+				title: "Read PLAY.md"
+				type: "checkmark"
+			}]
+			description: [
+				"THIS FILE — warhammer-ark-minecraft/PLAY.md is the only player doc. 0.3.5 smoke: crash, named lord+stance, session start/win, force roaming, enable Rallous Continuity."
+			]
+			title: "This file"
+			x: -2.0d
+			y: 3.0d
+		}
+	]
+	title: "Warp-crash Smoke"
+}
