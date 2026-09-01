@@ -5,4 +5,5 @@ execute if score #clock rallous.gen matches 40 run scoreboard players set #clock
 execute if score #placed rallous.gen >= #cap rallous.const if score #placed rallous.gen < #xcap rallous.const as @a[tag=rallous.warp_landed] at @s unless entity @e[tag=rallous.camp,distance=..180,limit=1] run function rallous_factions:gen/explore
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_diplomacy:apply_path
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_factions:path/sync
-execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s if entity @e[tag=rallous.camp,distance=..14,limit=1] run function rallous_factions:contact/assign
+execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s if entity @e[tag=rallous.camp,distance=..18,limit=1] run function rallous_factions:contact/assign
+execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s as @e[tag=rallous.camp,limit=1,sort=nearest,distance=..80] at @s run particle minecraft:campfire_signal_smoke ~ ~3 ~ 0.15 0.8 0.15 0.01 3

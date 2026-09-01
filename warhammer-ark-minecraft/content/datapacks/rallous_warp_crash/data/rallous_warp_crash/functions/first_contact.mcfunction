@@ -1,5 +1,7 @@
 # Quest-agent hook. Named lord from compiled tables, not a mute camp.
-function rallous_factions:contact/assign
+# Greet only at the picket. Bind scores from the crater so Recruits can found the name.
+execute if entity @e[tag=rallous.camp,distance=..18,limit=1] run function rallous_factions:contact/assign
+execute unless entity @e[tag=rallous.camp,distance=..18,limit=1] run function rallous_factions:contact/bind_only
 function rallous_kit:on_greet
 execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
 data modify storage rallous_warp_crash:data last_contact.UUID set from entity @s UUID

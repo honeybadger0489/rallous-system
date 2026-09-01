@@ -406,7 +406,8 @@ execute if score #clock rallous.gen matches 40 run scoreboard players set #clock
 execute if score #placed rallous.gen >= #cap rallous.const if score #placed rallous.gen < #xcap rallous.const as @a[tag=rallous.warp_landed] at @s unless entity @e[tag=rallous.camp,distance=..180,limit=1] run function rallous_factions:gen/explore
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_diplomacy:apply_path
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_factions:path/sync
-execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s if entity @e[tag=rallous.camp,distance=..14,limit=1] run function rallous_factions:contact/assign
+execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s if entity @e[tag=rallous.camp,distance=..18,limit=1] run function rallous_factions:contact/assign
+execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s as @e[tag=rallous.camp,limit=1,sort=nearest,distance=..80] at @s run particle minecraft:campfire_signal_smoke ~ ~3 ~ 0.15 0.8 0.15 0.01 3
 """,
     )
     w(
@@ -439,7 +440,7 @@ execute if score #placed rallous.gen < #xcap rallous.const run function rallous_
         FN / "gen/place_near.mcfunction",
         """# Guaranteed contact camp just off the crater.
 summon minecraft:marker ~ ~ ~ {Tags:["rallous.probe","rallous.probe.near"]}
-execute as @e[type=minecraft:marker,tag=rallous.probe.near,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 64 140 false @s
+execute as @e[type=minecraft:marker,tag=rallous.probe.near,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 24 56 false @s
 execute as @e[type=minecraft:marker,tag=rallous.probe.near,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_one
 kill @e[type=minecraft:marker,tag=rallous.probe]
 """,
@@ -519,11 +520,12 @@ kill @e[type=minecraft:marker,tag=rallous.probe]
     w(
         FN / "crash/on_land.mcfunction",
         """# Warp-crash: living camp from the tables, not a mute villager.
+# Bind scores now. Greet waits until the survivor walks to the picket.
 function rallous_factions:gen/boot
 execute unless entity @e[tag=rallous.camp,distance=..220,limit=1] run function rallous_factions:gen/place_near
 execute unless entity @e[tag=rallous.camp,distance=..260,limit=1] run function rallous_factions:gen/place_one
 execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
-function rallous_factions:contact/assign
+function rallous_factions:contact/bind_only
 """,
     )
     w(
@@ -533,8 +535,35 @@ execute unless entity @s[tag=rallous.contacted] run function rallous_factions:co
 """,
     )
     w(
+        FN / "contact/bind_only.mcfunction",
+        """# Crash bind: scores + Recruits name. Do not greet — the lord is off the bowl.
+scoreboard players set @s rallous.joined 1
+execute unless entity @e[tag=rallous.camp,distance=..400,limit=1] run function rallous_factions:gen/place_near
+tag @e[tag=rallous_contact] remove rallous_contact
+execute as @e[tag=rallous.camp,limit=1,sort=nearest] run tag @s add rallous_contact
+execute as @e[tag=rallous.lord,limit=1,sort=nearest] run tag @s add rallous_contact
+scoreboard players operation @s rallous.contact_id = @e[tag=rallous.camp,limit=1,sort=nearest] rallous.fac.id
+scoreboard players operation @s rallous.race = @e[tag=rallous.camp,limit=1,sort=nearest] rallous.fac.race
+scoreboard players set @s rallous.contact 1
+function rallous_recruits_bind:on_contact
+execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
+execute as @e[type=minecraft:marker,tag=rallous.camp,limit=1,sort=nearest] at @s run function rallous_temple_herd:mark_camp
+execute as @e[type=minecraft:marker,tag=rallous.camp,limit=1,sort=nearest] at @s run function rallous_factions:contact/beacon
+tellraw @s {"text":"Banner-smoke on the horizon. Walk to it. A named lord will speak when you reach the picket — not a mute village.","color":"gold"}
+""",
+    )
+    w(
+        FN / "contact/beacon.mcfunction",
+        """# Extra smoke so the picket is visible from the crater rim.
+execute unless block ~2 ~ ~-2 minecraft:campfire unless block ~2 ~ ~-2 minecraft:soul_campfire run setblock ~2 ~ ~-2 minecraft:campfire
+execute unless block ~-2 ~ ~2 minecraft:campfire unless block ~-2 ~ ~2 minecraft:soul_campfire run setblock ~-2 ~ ~2 minecraft:campfire
+particle minecraft:campfire_signal_smoke ~ ~4 ~ 0.2 1.2 0.2 0.02 12
+""",
+    )
+    w(
         FN / "contact/assign_go.mcfunction",
         """# Nearest compiled camp becomes this survivor's contact faction.
+# Call this at the picket (tick distance..18), not from the crater bowl.
 tag @s add rallous.contacted
 tag @s add rallous.fac.greeted
 scoreboard players set @s rallous.joined 1
@@ -549,6 +578,7 @@ function rallous_factions:contact/greet
 function rallous_recruits_bind:on_contact
 function rallous_kit:on_greet
 execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
+tellraw @s {"text":"When night falls at this picket, the session starts. Or /function rallous_session:start","color":"gray"}
 """,
     )
     w(

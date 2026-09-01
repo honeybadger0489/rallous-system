@@ -72,12 +72,12 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 
 - [ ] `/function rallous_old_world:force_roaming` — Waaagh, herd, and Blood Host near you.
 - [ ] A named bannered host **walks toward you**. Light leaf/crop scars. Then they fade or `/function rallous_roaming:clear`.
-- [ ] Optional: do not force; walk 128+ from the crater after day 1 and wait. Clock is slow. Forcing is honest.
+- [ ] Optional: do not force; walk 128+ from the crater after day 1, or wait ~20–40 min. The first natural host is guaranteed once the clock and crash-gate pass.
 
 ### Death
 
 - [ ] Die with **no** bed. Respawn in **your** crater. Same player. No second Warp-hole.
-- [ ] Sleep in a **claimed village** (villager / claimed camp nearby) or after **join**. Die. Respawn at that civ-bed. A wilderness bed does **not** stick.
+- [ ] Sleep at a **claimed camp** (lord / camp marker nearby) or after **join**. Die. Respawn at that civ-bed. A mute vanilla villager does **not** make a wilderness bed stick.
 - [ ] `/function rallous_old_world:crash/return_crater` still finds your hole.
 
 ### Multiplayer scatter

@@ -9,11 +9,11 @@ Quest chapter **Temple and Herd**. Markers are banners + named armor stands + ch
 
 ## Lizardmen — high
 
-Temple-cities, jungle / warm markers, Temple-Spawn names. Extra Tameable Beasts tame-food tags (those extras are **global** — anyone can use the offerings). Sacred-beast fantasy. Fossils 9.3.4 has **no** per-faction tame tag.
+Temple-cities, jungle / warm markers, Temple-Spawn names. A Lizardmen contact picket also plants a small **Temple-Spawn** shrine beside the 7×7 (not the 13×13 plaza). Extra Tameable Beasts tame-food tags (those extras are **global** — anyone can use the offerings). Sacred-beast fantasy. Fossils 9.3.4 has **no** per-faction tame tag.
 
 ## Beastmen — corrupt
 
-Herdstones in dark forest / taiga. Uglier loot (Broken Collar lead). Herd-mutt names. Rotten flesh / bone on some tame tags. A roaming Horned Woods host also counts as herdstone-adjacent.
+Herdstones in dark forest / taiga. A Beastmen contact picket also plants a small **Herdstone** post beside the 7×7 (not the 13×13 pit). Uglier loot (Broken Collar lead). Herd-mutt names. Rotten flesh / bone on some tame tags. A roaming Horned Woods host also counts as herdstone-adjacent.
 
 They do not keep capitals. A stranger is meat or a rival herd.
 

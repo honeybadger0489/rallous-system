@@ -16,5 +16,6 @@ scoreboard objectives add rallous.fac.id dummy
 scoreboard objectives add rallous.fac.race dummy
 scoreboard objectives add rallous.fac.stance dummy
 scoreboard objectives add rallous.contact dummy
+scoreboard objectives add rallous.rec.tries dummy
 scoreboard players set #ally rallous.rec.rel 1
 scoreboard players set #war rallous.rec.rel 2

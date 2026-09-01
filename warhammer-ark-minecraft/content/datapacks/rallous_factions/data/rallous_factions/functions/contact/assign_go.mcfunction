@@ -1,4 +1,5 @@
 # Nearest compiled camp becomes this survivor's contact faction.
+# Call this at the picket (tick distance..18), not from the crater bowl.
 tag @s add rallous.contacted
 tag @s add rallous.fac.greeted
 scoreboard players set @s rallous.joined 1
@@ -13,3 +14,4 @@ function rallous_factions:contact/greet
 function rallous_recruits_bind:on_contact
 function rallous_kit:on_greet
 execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
+tellraw @s {"text":"When night falls at this picket, the session starts. Or /function rallous_session:start","color":"gray"}

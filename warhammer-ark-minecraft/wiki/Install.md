@@ -1,11 +1,11 @@
 # Install
 
-Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.12. **0.3.13** is this ship.
+Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.13. **0.3.14** is this ship.
 
 **Download (latest on this branch):**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.13.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.14.zip
 
-Dedicated-server smoke **passed on 0.3.12 and 0.3.13** (`Done`, no `ModLoadingException`, no function parse errors). **0.3.13** strips leftover 0.2.2 court chrome (CNPC letters, Kislev commissions, unused lord advancements). Older `dist/rallous-warhammer-fantasy-0.3.12.zip` remains for history. Client TEST is still unverified.
+Dedicated-server smoke **passed on 0.3.12 and 0.3.13**. **0.3.14** is the first-hour gameplay pass (greet at the picket, closer camp, roaming first-host guarantee, claimed-camp beds, Recruits retry). Client TEST is still unverified.
 
 ## CurseForge
 

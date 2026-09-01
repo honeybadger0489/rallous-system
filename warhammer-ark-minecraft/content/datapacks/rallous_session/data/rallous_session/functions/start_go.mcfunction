@@ -18,4 +18,7 @@ execute if score #stance rallous.session_kind matches 4 run function rallous_ses
 execute if score #stance rallous.session_kind matches 3 run function rallous_session:begin_hostile
 execute if score #stance rallous.session_kind matches 6 run function rallous_session:begin_hostile
 execute unless score #stance rallous.session_kind matches 1..6 run function rallous_session:begin_prove
+title @s times 10 60 20
+title @s title {"text":"The night begins","color":"gold","bold":true}
+title @s subtitle {"text":"One village. Or one fight.","color":"gray"}
 execute as @e[tag=rallous.session.camp,limit=1] at @s run function rallous_session:voice/start

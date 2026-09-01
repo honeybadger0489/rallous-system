@@ -23,10 +23,10 @@ You do not share a spawn circle. Meet on the road.
 | You had… | You come back… |
 | --- | --- |
 | No civ-bed | **Your** crater. Same player. No second crash. |
-| A **claimed village** bed (villager / claimed camp nearby) or a **join** civ-bed | That bed. |
+| A **claimed camp** bed (lord / camp marker nearby) or a **join** civ-bed | That bed. |
 | A wilderness bed | The crater. Wilderness beds do not stick. |
 
-Sleep under a village roof, or join a camp, sets the civ-bed flag. Dying does not scatter you to a new Warp-hole.
+Sleep at a **claimed camp** (lord / camp marker nearby) or after **join**. A mute vanilla villager does not make a wilderness bed stick. Dying does not scatter you to a new Warp-hole.
 
 Force a return: `/function rallous_old_world:crash/return_crater`
 

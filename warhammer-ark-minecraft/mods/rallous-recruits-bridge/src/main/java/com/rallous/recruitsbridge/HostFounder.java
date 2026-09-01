@@ -43,8 +43,25 @@ public final class HostFounder {
         if (!(raw instanceof ServerPlayer player)) {
             return;
         }
-        if (player.getTags().contains(TAG_FOUNDED) || player.getTags().contains(TAG_FAILED)) {
+        if (player.getTags().contains(TAG_FOUNDED)) {
+            Team current = player.getTeam();
+            RecruitsFactionManager manager = FactionEvents.recruitsFactionManager;
+            RecruitsFaction existing = (current == null || manager == null)
+                    ? null : manager.getFactionByStringID(current.getName());
+            boolean named = current != null
+                    && !isGeneric(current.getName())
+                    && existing != null
+                    && !isGeneric(existing.getTeamDisplayName());
+            if (named) {
+                return;
+            }
+            player.removeTag(TAG_FOUNDED);
+        }
+        if (score(player, "rallous.rec.tries") >= 30) {
             return;
+        }
+        if (player.getTags().contains(TAG_FAILED)) {
+            player.removeTag(TAG_FAILED);
         }
         if (FactionEvents.recruitsFactionManager == null) {
             return;
@@ -69,6 +86,7 @@ public final class HostFounder {
         }
         ServerLevel level = player.serverLevel();
         RecruitsFactionManager manager = FactionEvents.recruitsFactionManager;
+        bumpTries(player);
         try {
             if (apply(player, level, manager, name, recId)) {
                 player.addTag(TAG_FOUNDED);
@@ -250,6 +268,19 @@ public final class HostFounder {
             return 0;
         }
         return board.getOrCreatePlayerScore(player.getScoreboardName(), objective).getScore();
+    }
+
+    private static void bumpTries(ServerPlayer player) {
+        Scoreboard board = player.getScoreboard();
+        Objective objective = board.getObjective("rallous.rec.tries");
+        if (objective == null) {
+            objective = board.addObjective(
+                    "rallous.rec.tries",
+                    net.minecraft.world.scores.criteria.ObjectiveCriteria.DUMMY,
+                    Component.literal("rec.tries"),
+                    net.minecraft.world.scores.criteria.ObjectiveCriteria.RenderType.INTEGER);
+        }
+        board.getOrCreatePlayerScore(player.getScoreboardName(), objective).add(1);
     }
 
     private static String cap(String s, int max) {

@@ -15,4 +15,4 @@ function rallous_contact:crash/awake
 title @s times 10 80 20
 title @s title {"text":"Cast from the Warp","color":"dark_purple","bold":true}
 title @s subtitle {"text":"A host is near. They may take you in — or take your head.","color":"gray"}
-tellraw @s [{"text":"You crashed. The crater is yours until you sleep under a village roof. Smoke on the horizon is a camp. Walk to it.","color":"light_purple"}]
+tellraw @s [{"text":"You crashed. The crater is yours until you sleep at a claimed camp or after join. Wilderness beds do not stick. Banner-smoke is a host — walk to it. The lord speaks at the picket.","color":"light_purple"}]

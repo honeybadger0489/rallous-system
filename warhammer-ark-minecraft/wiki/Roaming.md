@@ -32,4 +32,4 @@ Per-host (same night, no wait):
 /function rallous_roaming:clear
 ```
 
-To poke the **scheduled** path without waiting 20–40 min: `/function rallous_roaming:debug/ready` then wait ~60s (still a 25% roll).
+To poke the **scheduled** path without waiting 20–40 min: `/function rallous_roaming:debug/ready` then wait ~60s. The first natural host after the wait is guaranteed; later rolls stay 25%.

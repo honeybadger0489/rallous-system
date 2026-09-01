@@ -19,4 +19,5 @@ kill @e[tag=rallous.session.foe]
 execute if score @s rallous.session_kind matches 1 run advancement grant @s only rallous_contact:crash/village
 execute unless score @s rallous.session_kind matches 1 run advancement grant @s only rallous_contact:crash/fight
 advancement grant @s only rallous_contact:crash/proved
+execute unless entity @e[tag=rallous.roam.host,limit=1] unless score $fired rallous.roam matches 1.. if score @s rallous.roam.play matches 24000.. run function rallous_roaming:clock/consider
 tag @s remove rallous.session.actor

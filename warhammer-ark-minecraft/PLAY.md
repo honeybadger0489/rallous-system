@@ -2,10 +2,10 @@
 
 **Player wiki:** [wiki/Home.md](wiki/Home.md) · two-hour test: [wiki/TEST.md](wiki/TEST.md)
 
-**This is the only player doc.** Import **0.3.13** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9 / 0.3.10 / 0.3.11 / 0.3.12.
+**This is the only player doc.** Import **0.3.14** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9 / 0.3.10 / 0.3.11 / 0.3.12 / 0.3.13.
 
 **Download:**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.13.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.14.zip
 
 CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, ~8 GB RAM. **Minecraft 1.20.1 + Forge 47.4.10**. New world: Survival, Hard, cheats ON (smoke commands). Terralith default. Private pack — do not upload.
 
@@ -60,10 +60,10 @@ Quest book **`` ` ``** (grave). Chapter **Warp-crash Smoke** ticks the same list
 1. **Crash** — Look down. Bowl of blackstone / crying obsidian, campfire, wreckage chest. No six named lords. Title names the Warp-crash (**Cast from the Warp**). Forge 47.4.10. If it dies on boot, send `crash-*-fml.txt`.
 2. **Named lord + stance** — Walk to the nearest bannered camp. A **named lord from a real faction** (Elector, High King, Beastlord, …) speaks a **stance** (blade gift, prove-yourself, brief raid, or daemon accusation). Not a mute village tagged “Faction Contact”. Chat should name the camp (Reikland, Clan Mors, …). If **U** still says Team 2, Found a Banner and type that chat name.
 3. **Session start / win** — Cheats ON, stand at that camp: `/function rallous_session:start`. The lord speaks; a short wave or the camp raid begins. Clear it, or `/function rallous_session:win`. Night + walking to **that** camp can also auto-start once.
-4. **Force roaming** — `/function rallous_old_world:force_roaming` spawns a Waaagh scout, a Beastmen herd, and a Khorne pack near you.
+4. **Roaming** — a Waaagh / herd / Blood Host walks at you once after ~20–40 min (first natural host is guaranteed). `/function rallous_old_world:force_roaming` if you do not want to wait.
 5. **Enable Rallous Continuity** — Options → Resource Packs → move **Rallous Continuity** up. Hire / inspect Recruits: **Levy** / **Elector** / **Waaagh** / **Under-Empire**, not “Recruit” / Team 2. That overlay is lang only.
 
-Also worth a pass if you have time: second player (or `/function rallous_old_world:crash/demo_friend_elsewhere`) crashes elsewhere; wreckage chest is a **Warp-tainted relic** (echo shard) and **no** Iron’s spellbook; die with no civ-bed → your crater; sleep in a **claimed village** or after **join** → that bed. Wilderness beds do not stick.
+Also worth a pass if you have time: second player (or `/function rallous_old_world:crash/demo_friend_elsewhere`) crashes elsewhere; wreckage chest is a **Warp-tainted relic** (echo shard) and **no** Iron’s spellbook; die with no civ-bed → your crater; sleep at a **claimed camp** or after **join** → that bed. Wilderness beds do not stick.
 
 ---
 
