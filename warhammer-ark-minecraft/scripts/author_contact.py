@@ -33,7 +33,6 @@ CONTACT_DESTS = [
     ROOT / "content" / "datapacks" / "rallous_contact",
     ROOT / "pack-src" / "datapacks" / "rallous_contact",
     ROOT / "pack-src" / "overrides" / "datapacks" / "rallous_contact",
-    OV / "datapacks" / "rallous_contact",
 ]
 
 COURT_CHAPTERS = (
@@ -806,11 +805,15 @@ scoreboard objectives add rallous.army dummy
 
     functions = {
         "load.mcfunction": load_fn,
-        "crash/awake.mcfunction": fn_crash(
-            "awake",
-            1,
-            "crash/root",
-            "The sky tore. No court. Prove an hour.",
+        "crash/awake.mcfunction": (
+            "# Once. A second land_go cannot reprint the tear line.\n"
+            "execute unless score @s rallous.crash matches 1.. run function rallous_contact:crash/awake_do\n"
+        ),
+        "crash/awake_do.mcfunction": (
+            "scoreboard players set @s rallous.crash 1\n"
+            "scoreboard players set @s rallous.joined 1\n"
+            "advancement grant @s only rallous_contact:crash/root\n"
+            'tellraw @s {"text":"The sky tore. No court. Prove an hour.","color":"gray"}\n'
         ),
         "crash/village.mcfunction": fn_crash(
             "village",

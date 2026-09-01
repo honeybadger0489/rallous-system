@@ -5,3 +5,4 @@ scoreboard objectives add rallous.greeted dummy
 scoreboard objectives add rallous.kitted dummy
 scoreboard objectives add rallous.race dummy
 scoreboard objectives add rallous.contact dummy
+scoreboard objectives add rallous.joined dummy

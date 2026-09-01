@@ -498,7 +498,16 @@ function rallous_factions:contact/assign
     )
     w(
         FN / "contact/assign.mcfunction",
+        """# Once per survivor. A second land/tick path cannot greet or kit again.
+execute unless entity @s[tag=rallous.contacted] run function rallous_factions:contact/assign_go
+""",
+    )
+    w(
+        FN / "contact/assign_go.mcfunction",
         """# Nearest compiled camp becomes this survivor's contact faction.
+tag @s add rallous.contacted
+tag @s add rallous.fac.greeted
+scoreboard players set @s rallous.joined 1
 execute unless entity @e[tag=rallous.camp,distance=..400,limit=1] run function rallous_factions:gen/place_near
 tag @e[tag=rallous_contact] remove rallous_contact
 execute as @e[tag=rallous.camp,limit=1,sort=nearest] run tag @s add rallous_contact
@@ -506,8 +515,6 @@ execute as @e[tag=rallous.lord,limit=1,sort=nearest] run tag @s add rallous_cont
 scoreboard players operation @s rallous.contact_id = @e[tag=rallous.camp,limit=1,sort=nearest] rallous.fac.id
 scoreboard players operation @s rallous.race = @e[tag=rallous.camp,limit=1,sort=nearest] rallous.fac.race
 scoreboard players set @s rallous.contact 1
-tag @s add rallous.contacted
-tag @s add rallous.fac.greeted
 function rallous_factions:contact/greet
 function rallous_recruits_bind:on_contact
 function rallous_kit:on_greet

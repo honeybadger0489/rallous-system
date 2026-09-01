@@ -489,7 +489,9 @@ def assert_no_court_on_join() -> None:
     for old in COURT_CHAPTERS:
         if (live / f"{old}.snbt").exists():
             raise SystemExit(f"court chapter still in overrides: {old}")
-    wc_join = OV / "datapacks" / "rallous_warp_crash" / "data" / "rallous_warp_crash" / "functions" / "first_join.mcfunction"
+    wc_join = (
+        ROOT / "content" / "datapacks" / "rallous_warp_crash" / "data" / "rallous_warp_crash" / "functions" / "first_join.mcfunction"
+    )
     if wc_join.exists():
         wct = wc_join.read_text()
         for bad in ("ensure_court", "summon_lords", "place_court"):
@@ -562,35 +564,10 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             "rallous_grow",
             "rallous_kit",
         ):
-            if f"overrides/datapacks/{pack}/pack.mcmeta" not in names:
-                raise SystemExit(f"zip missing datapack folder {pack}")
+            if f"overrides/datapacks/{pack}/pack.mcmeta" in names:
+                raise SystemExit(f"zip ships folder and jar for {pack}")
         if "overrides/content/factions/races/empire.json" not in names:
             raise SystemExit("zip missing faction JSON")
-        if "overrides/datapacks/rallous_factions/data/rallous_factions/functions/place/reikland.mcfunction" not in names:
-            raise SystemExit("zip missing compiled faction place/reikland")
-        if "overrides/datapacks/rallous_factions/data/rallous_factions/functions/crash/on_land.mcfunction" not in names:
-            raise SystemExit("zip missing compiled crash/on_land")
-        if "overrides/datapacks/rallous_diplomacy/data/rallous_diplomacy/functions/apply_path.mcfunction" not in names:
-            raise SystemExit("zip missing diplomacy apply_path")
-        if "overrides/datapacks/rallous_crater_hq/data/rallous_crater_hq/functions/mark.mcfunction" not in names:
-            raise SystemExit("zip missing crater_hq mark")
-        if "overrides/datapacks/rallous_session/data/rallous_session/functions/start.mcfunction" not in names:
-            raise SystemExit("zip missing session start")
-        if "overrides/datapacks/rallous_session/data/rallous_session/functions/win.mcfunction" not in names:
-            raise SystemExit("zip missing session win")
-        if "overrides/datapacks/rallous_recruits_bind/data/rallous_recruits_bind/functions/on_contact.mcfunction" not in names:
-            raise SystemExit("zip missing recruits_bind on_contact")
-        if "overrides/datapacks/rallous_winds/data/rallous_winds/functions/hint.mcfunction" not in names:
-            raise SystemExit("zip missing winds hint")
-        if "overrides/datapacks/rallous_grow/data/rallous_grow/functions/on_session.mcfunction" not in names:
-            raise SystemExit("zip missing grow on_session")
-        if "overrides/datapacks/rallous_kit/data/rallous_kit/functions/on_greet.mcfunction" not in names:
-            raise SystemExit("zip missing kit on_greet")
-        roam_col = "overrides/datapacks/rallous_roaming/data/rallous_roaming/functions/spawn/recruits_column.mcfunction"
-        if roam_col not in names:
-            raise SystemExit("zip missing roaming recruits_column")
-        if "recruitPatrol tiny" not in zf.read(roam_col).decode():
-            raise SystemExit("roaming recruits_column missing recruitPatrol tiny")
         for page in ("Home.md", "TEST.md", "Recruits.md", "Install.md"):
             if f"overrides/wiki/{page}" not in names:
                 raise SystemExit(f"zip missing wiki/{page}")
@@ -625,8 +602,34 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         fac_names = set(fac.namelist())
         if "data/rallous_factions/functions/place/karaz_a_karak.mcfunction" not in fac_names:
             raise SystemExit("factions jar missing karaz_a_karak place")
+        if "data/rallous_factions/functions/place/reikland.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing reikland place")
+        if "data/rallous_factions/functions/crash/on_land.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing crash/on_land")
+        if "data/rallous_factions/functions/contact/assign_go.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing contact/assign_go")
         if "data/rallous_factions/functions/pool/empire/pick_major.mcfunction" not in fac_names:
             raise SystemExit("factions jar missing empire major pool")
+        dip = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_diplomacy-1.0.0.jar")))
+        if "data/rallous_diplomacy/functions/apply_path.mcfunction" not in set(dip.namelist()):
+            raise SystemExit("diplomacy jar missing apply_path")
+        hq = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_crater_hq-1.0.0.jar")))
+        if "data/rallous_crater_hq/functions/mark.mcfunction" not in set(hq.namelist()):
+            raise SystemExit("crater_hq jar missing mark")
+        winds_hint = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_winds-1.0.0.jar")))
+        if "data/rallous_winds/functions/hint.mcfunction" not in set(winds_hint.namelist()):
+            raise SystemExit("winds jar missing hint")
+        grow = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_grow-1.0.0.jar")))
+        if "data/rallous_grow/functions/on_session.mcfunction" not in set(grow.namelist()):
+            raise SystemExit("grow jar missing on_session")
+        kit_jar_early = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_kit-1.0.0.jar")))
+        if "data/rallous_kit/functions/on_greet.mcfunction" not in set(kit_jar_early.namelist()):
+            raise SystemExit("kit jar missing on_greet")
+        roam = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_roaming-1.0.0.jar")))
+        if "data/rallous_roaming/functions/spawn/recruits_column.mcfunction" not in set(roam.namelist()):
+            raise SystemExit("roaming jar missing recruits_column")
+        if "recruitPatrol tiny" not in roam.read("data/rallous_roaming/functions/spawn/recruits_column.mcfunction").decode():
+            raise SystemExit("roaming recruits_column missing recruitPatrol tiny")
         wc = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_warp_crash-1.0.0.jar")))
         hook = wc.read("data/rallous_warp_crash/functions/contact_hook.mcfunction").decode()
         if "rallous_factions:crash/on_land" not in hook:
@@ -646,12 +649,15 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         if "rallous_diplomacy:apply_path" not in help_fn:
             raise SystemExit("contact path/help does not apply diplomacy")
         fac_assign = fac.read("data/rallous_factions/functions/contact/assign.mcfunction").decode()
-        if "rallous_recruits_bind:on_contact" not in fac_assign:
-            raise SystemExit("factions assign does not bind Recruits")
-        if "rallous_kit:on_greet" not in fac_assign:
-            raise SystemExit("factions assign does not hook rallous_kit:on_greet")
-        if "rallous_winds:place" not in fac_assign:
-            raise SystemExit("factions assign does not plant winds lectern")
+        if "rallous_factions:contact/assign_go" not in fac_assign:
+            raise SystemExit("factions assign is not a once-only wrapper")
+        fac_go = fac.read("data/rallous_factions/functions/contact/assign_go.mcfunction").decode()
+        if "rallous_recruits_bind:on_contact" not in fac_go:
+            raise SystemExit("factions assign_go does not bind Recruits")
+        if "rallous_kit:on_greet" not in fac_go:
+            raise SystemExit("factions assign_go does not hook rallous_kit:on_greet")
+        if "rallous_winds:place" not in fac_go:
+            raise SystemExit("factions assign_go does not plant winds lectern")
         fac_land = fac.read("data/rallous_factions/functions/crash/on_land.mcfunction").decode()
         if "rallous_winds:place" not in fac_land:
             raise SystemExit("factions crash/on_land does not hook rallous_winds:place")
@@ -697,7 +703,7 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         if b"createTeam" not in br.read("com/rallous/recruitsbridge/HostFounder.class"):
             raise SystemExit("bridge HostFounder missing createTeam")
         print("zip includes bridge jar", bridge_names)
-        reik = zf.read("overrides/datapacks/rallous_factions/data/rallous_factions/functions/place/reikland.mcfunction").decode()
+        reik = fac.read("data/rallous_factions/functions/place/reikland.mcfunction").decode()
         camp_ops = sum(1 for line in reik.splitlines() if " setblock " in line or " fill " in line or " summon " in line)
         if camp_ops < 8:
             print(f"HONEST: reikland camp still thin ({camp_ops} place ops); sibling thicken may be missing")
