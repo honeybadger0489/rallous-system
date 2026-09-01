@@ -7,4 +7,4 @@ execute if score $tmp rallous.winds matches 2 run scoreboard players set $school
 execute if score $tmp rallous.winds matches 4 run scoreboard players set $school rallous.winds 4
 execute if score $tmp rallous.winds matches 8 run scoreboard players set $school rallous.winds 4
 execute align xyz positioned ~0.5 ~ ~0.5 run function rallous_winds:set_lectern
-tellraw @s {"text":"A Winds lectern. The letter points to Iron's ink. No spellbook.","color":"gray"}
+tellraw @s {"text":"A lectern. The letter points to ink. No spellbook waits here.","color":"gray"}

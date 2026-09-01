@@ -8,4 +8,4 @@ execute if score @s rallous.race matches 6 run function rallous_kit:give/dwarf
 execute if score @s rallous.race matches 7 run function rallous_kit:give/skaven
 execute if score @s rallous.race matches 8 run function rallous_kit:give/khorne
 scoreboard players set @s rallous.kitted 1
-tellraw @s {"text":"The camp issues you a levy kit.","color":"gold"}
+tellraw @s {"text":"They throw you a levy's kit — leather, iron, and a day's bread. Nothing more.","color":"gold"}

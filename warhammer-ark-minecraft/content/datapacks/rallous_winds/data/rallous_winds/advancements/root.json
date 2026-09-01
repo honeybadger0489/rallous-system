@@ -7,7 +7,7 @@
       "text": "The Winds"
     },
     "description": {
-      "text": "No starter spellbook. A camp lectern or Iron's ink is the path."
+      "text": "No book of spells in the crater. A camp lectern or ink is the path."
     },
     "frame": "challenge",
     "announce_to_chat": false,

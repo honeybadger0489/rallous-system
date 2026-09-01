@@ -12,7 +12,7 @@ scoreboard players set @s rallous.civ_bed 0
 scoreboard players operation @s rallous.wc_seen = @s rallous.wc_deaths
 advancement grant @s only rallous_warp_crash:landed
 function rallous_contact:crash/awake
-title @s times 10 70 20
-title @s title {"text":"Warp-Crash","color":"dark_purple","bold":true}
-title @s subtitle {"text":"You fell. The wound still smokes.","color":"gray"}
-tellraw @s [{"text":"This crater is your spawn until you sleep in a claimed village.","color":"light_purple"}]
+title @s times 10 80 20
+title @s title {"text":"Cast from the Warp","color":"dark_purple","bold":true}
+title @s subtitle {"text":"A host is near. They may take you in — or take your head.","color":"gray"}
+tellraw @s [{"text":"You crashed. The crater is yours until you sleep under a village roof. Smoke on the horizon is a camp. Walk to it.","color":"light_purple"}]

@@ -237,41 +237,71 @@ def raid_lines(race_id: str) -> list[str]:
     ]
 
 
+# Spoken first-contact lines. Personality JSON is a design note — never dump it.
+# Host + host-name only. Eight races, four stances. No QA verbs.
+GREET_SPEECH = {
+    "empire": {
+        1: "The Warp spat you onto {host} soil. Take a blade. Hold the line — or walk on and be meat for the next banner.",
+        2: "Warp-born. You are no guest of {host}. Last this night among us. Then we will speak of names.",
+        3: "This picket is closed. The Warp does not make you a soldier of Sigmar. Run, or die on the palisade.",
+        4: "You stink of the Warp. Witch hunters have burned cleaner men. Speak, fight, or be put to the pyre.",
+    },
+    "vampire_counts": {
+        1: "You fell from the Warp onto {host} graves. Take the blade. Serve, or feed the levy.",
+        2: "Crash-meat. Last the night among the dead of {host}. Then we may name you guest.",
+        3: "This host does not treat crash-meat as a guest. Flee {host}, or join the grave-levy.",
+        4: "The Warp clings to you. Prove you are flesh, not daemon, or the graves of {host} take you.",
+    },
+    "lizardmen": {
+        1: "The Plan did not name you. Take the weapon. Stand the temple of {host}, or be judged.",
+        2: "You smell of the Great Enemy. Last this night at {host}. The plaque will judge.",
+        3: "Daemon-stink. The temple of {host} is shut. Survive, or be judged.",
+        4: "The Old Ones smell the Great Enemy on you. An omen must clear you — or {host} will.",
+    },
+    "beastmen": {
+        1: "Warp-meat. Take the axe. Gore with the herd of {host}, or be eaten.",
+        2: "Not cattle yet. Last the horns of {host}. Then the herd may keep you.",
+        3: "Prey. The herd of {host} does not share this camp. Run, or be eaten.",
+        4: "Warp-stink. The herd of {host} has not decided if you are rival or meat.",
+    },
+    "greenskins": {
+        1: "You fell outta the sky onto {host}. Take a choppa. Fight wiv us, or get krumped.",
+        2: "Prove yer a proper scrap. Last the night wiv {host}. Then da boss might keep ya.",
+        3: "Dis is our scrap. Live through it or nick da banner of {host} and die.",
+        4: "You smell wrong. Fight till {host} says you ain't a daemon, or get krumped.",
+    },
+    "dwarfs": {
+        1: "The Warp spat you at the gate of {host}. Take the axe. Hold the picket, or be a grudge.",
+        2: "You stink of the Warp. Last this night in {host}. Then we mark the grudge paid — or not.",
+        3: "This hold is shut. Survive the raid on {host}, or take the banner and be a thief.",
+        4: "You stink of the Warp. Kill until {host} names you clean, or be entered in the Book.",
+    },
+    "skaven": {
+        1: "Yes-yes, Warp-thing. Take-take the shiv. Fight for {host}, or be meat.",
+        2: "Prove-prove you are not a spy. Last the night under {host}. Then the Council hears.",
+        3: "Intruder-meat. Live the raid or steal-take the picket of {host}.",
+        4: "Warp-stink, yes-yes. Prove you are not a daemon-spy of {host}, or die-die.",
+    },
+    "khorne": {
+        1: "Blood fell from the sky onto {host}. Take the axe. Spill with the pack, or be the offering.",
+        2: "Skulls or cowardice. Last this fight for {host}. Khorne cares not from whom.",
+        3: "You are the offering. Survive {host}, or die on this picket.",
+        4: "The Warp spat you here. Bleed until {host} names you, or be the skull.",
+    },
+}
+
+
 def stance_text(race: dict, fac: dict) -> dict[int, list]:
     lord = fac["lord"]
     who = f"{lord.get('title', 'Lord')} {lord['name']} — {fac['name']}"
     color = RACE_COLOR[race["id"]]
-    voice = (lord.get("personality") or race.get("culture") or "")[:180]
+    host = fac.get("name") or race.get("name") or "this camp"
+    table = GREET_SPEECH[race["id"]]
     prefix = {"text": f"<{who}> ", "color": color, "bold": True}
+    colors = {1: "white", 2: "yellow", 3: "red", 4: "dark_purple"}
     return {
-        1: [
-            prefix,
-            {
-                "text": f"{voice} Warp-born, take a blade. Hold the line and we will name you useful.",
-                "color": "white",
-            },
-        ],
-        2: [
-            prefix,
-            {
-                "text": f"{voice} Prove yourself. Until then you are a Warp-stranger, not a guest.",
-                "color": "yellow",
-            },
-        ],
-        3: [
-            prefix,
-            {
-                "text": f"{voice} This host does not treat crash-meat as a guest.",
-                "color": "red",
-            },
-        ],
-        4: [
-            prefix,
-            {
-                "text": f"{voice} You stink of the Warp. Daemon? Prove you are not, or be slain.",
-                "color": "dark_purple",
-            },
-        ],
+        n: [prefix, {"text": table[n].format(host=host), "color": colors[n]}]
+        for n in (1, 2, 3, 4)
     }
 
 
@@ -747,11 +777,11 @@ def write_greet_body(race: dict, fac: dict, texts: dict[int, list], weapon_id: s
     lines = [
         tellraw("@a[distance=..48]", texts[STANCE_NUM[race["warp_stranger_stance"]]]),
         f"execute if score @s rallous.fac.stance matches 1 run give @p minecraft:{weapon_id}{{display:{{Name:{wname}}}}} 1",
-        "execute if score @s rallous.fac.stance matches 1 run tellraw @a[distance=..48] {\"text\":\"A melee weapon hits the dirt at your feet.\",\"color\":\"gold\"}",
+        "execute if score @s rallous.fac.stance matches 1 run tellraw @a[distance=..48] {\"text\":\"A blade is thrown at your feet. Take it.\",\"color\":\"gold\"}",
         "execute if score @s rallous.fac.stance matches 2 run scoreboard players set @p rallous.proved 0",
-        "execute if score @s rallous.fac.stance matches 2 run tellraw @a[distance=..48] {\"text\":\"Prove yourself: last an hour in their fight or their village. Then the Paths book.\",\"color\":\"yellow\"}",
+        "execute if score @s rallous.fac.stance matches 2 run tellraw @a[distance=..48] {\"text\":\"Last this night among them. Then they will speak of a path.\",\"color\":\"yellow\"}",
         "execute if score @s rallous.fac.stance matches 4 run scoreboard players set @p rallous.proved 0",
-        "execute if score @s rallous.fac.stance matches 4 run tellraw @a[distance=..48] {\"text\":\"Daemon-suspicion: they will not name you clean until you prove it.\",\"color\":\"dark_purple\"}",
+        "execute if score @s rallous.fac.stance matches 4 run tellraw @a[distance=..48] {\"text\":\"They smell the Warp on you. Steel or the pyre — they have not decided.\",\"color\":\"dark_purple\"}",
         "execute if score @s rallous.fac.stance matches 3 run function rallous_factions:raid/" + fac["_slug"],
         "execute if score @s rallous.fac.stance matches 6 run function rallous_factions:raid/" + fac["_slug"],
         "particle minecraft:witch ~ ~2 ~ 0.3 1 0.3 0 16",
