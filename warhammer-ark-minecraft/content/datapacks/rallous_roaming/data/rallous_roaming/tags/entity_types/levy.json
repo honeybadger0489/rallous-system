@@ -9,7 +9,7 @@
     {"id": "recruits:crossbowman", "required": false},
     {"id": "recruits:scout", "required": false},
     {"id": "recruits:captain", "required": false},
-    {"id": "recruits:commander", "required": false},
+    {"id": "recruits:patrol_leader", "required": false},
     {"id": "recruits:messenger", "required": false},
     {"id": "recruits:siege_engineer", "required": false},
     {"id": "recruits:villager_noble", "required": false}

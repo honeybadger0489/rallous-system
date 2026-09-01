@@ -31,7 +31,7 @@ Villager Recruits **1.20.1-1.15.x** registers `PatrolSpawnCommand` (op 2):
 /recruits spawn pillagerPatrol large
 ```
 
-`tiny` is recruit + shieldman + bowman + commander. The Java command reads `getEntity().getOnPos()` (not `~ ~ ~`) and always returns `0`, so the datapack runs it **as a stand at the column** and treats success as “a `#rallous_roaming:levy` appeared”. Named vanilla mobs in `spawn/*_mobs` stay up either way. If Recruits is missing or the command fails, `spawn/fallback_*` adds two extra named vanilla soldiers.
+`tiny` is recruit + shieldman + bowman + patrol_leader (`CommanderEntity` in Recruits 1.15.2 — there is no `recruits:commander`). The Java command reads `getEntity().getOnPos()` (not `~ ~ ~`) and always returns `0`, so the datapack runs it **as a stand at the column** and treats success as “a `#rallous_roaming:levy` appeared”. Named vanilla mobs in `spawn/*_mobs` stay up either way. If Recruits is missing or the command fails, `spawn/fallback_*` adds two extra named vanilla soldiers.
 
 Force functions **skip** play-time and crater gates so QA can fire them on day 0.
 

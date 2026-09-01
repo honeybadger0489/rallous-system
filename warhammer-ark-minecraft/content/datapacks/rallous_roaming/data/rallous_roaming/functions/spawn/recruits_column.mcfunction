@@ -1,7 +1,7 @@
 # Recruits 1.20.1-1.15.x (talhanation PatrolSpawnCommand):
 #   /recruits spawn recruitPatrol tiny|small|medium|large|huge|caravan
 #   /recruits spawn pillagerPatrol tiny|small|medium|large
-# tiny = recruit + shieldman + bowman + commander. Command uses
+# tiny = recruit + shieldman + bowman + patrol_leader. Command uses
 # getEntity().getOnPos() — must run as an entity at the column, not the player.
 # Command always returns 0, so success is "levy appeared", not store success.
 # Vanilla named mobs in *_mobs stay up. Extra vanilla only if this fails.

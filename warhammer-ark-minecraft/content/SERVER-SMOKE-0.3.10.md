@@ -68,8 +68,8 @@ These are **not** FML crashes and **not** function parse errors. They do not fai
 
 | Kind | Detail |
 | --- | --- |
-| Tag | `rallous_recruits_bind:levy` missing `recruits:commander` |
-| Advancement | `rallous_temple_herd:lizardmen/loyal_beast` unknown `fossil:egg` |
+| Tag | `rallous_recruits_bind:levy` missing `recruits:commander` — **fixed in source** → `recruits:patrol_leader` (Recruits 1.15.2 `CommanderEntity`; next zip) |
+| Advancement | `rallous_temple_herd:lizardmen/loyal_beast` unknown `fossil:egg` — **fixed in source** → `fossil:egg_item_triceratops` (Fossils 9.3.4 `dino_eggs` tag; next zip) |
 | Third-party | SoTE recipe unknown items; Malum JEED / Farmers Delight optional recipes; Siege Machines advancement icons |
 | Architectury | `fossil:*` / `fossil:triceratops` “not realized” registry warnings |
 

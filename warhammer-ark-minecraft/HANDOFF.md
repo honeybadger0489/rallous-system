@@ -164,6 +164,8 @@ Client is **not** booted in CI. Two-hour test is [`wiki/TEST.md`](wiki/TEST.md).
 
 **0.3.10 dedicated-server smoke (2026-09-01):** **boot YES.** Reused the 0.3.9 Forge 47.4.10 dir, refreshed `rallous_*` jars from `dist/rallous-warhammer-fantasy-0.3.10.zip`. `Done (1.918s)`, no `ModLoadingException`, **0** `Failed to load function`. Report: [`content/SERVER-SMOKE-0.3.10.md`](content/SERVER-SMOKE-0.3.10.md). Log: [`content/SERVER-SMOKE-0.3.10.latest.log`](content/SERVER-SMOKE-0.3.10.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin). No 0.3.11 zip.
 
+**0.3.10 leftover IDs (source patched, no zip):** Recruits 1.15.2 `ModEntityTypes` registers `CommanderEntity` as **`recruits:patrol_leader`** (not `recruits:commander`). Fossils 9.3.4 has no `fossil:egg`; `loyal_beast` now uses **`fossil:egg_item_triceratops`** (same as Fossils’ own `dino_eggs` icon / `fossil:dino_eggs` tag). Integrator later.
+
 ---
 
 ## Read next

@@ -8,6 +8,7 @@
   "entity.recruits.scout": "Outrider",
   "entity.recruits.captain": "Captain",
   "entity.recruits.commander": "Sergeant",
+  "entity.recruits.patrol_leader": "Sergeant",
   "entity.recruits.messenger": "Runner",
   "entity.recruits.siege_engineer": "Engineer",
   "item.recruits.recruit_spawn_egg": "Levy Spawn Egg",

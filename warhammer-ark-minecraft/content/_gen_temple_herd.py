@@ -548,7 +548,7 @@ def write_datapack() -> None:
             "criteria": {
                 "dinopedia": inventory_items(["fossil:dinopedia"]),
                 "scarab": inventory_items(["fossil:scarab_gem"]),
-                "egg": inventory_items(["fossil:egg"]),
+                "egg": inventory_items(["fossil:egg_item_triceratops"]),
                 "fossil_bio": inventory_items(["fossil:fossil_bio"]),
                 "ptera_meal": inventory_items(["tameablebeasts:pteranodon_meal"]),
                 "bird_bait": inventory_items(["tameablebeasts:big_bird_bait"]),
