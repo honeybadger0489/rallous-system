@@ -28,8 +28,8 @@ See [Factions](Factions.md). First days place about **16** camps; walking farthe
 
 ## Play
 
-1. [Install](Install.md) the latest zip as a **new** CurseForge profile.
+1. [Install](Install.md) **0.3.9** as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.8.
 2. New world: Survival, Hard, cheats ON.
-3. Two hours: do [TEST](TEST.md). Verbs, not a sightseeing list.
+3. Two hours: do [TEST](TEST.md) (the two-hour stress list). Verbs, not a sightseeing list.
 
 Quest book: grave key `` ` ``. Chapter **The Warp-Crash**. Smoke is a side checklist.
