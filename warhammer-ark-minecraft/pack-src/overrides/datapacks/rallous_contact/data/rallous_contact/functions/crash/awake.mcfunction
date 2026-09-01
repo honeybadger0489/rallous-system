@@ -1,3 +1,2 @@
-scoreboard players set @s rallous.crash 1
-advancement grant @s only rallous_contact:crash/root
-tellraw @s {"text":"The sky tore. No court. Prove an hour.","color":"gray"}
+# Once. A second land_go cannot reprint the tear line.
+execute unless score @s rallous.crash matches 1.. run function rallous_contact:crash/awake_do

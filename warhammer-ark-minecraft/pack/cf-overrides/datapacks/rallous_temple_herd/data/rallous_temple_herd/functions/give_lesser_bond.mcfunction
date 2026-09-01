@@ -1,2 +1,0 @@
-give @s minecraft:written_book{title:"Worse Hands",author:"A Reikland Sergeant",pages:['{"text":"You are not Temple-Spawn. The vat still works. The bond is thinner. Other races use beasts as livestock, siege engines, or food."}','{"text":"This is framing, not a hidden penalty. Fossils does not read a race tag. Tick Worse Hands when you have read this."}']} 1
-advancement grant @s only rallous_temple_herd:other_races/worse_hands

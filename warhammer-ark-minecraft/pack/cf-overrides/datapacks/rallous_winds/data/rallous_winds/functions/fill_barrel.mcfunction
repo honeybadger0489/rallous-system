@@ -1,5 +1,0 @@
-execute if score $school rallous.winds matches 1 run data modify block ~ ~ ~ LootTable set value "rallous_winds:chests/path_colleges"
-execute if score $school rallous.winds matches 2 run data modify block ~ ~ ~ LootTable set value "rallous_winds:chests/path_ice"
-execute if score $school rallous.winds matches 3 run data modify block ~ ~ ~ LootTable set value "rallous_winds:chests/path_death"
-execute if score $school rallous.winds matches 4 run data modify block ~ ~ ~ LootTable set value "rallous_winds:chests/path_blood"
-execute unless score $school rallous.winds matches 1..4 run data modify block ~ ~ ~ LootTable set value "rallous_winds:chests/path_primer"

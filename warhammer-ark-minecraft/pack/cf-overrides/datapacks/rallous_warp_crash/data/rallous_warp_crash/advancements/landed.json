@@ -1,7 +1,0 @@
-{
-  "criteria": {
-    "landed": {
-      "trigger": "minecraft:impossible"
-    }
-  }
-}

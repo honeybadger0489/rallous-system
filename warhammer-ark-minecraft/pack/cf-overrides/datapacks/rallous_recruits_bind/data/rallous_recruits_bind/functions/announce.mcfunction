@@ -1,3 +1,0 @@
-# Chat names the crash-camp host. rallous-recruits-bridge founds that Recruits banner.
-tellraw @s [{"text":"Crash-camp host: ","color":"gold"},{"nbt":"name","storage":"rallous_recruits_bind:contact","color":"white","bold":true},{"text":" — lord ","color":"gray"},{"nbt":"lord","storage":"rallous_recruits_bind:contact","color":"yellow"},{"text":". Not Team 2.","color":"dark_gray"}]
-tellraw @s {"translate":"rallous_recruits_bind.tellraw.controls","fallback":"rallous-recruits-bridge founds this host as a Recruits banner (not Team 2). If chat does not say founded, open U → Found a Banner and type this name.","color":"aqua"}
