@@ -1,3 +1,4 @@
-# One more camp around the first crater / a landed player.
+# One more camp around the first crater / a landed player / an existing camp.
 execute if score #placed rallous.gen >= #cap rallous.const run scoreboard players set $noop rallous.gen 1
 execute if score #placed rallous.gen < #cap rallous.const as @a[tag=rallous.warp_landed,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_far
+execute if score #placed rallous.gen < #cap rallous.const unless entity @a[tag=rallous.warp_landed,limit=1] as @e[type=minecraft:marker,tag=rallous.camp,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_far

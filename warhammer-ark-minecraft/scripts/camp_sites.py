@@ -2,8 +2,8 @@
 
 A camp is a picket that reads as a host, not 3 blocks and a villager.
 Site kinds: settled / hold / temple / herd / waaagh / under-empire / khorne.
-Vanilla blocks only. Two Recruits soldiers (summon) — `/recruits spawn
-recruitPatrol` exists but is a generic admin patrol, not this host.
+Vanilla blocks only. Two named Recruits (summon) plus
+`/recruits spawn recruitPatrol tiny` from compile (same as roaming).
 """
 
 from __future__ import annotations
@@ -230,6 +230,54 @@ def _camp_khorne(banner: str) -> list[str]:
         f"setblock {rel(3, 2, -3)} minecraft:wither_skeleton_skull",
         f"setblock {rel(-2, 0, 2)} minecraft:nether_wart_block",
         f"setblock {rel(2, 0, 2)} minecraft:blackstone",
+    ]
+
+
+# Vanilla lord plate. SoTE replace is compiled separately (fails closed).
+RACE_LORD_ARMOR = {
+    "empire": ("iron_boots", "iron_leggings", "iron_chestplate", "iron_helmet", None),
+    "vampire_counts": ("leather_boots", "leather_leggings", "leather_chestplate", "leather_helmet", 1908001),
+    "lizardmen": ("leather_boots", "leather_leggings", "leather_chestplate", "turtle_helmet", 8439583),
+    "beastmen": ("leather_boots", "leather_leggings", "leather_chestplate", "skeleton_skull", 8602624),
+    "greenskins": ("iron_boots", "leather_leggings", "iron_chestplate", "iron_helmet", None),
+    "dwarfs": ("chainmail_boots", "chainmail_leggings", "chainmail_chestplate", "chainmail_helmet", None),
+    "skaven": ("leather_boots", "leather_leggings", "leather_chestplate", "leather_helmet", 4863784),
+    "khorne": ("leather_boots", "leather_leggings", "leather_chestplate", "leather_helmet", 11546150),
+}
+
+# Empire only — SoTE 1.1.9 is in the zip. Other races have no SoTE kit.
+SOTE_LORD_REPLACE = {
+    "empire": (
+        ("armor.head", "sonsoftheempire:swordsman_armor_helmet"),
+        ("armor.chest", "sonsoftheempire:swordsman_armor_chestplate"),
+        ("armor.legs", "sonsoftheempire:swordsman_armor_leggings"),
+        ("armor.feet", "sonsoftheempire:swordsman_armor_boots"),
+    ),
+}
+
+
+def _armor_stack(item_id: str, color: int | None) -> str:
+    if color is None or not item_id.startswith("leather_"):
+        return f'{{id:"minecraft:{item_id}",Count:1b}}'
+    return f'{{id:"minecraft:{item_id}",Count:1b,tag:{{display:{{color:{color}}}}}}}'
+
+
+def lord_armor_nbt(race_id: str) -> str:
+    """Villager ArmorItems: boots, legs, chest, head."""
+    boots, legs, chest, head, dye = RACE_LORD_ARMOR.get(race_id) or RACE_LORD_ARMOR["empire"]
+    return (
+        f"ArmorItems:[{_armor_stack(boots, dye)},{_armor_stack(legs, dye)},"
+        f"{_armor_stack(chest, dye)},{_armor_stack(head, dye)}]"
+    )
+
+
+def lord_sote_replace(race_id: str, slug: str) -> list[str]:
+    """SoTE plate on the named lord. Missing ids fail this line only."""
+    slots = SOTE_LORD_REPLACE.get(race_id) or ()
+    return [
+        f"item replace entity @e[type=minecraft:villager,tag=rallous.lord,tag=rallous.fac.{slug},limit=1,sort=nearest] "
+        f"{slot} with {item} 1"
+        for slot, item in slots
     ]
 
 

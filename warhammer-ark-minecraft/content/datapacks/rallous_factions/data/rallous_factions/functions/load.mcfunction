@@ -17,6 +17,9 @@ scoreboard objectives add rallous.leave dummy
 scoreboard objectives add rallous.proved dummy
 scoreboard objectives add rallous.race dummy
 scoreboard objectives add rallous.const dummy
+scoreboard objectives add rallous.burn minecraft.used:minecraft.flint_and_steel
+scoreboard objectives add rallous.khorne dummy
+scoreboard objectives add rallous.chaos dummy
 scoreboard players set #-1 rallous.const -1
 scoreboard players set #2 rallous.const 2
 scoreboard players set #cap rallous.const 16

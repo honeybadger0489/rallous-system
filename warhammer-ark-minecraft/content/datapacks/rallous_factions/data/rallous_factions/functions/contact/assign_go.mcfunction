@@ -14,4 +14,5 @@ function rallous_factions:contact/greet
 function rallous_recruits_bind:on_contact
 function rallous_kit:on_greet
 execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
+function rallous_factions:path/offer
 tellraw @s {"text":"When night falls at this picket, the session starts. Or /function rallous_session:start","color":"gray"}

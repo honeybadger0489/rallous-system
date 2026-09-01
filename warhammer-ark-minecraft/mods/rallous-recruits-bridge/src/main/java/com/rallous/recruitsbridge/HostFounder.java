@@ -57,7 +57,7 @@ public final class HostFounder {
             }
             player.removeTag(TAG_FOUNDED);
         }
-        if (score(player, "rallous.rec.tries") >= 30) {
+        if (score(player, "rallous.rec.tries") >= 90) {
             return;
         }
         if (player.getTags().contains(TAG_FAILED)) {
@@ -105,30 +105,55 @@ public final class HostFounder {
     }
 
     private static boolean apply(ServerPlayer player, ServerLevel level, RecruitsFactionManager manager, String name, int recId) {
+        burnGenericLeadership(player, level, manager);
+
         Team current = player.getTeam();
         if (current != null) {
             RecruitsFaction existing = manager.getFactionByStringID(current.getName());
             if (existing != null) {
                 if (sameHost(existing, current, name)) {
+                    syncClient(player, level, manager);
                     return true;
                 }
                 if (isGeneric(current.getName()) || isGeneric(existing.getTeamDisplayName())) {
                     burnGeneric(player, level, current.getName());
+                    burnGenericLeadership(player, level, manager);
                 } else {
                     existing.setTeamDisplayName(name);
                     if (player.getTeam() instanceof PlayerTeam pt) {
                         pt.setDisplayName(Component.literal(name));
                     }
                     manager.save(overworld(player, level));
+                    syncClient(player, level, manager);
                     Team afterRename = player.getTeam();
                     return afterRename != null && manager.getFactionByStringID(afterRename.getName()) != null;
                 }
             } else if (isGeneric(current.getName()) && current instanceof PlayerTeam pt) {
-                level.getScoreboard().removePlayerFromTeam(player.getScoreboardName(), pt);
+                try {
+                    FactionEvents.leaveTeam(true, player, current.getName(), level, true);
+                } catch (RuntimeException ignored) {
+                    // detach below
+                }
+                try {
+                    player.server.getScoreboard().removePlayerFromTeam(player.getScoreboardName(), pt);
+                } catch (IllegalStateException ignored) {
+                    // already off the team
+                }
             }
         }
 
+        String preferredId = cap(stringId(name), 32);
+        RecruitsFaction already = manager.getFactionByStringID(preferredId);
+        if (already == null) {
+            already = findByDisplay(manager, name);
+        }
+        if (already != null && already.getStringID() != null) {
+            if (attachToExisting(player, level, manager, already.getStringID(), name)) {
+                return true;
+            }
+        }
         String teamId = uniqueTeamId(manager, name, player);
+
         int race = score(player, "rallous.rec.race");
         ItemStack banner = hostBanner(race);
         // menu=false skips emerald cost + cloth-banner uniqueness (same as /team add intercept)
@@ -143,9 +168,15 @@ public final class HostFounder {
                 ChatFormatting.RED,
                 UNIT_COLOR_RED);
 
+        // Recruits' own /team add intercept calls delayed serverSideUpdate. createTeam does not.
+        syncClient(player, level, manager);
+
         Team after = player.getTeam();
         RecruitsFaction founded = after == null ? null : manager.getFactionByStringID(after.getName());
         if (founded == null) {
+            if (attachToExisting(player, level, manager, teamId, name)) {
+                return true;
+            }
             player.addTag(TAG_FAILED);
             player.sendSystemMessage(Component.literal("Recruits did not accept host " + name + ".")
                     .withStyle(ChatFormatting.RED));
@@ -153,6 +184,93 @@ public final class HostFounder {
             return false;
         }
         return !isGeneric(founded.getTeamDisplayName()) && !isGeneric(after.getName());
+    }
+
+    /**
+     * Team 2 still wins when createTeam already persisted Reikland but the
+     * player is still leader of a generic RecruitsFaction — join is refused.
+     */
+    private static void burnGenericLeadership(ServerPlayer player, ServerLevel level, RecruitsFactionManager manager) {
+        java.util.ArrayList<RecruitsFaction> snapshot = new java.util.ArrayList<>(manager.getFactions());
+        for (RecruitsFaction faction : snapshot) {
+            if (faction == null || faction.getTeamLeaderUUID() == null) {
+                continue;
+            }
+            if (!player.getUUID().equals(faction.getTeamLeaderUUID())) {
+                continue;
+            }
+            if (!isGeneric(faction.getStringID()) && !isGeneric(faction.getTeamDisplayName())) {
+                continue;
+            }
+            String id = faction.getStringID();
+            if (id != null) {
+                burnGeneric(player, level, id);
+                try {
+                    manager.removeTeam(id);
+                } catch (RuntimeException ex) {
+                    RallousRecruitsBridge.LOGGER.warn("manager.removeTeam({}) after generic leadership", id, ex);
+                }
+            }
+        }
+    }
+
+    private static boolean attachToExisting(ServerPlayer player, ServerLevel level, RecruitsFactionManager manager, String teamId, String name) {
+        RecruitsFaction existing = manager.getFactionByStringID(teamId);
+        if (existing == null) {
+            return false;
+        }
+        burnGenericLeadership(player, level, manager);
+        Team stillGeneric = player.getTeam();
+        if (stillGeneric != null && isGeneric(stillGeneric.getName()) && stillGeneric instanceof PlayerTeam pt) {
+            try {
+                player.server.getScoreboard().removePlayerFromTeam(player.getScoreboardName(), pt);
+            } catch (IllegalStateException ignored) {
+                // already off
+            }
+        }
+        try {
+            FactionEvents.addPlayerToTeam(player, level, teamId, player.getScoreboardName());
+        } catch (RuntimeException ex) {
+            RallousRecruitsBridge.LOGGER.warn("addPlayerToTeam({}) failed", teamId, ex);
+        }
+        existing.setTeamDisplayName(name);
+        if (player.getTeam() instanceof PlayerTeam pt) {
+            pt.setDisplayName(Component.literal(name));
+        }
+        manager.save(overworld(player, level));
+        syncClient(player, level, manager);
+        Team after = player.getTeam();
+        RecruitsFaction joined = after == null ? null : manager.getFactionByStringID(after.getName());
+        return joined != null && !isGeneric(joined.getTeamDisplayName()) && !isGeneric(after.getName());
+    }
+
+    private static RecruitsFaction findByDisplay(RecruitsFactionManager manager, String name) {
+        String id = stringId(name);
+        for (RecruitsFaction faction : manager.getFactions()) {
+            if (faction == null) {
+                continue;
+            }
+            if (name.equalsIgnoreCase(faction.getTeamDisplayName())
+                    || id.equalsIgnoreCase(faction.getStringID())) {
+                return faction;
+            }
+        }
+        return null;
+    }
+
+    private static void syncClient(ServerPlayer player, ServerLevel level, RecruitsFactionManager manager) {
+        ServerLevel ow = overworld(player, level);
+        try {
+            FactionEvents.serverSideUpdateTeam(ow);
+        } catch (RuntimeException ex) {
+            RallousRecruitsBridge.LOGGER.warn("serverSideUpdateTeam failed", ex);
+        }
+        try {
+            manager.broadcastFactionsToPlayer(player);
+            manager.save(ow);
+        } catch (RuntimeException ex) {
+            RallousRecruitsBridge.LOGGER.warn("broadcastFactionsToPlayer failed", ex);
+        }
     }
 
     private static boolean sameHost(RecruitsFaction faction, Team team, String name) {

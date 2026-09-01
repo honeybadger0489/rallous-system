@@ -27,7 +27,7 @@ public final class RecruitsBridgeEvents {
         if (event.player.level().isClientSide()) {
             return;
         }
-        if ((event.player.tickCount & 19) != 0) {
+        if ((event.player.tickCount % 10) != 0) {
             return;
         }
         HostFounder.tryFound(event.player);

@@ -236,6 +236,7 @@ def write_all_quests() -> None:
     q_betray = "1D010012"
     q_join = "1D010013"
     q_leave = "1D010014"
+    q_burn = "1D010015"
     q_empire = "1D010021"
     q_vampire = "1D010022"
     q_lizard = "1D010023"
@@ -343,11 +344,11 @@ def write_all_quests() -> None:
                 "size": 1.5,
                 "deps": [q_village, q_fight],
                 "min_deps": 1,
-                "subtitle": "Village or fight. Then the paths open.",
+                "subtitle": "Village or fight. Paths already opened at the crater.",
                 "description": [
                     "Either hour is enough. The book will not make you finish both.",
                     "",
-                    "Now you may help, betray, join, or align and leave. Race flavors and the Winds are rumors on the side. A host is never required.",
+                    "Help, betray, join, or align-and-leave already opened when you woke. This is the hour-mark, not the gate.",
                 ],
                 "tasks": [{"type": "checkmark", "title": "The first hour is mine"}],
                 "rewards": [{"type": "xp", "xp": 40}, cmd("crash/proved")],
@@ -369,7 +370,7 @@ def write_all_quests() -> None:
                 "icon": "minecraft:bread",
                 "x": -3,
                 "y": -1.5,
-                "deps": [q_proved],
+                "deps": [q_awake],
                 "optional": True,
                 "description": [
                     "Stay. Mend a fence. Share food. Walk a coach road with the watch. The village will use you.",
@@ -385,7 +386,7 @@ def write_all_quests() -> None:
                 "icon": "minecraft:flint_and_steel",
                 "x": -1,
                 "y": -1.5,
-                "deps": [q_proved],
+                "deps": [q_awake],
                 "optional": True,
                 "description": [
                     "Learn their gate hour. Sell the watch. Open a door you were asked to hold. The Old World already expects this.",
@@ -401,7 +402,7 @@ def write_all_quests() -> None:
                 "icon": "minecraft:white_banner",
                 "x": 1,
                 "y": -1.5,
-                "deps": [q_proved],
+                "deps": [q_awake],
                 "optional": True,
                 "description": [
                     "Take a colour. Elector, Waaagh, Under-Empire, von Carstein, Dawi, herd, temple-city, Bloodbound — a Recruits banner or a lie you intend to keep.",
@@ -417,7 +418,7 @@ def write_all_quests() -> None:
                 "icon": "minecraft:leather_boots",
                 "x": 3,
                 "y": -1.5,
-                "deps": [q_proved],
+                "deps": [q_awake],
                 "optional": True,
                 "description": [
                     "Shake a hand. Mean it. Walk away. Standing can exist without a payroll. The map does not close.",
@@ -426,6 +427,22 @@ def write_all_quests() -> None:
                 ],
                 "tasks": [{"type": "checkmark", "title": "I named a side and rode on"}],
                 "rewards": [{"type": "xp", "xp": 20}, cmd("path/leave")],
+            },
+            {
+                "id": q_burn,
+                "title": "Burned Their Welcome",
+                "icon": "minecraft:flint_and_steel",
+                "x": -1,
+                "y": 0.5,
+                "deps": [q_awake],
+                "optional": True,
+                "description": [
+                    "Flint the picket. Fire on the pad. Khorne if you burn welcome — this camp turns, and blood is a path.",
+                    "",
+                    "Sets rallous.path = 2 (betray), rallous.khorne, and rallous.chaos. Same as using the flint at the camp.",
+                ],
+                "tasks": [{"type": "checkmark", "title": "I burned their welcome"}],
+                "rewards": [{"type": "xp", "xp": 20}, cmd("path/burn")],
             },
         ],
     )
@@ -755,6 +772,7 @@ def write_all_quests() -> None:
             w(dest / rel, text)
         if smoke_text:
             w(dest / "chapters" / "smoke_test.snbt", smoke_text)
+    write_contact_datapack()
 
 
 def write_contact_datapack() -> None:
@@ -864,6 +882,9 @@ scoreboard objectives add rallous.army dummy
             'tellraw @s {"text":"Path: align-and-leave. rallous.path=4","color":"gray"}\n'
             "function rallous_diplomacy:apply_path\n"
             "function rallous_factions:path/sync\n"
+        ),
+        "path/burn.mcfunction": (
+            "function rallous_factions:path/burn_welcome\n"
         ),
         "race/empire.mcfunction": (
             "scoreboard players set @s rallous.race 1\n"
@@ -1056,10 +1077,11 @@ scoreboard objectives add rallous.army dummy
             impossible,
             "goal",
         ),
-        "path/help.json": adv("Help", "rallous.path=1", "minecraft:bread", "rallous_contact:crash/proved", impossible),
-        "path/betray.json": adv("Betray", "rallous.path=2", "minecraft:flint_and_steel", "rallous_contact:crash/proved", impossible),
-        "path/join.json": adv("Join", "rallous.path=3", "minecraft:white_banner", "rallous_contact:crash/proved", impossible),
-        "path/leave.json": adv("Align and Leave", "rallous.path=4", "minecraft:leather_boots", "rallous_contact:crash/proved", impossible),
+        "path/help.json": adv("Help", "rallous.path=1", "minecraft:bread", "rallous_contact:crash/root", impossible),
+        "path/betray.json": adv("Betray", "rallous.path=2", "minecraft:flint_and_steel", "rallous_contact:crash/root", impossible),
+        "path/join.json": adv("Join", "rallous.path=3", "minecraft:white_banner", "rallous_contact:crash/root", impossible),
+        "path/leave.json": adv("Align and Leave", "rallous.path=4", "minecraft:leather_boots", "rallous_contact:crash/root", impossible),
+        "path/burn.json": adv("Burned Their Welcome", "Khorne if you burn welcome", "minecraft:flint_and_steel", "rallous_contact:crash/root", impossible),
         "race/empire.json": adv("Empire", "rallous.race=1 Elector towns", "minecraft:yellow_banner", "rallous_contact:root", loc_structure("minecraft:village")),
         "race/vampire.json": adv("Vampire Counts", "rallous.race=2", "minecraft:red_banner", "rallous_contact:root", loc_biome("minecraft:swamp")),
         "race/lizard.json": adv("Lizardmen", "rallous.race=3", "minecraft:jungle_leaves", "rallous_contact:root", loc_biome("minecraft:jungle")),
@@ -1285,6 +1307,8 @@ def validate() -> None:
         "rallous_contact:path/betray",
         "rallous_contact:path/join",
         "rallous_contact:path/leave",
+        "rallous_contact:path/burn",
+        "Burned Their Welcome",
         "rallous_contact:race/skaven",
         "rallous_contact:magic/colleges",
         "College Letter",

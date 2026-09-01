@@ -17,14 +17,14 @@
 			rewards: [
 				{
 					count: 4
-					id: "1E010043"
+					id: "1E010046"
 					item: "minecraft:emerald"
 					type: "item"
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:army/open"
 					elevate_perms: true
-					id: "1E010044"
+					id: "1E010047"
 					silent: true
 					type: "command"
 				}
@@ -32,7 +32,7 @@
 			subtitle: "Optional. Never required."
 			tasks: [
 				{
-					id: "1E010045"
+					id: "1E010048"
 					title: "Hired one soldier"
 					type: "checkmark"
 				}
@@ -53,21 +53,21 @@
 			id: "1D010052"
 			rewards: [
 				{
-					id: "1E010046"
+					id: "1E010049"
 					type: "xp"
 					xp: 10
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:army/orders"
 					elevate_perms: true
-					id: "1E010047"
+					id: "1E01004A"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1E010048"
+					id: "1E01004B"
 					title: "Command screen used"
 					type: "checkmark"
 				}
@@ -86,21 +86,21 @@
 			id: "1D010053"
 			rewards: [
 				{
-					id: "1E010049"
+					id: "1E01004C"
 					type: "xp"
 					xp: 15
 				},
 				{
 					command: "execute as @p at @s run function rallous_contact:army/banner"
 					elevate_perms: true
-					id: "1E01004A"
+					id: "1E01004D"
 					silent: true
 					type: "command"
 				}
 			]
 			tasks: [
 				{
-					id: "1E01004B"
+					id: "1E01004E"
 					title: "Banner named"
 					type: "checkmark"
 				}

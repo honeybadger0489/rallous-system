@@ -29,9 +29,10 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 
 ### Stance
 
-- [ ] Walk to the nearest **bannered** camp. Palisade. Lord. Two soldiers.
+- [ ] Walk to the nearest **bannered** camp. Palisade. Named lord. Recruits patrol (not campfires alone).
 - [ ] Chat names a **real faction** (Reikland, Clan Mors, Hexoatl, …). If **U** still says Team 2, Found a Banner and type that chat name.
 - [ ] The lord speaks a **stance**: blade gift, prove-yourself, raid, or daemon accusation.
+- [ ] Chat offers **[Help] [Betray] [Join] [Leave]**. Tick Paths in the book, or flint the pad (Khorne if you burn welcome). That camp’s stance changes.
 - [ ] If nothing is near: `/function rallous_factions:debug/force_contact` and try again.
 
 ### Session fight

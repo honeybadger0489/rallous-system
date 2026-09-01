@@ -1,6 +1,6 @@
 # HONESTY-0.3.14 — first-hour gameplay
 
-SHIP_READY: **no**. Client `wiki/TEST.md` was not run. CurseForge / GPU client boot is unverified.
+SHIP_READY: **no**. Dedicated-server smoke **passed on 0.3.14**. Client `wiki/TEST.md` was not run. CurseForge / GPU client boot is unverified.
 
 **0.3.14 gameplay (not essays):**
 

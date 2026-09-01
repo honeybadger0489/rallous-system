@@ -1,6 +1,8 @@
 # Diplomacy
 
-First-contact **Paths** (quest book, chapter Paths). Each verb sets `rallous.path` and shifts **that** contact faction’s stance — the camp you crashed next to, not the whole race.
+First-contact **Paths** open when you wake in the crater (quest book chapter Paths — not after a one-hour prove). Each verb sets `rallous.path` and shifts **that** contact faction’s stance — the camp you crashed next to, not the whole race.
+
+At the picket the lord’s chat offers clickable **[Help] [Betray] [Join] [Leave]**. Flint the pad (or tick **Burned Their Welcome**) is the Khorne path.
 
 You may recant later. Host command stays optional.
 
@@ -10,6 +12,7 @@ You may recant later. Host command stays optional.
 | --- | --- | --- |
 | **Help** | Stay. Mend a fence. Share food. Walk the coach road. | Ally. One vanilla gift (once). |
 | **Betray** | Learn the gate hour. Sell the watch. Open a door you were asked to hold. | War. Marks a Khorne-path stain. Nearby golems get angry. |
+| **Burn welcome** | Flint the picket, or fire on the pad. | Same as betray, plus `rallous.khorne`. A raid. |
 | **Join** | Take a colour. Mean the banner. | Joined. Eligible for a civ-bed / claim. |
 | **Align and leave** | Shake a hand. Walk away. Standing without a payroll. | Neutral. The map does not close. |
 

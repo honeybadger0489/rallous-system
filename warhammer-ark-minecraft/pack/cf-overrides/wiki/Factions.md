@@ -1,6 +1,6 @@
 # Factions
 
-Eight races. Compiled from JSON, not hardcoded names. You meet a **named lord** at a **war-host picket**: palisade, banners, campfires, site props, two Recruits soldiers, a stance line.
+Eight races. Compiled from JSON, not hardcoded names. You meet a **named lord** at a **war-host picket**: palisade, banners, campfires, site props, the lord from the template (race plate), two named Recruits, a Recruits patrol, a stance line. Crash also plants mixed-race pickets on walkable rings so the first hour is not one crater in an empty field.
 
 Not Total War cities. Beastmen / Waaagh / Khorne / some Skaven are roaming-style camps, not pretty capitals.
 

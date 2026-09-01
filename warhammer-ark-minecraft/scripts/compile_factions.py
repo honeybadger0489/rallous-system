@@ -19,7 +19,14 @@ import json
 import shutil
 from pathlib import Path
 
-from camp_sites import SITE_KIND, assert_camps_thick, camp_blocks, camp_soldiers
+from camp_sites import (
+    SITE_KIND,
+    assert_camps_thick,
+    camp_blocks,
+    camp_soldiers,
+    lord_armor_nbt,
+    lord_sote_replace,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 FACTIONS_ROOT = ROOT / "content" / "factions"
@@ -341,13 +348,15 @@ Rebuild: `python3 scripts/compile_factions.py`
 Each camp is a war-host picket by site kind (settled / hold / temple /
 herd / waaagh / under-empire / khorne): palisade posts, extra banners
 and campfires, site props (skulls, cobwebs, anvil, …), the named lord
-from the faction template, and two Recruits soldiers. A marker holds
-`rallous.fac.id` / race / stance / tier. First-days mix majors and
+from the faction template (race plate), two named Recruits, and a
+`/recruits spawn recruitPatrol tiny` levy (same as roaming). A marker
+holds `rallous.fac.id` / race / stance / tier. Crash plants mixed-race
+rings so a first-hour walk hits other banners. First-days mix majors and
 minors (cap 16). After every major of a race is placed, that race rolls
 minor-only. Walking farther places more from the remaining pool (cap 40).
 Never all 129 at once. Warp-crash assigns the nearest camp as
-`rallous.contact` and fires the race stance. FTB help/betray/join/leave
-changes that contact faction.
+`rallous.contact` and fires the race stance. Help/betray/join/leave
+(FTB, clickable chat, or flint-burn) change that contact faction.
 """,
     )
 
@@ -373,6 +382,9 @@ def write_load(races: dict[str, dict], factions: list[dict]) -> None:
         "scoreboard objectives add rallous.proved dummy",
         "scoreboard objectives add rallous.race dummy",
         "scoreboard objectives add rallous.const dummy",
+        "scoreboard objectives add rallous.burn minecraft.used:minecraft.flint_and_steel",
+        "scoreboard objectives add rallous.khorne dummy",
+        "scoreboard objectives add rallous.chaos dummy",
         "scoreboard players set #-1 rallous.const -1",
         "scoreboard players set #2 rallous.const 2",
         f"scoreboard players set #cap rallous.const {FIRST_CAP}",
@@ -408,6 +420,9 @@ execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallo
 execute as @a[scores={rallous.path=1..}] unless score @s rallous.path = @s rallous.path_seen run function rallous_factions:path/sync
 execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s if entity @e[tag=rallous.camp,distance=..18,limit=1] run function rallous_factions:contact/assign
 execute as @a[tag=rallous.warp_landed,tag=!rallous.fac.greeted] at @s as @e[tag=rallous.camp,limit=1,sort=nearest,distance=..80] at @s run particle minecraft:campfire_signal_smoke ~ ~3 ~ 0.15 0.8 0.15 0.01 3
+execute as @a[scores={rallous.burn=1..},tag=rallous.fac.greeted,tag=!rallous.burned] at @s if entity @e[tag=rallous.camp,distance=..14,limit=1] run function rallous_factions:path/burn_welcome
+execute as @a[scores={rallous.burn=1..}] unless entity @e[tag=rallous.camp,distance=..14,limit=1] run scoreboard players set @s rallous.burn 0
+execute as @a[tag=rallous.fac.greeted,tag=!rallous.burned] at @s at @e[tag=rallous.camp,distance=..14,limit=1,sort=nearest] if block ~1 ~1 ~ minecraft:fire run function rallous_factions:path/burn_welcome
 """,
     )
     w(
@@ -424,9 +439,10 @@ execute unless score #booted rallous.gen matches 1 run scoreboard players set #b
     )
     w(
         FN / "gen/tick_place.mcfunction",
-        """# One more camp around the first crater / a landed player.
+        """# One more camp around the first crater / a landed player / an existing camp.
 execute if score #placed rallous.gen >= #cap rallous.const run scoreboard players set $noop rallous.gen 1
 execute if score #placed rallous.gen < #cap rallous.const as @a[tag=rallous.warp_landed,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_far
+execute if score #placed rallous.gen < #cap rallous.const unless entity @a[tag=rallous.warp_landed,limit=1] as @e[type=minecraft:marker,tag=rallous.camp,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_far
 """,
     )
     w(
@@ -451,6 +467,78 @@ kill @e[type=minecraft:marker,tag=rallous.probe]
 execute as @e[type=minecraft:marker,tag=rallous.probe.far,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 140 380 false @s
 execute as @e[type=minecraft:marker,tag=rallous.probe.far,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_one
 kill @e[type=minecraft:marker,tag=rallous.probe]
+""",
+    )
+    w(
+        FN / "gen/place_rings.mcfunction",
+        """# Mixed-race pickets on walkable rings. Not TW cities. Cap still 16.
+# Inner ~96 (10 min walk). Outer ~220 (first hour). Cardinals only.
+execute if score #placed rallous.gen < #cap rallous.const positioned ~96 ~ ~ run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~-96 ~ ~ run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~96 run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~-96 run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~220 ~ ~ run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~-220 ~ ~ run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~220 run function rallous_factions:gen/ring_spot
+execute if score #placed rallous.gen < #cap rallous.const positioned ~ ~ ~-220 run function rallous_factions:gen/ring_spot
+""",
+    )
+    w(
+        FN / "gen/ring_spot.mcfunction",
+        """# Surface one mixed camp at this ring offset.
+execute if score #placed rallous.gen >= #cap rallous.const run scoreboard players set $noop rallous.gen 1
+execute if score #placed rallous.gen < #cap rallous.const run summon minecraft:marker ~ ~ ~ {Tags:["rallous.probe","rallous.probe.ring"]}
+execute as @e[type=minecraft:marker,tag=rallous.probe.ring,limit=1,sort=nearest] at @s run spreadplayers ~ ~ 8 28 false @s
+execute as @e[type=minecraft:marker,tag=rallous.probe.ring,limit=1,sort=nearest] at @s run function rallous_factions:gen/place_one
+kill @e[type=minecraft:marker,tag=rallous.probe.ring]
+""",
+    )
+    levy_types = [
+        {"id": "recruits:recruit", "required": False},
+        {"id": "recruits:bowman", "required": False},
+        {"id": "recruits:recruit_shieldman", "required": False},
+        {"id": "recruits:nomad", "required": False},
+        {"id": "recruits:horseman", "required": False},
+        {"id": "recruits:crossbowman", "required": False},
+        {"id": "recruits:scout", "required": False},
+        {"id": "recruits:captain", "required": False},
+        {"id": "recruits:patrol_leader", "required": False},
+        {"id": "recruits:messenger", "required": False},
+    ]
+    dump_json(OUT / "data" / "rallous_factions" / "tags" / "entity_types" / "levy.json", {"replace": False, "values": levy_types})
+    w(
+        FN / "host/levy.mcfunction",
+        """# Small Recruits patrol at this camp. Same command as roaming. Not an armor-stand host.
+execute if entity @s[tag=rallous.host.levied] run scoreboard players set $noop rallous.gen 1
+execute unless entity @s[tag=rallous.host.levied] run function rallous_factions:host/levy_go
+""",
+    )
+    w(
+        FN / "host/levy_go.mcfunction",
+        """# /recruits spawn recruitPatrol tiny = recruit + shieldman + bowman + patrol_leader.
+# Command uses getEntity().getOnPos() — must run as an entity at the column.
+summon minecraft:armor_stand ~ ~ ~ {Tags:["rallous.host.recsrc"],Invisible:1b,Marker:1b,NoGravity:1b,Small:1b,Invulnerable:1b,DisabledSlots:4144959}
+execute as @e[type=minecraft:armor_stand,tag=rallous.host.recsrc,limit=1] at @s run recruits spawn recruitPatrol tiny
+kill @e[type=minecraft:armor_stand,tag=rallous.host.recsrc]
+scoreboard players set $levy rallous.gen 0
+execute if entity @e[type=#rallous_factions:levy,distance=..16,tag=!rallous.soldier,tag=!rallous.roam] run scoreboard players set $levy rallous.gen 1
+execute if score $levy rallous.gen matches 1 run function rallous_factions:host/levy_tag
+execute if score $levy rallous.gen matches 0 run function rallous_factions:host/levy_fallback
+tag @s add rallous.host.levied
+""",
+    )
+    w(
+        FN / "host/levy_tag.mcfunction",
+        """execute as @e[type=#rallous_factions:levy,distance=..16,tag=!rallous.soldier,tag=!rallous.roam] run tag @s add rallous.soldier
+execute as @e[type=#rallous_factions:levy,distance=..16,tag=rallous.soldier] run tag @s add rallous.host.levy
+execute as @e[type=#rallous_factions:levy,distance=..16,tag=rallous.soldier] run data merge entity @s {PersistenceRequired:1b}
+""",
+    )
+    w(
+        FN / "host/levy_fallback.mcfunction",
+        """# Recruits missing or command failed. Two named vanilla — still a host, not campfires alone.
+summon minecraft:pillager ~2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanJoinRaid:0b,PatrolLeader:0b,Patrolling:0b,HandItems:[{id:"minecraft:iron_sword",Count:1b},{}]}
+summon minecraft:pillager ~-2 ~ ~2 {Tags:["rallous.soldier","rallous.host.levy"],CustomName:'{"text":"Levy","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanJoinRaid:0b,PatrolLeader:0b,Patrolling:0b,HandItems:[{id:"minecraft:bow",Count:1b},{}]}
 """,
     )
     prefer = [
@@ -524,6 +612,7 @@ kill @e[type=minecraft:marker,tag=rallous.probe]
 function rallous_factions:gen/boot
 execute unless entity @e[tag=rallous.camp,distance=..220,limit=1] run function rallous_factions:gen/place_near
 execute unless entity @e[tag=rallous.camp,distance=..260,limit=1] run function rallous_factions:gen/place_one
+function rallous_factions:gen/place_rings
 execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
 function rallous_factions:contact/bind_only
 """,
@@ -578,6 +667,7 @@ function rallous_factions:contact/greet
 function rallous_recruits_bind:on_contact
 function rallous_kit:on_greet
 execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
+function rallous_factions:path/offer
 tellraw @s {"text":"When night falls at this picket, the session starts. Or /function rallous_session:start","color":"gray"}
 """,
     )
@@ -672,6 +762,65 @@ tellraw @a[distance=..48] {"text":"You named a side and rode on. This faction co
 function rallous_factions:gen/place_one
 function rallous_factions:contact/assign
 tellraw @s {"text":"Forced a compiled faction camp here. Look for a named lord and a stance line.","color":"gold"}
+""",
+    )
+    w(
+        FN / "path/offer.mcfunction",
+        """# First-hour verbs at the picket. FTB Paths also open after the crater. Cheats ON for clicks.
+give @s minecraft:flint_and_steel{display:{Name:'{"text":"Burn their welcome","italic":false}',Lore:['{"text":"Use this at the picket. Khorne hears.","color":"dark_red"}']}} 1
+give @s minecraft:bread{display:{Name:'{"text":"Share food","italic":false}'}} 4
+tellraw @s [{"text":"This host waits on a verb. ","color":"gold"},{"text":"[Help]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/help"},"hoverEvent":{"action":"show_text","contents":"Ally this camp"}},{"text":" ","color":"white"},{"text":"[Betray]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/betray"},"hoverEvent":{"action":"show_text","contents":"War with this camp"}},{"text":" ","color":"white"},{"text":"[Join]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/join"},"hoverEvent":{"action":"show_text","contents":"Take their colour"}},{"text":" ","color":"white"},{"text":"[Leave]","color":"gray","bold":true,"clickEvent":{"action":"run_command","value":"/function rallous_contact:path/leave"},"hoverEvent":{"action":"show_text","contents":"Align and ride on"}},{"text":" — or flint the pad.","color":"dark_red"}]
+""",
+    )
+    w(
+        FN / "path/burn_welcome.mcfunction",
+        """# Khorne if you burn welcome. Reachable at the picket, not a wiki sentence.
+execute if entity @s[tag=rallous.burned] run scoreboard players set @s rallous.burn 0
+execute unless entity @s[tag=rallous.burned] run function rallous_factions:path/burn_welcome_go
+""",
+    )
+    w(
+        FN / "path/burn_welcome_go.mcfunction",
+        """tag @s add rallous.burned
+scoreboard players set @s rallous.burn 0
+scoreboard players set @s rallous.path 2
+scoreboard players set @s rallous.betray 1
+scoreboard players add @s rallous.khorne 1
+scoreboard players add @s rallous.chaos 1
+function rallous_contact:race/khorne
+function rallous_contact:path/betray
+tellraw @s {"text":"You burned their welcome. Blood is a path. This camp names you oath-breaker. Khorne hears.","color":"dark_red","bold":true}
+execute as @e[tag=rallous.camp,limit=1,sort=nearest] at @s run function rallous_factions:contact/raid_generic
+execute as @e[tag=rallous.camp,limit=1,sort=nearest] at @s run particle minecraft:lava ~ ~1 ~ 0.6 0.4 0.6 0.02 20
+""",
+    )
+    w(
+        FN / "debug/headless_proof.mcfunction",
+        """# Function driver: crash / on_land / greet / rings / levy / paths / roaming / death.
+# Run at a surface. No CurseForge GPU. Does not claim SHIP_READY.
+say [rallous.proof] start field driver
+function rallous_factions:gen/boot
+execute unless entity @e[tag=rallous.camp,distance=..48,limit=1] run function rallous_factions:gen/place_near
+execute unless entity @e[tag=rallous.camp,distance=..80,limit=1] run function rallous_factions:gen/place_one
+function rallous_factions:gen/place_rings
+execute as @e[type=minecraft:marker,tag=rallous.camp,limit=1,sort=nearest] at @s run function rallous_factions:host/levy
+execute store result score $proof_camps rallous.gen if entity @e[tag=rallous.camp]
+execute store result score $proof_lords rallous.gen if entity @e[tag=rallous.lord]
+execute store result score $proof_soldiers rallous.gen if entity @e[tag=rallous.soldier]
+execute store result score $proof_levy rallous.gen if entity @e[tag=rallous.host.levy]
+scoreboard players operation $proof_placed rallous.gen = #placed rallous.gen
+function rallous_factions:contact/assign
+function rallous_factions:path/offer
+function rallous_contact:path/help
+function rallous_factions:path/burn_welcome
+function rallous_roaming:events/waaagh
+function rallous_warp_crash:on_death
+tellraw @a [{"text":"[rallous.proof] camps=","color":"gold"},{"score":{"name":"$proof_camps","objective":"rallous.gen"}},{"text":" lords=","color":"gold"},{"score":{"name":"$proof_lords","objective":"rallous.gen"}},{"text":" soldiers=","color":"gold"},{"score":{"name":"$proof_soldiers","objective":"rallous.gen"}},{"text":" levy=","color":"gold"},{"score":{"name":"$proof_levy","objective":"rallous.gen"}},{"text":" placed=","color":"gold"},{"score":{"name":"$proof_placed","objective":"rallous.gen"}}]
+execute unless score $proof_camps rallous.gen matches 2.. run say [rallous.proof] FAIL camps < 2
+execute unless score $proof_lords rallous.gen matches 1.. run say [rallous.proof] FAIL no named lord
+execute unless score $proof_soldiers rallous.gen matches 1.. run say [rallous.proof] FAIL no soldiers
+execute if score $proof_camps rallous.gen matches 2.. if score $proof_lords rallous.gen matches 1.. if score $proof_soldiers rallous.gen matches 1.. run say [rallous.proof] OK field has lord + host + mixed camps
+say [rallous.proof] done
 """,
     )
 
@@ -777,9 +926,12 @@ def write_faction_fns(races: dict[str, dict], factions: list[dict]) -> None:
                 f'{{CustomName:{name_snbt},CustomNameVisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoAI:1b,'
                 f'Tags:["rallous.lord","rallous.fac.{sl}"],'
                 f'VillagerData:{{profession:"minecraft:{prof}",level:3,type:"minecraft:{vtype}"}},'
-                f"HandItems:[{{id:\"minecraft:{weapon_id}\",Count:1b}},{{}}]}}"
+                f"HandItems:[{{id:\"minecraft:{weapon_id}\",Count:1b}},{{}}],"
+                f"{lord_armor_nbt(race['id'])}}}"
             ),
             * [f"execute if score $skip rallous.gen matches 0 run {line}" for line in camp_soldiers(race["id"], sl, color)],
+            * [f"execute if score $skip rallous.gen matches 0 run {line}" for line in lord_sote_replace(race["id"], sl)],
+            f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] at @s run function rallous_factions:host/levy",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.id {i}",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race {RACE_NUM[race['id']]}",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance {stance}",

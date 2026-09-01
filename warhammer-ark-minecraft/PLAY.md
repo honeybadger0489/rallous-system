@@ -2,24 +2,24 @@
 
 **Player wiki:** [wiki/Home.md](wiki/Home.md) · two-hour test: [wiki/TEST.md](wiki/TEST.md)
 
-**This is the only player doc.** Import **0.3.14** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9 / 0.3.10 / 0.3.11 / 0.3.12 / 0.3.13.
+**This is the only player doc.** Import **0.3.15** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5 / 0.3.6 / 0.3.7 / 0.3.8 / 0.3.9 / 0.3.10 / 0.3.11 / 0.3.12 / 0.3.13 / 0.3.14.
 
 **Download:**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.14.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.15.zip
 
 CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, ~8 GB RAM. **Minecraft 1.20.1 + Forge 47.4.10**. New world: Survival, Hard, cheats ON (smoke commands). Terralith default. Private pack — do not upload.
 
 **Rallous Continuity is on in `options.txt` pack order** (last in the list). That overlay is lang only — Elector / Waaagh / Under-Empire / von Carstein / Dawi / herd / temple-city / Bloodbound — **not** the Fabric Continuity connected-textures mod. If a profile resets packs, move **Rallous Continuity** up again or Recruits still says **Recruit** instead of Levy. **Team 2** is a host-name miss (bridge or **U** → Found a Banner), not a missing lang pack.
 
-**Quest book identity:** **The Warp-Crash** — Crash (crater, then ~1 hour village *or* fight) → Paths (help / betray / join / align-and-leave; each sets `rallous.path` and shifts **that** contact faction’s stance) → First Hour (Empire, Vampire Counts, Lizardmen, Beastmen, Greenskins, Dwarfs, Skaven, Khorne) → The Winds (no starter spellbook; Colleges / Ice / death / Blood). **The Host** is optional Recruits. **Temple and Herd** is the Fossils / Tameable Beasts chapter. Smoke is a side checklist. There is no Reikland tutorial court.
+**Quest book identity:** **The Warp-Crash** — Crash (crater) → Paths (help / betray / join / align-and-leave / burn welcome; each sets `rallous.path` and shifts **that** contact faction’s stance — open when you wake, not after a prove hour) → First Hour (Empire, Vampire Counts, Lizardmen, Beastmen, Greenskins, Dwarfs, Skaven, Khorne) → The Winds (no starter spellbook; Colleges / Ice / death / Blood). **The Host** is optional Recruits. **Temple and Herd** is the Fossils / Tameable Beasts chapter. Smoke is a side checklist. There is no Reikland tutorial court.
 
-A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crater. There is **no** Karl Franz war council. A named lord from a **real table faction** (not a mute vanilla village) is the nearest camp: palisade, banners, campfires, site props, the lord villager from the JSON template, two Recruits soldiers, and a stance line. A second player who joins this world crashes **somewhere else**.
+A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crater. There is **no** Karl Franz war council. A named lord from a **real table faction** (not a mute vanilla village) is the nearest camp: palisade, banners, campfires, site props, the lord from the JSON template in race plate, two named Recruits, a Recruits patrol, and a stance line. Mixed-race pickets sit on walkable rings so the first hour is not one crater in an empty field. A second player who joins this world crashes **somewhere else**.
 
 **Honest remaining limits:**
 
 - **Camps vs Recruits.** `rallous_factions` places **7×7** war-host pickets, names lords, and fires stance lines. `rallous_recruits_bind` copies that camp’s display name onto scores / storage and hands you a book. This zip **includes** `rallous-recruits-bridge-1.0.0.jar` (sibling Forge 1.20.1 / 47.4.10). That Java mod **tries** to found or rename your Recruits host to the crash-camp name after assign. It can fail (`rallous.rec.bridge_fail`). Hire lists, pathfinding, and team AI stay the engine’s. If **U** still says Team 2, send `crash-*-fml.txt` if the client died, and use **U** → Found a Banner.
 - **Session night** is vanilla pillagers / zombies **named as that race’s enemies**, not a Recruits battle and not a Total War city fight.
-- Camps are war-host pickets (palisade + banners + lord + two soldiers), not Total War cities. First days cap about **16** sites; walking farther can place more from the remaining pool (about **40** total, never all 129 at once). Beastmen / Waaagh / Khorne / some Skaven are roaming-style camps, not pretty capitals.
+- Camps are war-host pickets (palisade + banners + named lord + Recruits patrol), not Total War cities. Crash plants mixed-race rings (~96 / ~220). First days cap about **16** sites; walking farther can place more from the remaining pool (about **40** total, never all 129 at once). Beastmen / Waaagh / Khorne / some Skaven are roaming-style camps, not pretty capitals.
 - Client is **not** booted in CI. If it crashes, send `crash-*-fml.txt`.
 
 ---

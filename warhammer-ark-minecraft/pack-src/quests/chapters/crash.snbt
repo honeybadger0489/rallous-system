@@ -172,7 +172,7 @@
 			]
 			shape: "hexagon"
 			size: 1.5d
-			subtitle: "Village or fight. Then the paths open."
+			subtitle: "Village or fight. Paths already opened at the crater."
 			tasks: [
 				{
 					id: "1E01000F"
@@ -183,7 +183,7 @@
 			description: [
 				"Either hour is enough. The book will not make you finish both."
 				""
-				"Now you may help, betray, join, or align and leave. Race flavors and the Winds are rumors on the side. A host is never required."
+				"Help, betray, join, or align-and-leave already opened when you woke. This is the hour-mark, not the gate."
 			]
 			title: "Proved Yourself"
 			x: 2d

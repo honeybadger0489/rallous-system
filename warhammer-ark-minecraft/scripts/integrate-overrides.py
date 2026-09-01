@@ -694,6 +694,19 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
             raise SystemExit("roaming recruits_column missing recruitPatrol tiny")
         wc = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_warp_crash-1.0.0.jar")))
         hook = wc.read("data/rallous_warp_crash/functions/contact_hook.mcfunction").decode()
+        if "data/rallous_factions/functions/host/levy.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing host/levy")
+        if "data/rallous_factions/functions/gen/place_rings.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing gen/place_rings")
+        if "data/rallous_factions/functions/path/burn_welcome.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing path/burn_welcome")
+        if "data/rallous_factions/functions/debug/headless_proof.mcfunction" not in fac_names:
+            raise SystemExit("factions jar missing debug/headless_proof")
+        if "recruitPatrol tiny" not in fac.read("data/rallous_factions/functions/host/levy_go.mcfunction").decode():
+            raise SystemExit("factions host/levy_go missing recruitPatrol tiny")
+        fac_rings = fac.read("data/rallous_factions/functions/crash/on_land.mcfunction").decode()
+        if "rallous_factions:gen/place_rings" not in fac_rings:
+            raise SystemExit("factions crash/on_land does not place mixed-race rings")
         if "rallous_factions:crash/on_land" not in hook:
             raise SystemExit("warp_crash contact_hook does not call compiled factions")
         if "tag_existing_contact" in hook:
