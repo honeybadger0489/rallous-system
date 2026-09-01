@@ -905,16 +905,39 @@ def write_configs() -> None:
     # A short note file next to client config would be extra docs — skip.
     # Quest copy already points players at fire / ice / holy / blood.
 
-    # options.txt — keep grim stack, add Continuity last (highest priority)
+    # options.txt — grim stack then Continuity last (highest priority).
+    # Last in the list wins. Do not add the Fabric Continuity connected-textures jar.
     opt = OV / "options.txt"
     text = opt.read_text()
-    old = 'resourcePacks:["vanilla","mod_resources","file/Faithful 32x - 1.20.1.zip","file/FreshAnimations_v1.10.4.zip","file/GrimdarkBattlepack-v27.zip","file/Grimdark-Sky-v1-1-15.zip","file/Gothic RPG Font.zip"]'
-    new = 'resourcePacks:["vanilla","mod_resources","file/Faithful 32x - 1.20.1.zip","file/FreshAnimations_v1.10.4.zip","file/GrimdarkBattlepack-v27.zip","file/Grimdark-Sky-v1-1-15.zip","file/Gothic RPG Font.zip","file/Rallous Continuity"]'
-    if old in text:
-        text = text.replace(old, new)
-    elif "Rallous Continuity" not in text:
-        text = text.replace('","file/Gothic RPG Font.zip"]', '","file/Gothic RPG Font.zip","file/Rallous Continuity"]')
+    packs = (
+        'resourcePacks:["vanilla","mod_resources",'
+        '"file/Faithful 32x - 1.20.1.zip",'
+        '"file/FreshAnimations_v1.10.4.zip",'
+        '"file/GrimdarkBattlepack-v27.zip",'
+        '"file/Grimdark-Sky-v1-1-15.zip",'
+        '"file/Gothic RPG Font.zip",'
+        '"file/Rallous Temple Herd",'
+        '"file/Rallous Continuity"]'
+    )
+    if "resourcePacks:" in text:
+        lines = []
+        for line in text.splitlines(keepends=True):
+            if line.startswith("resourcePacks:"):
+                nl = "\n" if line.endswith("\n") else ""
+                lines.append(packs + nl)
+            else:
+                lines.append(line)
+        text = "".join(lines)
+    else:
+        text = text.rstrip() + "\n" + packs + "\n"
     opt.write_text(text)
+    src_opt = ROOT / "pack-src" / "overrides" / "options.txt"
+    src_opt.parent.mkdir(parents=True, exist_ok=True)
+    src_opt.write_text(text)
+    shaders = OV / "optionsshaders.txt"
+    if shaders.is_file():
+        src_sh = ROOT / "pack-src" / "overrides" / "optionsshaders.txt"
+        src_sh.write_text(shaders.read_text())
 
 
 def main() -> None:
