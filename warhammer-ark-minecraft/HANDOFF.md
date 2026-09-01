@@ -75,7 +75,7 @@ Raw: https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-
 
 Older archives (0.2.0–0.3.12) stay in `dist/` for history. **Import 0.3.13 as a new CurseForge profile.** Do not update 0.2.1 / 0.2.2 / 0.3.0–0.3.12.
 
-**0.3.13** is the player zip: leftover 0.2.2 court chrome stripped (CNPC letters Archaon/Grimgor/Mannfred/Thorgrim, Kislev commission recipes, unused lord advancements). Dedicated-server smoke **passed on 0.3.12** (`Done`, 0 function parse fails). **0.3.13** is that leftover cut and must be smoked after rebuild. SHIP_READY: **no**. Client `wiki/TEST.md` is the remaining success line.
+**0.3.13** is the player zip: leftover 0.2.2 court chrome stripped (CNPC letters Archaon/Grimgor/Mannfred/Thorgrim, Kislev commission recipes, unused lord advancements). Dedicated-server smoke **passed on 0.3.12** and **0.3.13** (`Done`, 0 function parse fails). SHIP_READY: **no**. Client `wiki/TEST.md` is the remaining success line.
 
 0.3.9 payload: 0.3.8 jar tick de-dup (old-world `#minecraft:tick` / `load` list **only** `rallous_old_world`, `sanitize_tick_load_tags`) plus first_join / land_go / assign / kit guards (`rallous.warp_landed`, `rallous.joined`, `rallous.contacted`, `rallous.kitted`). kit/winds/grow hooks (`rallous_kit:on_greet` after greet, `rallous_grow:on_session` on session win, winds own tick), compiled thicker camps, `rallous_session`, `rallous_recruits_bind`, **`rallous-recruits-bridge-1.0.0.jar`** (`FactionEvents.createTeam(false, …)`), `rallous_winds`, `rallous_grow`, `rallous_kit`, updated `rallous_roaming` (`/recruits spawn recruitPatrol tiny`), `overrides/wiki/`, `options.txt` pack order with **Rallous Continuity** last, 76 CF files, no Fabric Continuity jar, no MineColonies, no first-join court. If the bridge fails on boot: `crash-*-fml.txt` and fall back to U → Found a Banner.
 
@@ -162,7 +162,9 @@ Does **not** resolve CurseForge fileIDs. Full pin refresh is `scripts/build-cf-p
 
 Client is **not** booted in CI. Two-hour test is [`wiki/TEST.md`](wiki/TEST.md). Crashes: `crash-*-fml.txt`.
 
-**0.3.12 dedicated-server smoke (2026-09-01):** **boot YES.** Reused `/tmp/rallous-smoke-039`, refreshed `rallous_*` jars from `dist/rallous-warhammer-fantasy-0.3.12.zip`. `Done (2.306s)`, no `ModLoadingException`, **0** `Failed to load function`. Report: [`content/SERVER-SMOKE-0.3.12.md`](content/SERVER-SMOKE-0.3.12.md). Log: [`content/SERVER-SMOKE-0.3.12.latest.log`](content/SERVER-SMOKE-0.3.12.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin). **0.3.13** is the leftover-court cut after that smoke.
+**0.3.13 dedicated-server smoke (2026-09-01):** **boot YES.** Same dir, refreshed jars from `dist/rallous-warhammer-fantasy-0.3.13.zip`. `Done (1.884s)`, no `ModLoadingException`, **0** `Failed to load function`. Report: [`content/SERVER-SMOKE-0.3.13.md`](content/SERVER-SMOKE-0.3.13.md). Leftover court chrome gone; faction camps kept; first-join court not restored.
+
+**0.3.12 dedicated-server smoke (2026-09-01):** **boot YES.** Reused `/tmp/rallous-smoke-039`, refreshed `rallous_*` jars from `dist/rallous-warhammer-fantasy-0.3.12.zip`. `Done (2.306s)`, no `ModLoadingException`, **0** `Failed to load function`. Report: [`content/SERVER-SMOKE-0.3.12.md`](content/SERVER-SMOKE-0.3.12.md). Log: [`content/SERVER-SMOKE-0.3.12.latest.log`](content/SERVER-SMOKE-0.3.12.latest.log). ETF/Oculus/Embeddium/EMF parked for dedicated only (client mixin).
 
 **0.3.11 dedicated-server smoke (2026-09-01):** **boot YES.** Reused the 0.3.9 Forge 47.4.10 dir, refreshed `rallous_*` jars from `dist/rallous-warhammer-fantasy-0.3.11.zip`. `Done (1.987s)`, no `ModLoadingException`, **0** `Failed to load function`. Report: [`content/SERVER-SMOKE-0.3.11.md`](content/SERVER-SMOKE-0.3.11.md).
 

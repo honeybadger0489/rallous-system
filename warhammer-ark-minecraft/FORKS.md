@@ -91,6 +91,6 @@ Do not start a **second** Java project for the same call.
 
 ## Open
 
-- Player zip is **0.3.13**. Dedicated-server smoke **passed on 0.3.12**. **0.3.13** is the leftover-court cut (must be smoked after rebuild). Client GUI boot / `wiki/TEST.md` is unverified. SHIP_READY: no.
+- Player zip is **0.3.13**. Dedicated-server smoke **passed on 0.3.12 and 0.3.13**. Client GUI boot / `wiki/TEST.md` is unverified. SHIP_READY: no.
 
 <!-- Later goals add undecided forks here. Keep the seeds above stable. -->

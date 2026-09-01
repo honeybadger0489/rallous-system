@@ -20,4 +20,4 @@ Ledger for the 0.3.10 player-doc cuts stays in [`HONESTY-0.3.10.md`](HONESTY-0.3
 | Unused lord advancements (`lords/archaon`…`thorgrim`) | **deleted** |
 | Compiled faction camps named Grimgor / Mannfred / Thorgrim | **kept** (table templates, not court letters) |
 
-SHIP_READY: **no**. Client `wiki/TEST.md` was not run. Dedicated smoke of **this** zip is the server line; CurseForge / GPU client boot is unverified.
+SHIP_READY: **no**. Dedicated-server smoke **passed on 0.3.12 and 0.3.13**. Client `wiki/TEST.md` was not run. CurseForge / GPU client boot is unverified.
