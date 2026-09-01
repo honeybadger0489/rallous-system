@@ -95,14 +95,15 @@ public final class HostFounder {
                     return true;
                 }
                 if (isGeneric(current.getName()) || isGeneric(existing.getTeamDisplayName())) {
-                    FactionEvents.removeTeam(level, current.getName());
+                    burnGeneric(player, level, current.getName());
                 } else {
                     existing.setTeamDisplayName(name);
                     if (player.getTeam() instanceof PlayerTeam pt) {
                         pt.setDisplayName(Component.literal(name));
                     }
-                    manager.save(level);
-                    return manager.getFactionByStringID(player.getTeam() == null ? "" : player.getTeam().getName()) != null;
+                    manager.save(overworld(player, level));
+                    Team afterRename = player.getTeam();
+                    return afterRename != null && manager.getFactionByStringID(afterRename.getName()) != null;
                 }
             } else if (isGeneric(current.getName()) && current instanceof PlayerTeam pt) {
                 level.getScoreboard().removePlayerFromTeam(player.getScoreboardName(), pt);
@@ -158,20 +159,68 @@ public final class HostFounder {
 
     private static String uniqueTeamId(RecruitsFactionManager manager, String name, ServerPlayer player) {
         String base = cap(stringId(name), 32);
-        if (!base.isBlank() && !manager.isNameInUse(base) && levelTeamFree(player, base)) {
+        if (!nameTaken(manager, player, base)) {
             return base;
         }
         String suffix = player.getScoreboardName().replaceAll("[^\\p{L}\\p{N}]", "");
         String candidate = cap(base + suffix, 32);
-        if (!candidate.isBlank() && !manager.isNameInUse(candidate) && levelTeamFree(player, candidate)) {
+        if (!nameTaken(manager, player, candidate)) {
             return candidate;
         }
         String shortId = player.getUUID().toString().substring(0, 8);
         return cap(base + shortId, 32);
     }
 
-    private static boolean levelTeamFree(ServerPlayer player, String name) {
-        return player.server.getScoreboard().getPlayerTeam(name) == null;
+    /**
+     * Recruits {@code isNameInUse} NPEs when a stored faction has a null stringID
+     * ({@code getStringID().toLowerCase()}). Walk the map ourselves instead.
+     */
+    private static boolean nameTaken(RecruitsFactionManager manager, ServerPlayer player, String id) {
+        if (id == null || id.isBlank()) {
+            return true;
+        }
+        if (player.server.getScoreboard().getPlayerTeam(id) != null) {
+            return true;
+        }
+        if (manager.getFactionByStringID(id) != null) {
+            return true;
+        }
+        for (RecruitsFaction faction : manager.getFactions()) {
+            if (faction == null) {
+                continue;
+            }
+            String existing = faction.getStringID();
+            if (existing != null && existing.equalsIgnoreCase(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Recruits {@code removeTeam} walks claims and NPEs when
+     * {@code getOwnerFaction()} is null. Still detach the player so Team 1/2
+     * does not block {@code createTeam}.
+     */
+    private static void burnGeneric(ServerPlayer player, ServerLevel level, String teamName) {
+        try {
+            FactionEvents.removeTeam(level, teamName);
+        } catch (RuntimeException ex) {
+            RallousRecruitsBridge.LOGGER.warn("removeTeam({}) threw; detaching player", teamName, ex);
+        }
+        Team still = player.getTeam();
+        if (still instanceof PlayerTeam pt && isGeneric(still.getName())) {
+            try {
+                player.server.getScoreboard().removePlayerFromTeam(player.getScoreboardName(), pt);
+            } catch (IllegalStateException ignored) {
+                // already off the team
+            }
+        }
+    }
+
+    private static ServerLevel overworld(ServerPlayer player, ServerLevel fallback) {
+        ServerLevel ow = player.server.overworld();
+        return ow != null ? ow : fallback;
     }
 
     static boolean isGeneric(String name) {

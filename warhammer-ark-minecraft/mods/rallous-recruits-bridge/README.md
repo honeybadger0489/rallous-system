@@ -35,6 +35,8 @@ On `createTeam` not persisting a `RecruitsFaction`, the player is tagged `rallou
 
 ## Build
 
+Recruits is an **optional** dependency. If the jar is absent the game still boots; this mod logs and does nothing (Recruits types are not loaded from the `@Mod` class).
+
 Java **17**, Forge **47.4.10**, official mappings. Recruits 1.15.2 is `compileOnly` (Modrinth `2zXpVxK4` = CF 8339846).
 
 ```bash
