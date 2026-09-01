@@ -5,6 +5,8 @@ Looks at repo-root and warhammer-ark-minecraft/ for:
   content/factions/
   pack-src/datapacks/  pack-src/resourcepacks/  pack-src/quests/
   pack-src/config/  pack-src/overrides/config/
+  rallous-recruits-bridge*.jar (optional — sibling Forge mod)
+  options.txt pack order
 
 Does not resolve CurseForge fileIDs. Does not add Fabric. Strips first-join court.
 """
@@ -13,6 +15,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import shutil
 import sys
 import zipfile
@@ -114,6 +117,127 @@ def merge_datapack(src: Path) -> int:
     return n
 
 
+BRIDGE_JAR_RE = re.compile(r"rallous[-_]recruits[-_]bridge.*\.jar$", re.I)
+
+
+def find_files(rel: str) -> list[Path]:
+    found: list[Path] = []
+    seen: set[Path] = set()
+    for base in search_roots():
+        p = (base / rel).resolve()
+        if p in seen or not p.is_file():
+            continue
+        seen.add(p)
+        found.append(p)
+    return found
+
+
+def ingest_options_txt() -> int:
+    """Copy sibling pack-order options.txt into overrides if present."""
+    dest = OV / "options.txt"
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    n = 0
+    for rel in (
+        "pack-src/overrides/options.txt",
+        "pack-src/options.txt",
+        "content/options.txt",
+        "pack/cf-overrides/options.txt",
+    ):
+        for src in find_files(rel):
+            if src.resolve() == dest.resolve():
+                continue
+            shutil.copy2(src, dest)
+            print(f"ingested options.txt from {src}")
+            n += 1
+    if dest.is_file():
+        text = dest.read_text()
+        if "resourcePacks:" not in text:
+            print("HONEST: options.txt has no resourcePacks line")
+        elif "Rallous Continuity" not in text:
+            print("HONEST: options.txt pack order is missing Rallous Continuity")
+        else:
+            print("options.txt pack order includes Rallous Continuity")
+        return max(n, 1)
+    print("HONEST: options.txt missing from overrides")
+    return 0
+
+
+def find_bridge_jars() -> list[Path]:
+    """Locate a sibling-built rallous-recruits-bridge jar, if any."""
+    found: list[Path] = []
+    seen: set[Path] = set()
+    rel_dirs = (
+        "pack/cf-overrides/mods",
+        "pack/mods",
+        "content/mods",
+        "pack-src/mods",
+        "dist",
+        "downloads",
+        "mods",
+        "build/libs",
+        "rallous-recruits-bridge/build/libs",
+        "rallous_recruits_bridge/build/libs",
+        "java/rallous-recruits-bridge/build/libs",
+        "mods/rallous-recruits-bridge/build/libs",
+        "warhammer-ark-minecraft/pack/cf-overrides/mods",
+        "warhammer-ark-minecraft/pack/mods",
+        "warhammer-ark-minecraft/dist",
+        "warhammer-ark-minecraft/downloads",
+        "warhammer-ark-minecraft/mods",
+    )
+    roots = list(search_roots()) + [Path("/tmp"), Path("/home/ubuntu")]
+    for base in roots:
+        if not base.exists():
+            continue
+        for rel in rel_dirs:
+            d = base / rel
+            if not d.is_dir():
+                continue
+            try:
+                for p in d.iterdir():
+                    if p.is_file() and BRIDGE_JAR_RE.search(p.name):
+                        rp = p.resolve()
+                        if rp not in seen:
+                            seen.add(rp)
+                            found.append(p)
+            except OSError:
+                continue
+    for base in (REPO, ROOT, Path("/workspace")):
+        if not base.is_dir():
+            continue
+        try:
+            for p in base.rglob("*.jar"):
+                if not BRIDGE_JAR_RE.search(p.name):
+                    continue
+                rp = p.resolve()
+                if rp not in seen:
+                    seen.add(rp)
+                    found.append(p)
+        except OSError:
+            continue
+    return found
+
+
+def ingest_bridge_jar() -> Path | None:
+    """Copy sibling rallous-recruits-bridge jar into overrides/mods if built.
+
+    Honest: Recruits still has no datapack create-banner API. This jar is the
+    only thing that can found a host. If siblings did not ship it, say so.
+    """
+    dest_dir = OV / "mods"
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    jars = find_bridge_jars()
+    if not jars:
+        print("HONEST: rallous-recruits-bridge jar missing — siblings did not ship it")
+        return None
+    src = max(jars, key=lambda p: (p.stat().st_mtime, p.stat().st_size))
+    dest = dest_dir / src.name
+    if src.resolve() != dest.resolve():
+        shutil.copy2(src, dest)
+    print(f"ingested bridge jar {src} -> {dest} ({dest.stat().st_size} bytes)")
+    return dest
+
+
 def ingest_siblings() -> dict[str, int]:
     counts = {
         "factions": 0,
@@ -121,6 +245,8 @@ def ingest_siblings() -> dict[str, int]:
         "resourcepacks": 0,
         "quests": 0,
         "config": 0,
+        "options": 0,
+        "bridge": 0,
     }
     for src in find_dirs("content/factions"):
         counts["factions"] += copy_tree(src, OV / "content" / "factions")
@@ -158,6 +284,8 @@ def ingest_siblings() -> dict[str, int]:
             if dc.is_dir():
                 # Forge copies <gamedir>/defaultconfigs/ → world serverconfig/.
                 counts["config"] += copy_tree(dc, OV / "defaultconfigs")
+    counts["options"] += ingest_options_txt()
+    counts["bridge"] += 1 if ingest_bridge_jar() else 0
     print("ingested", counts)
     return counts
 
@@ -423,8 +551,26 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         for needle in ("Elector", "Waaagh", "Under-Empire", "von Carstein", "Bloodbound"):
             if needle not in recruits_lang:
                 raise SystemExit(f"Continuity recruits lang missing {needle}")
+        if "overrides/options.txt" not in names:
+            raise SystemExit("zip missing options.txt pack order")
+        opt = zf.read("overrides/options.txt").decode()
+        if "resourcePacks:" not in opt:
+            raise SystemExit("options.txt missing resourcePacks")
+        if "Rallous Continuity" not in opt:
+            raise SystemExit("options.txt pack order missing Rallous Continuity")
         if any("Continuity" in n and n.endswith(".jar") for n in names):
             raise SystemExit("zip contains Continuity jar")
+        bridge_names = [n for n in names if BRIDGE_JAR_RE.search(Path(n).name)]
+        if bridge_names:
+            print("zip includes bridge jar", bridge_names)
+        else:
+            print("HONEST: zip has no rallous-recruits-bridge jar")
+        reik = zf.read("overrides/datapacks/rallous_factions/data/rallous_factions/functions/place/reikland.mcfunction").decode()
+        camp_ops = sum(1 for line in reik.splitlines() if " setblock " in line or " fill " in line or " summon " in line)
+        if camp_ops < 8:
+            print(f"HONEST: reikland camp still thin ({camp_ops} place ops); sibling thicken may be missing")
+        else:
+            print(f"thicker camps: reikland place ops={camp_ops}")
         from io import BytesIO
 
         ow = zipfile.ZipFile(BytesIO(zf.read("overrides/mods/rallous-old-world-1.0.0.jar")))
@@ -464,7 +610,7 @@ def file_ids_from_021() -> set[tuple[int, int]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.5")
+    parser.add_argument("--version", default="0.3.6")
     parser.add_argument("--skip-author", action="store_true", help="Do not rewrite crash functions")
     args = parser.parse_args()
 
@@ -494,8 +640,14 @@ def main() -> None:
     zip_path = DIST / f"rallous-warhammer-fantasy-{args.version}.zip"
     assert_zip_payload(zip_path, file_ids_from_021())
     nfiles = len(manifest.get("files") or [])
+    if nfiles != 76:
+        raise SystemExit(f"expected 76 CF files, got {nfiles}")
     print(f"CF files pinned: {nfiles} version={manifest.get('version')}")
     print("sibling ingest", ingested)
+    if ingested.get("bridge"):
+        print("bridge jar: yes")
+    else:
+        print("bridge jar: NO — siblings did not ship rallous-recruits-bridge")
     print("zip", zip_path)
 
 
