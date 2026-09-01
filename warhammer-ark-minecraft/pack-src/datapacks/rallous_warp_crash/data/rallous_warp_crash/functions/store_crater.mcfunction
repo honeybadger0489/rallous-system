@@ -16,3 +16,4 @@ execute store result storage rallous_warp_crash:data craters[-1].slot int 1 run 
 execute store result storage rallous_warp_crash:data craters[-1].x int 1 run scoreboard players get @s rallous.crater_x
 execute store result storage rallous_warp_crash:data craters[-1].y int 1 run scoreboard players get @s rallous.crater_y
 execute store result storage rallous_warp_crash:data craters[-1].z int 1 run scoreboard players get @s rallous.crater_z
+execute as @s run function rallous_crater_hq:mark

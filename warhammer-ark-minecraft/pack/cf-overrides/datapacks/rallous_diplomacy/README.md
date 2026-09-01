@@ -3,7 +3,7 @@ Minecraft **1.20.1** datapack (`pack_format` **15**). Consumes FTB first-contact
 Reads: `rallous.path` 1 help / 2 betray / 3 join / 4 leave. `rallous.race` 1–8 (empire…khorne).
 Targets within 512: `rallous.camp` / `rallous_contact` first, else camp lords (`rallous.lord` / `rallous_lord` / `rallous.lord_stand`).
 `/function rallous_diplomacy:apply_path` — dispatch from the player's path. Per-verb: `help` / `betray` / `join` / `leave`.
-Call after `rallous_contact:path/*`, or run a verb alone. FTB only sets the score until the zip agent wires this.
+Call after `rallous_contact:path/*`, or run a verb alone. FTB Paths rewards run `rallous_contact:path/*`, which calls this then `rallous_factions:path/sync`. A factions tick also applies on a `rallous.path` edge.
 **help** → `rallous.stance` 1 (ally) + tellraw + one vanilla gift (`rallous.gifted`). Mirrors `rallous.fac.stance` 1.
 **betray** → stance 2 + `rallous.khorne_path` (player and marker) + golem `AngryAt`. Mirrors `rallous.fac.stance` 6 (war).
 **join** → stance 3 + `rallous.civ_bed` 1 (eligible) + `rallous.claimed` 1. Mirrors `rallous.fac.stance` 5.

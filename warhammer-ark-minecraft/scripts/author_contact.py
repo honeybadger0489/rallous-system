@@ -835,6 +835,7 @@ scoreboard objectives add rallous.army dummy
             "scoreboard players set @s rallous.help 1\n"
             "advancement grant @s only rallous_contact:path/help\n"
             'tellraw @s {"text":"Path: help. rallous.path=1","color":"gray"}\n'
+            "function rallous_diplomacy:apply_path\n"
             "function rallous_factions:path/sync\n"
         ),
         "path/betray.mcfunction": (
@@ -842,6 +843,7 @@ scoreboard objectives add rallous.army dummy
             "scoreboard players set @s rallous.betray 1\n"
             "advancement grant @s only rallous_contact:path/betray\n"
             'tellraw @s {"text":"Path: betray. rallous.path=2","color":"gray"}\n'
+            "function rallous_diplomacy:apply_path\n"
             "function rallous_factions:path/sync\n"
         ),
         "path/join.mcfunction": (
@@ -849,6 +851,7 @@ scoreboard objectives add rallous.army dummy
             "scoreboard players set @s rallous.join 1\n"
             "advancement grant @s only rallous_contact:path/join\n"
             'tellraw @s {"text":"Path: join. rallous.path=3","color":"gray"}\n'
+            "function rallous_diplomacy:apply_path\n"
             "function rallous_factions:path/sync\n"
         ),
         "path/leave.mcfunction": (
@@ -856,6 +859,7 @@ scoreboard objectives add rallous.army dummy
             "scoreboard players set @s rallous.leave 1\n"
             "advancement grant @s only rallous_contact:path/leave\n"
             'tellraw @s {"text":"Path: align-and-leave. rallous.path=4","color":"gray"}\n'
+            "function rallous_diplomacy:apply_path\n"
             "function rallous_factions:path/sync\n"
         ),
         "race/empire.mcfunction": (
@@ -1305,6 +1309,9 @@ def validate() -> None:
     ):
         if not (contact / rel).exists():
             raise SystemExit(f"missing contact file {rel}")
+    help_fn = (contact / "data/rallous_contact/functions/path/help.mcfunction").read_text()
+    if "rallous_diplomacy:apply_path" not in help_fn or "rallous_factions:path/sync" not in help_fn:
+        raise SystemExit("path/help missing diplomacy/factions cross-call")
     rec = json.loads((OV / "resourcepacks" / "Rallous Continuity" / "assets" / "recruits" / "lang" / "en_us.json").read_text())
     for key, frag in (
         ("key.recruits.team_screen_key", "Under-Empire"),
