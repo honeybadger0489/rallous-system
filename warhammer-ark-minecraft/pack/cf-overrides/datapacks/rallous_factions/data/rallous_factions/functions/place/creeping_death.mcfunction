@@ -1,14 +1,37 @@
-# place Creeping Death — Forest Goblin Warboss Creeping Death
+# place Creeping Death — Forest Goblin Warboss Creeping Death (waaagh war host)
 execute if score #creeping_death rallous.used matches 1 run scoreboard players set $skip rallous.gen 1
 execute unless score #creeping_death rallous.used matches 1 run scoreboard players set $skip rallous.gen 0
-execute if score $skip rallous.gen matches 0 run fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 minecraft:packed_mud
+execute if score $skip rallous.gen matches 0 run fill ~-3 ~-1 ~-3 ~3 ~-1 ~3 minecraft:coarse_dirt
 execute if score $skip rallous.gen matches 0 run setblock ~ ~-1 ~ minecraft:cobblestone
 execute if score $skip rallous.gen matches 0 run setblock ~ ~ ~ minecraft:campfire
-execute if score $skip rallous.gen matches 0 run setblock ~2 ~ ~ minecraft:oak_fence
-execute if score $skip rallous.gen matches 0 run setblock ~2 ~1 ~ minecraft:green_banner
-execute if score $skip rallous.gen matches 0 run setblock ~-2 ~ ~ minecraft:lantern
+execute if score $skip rallous.gen matches 0 run setblock ~2 ~ ~-2 minecraft:campfire
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~ ~3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~1 ~3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~ ~3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~1 ~3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~ ~-3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~1 ~-3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~ ~-3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~1 ~-3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~ ~ minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~1 ~ minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~ ~ minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~1 ~ minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~ ~ ~-3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~ ~1 ~-3 minecraft:oak_fence
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~2 ~ minecraft:green_banner
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~2 ~ minecraft:green_banner
+execute if score $skip rallous.gen matches 0 run setblock ~ ~2 ~-3 minecraft:green_banner
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~2 ~3 minecraft:skeleton_skull
+execute if score $skip rallous.gen matches 0 run setblock ~-2 ~ ~2 minecraft:hay_block
+execute if score $skip rallous.gen matches 0 run setblock ~2 ~ ~2 minecraft:cobblestone
+execute if score $skip rallous.gen matches 0 run setblock ~-2 ~ ~-2 minecraft:mossy_cobblestone
+execute if score $skip rallous.gen matches 0 run setblock ~ ~ ~3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~ ~1 ~3 minecraft:cobblestone_wall
 execute if score $skip rallous.gen matches 0 run summon minecraft:marker ~ ~ ~ {Tags:["rallous.camp","rallous.fac.creeping_death"],CustomName:'{"text":"Forest Goblin Warboss Creeping Death","color":"green","bold":true}'}
 execute if score $skip rallous.gen matches 0 run summon minecraft:villager ~0.6 ~ ~ {CustomName:'{"text":"Forest Goblin Warboss Creeping Death","color":"green","bold":true}',CustomNameVisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoAI:1b,Tags:["rallous.lord","rallous.fac.creeping_death"],VillagerData:{profession:"minecraft:nitwit",level:3,type:"minecraft:savanna"},HandItems:[{id:"minecraft:iron_axe",Count:1b},{}]}
+execute if score $skip rallous.gen matches 0 run summon recruits:recruit ~2 ~ ~1 {CustomName:'{"text":"Orc Boy","color":"green"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Tags:["rallous.soldier","rallous.fac.creeping_death"]}
+execute if score $skip rallous.gen matches 0 run summon recruits:bowman ~-2 ~ ~1 {CustomName:'{"text":"Arrer Boy","color":"green"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Tags:["rallous.soldier","rallous.fac.creeping_death"]}
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.creeping_death,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.id 52
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.creeping_death,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race 5
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.creeping_death,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 2

@@ -1,13 +1,37 @@
-# place Clan Mors — Warlord of Clan Mors Queek Headtaker
+# place Clan Mors — Warlord of Clan Mors Queek Headtaker (under-empire war host)
 execute if score #clan_mors rallous.used matches 1 run scoreboard players set $skip rallous.gen 1
 execute unless score #clan_mors rallous.used matches 1 run scoreboard players set $skip rallous.gen 0
-execute if score $skip rallous.gen matches 0 run fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:deepslate
+execute if score $skip rallous.gen matches 0 run fill ~-3 ~-1 ~-3 ~3 ~-1 ~3 minecraft:deepslate
+execute if score $skip rallous.gen matches 0 run setblock ~ ~-1 ~ minecraft:deepslate_tiles
 execute if score $skip rallous.gen matches 0 run setblock ~ ~ ~ minecraft:campfire
-execute if score $skip rallous.gen matches 0 run setblock ~1 ~ ~ minecraft:cobblestone_wall
-execute if score $skip rallous.gen matches 0 run setblock ~1 ~1 ~ minecraft:purple_banner
-execute if score $skip rallous.gen matches 0 run setblock ~-1 ~ ~ minecraft:cobweb
+execute if score $skip rallous.gen matches 0 run setblock ~2 ~ ~-2 minecraft:campfire
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~ ~3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~1 ~3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~ ~3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~1 ~3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~ ~-3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~1 ~-3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~ ~-3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~1 ~-3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~ ~ minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~1 ~ minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~ ~ minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~1 ~ minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~ ~ ~-3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~ ~1 ~-3 minecraft:cobblestone_wall
+execute if score $skip rallous.gen matches 0 run setblock ~3 ~2 ~ minecraft:purple_banner
+execute if score $skip rallous.gen matches 0 run setblock ~-3 ~2 ~ minecraft:purple_banner
+execute if score $skip rallous.gen matches 0 run setblock ~1 ~ ~-1 minecraft:cobweb
+execute if score $skip rallous.gen matches 0 run setblock ~-1 ~ ~-1 minecraft:cobweb
+execute if score $skip rallous.gen matches 0 run setblock ~1 ~ ~1 minecraft:cobweb
+execute if score $skip rallous.gen matches 0 run setblock ~-2 ~ ~2 minecraft:cobweb
+execute if score $skip rallous.gen matches 0 run setblock ~-2 ~ ~-2 minecraft:cauldron
+execute if score $skip rallous.gen matches 0 run setblock ~2 ~ ~2 minecraft:iron_bars
+execute if score $skip rallous.gen matches 0 run setblock ~2 ~1 ~2 minecraft:iron_bars
 execute if score $skip rallous.gen matches 0 run summon minecraft:marker ~ ~ ~ {Tags:["rallous.camp","rallous.fac.clan_mors"],CustomName:'{"text":"Warlord of Clan Mors Queek Headtaker","color":"light_purple","bold":true}'}
 execute if score $skip rallous.gen matches 0 run summon minecraft:villager ~0.6 ~ ~ {CustomName:'{"text":"Warlord of Clan Mors Queek Headtaker","color":"light_purple","bold":true}',CustomNameVisible:1b,PersistenceRequired:1b,Invulnerable:1b,NoAI:1b,Tags:["rallous.lord","rallous.fac.clan_mors"],VillagerData:{profession:"minecraft:toolsmith",level:3,type:"minecraft:swamp"},HandItems:[{id:"minecraft:iron_sword",Count:1b},{}]}
+execute if score $skip rallous.gen matches 0 run summon recruits:recruit ~2 ~ ~1 {CustomName:'{"text":"Clanrat","color":"light_purple"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Tags:["rallous.soldier","rallous.fac.clan_mors"]}
+execute if score $skip rallous.gen matches 0 run summon recruits:scout ~-2 ~ ~1 {CustomName:'{"text":"Night Runner","color":"light_purple"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Tags:["rallous.soldier","rallous.fac.clan_mors"]}
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_mors,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.id 106
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_mors,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race 7
 execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.clan_mors,limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance 2

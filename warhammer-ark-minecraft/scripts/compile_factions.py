@@ -19,6 +19,8 @@ import json
 import shutil
 from pathlib import Path
 
+from camp_sites import SITE_KIND, assert_camps_thick, camp_blocks, camp_soldiers
+
 ROOT = Path(__file__).resolve().parents[1]
 FACTIONS_ROOT = ROOT / "content" / "factions"
 OUT = ROOT / "content" / "datapacks" / "rallous_factions"
@@ -203,66 +205,6 @@ def biome_ok_lines(fac: dict, score: str = "$biome_ok") -> list[str]:
     return lines
 
 
-def camp_blocks(race_id: str, site: str, settlement: str, banner: str) -> list[str]:
-    roaming = site == "roaming" or settlement == "roaming"
-    if race_id == "khorne":
-        return [
-            "fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:red_nether_bricks",
-            "setblock ~ ~-1 ~ minecraft:magma_block",
-            "setblock ~ ~ ~ minecraft:soul_campfire",
-            "setblock ~1 ~ ~ minecraft:nether_brick_fence",
-            f"setblock ~1 ~1 ~ minecraft:{banner}",
-            "setblock ~-1 ~ ~ minecraft:skeleton_skull",
-        ]
-    if race_id == "beastmen":
-        return [
-            "fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:coarse_dirt",
-            "setblock ~ ~-1 ~ minecraft:rooted_dirt",
-            "setblock ~ ~ ~ minecraft:campfire",
-            "setblock ~1 ~ ~ minecraft:dark_oak_fence",
-            f"setblock ~1 ~1 ~ minecraft:{banner}",
-            "setblock ~-1 ~ ~ minecraft:skeleton_skull",
-        ]
-    if race_id == "greenskins" and roaming:
-        return [
-            "fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:coarse_dirt",
-            "setblock ~ ~ ~ minecraft:campfire",
-            "setblock ~1 ~ ~ minecraft:oak_fence",
-            f"setblock ~1 ~1 ~ minecraft:{banner}",
-            "setblock ~-1 ~ ~ minecraft:cobblestone",
-        ]
-    if race_id == "skaven":
-        return [
-            "fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:deepslate",
-            "setblock ~ ~ ~ minecraft:campfire",
-            "setblock ~1 ~ ~ minecraft:cobblestone_wall",
-            f"setblock ~1 ~1 ~ minecraft:{banner}",
-            "setblock ~-1 ~ ~ minecraft:cobweb",
-        ]
-    if roaming:
-        return [
-            "fill ~-1 ~-1 ~-1 ~1 ~-1 ~1 minecraft:coarse_dirt",
-            "setblock ~ ~ ~ minecraft:campfire",
-            "setblock ~1 ~ ~ minecraft:oak_fence",
-            f"setblock ~1 ~1 ~ minecraft:{banner}",
-        ]
-    # Settled: a picket, not a capital plaza.
-    floor = {
-        "empire": "packed_mud",
-        "dwarfs": "stone_bricks",
-        "vampire_counts": "deepslate_bricks",
-        "lizardmen": "mossy_stone_bricks",
-    }.get(race_id, "packed_mud")
-    return [
-        f"fill ~-2 ~-1 ~-2 ~2 ~-1 ~2 minecraft:{floor}",
-        "setblock ~ ~-1 ~ minecraft:cobblestone",
-        "setblock ~ ~ ~ minecraft:campfire",
-        "setblock ~2 ~ ~ minecraft:oak_fence",
-        f"setblock ~2 ~1 ~ minecraft:{banner}",
-        "setblock ~-2 ~ ~ minecraft:lantern",
-    ]
-
-
 def raid_lines(race_id: str) -> list[str]:
     if race_id == "khorne":
         return [
@@ -366,12 +308,16 @@ description='''Compiled from content/factions JSON. Living camps, not a silent v
 Do not edit these mcfunctions by hand. Source is `content/factions/`.
 Rebuild: `python3 scripts/compile_factions.py`
 
-Each camp is a banner + named lord from the faction template + a marker
-holding `rallous.fac.id` / race / stance / tier. First-days mix majors and
+Each camp is a war-host picket by site kind (settled / hold / temple /
+herd / waaagh / under-empire / khorne): palisade posts, extra banners
+and campfires, site props (skulls, cobwebs, anvil, …), the named lord
+from the faction template, and two Recruits soldiers. A marker holds
+`rallous.fac.id` / race / stance / tier. First-days mix majors and
 minors (cap 16). After every major of a race is placed, that race rolls
 minor-only. Walking farther places more from the remaining pool (cap 40).
-Warp-crash assigns the nearest camp as `rallous.contact` and fires the
-race stance. FTB help/betray/join/leave changes that contact faction.
+Never all 129 at once. Warp-crash assigns the nearest camp as
+`rallous.contact` and fires the race stance. FTB help/betray/join/leave
+changes that contact faction.
 """,
     )
 
@@ -747,7 +693,7 @@ def write_faction_fns(races: dict[str, dict], factions: list[dict]) -> None:
         w(FN / "try" / f"{sl}.mcfunction", "\n".join(try_lines) + "\n")
 
         place = [
-            f"# place {fac['name']} — {lord_name}",
+            f"# place {fac['name']} — {lord_name} ({SITE_KIND.get(race['id'], 'settled')} war host)",
             f"execute if score #{sl} rallous.used matches 1 run scoreboard players set $skip rallous.gen 1",
             f"execute unless score #{sl} rallous.used matches 1 run scoreboard players set $skip rallous.gen 0",
             * [f"execute if score $skip rallous.gen matches 0 run {line}" for line in camp_blocks(race["id"], fac.get("site", "settled"), race.get("settlement", "settled"), banner)],
@@ -763,6 +709,7 @@ def write_faction_fns(races: dict[str, dict], factions: list[dict]) -> None:
                 f'VillagerData:{{profession:"minecraft:{prof}",level:3,type:"minecraft:{vtype}"}},'
                 f"HandItems:[{{id:\"minecraft:{weapon_id}\",Count:1b}},{{}}]}}"
             ),
+            * [f"execute if score $skip rallous.gen matches 0 run {line}" for line in camp_soldiers(race["id"], sl, color)],
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.id {i}",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.race {RACE_NUM[race['id']]}",
             f"execute if score $skip rallous.gen matches 0 as @e[type=minecraft:marker,tag=rallous.fac.{sl},limit=1,sort=nearest] run scoreboard players set @s rallous.fac.stance {stance}",
@@ -852,6 +799,7 @@ def compile_factions() -> dict:
     minors = len(factions) - majors
     if majors != 42 or minors != 87:
         raise SystemExit(f"expected 42 major / 87 minor, got {majors}/{minors}")
+    assert_camps_thick(RACE_NUM)
     if OUT.exists():
         shutil.rmtree(OUT)
     write_meta()

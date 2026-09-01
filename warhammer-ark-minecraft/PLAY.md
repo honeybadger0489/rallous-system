@@ -11,13 +11,13 @@ CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, 
 
 **Quest book identity:** **The Warp-Crash** — Crash (crater, then ~1 hour village *or* fight) → Paths (help / betray / join / align-and-leave; each sets `rallous.path` and shifts **that** contact faction’s stance) → First Hour (Empire, Vampire Counts, Lizardmen, Beastmen, Greenskins, Dwarfs, Skaven, Khorne) → The Winds (no starter spellbook; Colleges / Ice / death / Blood). **The Host** is optional Recruits. **Temple and Herd** is the Fossils / Tameable Beasts chapter. Smoke is a side checklist. There is no Reikland tutorial court.
 
-A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crater. There is **no** Karl Franz war council. A named lord from a **real table faction** (not a mute vanilla village) is the nearest camp: banner, lord villager from the JSON template, and a stance line. A second player who joins this world crashes **somewhere else**.
+A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crater. There is **no** Karl Franz war council. A named lord from a **real table faction** (not a mute vanilla village) is the nearest camp: palisade, banners, campfires, site props, the lord villager from the JSON template, two Recruits soldiers, and a stance line. A second player who joins this world crashes **somewhere else**.
 
 **Honest remaining limits:**
 
 - **Camps vs Recruits.** `rallous_factions` places camps, names lords, and fires stance lines. `rallous_recruits_bind` copies that camp’s display name onto scores / storage and hands you a book. Recruits **still has no datapack API** that founds a banner, hires a levy, or sets Ally / Enemy. Open **U** → Found a Banner, type the crash-camp name from chat, then Diplomacy. Hire lists, pathfinding, and team AI stay the engine’s.
 - **Session night** is vanilla pillagers / zombies **named as that race’s enemies**, not a Recruits battle and not a Total War city fight.
-- Camps are the living map (banner + lord pickets), not Total War cities. First days cap about **16** sites; walking farther can place more from the remaining pool (about **40** total, never all 129 at once). Beastmen / Waaagh / Khorne / some Skaven are roaming-style camps, not pretty capitals.
+- Camps are war-host pickets (palisade + banners + lord + two soldiers), not Total War cities. First days cap about **16** sites; walking farther can place more from the remaining pool (about **40** total, never all 129 at once). Beastmen / Waaagh / Khorne / some Skaven are roaming-style camps, not pretty capitals.
 - Client is **not** booted in CI. If it crashes, send `crash-*-fml.txt`.
 
 ---
