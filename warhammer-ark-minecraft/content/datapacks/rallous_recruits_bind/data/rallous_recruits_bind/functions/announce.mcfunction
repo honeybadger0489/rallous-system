@@ -1,0 +1,3 @@
+# Chat names the crash-camp host. Recruits will still print Team 2 unless the player founds this name in the GUI.
+tellraw @s [{"text":"Crash-camp host: ","color":"gold"},{"nbt":"name","storage":"rallous_recruits_bind:contact","color":"white","bold":true},{"text":" — lord ","color":"gray"},{"nbt":"lord","storage":"rallous_recruits_bind:contact","color":"yellow"},{"text":". Not Team 2.","color":"dark_gray"}]
+tellraw @s {"translate":"rallous_recruits_bind.tellraw.controls","fallback":"Recruits 1.15.x has no command that founds or names a banner. Options → Controls → Hosts of the Old World → Open Elector / Waaagh / Under-Empire Screen (default U) → Found a Banner. Type the crash-camp name from chat. Dye a cloth banner first.","color":"aqua"}

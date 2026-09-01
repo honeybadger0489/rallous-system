@@ -1,0 +1,6 @@
+{
+  "pack": {
+    "pack_format": 15,
+    "description": "Bind Recruits to the compiled crash-camp faction, not Team 2"
+  }
+}

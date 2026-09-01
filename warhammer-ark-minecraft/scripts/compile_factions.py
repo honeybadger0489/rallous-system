@@ -562,6 +562,7 @@ scoreboard players set @s rallous.contact 1
 tag @s add rallous.contacted
 tag @s add rallous.fac.greeted
 function rallous_factions:contact/greet
+function rallous_recruits_bind:on_contact
 """,
     )
     w(
@@ -619,6 +620,8 @@ execute if score @s rallous.fac.stance matches 3 run scoreboard players set @s r
 execute if score @s rallous.fac.stance matches 4 run scoreboard players set @s rallous.fac.stance 2
 execute if score @s rallous.fac.stance matches 6 run scoreboard players set @s rallous.fac.stance 3
 tellraw @a[distance=..48] {"text":"This faction watched you help. Their stance toward you shifted.","color":"green"}
+execute if score @s rallous.fac.stance matches 1 as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_recruits_bind:ally
+execute if score @s rallous.fac.stance matches 5 as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_recruits_bind:ally
 """,
     )
     w(
@@ -626,6 +629,7 @@ tellraw @a[distance=..48] {"text":"This faction watched you help. Their stance t
         """scoreboard players set @s rallous.fac.stance 6
 tellraw @a[distance=..48] {"text":"This faction names you oath-breaker. Their stance is war.","color":"red"}
 execute at @s run function rallous_factions:contact/raid_generic
+execute as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_recruits_bind:war
 """,
     )
     w(
@@ -633,6 +637,7 @@ execute at @s run function rallous_factions:contact/raid_generic
         """scoreboard players set @s rallous.fac.stance 5
 tellraw @a[distance=..48] {"text":"This faction takes your colour. You are of the host now.","color":"gold"}
 give @p minecraft:white_banner{display:{Name:'{"text":"Taken Colour","italic":false}'}} 1
+execute as @a[tag=rallous.path_actor,limit=1] at @s run function rallous_recruits_bind:ally
 """,
     )
     w(

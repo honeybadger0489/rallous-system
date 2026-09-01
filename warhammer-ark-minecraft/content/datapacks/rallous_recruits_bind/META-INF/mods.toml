@@ -1,0 +1,10 @@
+modLoader="lowcodefml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="rallous_recruits_bind"
+version="1.0.0"
+displayName="Rallous Recruits Bind"
+authors="Rallous System"
+description='''After Warp-crash assign, name the Recruits host after the compiled camp. Recruits 1.15.x has no create/hire/ally command — scores + book + lang.'''

@@ -9,3 +9,4 @@ scoreboard players set @s rallous.contact 1
 tag @s add rallous.contacted
 tag @s add rallous.fac.greeted
 function rallous_factions:contact/greet
+function rallous_recruits_bind:on_contact

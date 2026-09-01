@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "recruits:recruit",
+    "recruits:bowman",
+    "recruits:recruit_shieldman",
+    "recruits:nomad",
+    "recruits:horseman",
+    "recruits:crossbowman",
+    "recruits:scout",
+    "recruits:captain",
+    "recruits:commander",
+    "recruits:messenger",
+    "recruits:siege_engineer",
+    "recruits:villager_noble"
+  ]
+}
