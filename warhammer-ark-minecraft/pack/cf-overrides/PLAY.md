@@ -1,13 +1,13 @@
 # Rallous Warhammer Fantasy — play this
 
-**This is the only player doc.** Import **0.3.5** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4.
+**This is the only player doc.** Import **0.3.6** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5.
 
 **Download:**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.5.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.6.zip
 
 CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, ~8 GB RAM. **Minecraft 1.20.1 + Forge 47.4.10**. New world: Survival, Hard, cheats ON (smoke commands). Terralith default. Private pack — do not upload.
 
-**Enable resource pack Rallous Continuity** (Options → Resource Packs). That overlay is lang only — Elector / Waaagh / Under-Empire / von Carstein / Dawi / herd / temple-city / Bloodbound — **not** the Fabric Continuity connected-textures mod. Leave it off and Recruits still says Team 2.
+**Rallous Continuity is on in `options.txt` pack order** (last in the list). That overlay is lang only — Elector / Waaagh / Under-Empire / von Carstein / Dawi / herd / temple-city / Bloodbound — **not** the Fabric Continuity connected-textures mod. If a profile resets packs, move **Rallous Continuity** up again or Recruits still says Team 2.
 
 **Quest book identity:** **The Warp-Crash** — Crash (crater, then ~1 hour village *or* fight) → Paths (help / betray / join / align-and-leave; each sets `rallous.path` and shifts **that** contact faction’s stance) → First Hour (Empire, Vampire Counts, Lizardmen, Beastmen, Greenskins, Dwarfs, Skaven, Khorne) → The Winds (no starter spellbook; Colleges / Ice / death / Blood). **The Host** is optional Recruits. **Temple and Herd** is the Fossils / Tameable Beasts chapter. Smoke is a side checklist. There is no Reikland tutorial court.
 
@@ -15,7 +15,7 @@ A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crat
 
 **Honest remaining limits:**
 
-- **Camps vs Recruits.** `rallous_factions` places camps, names lords, and fires stance lines. `rallous_recruits_bind` copies that camp’s display name onto scores / storage and hands you a book. Recruits **still has no datapack API** that founds a banner, hires a levy, or sets Ally / Enemy. Open **U** → Found a Banner, type the crash-camp name from chat, then Diplomacy. Hire lists, pathfinding, and team AI stay the engine’s.
+- **Camps vs Recruits.** `rallous_factions` places thicker war-host pickets, names lords, and fires stance lines. `rallous_recruits_bind` copies that camp’s display name onto scores / storage and hands you a book. This zip **includes** `rallous-recruits-bridge-1.0.0.jar` (sibling Forge 1.20.1 / 47.4.10). That Java mod founds or renames your Recruits host to the crash-camp name after assign. Hire lists, pathfinding, and team AI stay the engine’s. If the bridge fails on boot, send `crash-*-fml.txt` and use **U** → Found a Banner as the fallback.
 - **Session night** is vanilla pillagers / zombies **named as that race’s enemies**, not a Recruits battle and not a Total War city fight.
 - Camps are war-host pickets (palisade + banners + lord + two soldiers), not Total War cities. First days cap about **16** sites; walking farther can place more from the remaining pool (about **40** total, never all 129 at once). Beastmen / Waaagh / Khorne / some Skaven are roaming-style camps, not pretty capitals.
 - Client is **not** booted in CI. If it crashes, send `crash-*-fml.txt`.
@@ -32,11 +32,11 @@ A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crat
 - Compiled faction map (`rallous_factions`): mix of major+minor camps from the 8 v1 races, lords from templates, crash contact + stance, path scores change that faction
 - First-contact path stance (`rallous_diplomacy`) — FTB Paths and the factions tick both call `apply_path`
 - One-night session (`rallous_session`): `/function rallous_session:start` / `:win` — one village or one fight in the contact lord’s voice
-- Recruits bind (`rallous_recruits_bind`): scores + book + crash-camp name after assign. Not a Recruits faction create.
+- Recruits bind (`rallous_recruits_bind`): scores + book + crash-camp name after assign. Plus `rallous-recruits-bridge-1.0.0.jar` to found / rename the Recruits host to that camp.
 - Warp-Crash FTB book (Crash / Paths / First Hour / The Winds / optional Host / Temple and Herd) + Smoke
 - Recruits / OPAC / Vassal lang overlay (**Rallous Continuity**) and grim defaultconfigs
 - Force functions: `/function rallous_old_world:force_roaming` and `/function rallous_old_world:lm_bm/summon`
-- Sibling jars: `rallous_roaming`, `rallous_temple_herd`, `rallous_contact`, `rallous_factions`, `rallous_diplomacy`, `rallous_crater_hq`, `rallous_session`, `rallous_recruits_bind`
+- Sibling jars: `rallous_roaming`, `rallous_temple_herd`, `rallous_contact`, `rallous_factions`, `rallous_diplomacy`, `rallous_crater_hq`, `rallous_session`, `rallous_recruits_bind`, `rallous-recruits-bridge`
 - Strip of the 0.2.2 `summon_lords` first-join court
 
 **We borrowed (engine):** Recruits, Iron’s Spells, Fossils and Archeology, Tameable Beasts, Epic Fight, Terralith, Towns and Towers, LSO, FTB Quests, Sons of the Empire kits, Faithful 32x, Grimdark Battlepack, Grimdark Sky, Gothic RPG Font, Complementary Unbound. **We did not sculpt Total War models.** Bodies stay Steve-like / villager.
