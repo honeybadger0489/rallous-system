@@ -9,7 +9,7 @@ https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minec
 
 CurseForge app → Minecraft → Create Custom Profile → Import. Java **17**, ~8 GB RAM. **Minecraft 1.20.1 + Forge 47.4.10**. New world: Survival, Hard, cheats ON (smoke commands). Terralith default. Private pack — do not upload.
 
-**Rallous Continuity is on in `options.txt` pack order** (last in the list). That overlay is lang only — Elector / Waaagh / Under-Empire / von Carstein / Dawi / herd / temple-city / Bloodbound — **not** the Fabric Continuity connected-textures mod. If a profile resets packs, move **Rallous Continuity** up again or Recruits still says Team 2.
+**Rallous Continuity is on in `options.txt` pack order** (last in the list). That overlay is lang only — Elector / Waaagh / Under-Empire / von Carstein / Dawi / herd / temple-city / Bloodbound — **not** the Fabric Continuity connected-textures mod. If a profile resets packs, move **Rallous Continuity** up again or Recruits still says **Recruit** instead of Levy. **Team 2** is a host-name miss (bridge or **U** → Found a Banner), not a missing lang pack.
 
 **Quest book identity:** **The Warp-Crash** — Crash (crater, then ~1 hour village *or* fight) → Paths (help / betray / join / align-and-leave; each sets `rallous.path` and shifts **that** contact faction’s stance) → First Hour (Empire, Vampire Counts, Lizardmen, Beastmen, Greenskins, Dwarfs, Skaven, Khorne) → The Winds (no starter spellbook; Colleges / Ice / death / Blood). **The Host** is optional Recruits. **Temple and Herd** is the Fossils / Tameable Beasts chapter. Smoke is a side checklist. There is no Reikland tutorial court.
 
@@ -17,7 +17,7 @@ A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crat
 
 **Honest remaining limits:**
 
-- **Camps vs Recruits.** `rallous_factions` places thicker war-host pickets, names lords, and fires stance lines. `rallous_recruits_bind` copies that camp’s display name onto scores / storage and hands you a book. This zip **includes** `rallous-recruits-bridge-1.0.0.jar` (sibling Forge 1.20.1 / 47.4.10). That Java mod founds or renames your Recruits host to the crash-camp name after assign. Hire lists, pathfinding, and team AI stay the engine’s. If the bridge fails on boot, send `crash-*-fml.txt` and use **U** → Found a Banner as the fallback.
+- **Camps vs Recruits.** `rallous_factions` places **7×7** war-host pickets, names lords, and fires stance lines. `rallous_recruits_bind` copies that camp’s display name onto scores / storage and hands you a book. This zip **includes** `rallous-recruits-bridge-1.0.0.jar` (sibling Forge 1.20.1 / 47.4.10). That Java mod **tries** to found or rename your Recruits host to the crash-camp name after assign. It can fail (`rallous.rec.bridge_fail`). Hire lists, pathfinding, and team AI stay the engine’s. If **U** still says Team 2, send `crash-*-fml.txt` if the client died, and use **U** → Found a Banner.
 - **Session night** is vanilla pillagers / zombies **named as that race’s enemies**, not a Recruits battle and not a Total War city fight.
 - Camps are war-host pickets (palisade + banners + lord + two soldiers), not Total War cities. First days cap about **16** sites; walking farther can place more from the remaining pool (about **40** total, never all 129 at once). Beastmen / Waaagh / Khorne / some Skaven are roaming-style camps, not pretty capitals.
 - Client is **not** booted in CI. If it crashes, send `crash-*-fml.txt`.
@@ -34,9 +34,9 @@ A new world is a **Warp-crash**. You wake in a blackstone / crying-obsidian crat
 - Compiled faction map (`rallous_factions`): mix of major+minor camps from the 8 v1 races, lords from templates, crash contact + stance, path scores change that faction
 - First-contact path stance (`rallous_diplomacy`) — FTB Paths and the factions tick both call `apply_path`
 - One-night session (`rallous_session`): `/function rallous_session:start` / `:win` — one village or one fight in the contact lord’s voice
-- Recruits bind (`rallous_recruits_bind`): scores + book + crash-camp name after assign. Plus `rallous-recruits-bridge-1.0.0.jar` to found / rename the Recruits host to that camp (`FactionEvents.createTeam(false, …)`).
+- Recruits bind (`rallous_recruits_bind`): scores + book + crash-camp name after assign. Plus `rallous-recruits-bridge-1.0.0.jar`, which **tries** to found / rename the Recruits host to that camp (`FactionEvents.createTeam(false, …)`). Fallback: **U** → Found a Banner.
 - Race levy kit on first-contact greet (`rallous_kit`)
-- Camp growth (`rallous_grow`) — help / trade / session and the 7×7 gains huts (Millénaire loop, not MineColonies)
+- Camp growth (`rallous_grow`) — help / trade / session credits, then the **7×7 picket** gains **1–3 oak/cobble huts** (Millénaire-style credit, not the Millénaire mod, not MineColonies)
 - Warp-Crash FTB book (Crash / Paths / First Hour / The Winds / optional Host / Temple and Herd) + Smoke
 - Recruits / OPAC / Vassal lang overlay (**Rallous Continuity**) and grim defaultconfigs
 - Force functions: `/function rallous_old_world:force_roaming` and `/function rallous_old_world:lm_bm/summon`
@@ -58,7 +58,7 @@ Do **[wiki/TEST.md](wiki/TEST.md)** (copied into the instance folder as `wiki/TE
 Quest book **`` ` ``** (grave). Chapter **Warp-crash Smoke** ticks the same list.
 
 1. **Crash** — Look down. Bowl of blackstone / crying obsidian, campfire, wreckage chest. No six named lords. Title says Warp-crash. Forge 47.4.10. If it dies on boot, send `crash-*-fml.txt`.
-2. **Named lord + stance** — Walk to the nearest bannered camp. A **named lord from a real faction** (Elector, High King, Beastlord, …) speaks a **stance** (blade gift, prove-yourself, brief raid, or daemon accusation). Not a mute village tagged “Faction Contact”. Chat should name the camp (Reikland, Clan Mors, …), never Team 2.
+2. **Named lord + stance** — Walk to the nearest bannered camp. A **named lord from a real faction** (Elector, High King, Beastlord, …) speaks a **stance** (blade gift, prove-yourself, brief raid, or daemon accusation). Not a mute village tagged “Faction Contact”. Chat should name the camp (Reikland, Clan Mors, …). If **U** still says Team 2, Found a Banner and type that chat name.
 3. **Session start / win** — Cheats ON, stand at that camp: `/function rallous_session:start`. The lord speaks; a short wave or the camp raid begins. Clear it, or `/function rallous_session:win`. Night + walking to **that** camp can also auto-start once.
 4. **Force roaming** — `/function rallous_old_world:force_roaming` spawns a Waaagh scout, a Beastmen herd, and a Khorne pack near you.
 5. **Enable Rallous Continuity** — Options → Resource Packs → move **Rallous Continuity** up. Hire / inspect Recruits: **Levy** / **Elector** / **Waaagh** / **Under-Empire**, not “Recruit” / Team 2. That overlay is lang only.
@@ -76,7 +76,7 @@ Also worth a pass if you have time: second player (or `/function rallous_old_wor
 | Host Command / `R` (Recruits) | Levy orders — not Iron’s wheel until later |
 | Parties / OPAC | Warband land |
 | Quests / `` ` `` | Warp-Crash + Smoke |
-| World map / `M` | Towns |
+| World map / `M` | Xaero world map |
 | Spell wheel / `R` (Iron’s) | **Later**, not the crater |
 
 Useful (cheats ON):

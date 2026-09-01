@@ -30,7 +30,7 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 ### Stance
 
 - [ ] Walk to the nearest **bannered** camp. Palisade. Lord. Two soldiers.
-- [ ] Chat names a **real faction** (Reikland, Clan Mors, Hexoatl, …). Never Team 2.
+- [ ] Chat names a **real faction** (Reikland, Clan Mors, Hexoatl, …). If **U** still says Team 2, Found a Banner and type that chat name.
 - [ ] The lord speaks a **stance**: blade gift, prove-yourself, raid, or daemon accusation.
 - [ ] If nothing is near: `/function rallous_factions:debug/force_contact` and try again.
 
@@ -41,7 +41,7 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 - [ ] Clear it — or `/function rallous_session:win`. Hostile: stand on the banner ~3s / break it.
 - [ ] Optional: wait for night, walk back, see if it auto-starts once.
 
-### Camp growth (Millénaire)
+### Camp growth (7×7 picket huts)
 
 - [ ] After a help night, a hut appears **outside** the 7×7 pad. Chat says Elector / temple-city / hold / Under-Empire — not “town hall”.
 - [ ] Spend an emerald at the camp (hire or trade). `rallous.grow` ticks up. Second hut or hall.
@@ -49,8 +49,8 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 
 ### Banner UI
 
-- [ ] **U** opens Found a Banner / Diplomacy (Elector / Waaagh / Under-Empire — not “Team 2”).
-- [ ] Inspect the host. Name matches the camp, or Found a Banner and type the chat name.
+- [ ] **U** opens Found a Banner / Diplomacy (Elector / Waaagh / Under-Empire lang if Continuity is on).
+- [ ] Inspect the host. Name matches the camp, **or** it still says Team 2 — Found a Banner and type the chat name.
 - [ ] Right-click a Levy. Hire GUI exists. There is **no** `/recruits hire`.
 - [ ] **R** is Host Command (orders), not a spell wheel.
 - [ ] Do **not** `/team add`. Confirm Recruits still warns if you try.
@@ -59,7 +59,7 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 
 - [ ] Watch the LSO thirst / temp HUD. Walk without drinking until it matters.
 - [ ] Drink. Heat in a hot biome or cold in a hold-road should also nag.
-- [ ] Eat. This is Ark survival, not a creative tour.
+- [ ] Eat. This is LSO thirst / temp / hunger, not a creative tour and not Ark.
 
 ### Tame
 

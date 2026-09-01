@@ -6,11 +6,11 @@ You wake in a **Warp-crash**: blackstone, crying obsidian, a wreckage chest, no 
 
 ## What this is
 
-**Total War: Warhammer factions on the ground** + **Ark survival** (thirst, heat, tames) in first person. Eight races. Camps are war-host pickets, not city builders. One night is one village or one fight.
+Eight **named table-faction pickets** (7×7 palisade, not Total War cities) + **LSO thirst / heat** + Fossils / Tameable Beasts. Not Ark. One night is one village or one fight.
 
 **Mods are the engine.** Recruits (hosts), Iron’s Spells (Winds — later), Fossils + Tameable Beasts (Temple and Herd), Epic Fight, Terralith, Legendary Survival Overhaul, FTB Quests. Bodies stay Steve / villager. We did not sculpt Total War models.
 
-**We authored** the crash, compiled camps, first-contact stance, path diplomacy, session night, roaming hosts, Recruits bind + banner-founding, **camp growth** (`rallous_grow` — help / trade and the picket gains huts), and the Warp-Crash quest book. We borrowed the rest.
+**We authored** the crash, compiled 7×7 camps, first-contact stance, path diplomacy, session night, roaming hosts, Recruits bind + a Java bridge that **tries** to found the banner (**U** if it misses), **camp growth** (`rallous_grow` — help / trade and the picket gains 1–3 huts), and the Warp-Crash quest book. We borrowed the rest.
 
 ## Eight races
 
@@ -24,7 +24,7 @@ See [Factions](Factions.md). First days place about **16** camps; walking farthe
 - Session night is vanilla pillagers / zombies **named as that race’s enemies**, not a Recruits battle.
 - Recruits hire / orders / Ally–Enemy still live in Recruits’ GUIs. See [Recruits](Recruits.md).
 - No starter spellbook. See [Magic](Magic.md).
-- Client is not booted in CI. Crash on boot → send `crash-*-fml.txt`. Dedicated-server smoke **passed on 0.3.9**; **0.3.10** parse fixes are pending re-smoke.
+- Client is not booted in CI. Crash on boot → send `crash-*-fml.txt`. Dedicated-server smoke **passed on 0.3.10**.
 
 ## Play
 

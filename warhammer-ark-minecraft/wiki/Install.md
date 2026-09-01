@@ -30,7 +30,7 @@ java -version
 
 **Rallous Continuity** is a **lang overlay**: Elector / Waaagh / Under-Empire / von Carstein / Dawi / herd / temple-city / Bloodbound. It is **not** the Fabric **Continuity** connected-textures mod. That Fabric-leaning jar stays **out** so the instance boots.
 
-`options.txt` already puts Rallous Continuity last (on) in pack order. If a profile resets packs: Options → Resource Packs → move **Rallous Continuity** up. Without it, Recruits still says Team 2 / Recruit.
+`options.txt` already puts Rallous Continuity last (on) in pack order. If a profile resets packs: Options → Resource Packs → move **Rallous Continuity** up. Without it, Recruits still says **Recruit** instead of Levy. **Team 2** is a host name — use **U** → Found a Banner (see [Recruits](Recruits.md)). The lang pack does not rename a host.
 
 ## Boot fail
 
