@@ -22,7 +22,7 @@ MODLIST = PACK / "curseforge" / "modlist.html"
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.9", help="Pack version stamped into the zip manifest")
+    parser.add_argument("--version", default="0.3.10", help="Pack version stamped into the zip manifest")
     args = parser.parse_args()
 
     if not MANIFEST.exists():

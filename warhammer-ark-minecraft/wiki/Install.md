@@ -1,9 +1,9 @@
 # Install
 
-Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.8. **0.3.9** is this ship.
+Import the **latest** zip as a **new** CurseForge profile. Do not update 0.2.x / 0.3.0–0.3.9. **0.3.10** is this ship.
 
 **Download (latest on this branch):**  
-https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.9.zip
+https://github.com/honeybadger0489/rallous-system/raw/cursor/warhammer-ark-minecraft-d8d1/warhammer-ark-minecraft/dist/rallous-warhammer-fantasy-0.3.10.zip
 
 Older `dist/rallous-warhammer-fantasy-0.3.7.zip` still exists if you need that pin.
 

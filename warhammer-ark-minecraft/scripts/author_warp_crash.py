@@ -181,7 +181,6 @@ clear @s irons_spellbooks:copper_spell_book
 clear @s irons_spellbooks:blaze_spell_book
 clear @s irons_spellbooks:dragonskin_spell_book
 clear @s irons_spellbooks:evoker_spell_book
-clear @s irons_spellbooks:necronomicon
 clear @s irons_spellbooks:rotten_spell_book
 clear @s irons_spellbooks:graybeard_staff
 clear @s irons_spellbooks:blood_staff
@@ -319,8 +318,6 @@ summon turtle ~4 ~ ~1 {CustomName:'{"text":"Skink","color":"aqua"}',CustomNameVi
 summon goat ~-3 ~ ~2 {CustomName:'{"text":"Ungor","color":"dark_green"}',CustomNameVisible:1b,PersistenceRequired:1b,Tags:["rallous.beastmen"]}
 summon ravager ~-5 ~ ~ {CustomName:'{"text":"Cygor","color":"dark_green"}',CustomNameVisible:1b,PersistenceRequired:1b,Tags:["rallous.beastmen"]}
 summon fossil:triceratops ~6 ~ ~ {CustomName:'{"text":"Stegadon","color":"aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Tags:["rallous.lizardmen"]}
-summon fossilsandarcheology:triceratops ~7 ~ ~ {CustomName:'{"text":"Stegadon","color":"aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Tags:["rallous.lizardmen"]}
-summon fossilslegacy:triceratops ~8 ~ ~ {CustomName:'{"text":"Stegadon","color":"aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Tags:["rallous.lizardmen"]}
 """,
     )
 

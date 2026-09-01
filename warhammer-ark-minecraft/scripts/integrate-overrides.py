@@ -312,6 +312,22 @@ def ingest_bridge_jar() -> Path | None:
     return dest
 
 
+def build_thicker_temple_herd() -> None:
+    """Write 13×13 temple courtyard + herdstone NBTs before the jar step."""
+    script = ROOT / "content" / "datapacks" / "rallous_temple_herd" / "build_sites.py"
+    if not script.is_file():
+        raise SystemExit("missing rallous_temple_herd/build_sites.py")
+    import subprocess
+
+    subprocess.check_call([sys.executable, str(script)], cwd=str(script.parent))
+    struct = script.parent / "data" / "rallous_temple_herd" / "structures"
+    for name in ("temple_marker.nbt", "herdstone.nbt"):
+        path = struct / name
+        if not path.is_file() or path.stat().st_size < 200:
+            raise SystemExit(f"thicker temple/herd missing or thin: {path}")
+        print(f"thicker site {path.name} ({path.stat().st_size} bytes)")
+
+
 def ingest_siblings() -> dict[str, int]:
     counts = {
         "factions": 0,
@@ -707,6 +723,36 @@ def assert_zip_payload(zip_path: Path, file_ids_021: set[tuple[int, int]]) -> No
         fac_land = fac.read("data/rallous_factions/functions/crash/on_land.mcfunction").decode()
         if "rallous_winds:place" not in fac_land:
             raise SystemExit("factions crash/on_land does not hook rallous_winds:place")
+        th = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_temple_herd-1.0.0.jar")))
+        th_names = set(th.namelist())
+        if "data/rallous_temple_herd/structures/temple_marker.nbt" not in th_names:
+            raise SystemExit("temple_herd jar missing thicker temple_marker.nbt")
+        if "data/rallous_temple_herd/structures/herdstone.nbt" not in th_names:
+            raise SystemExit("temple_herd jar missing thicker herdstone.nbt")
+        ow_chk = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous-old-world-1.0.0.jar")))
+        ow_summon = ow_chk.read("data/rallous_old_world/functions/lm_bm/summon.mcfunction").decode()
+        if "fossilsandarcheology:" in ow_summon or "fossilslegacy:" in ow_summon:
+            raise SystemExit("old_world lm_bm/summon still uses unknown Fossils namespaces")
+        ow_strip = ow_chk.read("data/rallous_old_world/functions/crash/strip_starter_magic.mcfunction").decode()
+        if "irons_spellbooks:necronomicon" in ow_strip:
+            raise SystemExit("strip_starter_magic still clears unknown necronomicon")
+        hq_load = hq.read("data/rallous_crater_hq/functions/load.mcfunction").decode()
+        if "data modify storage rallous_crater_hq:data set value" in hq_load:
+            raise SystemExit("crater_hq load still has pathless data modify set")
+        if "data merge storage rallous_crater_hq:data" not in hq_load:
+            raise SystemExit("crater_hq load missing data merge init")
+        bind_early = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_recruits_bind-1.0.0.jar")))
+        give_line = next(
+            (
+                ln
+                for ln in bind_early.read("data/rallous_recruits_bind/functions/give_book.mcfunction").decode().splitlines()
+                if "written_book" in ln
+            ),
+            "",
+        )
+        leftover = give_line.replace("\\\\n", "")
+        if "\\n" in leftover:
+            raise SystemExit("recruits_bind give_book still has a bare \\n escape")
         sess = zipfile.ZipFile(__import__("io").BytesIO(zf.read("overrides/mods/rallous_session-1.0.0.jar")))
         sess_names = set(sess.namelist())
         if "data/rallous_session/functions/start.mcfunction" not in sess_names:
@@ -826,11 +872,12 @@ def file_ids_from_021() -> set[tuple[int, int]]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--version", default="0.3.9")
+    parser.add_argument("--version", default="0.3.10")
     parser.add_argument("--skip-author", action="store_true", help="Do not rewrite crash functions")
     args = parser.parse_args()
 
     compile_factions()
+    build_thicker_temple_herd()
     ingested = ingest_siblings()
     sanitize_all_tick_load()
     if not args.skip_author:

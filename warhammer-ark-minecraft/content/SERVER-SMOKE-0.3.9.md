@@ -79,4 +79,8 @@ No pack rebuild. Those four functions are content bugs, not missing CurseForge l
 | --- | --- |
 | **Boot** | **yes** |
 | Log | `warhammer-ark-minecraft/content/SERVER-SMOKE-0.3.9.latest.log` |
-| New zip | **none** (0.3.9 stays current; 0.3.10 not needed) |
+| New zip | **none** at smoke time (0.3.9 was current) |
+
+## 0.3.10 follow-up
+
+**0.3.10** fixes the four function parse errors above (`fossilsandarcheology:triceratops`, `irons_spellbooks:necronomicon`, `rallous_crater_hq:load` pathless `data set`, `give_book` bare `\n`) and ships thicker temple/herdstone NBTs. Import `dist/rallous-warhammer-fantasy-0.3.10.zip`. ETF / Oculus / Embeddium / EMF stay in the zip for clients; dedicated smoke still parks those jars.
