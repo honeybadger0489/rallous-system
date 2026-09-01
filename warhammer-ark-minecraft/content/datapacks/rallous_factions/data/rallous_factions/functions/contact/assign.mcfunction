@@ -9,7 +9,6 @@ scoreboard players set @s rallous.contact 1
 tag @s add rallous.contacted
 tag @s add rallous.fac.greeted
 function rallous_factions:contact/greet
-function rallous_kit:on_greet
 function rallous_recruits_bind:on_contact
 function rallous_kit:on_greet
 execute as @e[type=minecraft:marker,tag=rallous.camp,tag=!rallous.winds,limit=1,sort=nearest] at @s run function rallous_winds:place
