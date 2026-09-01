@@ -8,11 +8,30 @@ Ship as this folder (world `datapacks/`) **or** jar it with the included `META-I
 
 | ID | Function (force) | Voice | Host |
 | --- | --- | --- | --- |
-| `waaagh` | `/function rallous_roaming:events/waaagh` | Greenhost / boyz slang | Named pillagers, choppa vindicators, gobbo zombies, lime skull banners |
-| `herd` | `/function rallous_roaming:events/herd` | Horned Woods | Bray-shaman witch, nerfed ravager, gor vindicators, ungor husks, brown skull banners |
-| `khorne_host` | `/function rallous_roaming:events/khorne_host` | Blood Host | Champion + bloodreavers, skull-tithe wither skeletons, red skull banners |
+| `waaagh` | `/function rallous_roaming:events/waaagh` | Greenhost / boyz slang | Named pillagers, choppa vindicators, gobbo zombies, lime skull banners, plus a Recruits tiny patrol |
+| `herd` | `/function rallous_roaming:events/herd` | Horned Woods | Bray-shaman witch, nerfed ravager, gor vindicators, ungor husks, brown skull banners, plus a Recruits tiny patrol |
+| `khorne_host` | `/function rallous_roaming:events/khorne_host` | Blood Host | Champion + bloodreavers, skull-tithe wither skeletons, red skull banners, plus a Recruits tiny patrol |
 
 Also: `/function rallous_roaming:events/random` (rolls one of the three).
+
+## Recruits column (`/recruits spawn`)
+
+Villager Recruits **1.20.1-1.15.x** registers `PatrolSpawnCommand` (op 2):
+
+```
+/recruits spawn recruitPatrol tiny
+/recruits spawn recruitPatrol small
+/recruits spawn recruitPatrol medium
+/recruits spawn recruitPatrol large
+/recruits spawn recruitPatrol huge
+/recruits spawn recruitPatrol caravan
+/recruits spawn pillagerPatrol tiny
+/recruits spawn pillagerPatrol small
+/recruits spawn pillagerPatrol medium
+/recruits spawn pillagerPatrol large
+```
+
+`tiny` is recruit + shieldman + bowman + commander. The Java command reads `getEntity().getOnPos()` (not `~ ~ ~`) and always returns `0`, so the datapack runs it **as a stand at the column** and treats success as “a `#rallous_roaming:levy` appeared”. Named vanilla mobs in `spawn/*_mobs` stay up either way. If Recruits is missing or the command fails, `spawn/fallback_*` adds two extra named vanilla soldiers.
 
 Force functions **skip** play-time and crater gates so QA can fire them on day 0.
 
@@ -83,6 +102,7 @@ That sets play ticks high, clears the 2-minute lock, and `time add 24000` (day �
 | `rallous_roaming:safety/*` | Origin + crater / day gate |
 | `rallous_roaming:events/<id>` | **Force** spawn (smoke test) |
 | `rallous_roaming:spawn/<id>` | Shared spawn (force + clock) |
+| `rallous_roaming:spawn/recruits_column` | `/recruits spawn recruitPatrol tiny` + tag or vanilla fallback |
 | `rallous_roaming:announce/<id>` | Title / tellraw / horns |
 | `rallous_roaming:march/*` | Move, limited grief, timeout |
 | `rallous_roaming:clear` | Despawn host |
