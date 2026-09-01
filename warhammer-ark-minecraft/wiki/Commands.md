@@ -16,6 +16,17 @@ Stand at the contact camp (or nearest banner).
 
 `start` works any hour. Night + walking to **that** camp can also auto-start once.
 
+## Grow (camp becomes an outpost)
+
+Stand at the contact camp. Session win and emerald spend also fire this without a command.
+
+```
+/function rallous_grow:on_session
+/scoreboard players set @e[tag=rallous.camp,limit=1,sort=nearest] rallous.grow 3
+```
+
+`rallous.grow` **1–3** places huts/banners. See [Villages](Villages.md).
+
 ## Roaming
 
 ```

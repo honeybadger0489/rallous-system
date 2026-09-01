@@ -7,5 +7,6 @@
 * [Magic](Magic.md)
 * [Beasts](Beasts.md)
 * [Roaming](Roaming.md)
+* [Villages](Villages.md)
 * [Commands](Commands.md)
 * [TEST — two-hour play](TEST.md)

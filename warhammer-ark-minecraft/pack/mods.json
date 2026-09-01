@@ -1703,6 +1703,72 @@
       "curseforge_slug": null,
       "curseforge_id": null,
       "notes": null
+    },
+    {
+      "slug": "minecolonies",
+      "title": "MineColonies",
+      "type": "mod",
+      "tier": "optional",
+      "modrinth_url": "https://modrinth.com/mod/minecolonies",
+      "modrinth_id": "sSr0QEGx",
+      "version": "1.20.1-1.1.1276",
+      "filename": "minecolonies-1.20.1-1.1.1276.jar",
+      "curseforge_slug": "minecolonies",
+      "curseforge_id": 245506,
+      "curseforge_file_id": 8615315,
+      "notes": "1.20.1 Forge fileIDs exist on CurseForge (8615315 release / 8775822 snapshot 1.1.1280). Modrinth has 0 Forge 1.20.1 files. Not default: Recruits already owns banners/claims in 0.3.6; MC + 4 LDT deps is a second capital. Cheap Millénaire loop: content/datapacks/rallous_grow."
+    },
+    {
+      "slug": "structurize",
+      "title": "Structurize",
+      "type": "mod",
+      "tier": "optional",
+      "modrinth_url": null,
+      "version": "1.20.1-1.0.818",
+      "filename": "structurize-1.20.1-1.0.818.jar",
+      "curseforge_slug": "structurize",
+      "curseforge_id": 298744,
+      "curseforge_file_id": 8610456,
+      "notes": "Required by MineColonies. Catalog-only with MC."
+    },
+    {
+      "slug": "blockui",
+      "title": "BlockUI",
+      "type": "mod",
+      "tier": "optional",
+      "modrinth_url": null,
+      "version": "1.20.1-1.0.193",
+      "filename": "blockui-1.20.1-1.0.193.jar",
+      "curseforge_slug": "blockui",
+      "curseforge_id": 522992,
+      "curseforge_file_id": 7541343,
+      "notes": "Required by MineColonies. Catalog-only with MC."
+    },
+    {
+      "slug": "domum-ornamentum",
+      "title": "Domum Ornamentum",
+      "type": "mod",
+      "tier": "optional",
+      "modrinth_url": null,
+      "version": "1.20.1-1.0.296",
+      "filename": "domum_ornamentum-1.20.1-1.0.296-universal.jar",
+      "curseforge_slug": "domum-ornamentum",
+      "curseforge_id": 527361,
+      "curseforge_file_id": 7585567,
+      "notes": "Required by MineColonies. Catalog-only with MC."
+    },
+    {
+      "slug": "multi-piston",
+      "title": "Multi-Piston",
+      "type": "mod",
+      "tier": "optional",
+      "modrinth_url": null,
+      "version": "1.20-1.2.43-RELEASE",
+      "filename": "multipiston-1.20-1.2.43-RELEASE.jar",
+      "curseforge_slug": "multi-piston",
+      "curseforge_id": 303278,
+      "curseforge_file_id": 5204918,
+      "notes": "Required by MineColonies. Catalog-only with MC."
     }
   ],
   "manual_curseforge_only": [
@@ -1765,6 +1831,14 @@
         "pointblank"
       ],
       "reason": "Reported scope/zoom breakage when both are loaded."
+    },
+    {
+      "group": "player-capital",
+      "pick_one": [
+        "recruits-claims",
+        "minecolonies"
+      ],
+      "reason": "MineColonies + Recruits as dual player capitals is the documented performance tax. Default 0.3.6 keeps Recruits. rallous_grow is the cheap camp-growth loop."
     }
   ],
   "starter_slugs": [

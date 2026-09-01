@@ -10,7 +10,7 @@ You wake in a **Warp-crash**: blackstone, crying obsidian, a wreckage chest, no 
 
 **Mods are the engine.** Recruits (hosts), Iron’s Spells (Winds — later), Fossils + Tameable Beasts (Temple and Herd), Epic Fight, Terralith, Legendary Survival Overhaul, FTB Quests. Bodies stay Steve / villager. We did not sculpt Total War models.
 
-**We authored** the crash, compiled camps, first-contact stance, path diplomacy, session night, roaming hosts, Recruits bind + banner-founding, and the Warp-Crash quest book. We borrowed the rest.
+**We authored** the crash, compiled camps, first-contact stance, path diplomacy, session night, roaming hosts, Recruits bind + banner-founding, **camp growth** (`rallous_grow` — help / trade and the picket gains huts), and the Warp-Crash quest book. We borrowed the rest.
 
 ## Eight races
 

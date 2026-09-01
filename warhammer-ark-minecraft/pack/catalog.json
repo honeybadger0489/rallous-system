@@ -1042,6 +1042,71 @@
       "tier": "optional",
       "role": "visual",
       "include_in_default": false
+    },
+    {
+      "slug": "minecolonies",
+      "title": "MineColonies",
+      "type": "mod",
+      "tier": "optional",
+      "role": "world",
+      "include_in_default": false,
+      "curseforge_slug": "minecolonies",
+      "curseforge_id": 245506,
+      "curseforge_file_id": 8615315,
+      "filename": "minecolonies-1.20.1-1.1.1276.jar",
+      "notes": "Millénaire-scale colony sim. 1.20.1 Forge fileIDs exist on CurseForge only (Modrinth stale 1.18.2). Pin release 1.1.1276 fileID 8615315; latest snapshot 1.1.1280 fileID 8775822. Requires Structurize, BlockUI, Domum Ornamentum, MultiPiston. Do not enable as a second capital next to Recruits (already in 0.3.6). Frame as Elector / temple-city / hold / Under-Empire outpost. Cheap loop that ships tonight is content/datapacks/rallous_grow."
+    },
+    {
+      "slug": "structurize",
+      "title": "Structurize",
+      "type": "mod",
+      "tier": "optional",
+      "role": "library",
+      "include_in_default": false,
+      "curseforge_slug": "structurize",
+      "curseforge_id": 298744,
+      "curseforge_file_id": 8610456,
+      "filename": "structurize-1.20.1-1.0.818.jar",
+      "notes": "Required by MineColonies 1.1.1276+. Not in default."
+    },
+    {
+      "slug": "blockui",
+      "title": "BlockUI",
+      "type": "mod",
+      "tier": "optional",
+      "role": "library",
+      "include_in_default": false,
+      "curseforge_slug": "blockui",
+      "curseforge_id": 522992,
+      "curseforge_file_id": 7541343,
+      "filename": "blockui-1.20.1-1.0.193.jar",
+      "notes": "Required by MineColonies. GitHub asks 1.0.190+."
+    },
+    {
+      "slug": "domum-ornamentum",
+      "title": "Domum Ornamentum",
+      "type": "mod",
+      "tier": "optional",
+      "role": "library",
+      "include_in_default": false,
+      "curseforge_slug": "domum-ornamentum",
+      "curseforge_id": 527361,
+      "curseforge_file_id": 7585567,
+      "filename": "domum_ornamentum-1.20.1-1.0.296-universal.jar",
+      "notes": "Required by MineColonies. GitHub asks 1.0.288+."
+    },
+    {
+      "slug": "multi-piston",
+      "title": "Multi-Piston",
+      "type": "mod",
+      "tier": "optional",
+      "role": "library",
+      "include_in_default": false,
+      "curseforge_slug": "multi-piston",
+      "curseforge_id": 303278,
+      "curseforge_file_id": 5204918,
+      "filename": "multipiston-1.20-1.2.43-RELEASE.jar",
+      "notes": "Required by MineColonies. GitHub asks 1.2.30+."
     }
   ],
   "manual_curseforge_only": [
@@ -1083,6 +1148,11 @@
       "group": "gun-framework",
       "pick_one": ["timeless-and-classics-zero", "pointblank"],
       "reason": "Reported scope/zoom breakage when both are loaded."
+    },
+    {
+      "group": "player-capital",
+      "pick_one": ["recruits-claims", "minecolonies"],
+      "reason": "MineColonies + Recruits as dual player capitals is the documented performance tax. Default 0.3.6 keeps Recruits. rallous_grow is the cheap camp-growth loop."
     }
   ]
 }

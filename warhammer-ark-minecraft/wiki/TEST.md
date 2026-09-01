@@ -41,6 +41,12 @@ New world. Survival. Hard. Cheats ON. Grave key `` ` `` for the book. Stress the
 - [ ] Clear it — or `/function rallous_session:win`. Hostile: stand on the banner ~3s / break it.
 - [ ] Optional: wait for night, walk back, see if it auto-starts once.
 
+### Camp growth (Millénaire)
+
+- [ ] After a help night, a hut appears **outside** the 7×7 pad. Chat says Elector / temple-city / hold / Under-Empire — not “town hall”.
+- [ ] Spend an emerald at the camp (hire or trade). `rallous.grow` ticks up. Second hut or hall.
+- [ ] Force: `/function rallous_grow:on_session` or set the nearest camp `rallous.grow` to **3**.
+
 ### Banner UI
 
 - [ ] **U** opens Found a Banner / Diplomacy (Elector / Waaagh / Under-Empire — not “Team 2”).

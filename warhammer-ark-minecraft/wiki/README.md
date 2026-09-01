@@ -15,6 +15,7 @@ This folder is the friend-facing pack wiki. Not research, not a zip rebuild, not
 | [Magic](Magic.md) | The Winds — no starter book |
 | [Beasts](Beasts.md) | Lizardmen vs Beastmen vs others |
 | [Roaming](Roaming.md) | Waaagh, herd, Blood Host |
+| [Villages](Villages.md) | 7×7 camp grows when you help / trade |
 | [Commands](Commands.md) | Force functions (cheats ON) |
 | [TEST](TEST.md) | Two-hour play — what to *try* |
 
