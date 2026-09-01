@@ -1,5 +1,7 @@
 # Rallous Warhammer Fantasy — play this
 
+**Player wiki:** [wiki/Home.md](wiki/Home.md)
+
 **This is the only player doc.** Import **0.3.6** as a **new** CurseForge profile. Do not update 0.2.1 / 0.2.2 / 0.3.0 / 0.3.1 / 0.3.2 / 0.3.3 / 0.3.4 / 0.3.5.
 
 **Download:**  
